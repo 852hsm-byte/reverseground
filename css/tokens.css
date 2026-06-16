@@ -1,0 +1,488 @@
+/* ============================================================
+   DESIGN TOKENS — 피그마 Variables 기반 자동 생성
+   출처: Procsy_디자인.figma / Color Canvas (node: 4500-7105)
+   마지막 업데이트: 2026-06
+   ============================================================ */
+
+:root {
+
+  /* ──────────────────────────────────────
+     Colors / Text
+  ────────────────────────────────────── */
+  --color-text-primary:        #191919;  /* neutral/900 */
+  --color-text-secondary:      #505050;  /* neutral/600 */
+  --color-text-tertiary:       #A0A0A0;  /* neutral/400 */
+  --color-text-disabled:       #D2D2D2;  /* neutral/300 */
+  --color-text-inverse:        #FFFFFF;
+
+  --color-text-info-bold:      #193CB9;  /* blue/800 */
+  --color-text-info:           #145FFA;  /* blue/600 */
+  --color-text-warning-bold:   #874B00;  /* yellow/800 */
+  --color-text-warning:        #D28700;  /* yellow/600 */
+  --color-text-success-bold:   #006432;  /* green/800 */
+  --color-text-success:        #00A53C;  /* green/600 */
+  --color-text-danger-bold:    #A00514;  /* red/800 */
+  --color-text-danger:         #E6000A;  /* red/600 */
+
+  --color-text-brand-primary:          #BE9055;
+  --color-text-brand-primary-hovered:  #A87038;
+  --color-text-brand-primary-pressed:  #7A5420;
+
+  /* Text / Interactive */
+  --color-text-interactive-primary:         #BE9055;
+  --color-text-interactive-primary-hovered: #A87038;
+  --color-text-interactive-primary-pressed: #7A5420;
+  --color-text-interactive-secondary:         #A0A0A0;
+  --color-text-interactive-secondary-hovered: #505050;
+  --color-text-interactive-secondary-pressed: #282828;
+  --color-text-interactive-selected:  #FF8705;
+  --color-text-interactive-visited:   #FF6900;
+  --color-text-interactive-inverse:   #FFFFFF;
+
+  /* ──────────────────────────────────────
+     Colors / Background
+  ────────────────────────────────────── */
+  --color-bg-primary:          #FFFFFF;
+  --color-bg-secondary:        #FAFAFA;  /* neutral/50 */
+  --color-bg-tertiary:         #F5F5F5;  /* neutral/100 */
+  --color-bg-disabled:         #F5F5F5;
+  --color-bg-brand:            #F54B00;  /* brand/primary/600 */
+
+  --color-bg-info-bold:        #1446E6;  /* blue/700 */
+  --color-bg-info-subtle:      #F0F5FF;  /* blue/50 */
+  --color-bg-warning-bold:     #F0AF00;  /* yellow/500 */
+  --color-bg-warning-subtle:   #FFFAE6;  /* yellow/50 */
+  --color-bg-success-bold:     #008237;  /* green/700 */
+  --color-bg-success-subtle:   #F0FFF5;  /* green/50 */
+  --color-bg-danger-bold:      #C30005;  /* red/700 */
+  --color-bg-danger-subtle:    #FFF0F0;  /* red/50 */
+
+  /* BG / Inverse */
+  --color-bg-inverse-bold:   #505050;  /* neutral/600 */
+  --color-bg-inverse-bolder: #0A0A0A;  /* neutral/950 */
+
+  /* BG / Interactive */
+  --color-bg-interactive-primary:          #BE9055;
+  --color-bg-interactive-primary-hovered:  #A87038;
+  --color-bg-interactive-primary-pressed:  #7A5420;
+  --color-bg-interactive-secondary:         #505050;
+  --color-bg-interactive-secondary-hovered: #282828;
+  --color-bg-interactive-secondary-pressed: #282828;
+  --color-bg-interactive-tertiary:         #FAFAFA;
+  --color-bg-interactive-tertiary-hovered: #E6E6E6;
+  --color-bg-interactive-tertiary-pressed: #D2D2D2;
+  --color-bg-interactive-danger:         #E6000A;
+  --color-bg-interactive-danger-hovered: #C30005;
+  --color-bg-interactive-danger-pressed: #A00514;
+  --color-bg-interactive-selected:         #FAF4EB;
+  --color-bg-interactive-selected-hovered: #F3E5CC;
+  --color-bg-interactive-selected-pressed: #E6CA9A;
+
+  /* ──────────────────────────────────────
+     Colors / Icon
+  ────────────────────────────────────── */
+  --color-icon-primary:    #191919;
+  --color-icon-secondary:  #505050;
+  --color-icon-tertiary:   #A0A0A0;
+  --color-icon-disabled:   #D2D2D2;
+  --color-icon-brand:      #F54B00;
+  --color-icon-inverse:    #FFFFFF;
+  --color-icon-info:       #1446E6;
+  --color-icon-warning:    #A55F00;
+  --color-icon-success:    #008237;
+  --color-icon-danger:     #E6000A;
+
+  --color-icon-interactive-primary:          #FF8705;
+  --color-icon-interactive-primary-hovered:  #FF6900;
+  --color-icon-interactive-primary-pressed:  #F54B00;
+  --color-icon-interactive-secondary:         #A0A0A0;
+  --color-icon-interactive-secondary-hovered: #282828;
+  --color-icon-interactive-secondary-pressed: #282828;
+  --color-icon-interactive-selected:         #FF8705;
+  --color-icon-interactive-visited:          #A02D00;
+  --color-icon-interactive-inverse:          #FFFFFF;
+
+  /* ──────────────────────────────────────
+     Colors / Border
+  ────────────────────────────────────── */
+  --color-border-primary:    #191919;
+  --color-border-secondary:  #A0A0A0;
+  --color-border-tertiary:   #D2D2D2;
+  --color-border-disabled:   #E6E6E6;
+  --color-border-focusring:  #F54B00;
+
+  --color-border-info:           #145FFA;
+  --color-border-info-subtle:    #F0F5FF;
+  --color-border-warning:        #F0AF00;
+  --color-border-warning-subtle: #FFFAE6;
+  --color-border-success:        #00A53C;
+  --color-border-success-subtle: #F0FFF5;
+  --color-border-danger:         #FA2D37;
+  --color-border-danger-subtle:  #FFF0F0;
+
+  --color-border-interactive-primary:          #FF8705;
+  --color-border-interactive-primary-hovered:  #FF6900;
+  --color-border-interactive-primary-pressed:  #F54B00;
+  --color-border-interactive-secondary:         #D2D2D2;
+  --color-border-interactive-secondary-hovered: #A0A0A0;
+  --color-border-interactive-secondary-pressed: #191919;
+  --color-border-interactive-danger:         #E6000A;
+  --color-border-interactive-danger-hovered: #C30005;
+  --color-border-interactive-danger-pressed: #A00514;
+  --color-border-interactive-inverse:        #FFFFFF;
+
+  /* ──────────────────────────────────────
+     Effects / Shadow
+  ────────────────────────────────────── */
+  --color-effect-shadow-cast: #00000029;  /* rgba(0,0,0,0.16) */
+  --color-effect-shadow-core: #0000001F;  /* rgba(0,0,0,0.12) */
+
+  /* Shadow presets (Semantic: Appearance) */
+  --shadow-2:   0 1px 2px var(--color-effect-shadow-cast), 0 0 1px var(--color-effect-shadow-core);
+  --shadow-4:   0 2px 4px var(--color-effect-shadow-cast), 0 0 2px var(--color-effect-shadow-core);
+  --shadow-8:   0 4px 8px var(--color-effect-shadow-cast), 0 0 4px var(--color-effect-shadow-core);
+  --shadow-16:  0 8px 16px var(--color-effect-shadow-cast), 0 0 8px var(--color-effect-shadow-core);
+  --shadow-32:  0 20px 24px var(--color-effect-shadow-cast), 0 8px 12px var(--color-effect-shadow-core);
+
+  /* ──────────────────────────────────────
+     Opacity
+  ────────────────────────────────────── */
+  --opacity-0:    0;
+  --opacity-20:   0.2;
+  --opacity-40:   0.4;
+  --opacity-60:   0.6;
+  --opacity-80:   0.8;
+  --opacity-100:  1;
+
+  /* ──────────────────────────────────────
+     Border Width
+  ────────────────────────────────────── */
+  --border-width-1: 1px;
+  --border-width-2: 2px;
+  --border-width-4: 4px;
+
+  /* ──────────────────────────────────────
+     Primitive: Colors — 팔레트 원시값
+     (Semantic 토큰의 참조 기반)
+  ────────────────────────────────────── */
+
+  /* Base */
+  --primitive-black:  #000000;
+  --primitive-white:  #FFFFFF;
+
+  /* Neutral */
+  --neutral-50:  #FAFAFA;
+  --neutral-100: #F5F5F5;
+  --neutral-200: #E6E6E6;
+  --neutral-300: #D2D2D2;
+  --neutral-400: #A0A0A0;
+  --neutral-500: #737373;
+  --neutral-600: #505050;
+  --neutral-700: #414141;
+  --neutral-800: #282828;
+  --neutral-900: #191919;
+  --neutral-950: #0A0A0A;
+
+  /* Luxury Gold (Brand Primary — 고급 웜 골드 팔레트) */
+  --orange-50:  #FAF4EB;
+  --orange-100: #F3E5CC;
+  --orange-200: #E6CA9A;
+  --orange-300: #CF9F68;
+  --orange-400: #BE9055;  /* brand main — 럭셔리 골드 */
+  --orange-500: #A87038;
+  --orange-600: #7A5420;
+  --orange-700: #724E18;
+  --orange-800: #563A0F;
+  --orange-900: #3A2608;
+  --orange-950: #1E1304;
+
+  /* Red */
+  --red-50:  #FFF0F0;
+  --red-100: #FFE1E1;
+  --red-200: #FFC8C8;
+  --red-300: #FFA0A0;
+  --red-400: #FF6469;
+  --red-500: #FA2D37;
+  --red-600: #E6000A;
+  --red-700: #C30005;
+  --red-800: #A00514;
+  --red-900: #821919;
+  --red-950: #460A0A;
+
+  /* Yellow */
+  --yellow-50:  #FFFAE6;
+  --yellow-100: #FFFAC3;
+  --yellow-200: #FFF087;
+  --yellow-300: #FFE11E;
+  --yellow-400: #FFC800;
+  --yellow-500: #F0AF00;
+  --yellow-600: #D28700;
+  --yellow-700: #A55F00;
+  --yellow-800: #874B00;
+  --yellow-900: #733C0A;
+  --yellow-950: #411E05;
+
+  /* Green */
+  --green-50:  #F0FFF5;
+  --green-100: #DCFAE6;
+  --green-200: #B9FACD;
+  --green-300: #7DF0AA;
+  --green-400: #05E173;
+  --green-500: #00C850;
+  --green-600: #00A53C;
+  --green-700: #008237;
+  --green-800: #006432;
+  --green-900: #0F552D;
+  --green-950: #052D14;
+
+  /* Blue */
+  --blue-50:  #F0FAFF;
+  --blue-100: #DCEBFF;
+  --blue-200: #BEDCFF;
+  --blue-300: #8CC3FF;
+  --blue-400: #50A0FF;
+  --blue-500: #2D7DFF;
+  --blue-600: #145FFA;
+  --blue-700: #1446E6;
+  --blue-800: #193CB9;
+  --blue-900: #1E378C;
+  --blue-950: #142355;
+
+  /* ──────────────────────────────────────
+     Device / Breakpoints
+  ────────────────────────────────────── */
+  --device-desktop-max:    1920px;
+  --device-desktop-min:    1024px;
+  --container-max:         1440px;
+  --container-min:         1024px;
+  --container-gap-max:     80px;  /* Desktop Max contents gap */
+  --container-gap-min:     40px;  /* Desktop Min contents gap */
+
+  /* ──────────────────────────────────────
+     Border Radius
+  ────────────────────────────────────── */
+  --radius-sm:      2px;
+  --radius-md:      4px;
+  --radius-lg:      6px;
+  --radius-xl:      8px;
+  --radius-2xl:     12px;
+  --radius-3xl:     16px;
+  --radius-rounded: 9999px;
+
+  /* ──────────────────────────────────────
+     Spacing
+  ────────────────────────────────────── */
+  --spacing-0:   0px;
+  --spacing-1:   1px;
+  --spacing-2:   2px;
+  --spacing-4:   4px;
+  --spacing-8:   8px;
+  --spacing-12:  12px;
+  --spacing-16:  16px;
+  --spacing-20:  20px;
+  --spacing-24:  24px;
+  --spacing-32:  32px;
+  --spacing-36:  36px;
+  --spacing-40:  40px;
+  --spacing-48:  48px;
+  --spacing-56:  56px;
+  --spacing-64:  64px;
+  --spacing-80:  80px;
+  --spacing-96:  96px;
+
+  /* ──────────────────────────────────────
+     Typography
+  ────────────────────────────────────── */
+  --font-base: 'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* ── Display scale (Tailwind 5xl·6xl 기준) ── */
+  --font-size-display:      60px;  /* Section/Title — Tailwind 6xl */
+  --font-size-display-sm:   32px;  /* 가격·숫자 표기 — Display/SM */
+
+  /* ── Heading scale (Tailwind 정렬, 4px 배수) ── */
+  --font-size-heading-3xl:  48px;  /* Heading/3XL — Tailwind 5xl (구 44px 수정) */
+  --font-size-heading-2xl:  36px;  /* Heading/2XL — Tailwind 4xl */
+  --font-size-heading-1xl:  30px;  /* Heading/1XL — Tailwind 3xl */
+  --font-size-heading-lg:   24px;  /* Heading/LG  — Tailwind 2xl */
+  --font-size-heading-md:   20px;  /* Heading/MD  — Tailwind xl */
+  --font-size-heading-sm:   18px;  /* Heading/SM  — Tailwind lg */
+
+  --font-weight-bold:    700;
+  --font-weight-medium:  500;
+  --font-weight-normal:  400;
+
+  /* Heading line-height */
+  --line-height-heading-3xl:  56px;
+  --line-height-heading-2xl:  46px;
+  --line-height-heading-1xl:  40px;
+  --line-height-heading-lg:   34px;
+  --line-height-heading-md:   30px;
+  --line-height-heading-sm:   26px;
+
+  --letter-spacing-heading:   -0.2px;
+
+  /* Body scale */
+  --font-size-body-1xl:  20px;  /* 리드 텍스트 */
+  --font-size-body-lg:   18px;  /* 본문 기본 */
+  --font-size-body-md:   16px;  /* 보조 텍스트 */
+  --font-size-body-sm:   14px;  /* 캡션/라벨 */
+
+  --line-height-body-1xl:  32px;
+  --line-height-body-lg:   26px;
+  --line-height-body-md:   23px;
+  --line-height-body-sm:   20px;
+
+  /* ──────────────────────────────────────
+     Semantic Shortcuts (자주 쓰는 값)
+  ────────────────────────────────────── */
+  --brand:          var(--color-bg-interactive-primary);         /* #FF8705 */
+  --brand-hover:    var(--color-bg-interactive-primary-hovered); /* #FF6900 */
+  --brand-press:    var(--color-bg-interactive-primary-pressed); /* #F54B00 */
+
+  --text-default:   var(--color-text-primary);    /* #191919 */
+  --text-muted:     var(--color-text-secondary);  /* #505050 */
+  --text-subtle:    var(--color-text-tertiary);   /* #A0A0A0 */
+
+  --bg-default:     var(--color-bg-primary);      /* #FFFFFF */
+  --bg-subtle:      var(--color-bg-secondary);    /* #FAFAFA */
+  --bg-muted:       var(--color-bg-tertiary);     /* #F5F5F5 */
+
+  --border-default: var(--color-border-tertiary); /* #D2D2D2 */
+  --border-strong:  var(--color-border-secondary);/* #A0A0A0 */
+
+  /* ──────────────────────────────────────
+     Layout
+  ────────────────────────────────────── */
+  --container:   1440px;
+  --section-py:  160px;
+  --transition:  0.3s ease;
+  --reveal-dur:  0.6s;
+
+  --card-radius:  var(--radius-2xl);
+  --card-gap:     var(--spacing-20);
+  --card-shadow:  0 2px 16px rgba(0,0,0,0.06);
+
+  /* ──────────────────────────────────────
+     Legacy Aliases (이전 변수명 → 새 토큰 매핑)
+     component CSS 파일의 기존 변수명과 호환 유지
+  ────────────────────────────────────── */
+
+  /* Color aliases */
+  --white:      #FFFFFF;
+  --black:      var(--color-text-primary);       /* #191919 */
+  --accent:     #191919;                          /* 다크 섹션 bg (구 navy → near-black) */
+  --accent2:    var(--brand);                     /* #FF8705 brand orange */
+
+  /* Gray scale aliases */
+  --gray-50:    var(--color-bg-secondary);        /* #FAFAFA */
+  --gray-100:   var(--color-bg-tertiary);         /* #F5F5F5 */
+  --gray-200:   var(--color-border-tertiary);     /* #D2D2D2 */
+  --gray-400:   var(--color-text-tertiary);       /* #A0A0A0 */
+  --gray-600:   var(--color-text-secondary);      /* #505050 */
+  --gray-800:   var(--color-text-primary);        /* #191919 */
+
+  /* Typography size aliases → Semantic: Typography 토큰 연결 */
+  --text-xs:    var(--font-size-body-sm);   /* 12px */
+  --text-sm:    var(--font-size-body-md);   /* 14px */
+  --text-base:  var(--font-size-body-lg);   /* 16px */
+  --text-md:    var(--font-size-body-lg);   /* 16px */
+  --text-lg:    var(--font-size-body-1xl);  /* 18px */
+  --text-xl:    var(--font-size-heading-sm); /* 20px */
+  --text-hero:  clamp(2.4rem, 6vw, 5rem);
+
+  /* Spacing aliases */
+  --space-1:    var(--spacing-4);
+  --space-2:    var(--spacing-8);
+  --space-3:    var(--spacing-12);
+  --space-4:    var(--spacing-16);
+  --space-5:    var(--spacing-20);
+  --space-6:    var(--spacing-24);
+  --space-8:    var(--spacing-32);
+  --space-10:   var(--spacing-40);
+  --space-12:   var(--spacing-48);
+  --space-16:   var(--spacing-64);
+}
+
+/* ============================================================
+   RESPONSIVE TYPOGRAPHY — 브레이크포인트별 폰트 변수 오버라이드
+   Desktop (기본값) → Tablet ≤1024px → Mobile ≤768px
+   Figma Variables Typography 컬렉션 3-모드와 1:1 대응
+   ============================================================ */
+
+/* ── Tablet ≤ 1024px ─────────────────────────────────────── */
+@media (max-width: 1024px) {
+  :root {
+    /* Display */
+    --font-size-display:      48px;  /* 60 → 48 (-20%) */
+    --font-size-display-sm:   28px;  /* 32 → 28 */
+
+    /* Heading */
+    --font-size-heading-3xl:  36px;  /* 48 → 36 */
+    --font-size-heading-2xl:  30px;  /* 36 → 30 */
+    --font-size-heading-1xl:  28px;  /* 30 → 28 */
+    --font-size-heading-lg:   22px;  /* 24 → 22 */
+    --font-size-heading-md:   20px;  /* 유지 */
+    --font-size-heading-sm:   18px;  /* 유지 */
+
+    /* Body */
+    --font-size-body-1xl:     18px;  /* 20 → 18 */
+    --font-size-body-lg:      18px;  /* 유지 */
+    --font-size-body-md:      16px;  /* 유지 */
+    --font-size-body-sm:      14px;  /* 유지 */
+
+    /* Line-height 대응 */
+    --line-height-heading-3xl:  48px;  /* 56 → 48 */
+    --line-height-heading-2xl:  40px;  /* 46 → 40 */
+    --line-height-heading-1xl:  36px;  /* 40 → 36 */
+
+    /* Section padding */
+    --section-py: 96px;
+  }
+}
+
+/* ── Mobile ≤ 768px ──────────────────────────────────────── */
+@media (max-width: 768px) {
+  :root {
+    /* Display */
+    --font-size-display:      36px;  /* 60 → 36 (모바일 스크린 대응) */
+    --font-size-display-sm:   24px;  /* 32 → 24 */
+
+    /* Heading */
+    --font-size-heading-3xl:  30px;  /* 48 → 30 (Tailwind 3xl) */
+    --font-size-heading-2xl:  24px;  /* 36 → 24 */
+    --font-size-heading-1xl:  22px;  /* 30 → 22 */
+    --font-size-heading-lg:   20px;  /* 24 → 20 */
+    --font-size-heading-md:   18px;  /* 20 → 18 */
+    --font-size-heading-sm:   16px;  /* 18 → 16 */
+
+    /* Body */
+    --font-size-body-1xl:     16px;  /* 20 → 16 */
+    --font-size-body-lg:      16px;  /* 18 → 16 */
+    --font-size-body-md:      14px;  /* 16 → 14 */
+    --font-size-body-sm:      14px;  /* 유지 */
+
+    /* Line-height 대응 */
+    --line-height-heading-3xl:  40px;
+    --line-height-heading-2xl:  32px;
+    --line-height-heading-1xl:  30px;
+    --line-height-body-lg:      24px;
+
+    /* Section padding */
+    --section-py: 72px;
+  }
+}
+
+/* ── Small Mobile ≤ 480px ────────────────────────────────── */
+@media (max-width: 768px) {
+  :root {
+    --font-size-heading-3xl:  28px;
+    --font-size-heading-2xl:  22px;
+    --font-size-heading-1xl:  20px;
+    --font-size-display:      32px;
+  }
+}
+
+/* ============================================================
+   DARK MODE — 미구현 (Light 전용 유지)
+   Figma Theme 컬렉션에 Light / Dark 모드 구조 잡힌 후 대응 예정
+   ============================================================ */

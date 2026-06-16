@@ -1,0 +1,129 @@
+/* ============================================================
+   FOOTER — Apple style multi-column
+   ============================================================ */
+
+.footer {
+  background: #16130E;
+  padding: 64px 0 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 상단 골드 글로우 */
+.footer::before {
+  content: '';
+  position: absolute;
+  top: -160px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 400px;
+  background: radial-gradient(ellipse, rgba(190,144,85,0.10) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+/* ── Inner layout ── */
+.footer__inner {
+  display: grid;
+  grid-template-rows: auto auto;
+  gap: 48px;
+}
+
+/* ── Top: 4-column grid ── */
+.footer__top {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Brand column */
+.footer__brand {}
+.footer__logo {
+  font-size: 20px;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.92);
+  display: block;
+  margin-bottom: 14px;
+}
+.footer__logo span { color: var(--brand); }
+.footer__tagline {
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.35);
+  max-width: 240px;
+  margin-bottom: 20px;
+}
+
+/* 브랜드 서비스 뱃지 */
+.footer__badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.footer__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  background: rgba(190,144,85,0.10);
+  border: 1px solid rgba(190,144,85,0.22);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(190,144,85,0.75);
+  letter-spacing: 0.01em;
+}
+
+/* Link columns */
+.footer__col-title {
+  font-size: var(--font-size-body-sm);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--brand);
+  opacity: 0.75;
+  margin-bottom: 16px;
+}
+.footer__col-links {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  list-style: none;
+}
+.footer__col-links li a {
+  font-size: var(--font-size-body-md);
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.55);
+  transition: color var(--transition);
+}
+.footer__col-links li a:hover { color: rgba(255, 255, 255, 0.9); }
+
+/* ── Bottom bar ── */
+.footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.footer__bottom p {
+  font-size: 12px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.25);
+}
+.footer__bottom-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  flex-shrink: 0;
+}
+.footer__bottom-links li a {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.35);
+  transition: color var(--transition);
+}
+.footer__bottom-links li a:hover { color: rgba(255, 255, 255, 0.7); }

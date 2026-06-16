@@ -1,0 +1,480 @@
+/* ============================================================
+   RESPONSIVE — 브레이크포인트 3구역 분리
+   ──────────────────────────────────────────────────────────
+   DESKTOP   min-width: 1025px
+   TABLET    min-width: 769px  AND  max-width: 1024px
+   MOBILE    max-width: 768px  (소형: 640px / 480px 서브)
+   ============================================================ */
+
+
+/* ╔══════════════════════════════════════════════════════════╗
+   ║  DESKTOP  ≥ 1025px                                      ║
+   ╚══════════════════════════════════════════════════════════╝ */
+@media (min-width: 1025px) {
+
+  /* ── 섹션 공통 폰트 — 데스크탑에서만 키움 ── */
+  .section-desc { font-size: var(--font-size-body-lg); }   /* 16px → 18px */
+
+  /* ── 섹션 패딩 ── */
+  .section { padding: var(--section-py) 0; }               /* 160px (토큰 기본값) */
+
+  /* ── 컨테이너 패딩 ── */
+  .container { padding: 0 var(--space-5); }
+
+  /* ── About ── */
+  .about__trust-grid { grid-template-columns: repeat(4, 1fr); }
+
+  /* ── Contact ── */
+  .contact.contact--dark { padding: 120px 0 80px; }
+  .contact__inner { gap: 56px; }
+
+  /* ── Intro strip ── */
+  .intro-strip__item        { padding: 44px 56px; }
+  .intro-strip__item strong { font-size: 48px; }
+
+}
+
+
+/* ╔══════════════════════════════════════════════════════════╗
+   ║  TABLET  769px – 1024px                                 ║
+   ╚══════════════════════════════════════════════════════════╝ */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  /* ── 타이포그래피 — 하드코딩 클래스 반응형 오버라이드 ── */
+  .intro-strip__item strong  { font-size: 36px; }   /* 48 → 36 */
+  .platform-card__name       { font-size: 1.9rem; } /* 2.4rem → 1.9rem */
+  .platform-card__stat strong{ font-size: 22px; }   /* 26 → 22 */
+  .pricing-card__num         { font-size: 34px; }   /* 42 → 34 */
+  .pricing-card__title       { font-size: 20px; }   /* 22 → 20 */
+  .contact__stat-num         { font-size: 28px; }   /* 32 → 28 */
+
+  /* ── 섹션 패딩 — 데스크탑보다 좁게 ── */
+  .section { padding: 100px 0; }
+
+  /* ── 컨테이너 패딩 ── */
+  .container { padding: 0 var(--space-5); }
+
+  /* ── Intro strip ── */
+  .intro-strip__item        { padding: 36px 24px; }
+  .intro-strip__item strong { font-size: 34px; }
+
+  /* ── About trust grid: 4열 → 2열 ── */
+  .about__trust-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* ── About meta dark: 가로 → 세로 ── */
+  .about__meta--dark {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 48px 40px;
+  }
+  .about__meta--dark .about__info-divider { display: none; }
+
+  /* ── Clients grid: 4열 ── */
+  .clients__grid { grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .client-card { gap: 18px; }
+  .client-card__industry--badge  { display: none; }
+  .client-card__industry--inline { display: inline; }
+  .client-card__name { font-size: 14px; line-height: 1.4; }
+  .client-card__name .client-card__industry--inline { display: block; margin-top: 3px; }
+  .client-card__logo--cta,
+  .client-card--empty .client-card__logo {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    height: 100px;
+    min-height: unset;
+    aspect-ratio: auto;
+  }
+  .client-card__logo {
+    aspect-ratio: auto;
+    min-height: unset;
+    height: 110px;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+  }
+  .client-card__logo img              { height: 20px; }
+  .client-card__logo img.logo--coupang      { height: 18px; }
+  .client-card__logo img.logo--welcomepayments { height: 13px; }
+  .client-card__logo img.logo--dior         { height: 17px; }
+  .client-card__logo img.logo--handok       { height: 21px; }
+
+
+  /* ── News grid: 3열 → 2열, 마지막 카드 숨김 ── */
+  .news__grid          { grid-template-columns: repeat(2, 1fr); }
+  .news-card:last-child { display: none; }
+
+  /* ── Platform grid: 2열 → 1열 ── */
+  .platform-grid { grid-template-columns: 1fr; }
+
+  /* ── Pricing: 3열 → 1열 ── */
+  .pricing__grid { grid-template-columns: 1fr; max-width: 100%; margin: 0; }
+
+  /* ── Hero ── */
+  .hero { min-height: auto !important; padding: 80px 0 60px; }
+
+  /* ── Contact ── */
+  .contact.contact--dark { padding: 100px 0 72px; }
+  .contact__inner { gap: 48px; }
+
+  /* ── Vision ── */
+  .vision__strategy { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .vision__title    { font-size: 2rem; }
+
+  /* ── Platform grid ── */
+  .platform-card__features { grid-template-columns: 1fr; }
+
+  /* ── 탭 UI 통일 — pricing pill 스타일 ── */
+
+  /* platform-tabs → pill 스타일 */
+  .platform-tabs {
+    margin-top: 28px;
+    background: #E8E5E0;
+    border-radius: 12px;
+    padding: 5px;
+    gap: 6px;
+    border-bottom: none;
+  }
+  .platform-tab {
+    flex: 1;
+    padding: 17px 6px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(0,0,0,0.4);
+    margin-bottom: 0;
+  }
+  .platform-tab__name { font-size: 13px; font-weight: 600; }
+  .platform-tab__desc { display: none; }
+  .platform-tab.active {
+    background: #fff;
+    color: #111;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+    border-top: none;
+  }
+  .platform-tab.active .platform-tab__name { color: #111; }
+  .platform-tab:not(.active):hover { background: transparent; }
+  .platform-panel {
+    padding: 36px 32px 48px;
+    border-radius: 14px;
+    border-top: 1.5px solid #E8E4DC;
+  }
+
+  /* ── Howto 그리드: 탭 UI 사용으로 데스크탑 화살표 세로 전환 ── */
+  .howto__grid { flex-direction: column; gap: 12px; }
+  .howto__arrow { transform: rotate(90deg); margin: 0 auto; }
+
+}
+
+
+/* ╔══════════════════════════════════════════════════════════╗
+   ║  MOBILE  ≤ 768px                                        ║
+   ╚══════════════════════════════════════════════════════════╝ */
+@media (max-width: 768px) {
+
+  /* ── 기본 ── */
+  .container { padding: 0 var(--space-4); }
+  .section   { padding: 72px 0; }
+
+  /* ── 푸터: 브랜드 위 + 링크 3열 가로 ── */
+  .footer__top {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    align-items: start;
+  }
+  .footer__brand {
+    grid-column: 1 / -1;
+    padding-right: 0;
+    border-right: none;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* ── Platform Detail 섹션 ── */
+  .platform-tabs {
+    margin-top: 28px;
+    background: #E8E5E0;
+    border-radius: 12px;
+    padding: 5px;
+    gap: 6px;
+    border-bottom: none;
+  }
+  .platform-tab {
+    padding: 13px 4px !important;
+    border: none !important;
+    border-radius: 8px !important;
+    background: transparent !important;
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(0,0,0,0.4);
+    margin-bottom: 0 !important;
+    box-shadow: none !important;
+  }
+  .platform-tab.active {
+    background: #fff !important;
+    color: #111 !important;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.1) !important;
+    border-top: none !important;
+  }
+  .platform-tab__name { font-size: 13px !important; font-weight: 600; white-space: nowrap; }
+  .platform-tab__desc { display: none; }
+  .platform-panel { padding: 28px 20px 36px; }
+  .platform-panel__title { font-size: 1.5rem; margin-bottom: 8px; }
+  .platform-panel__desc { font-size: 1.4rem; margin-bottom: 0; }
+  .howto__mobile-tabs { margin-top: 28px !important; }
+  .procsy-features__main { margin-top: 28px !important; }
+  .clients__grid { margin-top: 28px !important; }
+
+  /* ── Procsy 핵심 기능 ── */
+  .procsy-features__main { grid-template-columns: 1fr; }
+  .procsy-feature-card { padding: 24px 20px 28px; }
+  .procsy-feature-card__icon { width: 36px; height: 36px; border-radius: 10px; margin-bottom: 12px; }
+  .procsy-feature-card__icon svg { width: 16px; height: 16px; }
+  .howto-card__icon { width: 36px; height: 36px; border-radius: 10px; margin-bottom: 12px; }
+  .howto-card__icon svg { width: 16px; height: 16px; }
+
+  /* ── 타이포그래피 — 하드코딩 클래스 모바일 오버라이드 ── */
+  .intro-strip__item strong  { font-size: 24px; }   /* 48 → 24 */
+  .platform-card__name       { font-size: 1.4rem; } /* 2.4rem → 1.4rem */
+  .platform-card__stat strong{ font-size: 20px; }   /* 26 → 20 */
+  .pricing-card__num         { font-size: 32px; }   /* 42 → 32 */
+  .pricing-card__title       { font-size: 18px; }   /* 22 → 18 */
+  .contact__stat-num         { font-size: 24px; }   /* 32 → 24 */
+
+  /* ── 섹션 공통 폰트 — 모바일 기본값 유지 ── */
+  .section-desc { font-size: var(--font-size-body-md); }   /* 16px */
+
+  /* ── Header — 햄버거 전환 ── */
+  .header__nav,
+  .header__cta           { display: none; }
+  .header__mobile-toggle { display: flex; margin-left: auto; }
+  .header__mobile-nav.open { display: block; }
+
+  /* ── Hero ── */
+  .hero         { min-height: auto !important; padding: 80px 0 60px; }
+  .hero__actions { flex-direction: column; align-items: center; gap: 10px; }
+  .btn-hero     { width: 100%; max-width: 320px; justify-content: center; padding: 14px 24px; }
+  .hero__services        { flex-direction: column; gap: 8px; }
+  .hero__service-divider { display: none; }
+
+  /* ── Intro strip ── */
+  .intro-strip__inner   { display: flex; flex-wrap: nowrap; justify-content: center; gap: 0; }
+  .intro-strip__divider { display: block; }
+  .intro-strip__item    { flex: 1; text-align: center; padding: 36px 4px; }
+  .intro-strip__item strong { font-size: 22px; letter-spacing: -0.03em; display: block; line-height: 1; }
+  .intro-strip__item span   { font-size: 10px; white-space: nowrap; display: block !important; margin-top: 7px; opacity: 0.55; letter-spacing: 0.01em; }
+
+  /* ── About ── */
+  .about__layout    { grid-template-columns: 1fr; gap: var(--space-8); }
+  .about__meta--dark { grid-template-columns: 1fr; padding: 36px 24px; gap: 28px; }
+  .about__meta--dark .about__info-divider { display: none; }
+  .about__trust-card { padding: 20px 18px; }
+  .about__trust-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* ── Platform card ── */
+  .platform-card__head     { padding: 28px 24px; min-height: auto; }
+  .platform-card__stats    { padding: 20px 12px; gap: 0; }
+  .platform-card__stat strong { font-size: 20px; }
+  .platform-card__stat span   { font-size: 11px; }
+  .platform-card__features { padding: 28px 28px 32px; gap: 14px; grid-template-columns: 1fr; }
+  .platform-card__features--grid { grid-template-columns: 1fr 1fr !important; }
+
+  /* ── How-to ── */
+  .howto-card  { padding: 20px !important; }
+  .howto__grid { gap: 8px !important; }
+  .howto__arrow { margin: 0 auto !important; }
+
+  /* ── Vision ── */
+  .vision__item     { padding: 28px 24px; gap: 16px; }
+  .vision__strategy { grid-template-columns: 1fr; gap: 10px; }
+  .vision__header   { margin-bottom: 40px; }
+
+  /* ── Features ── */
+  .features__grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .feature-item   { padding: 28px 20px; }
+
+  /* ── Services ── */
+  .platform-grid { grid-template-columns: 1fr; }
+
+  /* ── Clients ── */
+  .clients__grid { grid-template-columns: repeat(2, 1fr); column-gap: 16px; row-gap: 24px; }
+  .client-card { gap: 8px; }
+  .client-card__industry--badge  { display: none; }
+  .client-card__industry--inline { display: inline; }
+
+  /* 모바일 2열 — 로고 중앙 정렬 */
+  .client-card__logo {
+    aspect-ratio: auto;
+    padding: 20px 16px;
+    min-height: 72px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+  }
+  /* CTA 배너 — 세로 중앙 정렬 (패딩/높이 오버라이드) */
+  .client-card--empty .client-card__logo {
+    padding: 0 16px 0 20px;
+    height: 68px;
+    min-height: unset;
+    align-items: center;
+  }
+  .client-card__logo img              { height: 20px; }
+  .client-card__logo img.logo--coupang      { height: 16px; }
+  .client-card__logo img.logo--welcomepayments { height: 12px; }
+  .client-card__logo img.logo--dior         { height: 16px; }
+  .client-card__logo img.logo--handok       { height: 18px; }
+
+  /* ── News ── */
+  .news__grid          { grid-template-columns: repeat(2, 1fr); }
+  .news-card:last-child { display: none; }
+
+  /* ── Contact ── */
+  .contact.contact--dark { padding: 88px 0 72px; }
+  .contact__inner        { gap: 44px; }
+
+  /* ── Pricing 헤더 ── */
+  .pricing__header { margin-bottom: 28px; text-align: center; }
+  .pricing__header .section-label { display: inline-flex; }
+  .pricing__header .section-desc  { max-width: 100%; margin: 12px auto 0; }
+  .pricing__note   { margin-top: 20px; }
+
+  /* ── Pricing card ── */
+  .pricing__grid           { max-width: 100%; grid-template-columns: 1fr; }
+  .pricing-card            { padding: 32px 24px 28px; }
+  .pricing-card__head      { min-height: unset; margin-bottom: 20px; }
+  .pricing-card__icon      { width: 36px; height: 36px; margin-bottom: 16px; }
+  .pricing-card__title     { font-size: 18px; margin-bottom: 8px; }
+  .pricing-card__desc      { font-size: 13px; line-height: 1.6; }
+  .pricing-card__price     { min-height: unset; margin-bottom: 12px; padding-bottom: 12px; }
+  .pricing-card__num       { font-size: 32px; }
+  .pricing-card__currency  { font-size: 15px; }
+  .pricing-card__features  { gap: 10px; margin-bottom: 20px; }
+  .pricing-card__features li { font-size: 13px; }
+  .pricing-card__cta       { padding: 12px 20px; font-size: 13px; }
+  .pricing-card__saving    { font-size: 12px; margin-top: 6px; }
+
+  /* ── 소형 모바일 규칙 통합 (모바일 전체 적용) ── */
+  .container { padding: 0 var(--space-3); }
+  .intro-strip__inner { flex-wrap: nowrap; }
+  .intro-strip__item span   { display: none; }
+  .intro-strip__item strong { font-size: 20px; }
+  .intro-strip__item        { padding: 36px 4px; }
+  .intro-strip__divider     { display: block; }
+  .services__grid { grid-template-columns: 1fr; }
+  .features__grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .news__grid     { grid-template-columns: 1fr; }
+  .news-card:last-child { display: flex; }
+  .clients__cta   { flex-direction: column; gap: var(--space-3); align-items: flex-start; }
+  .contact__form  { padding: var(--space-4); }
+  .form-row       { grid-template-columns: 1fr; }
+
+}
+
+
+/* ╔══════════════════════════════════════════════════════════╗
+   ║  TOUCH DEVICE — 탭 하이라이트 / hover 효과 제거        ║
+   ╚══════════════════════════════════════════════════════════╝ */
+
+/* 터치 하이라이트 전체 제거 (브레이크포인트 무관) */
+.howto-card, .news-card, .about__trust-card, .pricing-card,
+.feature-item, .procsy-feature-card, .vision__item,
+.client-card, .platform-card {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  user-select: none;
+  cursor: default;
+}
+
+/* 터치 디바이스 전용 — pointer: coarse (마우스 아님) */
+@media (hover: none) {
+
+  /* 카드 자체 터치 차단 (내부 링크·버튼은 허용) */
+  .pricing-card,
+  .feature-item,
+  .procsy-feature-card,
+  .howto-card,
+  .about__trust-card,
+  .vision__item {
+    pointer-events: none;
+  }
+  .pricing-card a,        .pricing-card button,
+  .feature-item a,        .feature-item button,
+  .procsy-feature-card a,
+  .howto-card a,          .howto-card button,
+  .about__trust-card a,
+  .vision__item a {
+    pointer-events: auto;
+  }
+
+  /* hover/active 상태 리셋 */
+  .howto-card:hover,
+  .news-card:hover,
+  .about__trust-card:hover,
+  .pricing-card:hover,
+  .feature-item:hover,
+  .procsy-feature-card:hover,
+  .vision__item:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    border-color: inherit !important;
+    background: inherit !important;
+    opacity: inherit !important;
+  }
+
+  /* Pricing 기본 카드 */
+  .pricing-card:hover,
+  .pricing-card:active {
+    transform: none !important;
+    box-shadow: none !important;
+    border-color: rgba(0,0,0,0.07) !important;
+  }
+
+  /* Pricing 추천(dark) 카드 — 배경 유지 */
+  .pricing-card--featured:hover,
+  .pricing-card--featured:active {
+    transform: none !important;
+    box-shadow: none !important;
+    background: #2C2620 !important;
+    border-color: transparent !important;
+  }
+
+  /* Feature / procsy 카드 */
+  .feature-item:hover,
+  .feature-item:active,
+  .procsy-feature-card:hover,
+  .procsy-feature-card:active {
+    border-color: #E8E4DC !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+  .feature-item:hover::before,
+  .procsy-feature-card:hover::before { opacity: 0 !important; }
+
+  /* Client 카드 */
+  .client-card:hover .client-card__logo {
+    transform: none !important;
+    border-color: inherit !important;
+    box-shadow: none !important;
+  }
+  .client-card:hover .client-card__logo img { transform: none !important; }
+
+  /* News 카드 */
+  .news-card:hover { transform: none !important; box-shadow: none !important; }
+
+  /* About trust */
+  .about__trust-card:hover { transform: none !important; border-color: inherit !important; }
+
+  /* transition 제거 — 탭 후 잔류 방지 */
+  .howto-card,
+  .news-card,
+  .about__trust-card,
+  .pricing-card,
+  .feature-item,
+  .procsy-feature-card,
+  .client-card,
+  .client-card__logo { transition: none !important; }
+}

@@ -1,0 +1,212 @@
+/* ============================================================
+   VISION — 다크 임팩트 섹션
+   ============================================================ */
+
+.vision--dark {
+  background: #16130E;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 배경 글로우 */
+.vision--dark::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 600px;
+  background: radial-gradient(ellipse, rgba(190,144,85,0.12) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+/* ── 헤더 ── */
+.vision__header {
+  text-align: left;
+  margin-bottom: 64px;
+}
+
+.vision--dark .section-label--light {
+  color: var(--brand);
+  background: rgba(190,144,85,0.1);
+  border-color: rgba(190,144,85,0.25);
+  display: inline-flex;
+  margin-bottom: 20px;
+}
+
+.vision__subtitle {
+  max-width: none;
+}
+
+.vision__title {
+  font-size: clamp(2rem, 3.8vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+  color: #FFFFFF;
+  margin-bottom: 16px;
+}
+
+.vision__accent {
+  font-style: italic;
+  color: #CF9F68;
+}
+
+.vision__subtitle {
+  font-size: var(--font-size-body-md);
+  line-height: 1.7;
+  color: rgba(255,255,255,0.45);
+}
+
+/* ── 카드 그리드 ── */
+.vision__strategy {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  text-align: left;
+}
+
+.vision__item {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(190,144,85,0.15);
+  border-radius: 20px;
+  padding: 52px 44px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.vision__item::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--brand), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+
+
+.vision__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 13px;
+  background: rgba(190,144,85,0.12);
+  border: 1px solid rgba(190,144,85,0.25);
+  margin-bottom: 4px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* 표준화 — 격자 형태 */
+.vision__icon--1::before,
+.vision__icon--1::after {
+  content: '';
+  position: absolute;
+  background: rgba(190,144,85,0.7);
+  border-radius: 2px;
+}
+.vision__icon--1::before {
+  width: 18px; height: 3px;
+  top: 13px; left: 13px;
+  box-shadow: 0 6px 0 rgba(190,144,85,0.7), 0 12px 0 rgba(190,144,85,0.4);
+}
+.vision__icon--1::after {
+  width: 3px; height: 18px;
+  top: 13px; left: 20px;
+  opacity: 0;
+}
+
+/* 자동화 — 번개 모양 */
+.vision__icon--2::before {
+  content: '';
+  position: absolute;
+  top: 9px; left: 16px;
+  width: 0; height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 13px solid rgba(190,144,85,0.8);
+}
+.vision__icon--2::after {
+  content: '';
+  position: absolute;
+  bottom: 9px; left: 14px;
+  width: 0; height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 13px solid rgba(190,144,85,0.8);
+}
+
+/* 연결 — 두 원이 연결된 형태 */
+.vision__icon--3::before,
+.vision__icon--3::after {
+  content: '';
+  position: absolute;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  border: 2px solid rgba(190,144,85,0.8);
+}
+.vision__icon--3::before { top: 10px; left: 10px; }
+.vision__icon--3::after  { bottom: 10px; right: 10px; background: rgba(190,144,85,0.4); }
+
+.vision__num {
+  font-size: var(--font-size-body-sm);
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: var(--brand);
+  text-transform: uppercase;
+}
+
+.vision__item h3 {
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: -0.03em;
+  margin-top: 2px;
+}
+
+.vision__item p {
+  font-size: var(--font-size-body-md);
+  line-height: 1.75;
+  color: rgba(255,255,255,0.55);
+}
+
+/* vision__strategy 1열 전환 → responsive.css tablet/mobile 구역에서 관리 */
+
+/* ── 모바일 vision 탭 ── */
+.vision__mobile-tabs { display: none; }
+
+@media (max-width: 768px) {
+  .vision__mobile-tabs {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 20px;
+  }
+  .vision__mobile-tab {
+    flex: 1;
+    padding: 12px 8px;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    background: rgba(255,255,255,0.04);
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.4);
+    cursor: pointer;
+    transition: all 0.18s ease;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+  .vision__mobile-tab.active {
+    background: rgba(190,144,85,0.15);
+    border-color: rgba(190,144,85,0.4);
+    color: var(--brand);
+  }
+  /* 비활성 아이템 숨김 */
+  .vision__strategy [data-vitem] { display: none; }
+  .vision__strategy [data-vitem].active { display: flex; }
+}

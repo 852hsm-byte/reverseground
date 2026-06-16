@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "reverseground-v2",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "/Users/sangmihan/reverseground-v2"],
+      "port": 3000,
+      "autoPort": true
+    }
+  ]
+}

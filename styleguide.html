@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ReverseGround — Style Guide</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-base); background: #F5F5F7; color: #191919; -webkit-font-smoothing: antialiased; }
+
+    /* ── 레이아웃 ── */
+    .sg-wrap { max-width: 1200px; margin: 0 auto; padding: 0 32px 120px; }
+
+    /* ── 헤더 ── */
+    .sg-header { padding: 48px 0 36px; border-bottom: 2px solid #E8E4DC; margin-bottom: 72px; }
+    .sg-header h1 { font-size: 28px; font-weight: 800; letter-spacing: -0.04em; }
+    .sg-header h1 span { color: #BE9055; }
+    .sg-header p { font-size: 13px; color: #A0A0A0; margin-top: 6px; }
+
+    /* ── 목차 ── */
+    .sg-toc { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 56px; }
+    .sg-toc a { font-size: 12px; font-weight: 600; color: #505050; background: #fff; border: 1px solid #E8E4DC; border-radius: 999px; padding: 5px 14px; text-decoration: none; transition: all 0.15s; }
+    .sg-toc a:hover { border-color: #BE9055; color: #BE9055; }
+
+    /* ── 섹션 ── */
+    .sg-section { margin-bottom: 88px; scroll-margin-top: 24px; }
+    .sg-section-title { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #BE9055; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid #E8E4DC; }
+    .sg-sub-title { font-size: 13px; font-weight: 700; color: #505050; margin: 28px 0 14px; letter-spacing: -0.01em; }
+    .sg-note { font-size: 12px; color: #A0A0A0; margin-bottom: 16px; }
+    .sg-row { display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start; margin-bottom: 16px; }
+    .sg-label { font-size: 11px; color: #A0A0A0; margin-top: 6px; }
+    .sg-var { font-size: 10px; color: #BE9055; font-family: monospace; margin-top: 2px; }
+
+    /* ── 컬러 스와치 ── */
+    .color-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px; }
+    .color-swatch { border-radius: 12px; overflow: hidden; border: 1px solid rgba(0,0,0,0.07); }
+    .color-swatch__block { height: 64px; }
+    .color-swatch__info { background: #fff; padding: 10px 12px; }
+    .color-swatch__name { font-size: 11px; font-weight: 700; color: #191919; }
+    .color-swatch__hex  { font-size: 11px; color: #A0A0A0; font-family: monospace; margin-top: 2px; }
+    .color-swatch__var  { font-size: 10px; color: #BE9055; font-family: monospace; margin-top: 2px; }
+
+    /* ── 타이포 ── */
+    .type-row { display: flex; align-items: baseline; gap: 20px; padding: 14px 0; border-bottom: 1px solid #F0EDE8; }
+    .type-row:last-child { border-bottom: none; }
+    .type-meta { width: 220px; flex-shrink: 0; }
+    .type-meta .type-name { font-size: 12px; font-weight: 600; color: #505050; }
+    .type-meta .type-val  { font-size: 11px; color: #A0A0A0; font-family: monospace; margin-top: 2px; }
+    .type-sample { flex: 1; font-weight: 700; letter-spacing: -0.02em; color: #191919; }
+
+    /* ── 스페이싱 ── */
+    .spacing-row { display: flex; align-items: center; gap: 16px; padding: 7px 0; border-bottom: 1px solid #F0EDE8; }
+    .spacing-row:last-child { border-bottom: none; }
+    .spacing-bar { background: #BE9055; border-radius: 3px; height: 14px; opacity: 0.6; }
+    .spacing-info { font-size: 11px; color: #505050; font-family: monospace; width: 200px; flex-shrink: 0; }
+    .spacing-px { font-size: 11px; color: #A0A0A0; }
+
+    /* ── 보더 레디우스 ── */
+    .radius-grid { display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-end; }
+    .radius-item { text-align: center; }
+    .radius-box { background: #fff; border: 1.5px solid #E8E4DC; width: 72px; height: 72px; }
+    .radius-name { font-size: 10px; color: #505050; font-family: monospace; margin-top: 6px; }
+    .radius-val  { font-size: 10px; color: #A0A0A0; }
+
+    /* ── 버튼 샘플 ── */
+    .btn-sg { display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; font-size: 15px; font-weight: 700; cursor: pointer; border-radius: 9999px; transition: all 0.25s ease; font-family: var(--font-base); text-decoration: none; border: none; letter-spacing: -0.01em; }
+    .btn-sg--primary { background: #BE9055; color: #fff; box-shadow: 0 8px 32px rgba(190,144,85,0.3); }
+    .btn-sg--primary:hover { background: #A87038; transform: translateY(-2px); }
+    .btn-sg--outline-dark { background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.85); border: 1px solid rgba(255,255,255,0.15); backdrop-filter: blur(8px); }
+    .btn-sg--gnb { background: #16130E; color: #fff; padding: 9px 20px; font-size: 13px; border-radius: 999px; }
+    .btn-sg--gnb:hover { background: #BE9055; }
+    .btn-sg--outline { background: transparent; color: #191919; border: 1.5px solid #191919; border-radius: 8px; }
+    .btn-sg--outline:hover { background: #191919; color: #fff; }
+    .btn-sg--text { background: none; color: #BE9055; padding: 0; font-size: 15px; font-weight: 700; }
+    .btn-dark-bg { background: #1E1A13; padding: 24px; border-radius: 12px; display: inline-flex; gap: 16px; align-items: center; }
+
+    /* ── 배지 / 레이블 ── */
+    .sg-section-label { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #BE9055; background: rgba(190,144,85,0.08); border: 1px solid rgba(190,144,85,0.18); padding: 5px 14px; border-radius: 9999px; }
+    .badge-primary { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; background: #BE9055; color: #fff; padding: 4px 14px; border-radius: 9999px; }
+    .badge-platform { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; background: rgba(190,144,85,0.15); color: #BE9055; border: 1px solid rgba(190,144,85,0.3); padding: 5px 16px; border-radius: 9999px; }
+    .badge-chip { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: #FFFFFF; border: 1.5px solid #E8E4DC; border-radius: 9999px; font-size: 13px; font-weight: 600; color: #505050; }
+
+    /* ── 카드 샘플 ── */
+    .card-white { background: #fff; border-radius: 20px; border: 1.5px solid #E8E4DC; padding: 40px 36px 44px; max-width: 320px; position: relative; overflow: hidden; }
+    .card-white::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #BE9055, #A87038); opacity: 0; transition: opacity 0.25s; }
+    .card-white:hover { border-color: rgba(190,144,85,0.4); box-shadow: 0 12px 40px rgba(190,144,85,0.12); transform: translateY(-3px); transition: all 0.25s; }
+    .card-white:hover::before { opacity: 1; }
+    .card-dark { background: #1E1A13; border-radius: 20px; border: 1.5px solid rgba(255,255,255,0.08); padding: 40px 36px 44px; max-width: 320px; }
+    .card-bar { width: 36px; height: 3px; background: linear-gradient(90deg, #BE9055, #A87038); margin-bottom: 16px; border-radius: 9999px; }
+    .card-white h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.02em; color: #191919; }
+    .card-white p  { font-size: 15px; color: #505050; line-height: 1.65; }
+    .card-dark h3  { font-size: 18px; font-weight: 700; margin-bottom: 8px; color: #fff; letter-spacing: -0.02em; }
+    .card-dark p   { font-size: 15px; color: rgba(255,255,255,0.55); line-height: 1.65; }
+
+    /* ── 플랫폼 탭 (데스크탑) ── */
+    .tab-demo { border: 1.5px solid #E8E4DC; border-radius: 14px 14px 14px 14px; overflow: hidden; max-width: 600px; }
+    .tab-demo__tabs { display: flex; }
+    .tab-demo__tab { flex: 1; padding: 20px 16px; background: #F5F5F7; border-bottom: 1.5px solid #E8E4DC; text-align: center; cursor: pointer; }
+    .tab-demo__tab.active { background: #fff; border-bottom: none; border-top: 2px solid #BE9055; }
+    .tab-demo__tab-name { font-size: 14px; font-weight: 800; color: #A0A0A0; letter-spacing: -0.02em; }
+    .tab-demo__tab.active .tab-demo__tab-name { color: #BE9055; }
+    .tab-demo__tab-desc { font-size: 13px; color: rgba(0,0,0,0.3); margin-top: 2px; }
+    .tab-demo__panel { padding: 32px 40px; background: #fff; }
+
+    /* ── 플랫폼 탭 (Pill — 태블릿/모바일) ── */
+    .pill-tabs { display: flex; gap: 6px; background: #E8E5E0; border-radius: 12px; padding: 5px; max-width: 480px; }
+    .pill-tab { flex: 1; padding: 12px 8px; border: none; border-radius: 8px; background: transparent; font-size: 13px; font-weight: 600; color: rgba(0,0,0,0.4); cursor: pointer; text-align: center; font-family: var(--font-base); }
+    .pill-tab.active { background: #fff; color: #111; box-shadow: 0 1px 6px rgba(0,0,0,0.1); }
+
+    /* ── Intro strip ── */
+    .strip-demo { background: #1E1A13; border-top: 1px solid rgba(190,144,85,0.2); border-bottom: 1px solid rgba(190,144,85,0.2); padding: 0; border-radius: 12px; overflow: hidden; }
+    .strip-inner { display: flex; }
+    .strip-item { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 36px 24px; text-align: center; }
+    .strip-item strong { font-size: 32px; font-weight: 800; color: #CF9F68; letter-spacing: -0.04em; line-height: 1; }
+    .strip-item span { font-size: 12px; color: rgba(208,165,106,0.55); }
+    .strip-divider { width: 1px; background: rgba(190,144,85,0.2); align-self: stretch; margin: 20px 0; }
+
+    /* ── 로고 박스 ── */
+    .logo-box-demo { display: flex; gap: 12px; align-items: flex-end; flex-wrap: wrap; }
+    .logo-box { background: #fff; border: 1.5px solid #E8E4DC; display: flex; align-items: center; justify-content: center; }
+    .logo-box--desktop { width: 140px; aspect-ratio: 4/3; border-radius: 20px; }
+    .logo-box--tablet  { width: 110px; height: 110px; border-radius: 14px; }
+    .logo-box--mobile  { width: 100px; height: 72px; border-radius: 12px; }
+    .logo-box span { font-size: 11px; color: #A0A0A0; }
+
+    /* ── 표 ── */
+    table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 14px; overflow: hidden; }
+    th, td { padding: 11px 16px; text-align: left; font-size: 13px; border-bottom: 1px solid #F0EDE8; }
+    th { background: #FAFAFA; font-weight: 700; font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: #A0A0A0; }
+    td:first-child { font-family: monospace; font-size: 12px; color: #505050; }
+    tr:last-child td { border-bottom: none; }
+    .mono { font-family: monospace; font-size: 12px; }
+
+    /* ── Vision 카드 ── */
+    .vision-demo { background: #16130E; border-radius: 16px; padding: 32px; position: relative; overflow: hidden; }
+    .vision-demo::before { content: ''; position: absolute; top: -80px; left: 50%; transform: translateX(-50%); width: 400px; height: 300px; background: radial-gradient(ellipse, rgba(190,144,85,0.12) 0%, transparent 65%); pointer-events: none; }
+    .vision-cards { display: flex; gap: 12px; position: relative; z-index: 1; }
+    .vision-card { flex: 1; background: rgba(255,255,255,0.04); border: 1px solid rgba(190,144,85,0.15); border-radius: 16px; padding: 28px 24px; }
+    .vision-card__num { font-size: 11px; font-weight: 800; letter-spacing: 0.14em; color: #BE9055; text-transform: uppercase; margin-bottom: 8px; }
+    .vision-card h3 { font-size: 15px; font-weight: 800; color: #fff; letter-spacing: -0.02em; margin-bottom: 8px; }
+    .vision-card p { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.65; }
+    .vision-label { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #BE9055; background: rgba(190,144,85,0.1); border: 1px solid rgba(190,144,85,0.25); padding: 4px 12px; border-radius: 999px; display: inline-block; margin-bottom: 16px; }
+    .vision-title { font-size: 22px; font-weight: 800; color: #fff; letter-spacing: -0.03em; margin-bottom: 8px; }
+    .vision-title em { color: #CF9F68; font-style: italic; }
+
+    /* ── Howto 카드 ── */
+    .howto-demo { display: flex; gap: 8px; align-items: stretch; }
+    .howto-card-sg { flex: 1; background: #fff; border: 1.5px solid #E8E4DC; border-radius: 16px; padding: 28px 24px; }
+    .howto-icon { width: 44px; height: 44px; border-radius: 12px; background: rgba(190,144,85,0.08); border: 1px solid rgba(190,144,85,0.2); margin-bottom: 20px; }
+    .howto-step { font-size: 11px; font-weight: 800; color: #BE9055; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px; }
+    .howto-card-sg h3 { font-size: 16px; font-weight: 700; color: #191919; letter-spacing: -0.02em; margin-bottom: 8px; }
+    .howto-card-sg p { font-size: 13px; color: #505050; line-height: 1.65; }
+    .howto-arrow-sg { display: flex; align-items: center; color: rgba(190,144,85,0.4); font-size: 14px; flex-shrink: 0; padding: 0 2px; }
+
+    /* ── News 카드 ── */
+    .news-demo { display: flex; gap: 16px; }
+    .news-card-sg { flex: 1; background: #fff; border-radius: 16px; border: 1.5px solid #E8E4DC; overflow: hidden; }
+    .news-img { height: 120px; }
+    .news-img--1 { background: linear-gradient(135deg, #1D1D1F, #3A3A3C); }
+    .news-img--2 { background: linear-gradient(135deg, #BE9055, #A87038); }
+    .news-img--3 { background: linear-gradient(135deg, #2C2C2E, #48484A); }
+    .news-body { padding: 20px 24px; }
+    .news-tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #BE9055; background: rgba(190,144,85,0.08); padding: 3px 8px; border-radius: 999px; margin-bottom: 8px; }
+    .news-card-sg h3 { font-size: 14px; font-weight: 700; color: #191919; line-height: 1.5; margin-bottom: 6px; }
+    .news-date { font-size: 12px; color: #A0A0A0; }
+
+    /* ── Grove 연동 배지 ── */
+    .grove-sync-sg { display: flex; align-items: center; gap: 10px; padding: 14px 20px; background: rgba(190,144,85,0.06); border: 1px solid rgba(190,144,85,0.2); border-radius: 12px; }
+    .grove-sync-sg span { font-size: 14px; color: #505050; line-height: 1.5; }
+    .grove-sync-sg strong { color: #BE9055; }
+    .grove-beta-sg { display: flex; align-items: center; gap: 10px; padding: 14px 20px; background: #FAFAF8; border: 1px solid #E8E4DC; border-radius: 10px; }
+    .grove-beta-sg span { font-size: 13px; color: #A0A0A0; }
+    .grove-beta-link { font-size: 13px; font-weight: 700; color: #BE9055; text-decoration: underline; text-underline-offset: 3px; }
+
+    /* ── 코드 블록 ── */
+    pre { background: #1E1A13; color: rgba(255,255,255,0.75); font-size: 12px; line-height: 1.7; padding: 20px 24px; border-radius: 12px; overflow-x: auto; font-family: 'SF Mono', 'Fira Code', monospace; }
+    code { background: rgba(190,144,85,0.1); color: #BE9055; font-size: 11px; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+
+    /* ── 반응형 데모 ── */
+    .bp-demo { display: flex; gap: 12px; align-items: flex-end; flex-wrap: wrap; }
+    .bp-box { background: #fff; border: 1.5px solid #E8E4DC; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 6px; padding: 16px 12px; }
+    .bp-box span { font-size: 11px; color: #A0A0A0; }
+    .bp-box strong { font-size: 12px; font-weight: 700; color: #191919; }
+    .bp-box em { font-size: 10px; color: #BE9055; font-style: normal; }
+  </style>
+</head>
+<body>
+<div class="sg-wrap">
+
+  <!-- 헤더 -->
+  <div class="sg-header">
+    <h1>REVERSE<span>GROUND</span> — Style Guide</h1>
+    <p>option-a-proctabs.html 기반 · 수정·추가 시 이 가이드 기준으로 일관성 유지 · DESIGN.md 에 텍스트 버전 병행</p>
+  </div>
+
+  <!-- 목차 -->
+  <div class="sg-toc">
+    <a href="#s-color">컬러</a>
+    <a href="#s-type">타이포</a>
+    <a href="#s-spacing">스페이싱</a>
+    <a href="#s-radius">레디우스</a>
+    <a href="#s-button">버튼</a>
+    <a href="#s-badge">배지·레이블</a>
+    <a href="#s-card">카드</a>
+    <a href="#s-tab">탭 UI</a>
+    <a href="#s-strip">Intro Strip</a>
+    <a href="#s-logo">클라이언트 로고</a>
+    <a href="#s-section">섹션 구조</a>
+    <a href="#s-bp">반응형</a>
+    <a href="#s-nav">네비게이션</a>
+    <a href="#s-vision">Vision</a>
+    <a href="#s-howto">Howto</a>
+    <a href="#s-grove">Grove Detail</a>
+    <a href="#s-news">News</a>
+    <a href="#s-file">파일 구조</a>
+  </div>
+
+
+  <!-- ── 1. 컬러 ── -->
+  <section class="sg-section" id="s-color">
+    <div class="sg-section-title">01 · Color — Brand Gold</div>
+    <div class="color-grid">
+      <div class="color-swatch"><div class="color-swatch__block" style="background:#FAF4EB"></div><div class="color-swatch__info"><div class="color-swatch__name">Gold 50</div><div class="color-swatch__hex">#FAF4EB</div><div class="color-swatch__var">--orange-50</div></div></div>
+      <div class="color-swatch"><div class="color-swatch__block" style="background:#F3E5CC"></div><div class="color-swatch__info"><div class="color-swatch__name">Gold 100</div><div class="color-swatch__hex">#F3E5CC</div><div class="color-swatch__var">--orange-100</div></div></div>
+      <div class="color-swatch"><div class="color-swatch__block" style="background:#E6CA9A"></div><div class="color-swatch__info"><div class="color-swatch__name">Gold 200</div><div class="color-swatch__hex">#E6CA9A</div><div class="color-swatch__var">--orange-200</div></div></div>
+      <div class="color-swatch"><div class="color-swatch__block" style="background:#CF9F68"></div><div class="color-swatch__info"><div class="color-swatch__name">Gold 300</div><div class="color-swatch__hex">#CF9F68</div><div class="color-swatch__var">--orange-300</div></div></div>
+      <div class="color-swatch"><div class="color-swatch__block" style="background:#BE9055"></div><div class="color-swatch__info"><div class="color-swatch__name">Gold 400 ★ Main</div><div class="color-swatch__hex">#BE9055</div><div class="color-swatch__var">--brand</div></div></div>
+      <div class="color-swatch"><div class="color-swatch__block" style="background:#A87038"></div><div class="color-swatch__info"><div class="color-swatch__name">Gold 500 Hover</div><div class="color-swatch__hex">#A87038</div><div class="color-swatch__var">--brand-hover</div></div></div>
+      <div class="color-swatch"><div class="color-swatch__block" style="background:#7A5420"></div><div class="color-swatch__info"><div class="color-swatch__name">Gold 600 Press</div><div class="color-swatch__hex">#7A5420</div><div class="color-swatch__var">--brand-press</div></div></div>
+    </div>
+
+    <div class="sg-sub-title">Dark Backgrounds</div>
+    <div class="color-grid">
+      <div class="color-swatch"><div class="color-swatch__block" style="background:#16130E"></div><div class="color-swatch__info"><div class="color-swatch__name">Brand Dark</div><div class="color-swatch__hex">#16130E</div><div class="color-swatch__var">Hero·Footer·GNB CTA</div></div></div>
+      <div class="color-swatch"><div class="color-swatch__block" style="background:#1E1A13"></div><div class="color-swatch__info"><div class="color-swatch__name">Card Dark</div><div class="color-swatch__hex">#1E1A13</div><div class="color-swatch__var">Procsy 카드·About meta</div></div></div>
+      <div class="color-swatch"><div class="color-swatch__block" style="background:#2C2620"></div><div class="color-swatch__info"><div class="color-swatch__name">Pricing Featured</div><div class="color-swatch__hex">#2C2620</div><div class="color-swatch__var">추천 요금 카드</div></div></div>
+    </div>
+
+    <div class="sg-sub-title">Neutral / Text / Border</div>
+    <div class="color-grid">
+      <div class="color-swatch"><div class="color-swatch__block" style="background:#191919"></div><div class="color-swatch__info"><div class="color-swatch__name">Neutral 900</div><div class="color-swatch__hex">#191919</div><div class="color-swatch__var">--text-default</div></div></div>
+      <div class="color-swatch"><div class="color-swatch__block" style="background:#505050"></div><div class="color-swatch__info"><div class="color-swatch__name">Neutral 600</div><div class="color-swatch__hex">#505050</div><div class="color-swatch__var">--text-muted</div></div></div>
+      <div class="color-swatch"><div class="color-swatch__block" style="background:#A0A0A0"></div><div class="color-swatch__info"><div class="color-swatch__name">Neutral 400</div><div class="color-swatch__hex">#A0A0A0</div><div class="color-swatch__var">--text-subtle</div></div></div>
+      <div class="color-swatch"><div class="color-swatch__block" style="background:#D2D2D2"></div><div class="color-swatch__info"><div class="color-swatch__name">Neutral 300</div><div class="color-swatch__hex">#D2D2D2</div><div class="color-swatch__var">--border-default</div></div></div>
+      <div class="color-swatch"><div class="color-swatch__block" style="background:#E8E4DC;border:1px solid #eee"></div><div class="color-swatch__info"><div class="color-swatch__name">Card Border</div><div class="color-swatch__hex">#E8E4DC</div><div class="color-swatch__var">카드 테두리</div></div></div>
+      <div class="color-swatch"><div class="color-swatch__block" style="background:#F5F5F7;border:1px solid #eee"></div><div class="color-swatch__info"><div class="color-swatch__name">Section BG</div><div class="color-swatch__hex">#F5F5F7</div><div class="color-swatch__var">Pricing·Grove BG</div></div></div>
+    </div>
+  </section>
+
+
+  <!-- ── 2. 타이포 ── -->
+  <section class="sg-section" id="s-type">
+    <div class="sg-section-title">02 · Typography</div>
+    <p class="sg-note">폰트: Pretendard Variable · 아래 사이즈는 Desktop 기준 (Tablet/Mobile 자동 축소 → 반응형 표 참고)</p>
+    <div style="background:#fff;border-radius:16px;padding:24px 32px;">
+      <div class="type-row"><div class="type-meta"><div class="type-name">Display</div><div class="type-val">clamp(3.2rem, 7.5vw, 6.4rem) / 800</div></div><div class="type-sample" style="font-size:clamp(2rem,5vw,4.8rem);">리버스그라운드</div></div>
+      <div class="type-row"><div class="type-meta"><div class="type-name">Heading 3XL</div><div class="type-val">--font-size-heading-3xl / 48px</div></div><div class="type-sample" style="font-size:clamp(22px,4vw,48px);">업무를 하나로</div></div>
+      <div class="type-row"><div class="type-meta"><div class="type-name">Heading 2XL</div><div class="type-val">--font-size-heading-2xl / 36px</div></div><div class="type-sample" style="font-size:clamp(20px,3vw,36px);">플랫폼 소개</div></div>
+      <div class="type-row"><div class="type-meta"><div class="type-name">Heading 1XL</div><div class="type-val">--font-size-heading-1xl / 30px</div></div><div class="type-sample" style="font-size:30px;">도입 효과</div></div>
+      <div class="type-row"><div class="type-meta"><div class="type-name">Heading LG</div><div class="type-val">--font-size-heading-lg / 24px</div></div><div class="type-sample" style="font-size:24px;">섹션 서브 헤딩</div></div>
+      <div class="type-row"><div class="type-meta"><div class="type-name">Heading SM</div><div class="type-val">--font-size-heading-sm / 18px</div></div><div class="type-sample" style="font-size:18px;">카드 타이틀</div></div>
+      <div class="type-row"><div class="type-meta"><div class="type-name">Body LG (기본)</div><div class="type-val">--font-size-body-lg / 18px / 400</div></div><div class="type-sample" style="font-size:18px;font-weight:400;color:#505050;">본문 기본 텍스트. 리드 문장에 사용합니다.</div></div>
+      <div class="type-row"><div class="type-meta"><div class="type-name">Body MD</div><div class="type-val">--font-size-body-md / 16px / 400</div></div><div class="type-sample" style="font-size:16px;font-weight:400;color:#505050;">보조 설명 텍스트. 카드 설명, 섹션 desc.</div></div>
+      <div class="type-row"><div class="type-meta"><div class="type-name">Body SM</div><div class="type-val">--font-size-body-sm / 14px / 400</div></div><div class="type-sample" style="font-size:14px;font-weight:400;color:#A0A0A0;">캡션, 라벨, 배지 텍스트.</div></div>
+    </div>
+
+    <div class="sg-sub-title">반응형 타이포 축소표</div>
+    <table>
+      <thead><tr><th>변수</th><th>Desktop</th><th>Tablet</th><th>Mobile</th></tr></thead>
+      <tbody>
+        <tr><td>--font-size-heading-3xl</td><td>48px</td><td>36px</td><td>30px</td></tr>
+        <tr><td>--font-size-heading-2xl</td><td>36px</td><td>30px</td><td>24px</td></tr>
+        <tr><td>--font-size-heading-lg</td><td>24px</td><td>22px</td><td>20px</td></tr>
+        <tr><td>--font-size-body-lg</td><td>18px</td><td>18px</td><td>16px</td></tr>
+        <tr><td>--font-size-body-md</td><td>16px</td><td>16px</td><td>14px</td></tr>
+        <tr><td>.platform-card__name</td><td>2.4rem</td><td>1.9rem</td><td>1.4rem</td></tr>
+        <tr><td>.pricing-card__num</td><td>42px</td><td>34px</td><td>32px</td></tr>
+        <tr><td>.intro-strip__item strong</td><td>48px</td><td>36px</td><td>20px</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+
+  <!-- ── 3. 스페이싱 ── -->
+  <section class="sg-section" id="s-spacing">
+    <div class="sg-section-title">03 · Spacing</div>
+    <div style="background:#fff;border-radius:16px;padding:20px 28px;">
+      <div class="spacing-row"><div class="spacing-info">--space-1 / --spacing-4</div><div class="spacing-bar" style="width:4px"></div><div class="spacing-px">4px</div></div>
+      <div class="spacing-row"><div class="spacing-info">--space-2 / --spacing-8</div><div class="spacing-bar" style="width:8px"></div><div class="spacing-px">8px</div></div>
+      <div class="spacing-row"><div class="spacing-info">--space-3 / --spacing-12</div><div class="spacing-bar" style="width:12px"></div><div class="spacing-px">12px</div></div>
+      <div class="spacing-row"><div class="spacing-info">--space-4 / --spacing-16</div><div class="spacing-bar" style="width:16px"></div><div class="spacing-px">16px</div></div>
+      <div class="spacing-row"><div class="spacing-info">--space-5 / --spacing-20</div><div class="spacing-bar" style="width:20px"></div><div class="spacing-px">20px · 컨테이너 패딩</div></div>
+      <div class="spacing-row"><div class="spacing-info">--space-6 / --spacing-24</div><div class="spacing-bar" style="width:24px"></div><div class="spacing-px">24px</div></div>
+      <div class="spacing-row"><div class="spacing-info">--space-8 / --spacing-32</div><div class="spacing-bar" style="width:32px"></div><div class="spacing-px">32px</div></div>
+      <div class="spacing-row"><div class="spacing-info">--space-10 / --spacing-40</div><div class="spacing-bar" style="width:40px"></div><div class="spacing-px">40px</div></div>
+      <div class="spacing-row"><div class="spacing-info">--space-12 / --spacing-48</div><div class="spacing-bar" style="width:48px"></div><div class="spacing-px">48px</div></div>
+      <div class="spacing-row"><div class="spacing-info">--space-16 / --spacing-64</div><div class="spacing-bar" style="width:64px"></div><div class="spacing-px">64px</div></div>
+    </div>
+  </section>
+
+
+  <!-- ── 4. 레디우스 ── -->
+  <section class="sg-section" id="s-radius">
+    <div class="sg-section-title">04 · Border Radius</div>
+    <div class="radius-grid">
+      <div class="radius-item"><div class="radius-box" style="border-radius:2px"></div><div class="radius-name">--radius-sm</div><div class="radius-val">2px</div></div>
+      <div class="radius-item"><div class="radius-box" style="border-radius:4px"></div><div class="radius-name">--radius-md</div><div class="radius-val">4px</div></div>
+      <div class="radius-item"><div class="radius-box" style="border-radius:6px"></div><div class="radius-name">--radius-lg</div><div class="radius-val">6px</div></div>
+      <div class="radius-item"><div class="radius-box" style="border-radius:8px"></div><div class="radius-name">--radius-xl</div><div class="radius-val">8px · 버튼</div></div>
+      <div class="radius-item"><div class="radius-box" style="border-radius:12px"></div><div class="radius-name">--radius-2xl</div><div class="radius-val">12px · 모바일 로고</div></div>
+      <div class="radius-item"><div class="radius-box" style="border-radius:14px"></div><div class="radius-name">(tablet 로고)</div><div class="radius-val">14px</div></div>
+      <div class="radius-item"><div class="radius-box" style="border-radius:16px"></div><div class="radius-name">--radius-3xl</div><div class="radius-val">16px · Trust 카드</div></div>
+      <div class="radius-item"><div class="radius-box" style="border-radius:20px"></div><div class="radius-name">(플랫폼/피처)</div><div class="radius-val">20px · 카드</div></div>
+      <div class="radius-item"><div class="radius-box" style="border-radius:24px"></div><div class="radius-name">(pricing 카드)</div><div class="radius-val">24px</div></div>
+      <div class="radius-item"><div class="radius-box" style="border-radius:9999px; width:72px; height:36px;"></div><div class="radius-name">--radius-rounded</div><div class="radius-val">9999px · Pill</div></div>
+    </div>
+  </section>
+
+
+  <!-- ── 5. 버튼 ── -->
+  <section class="sg-section" id="s-button">
+    <div class="sg-section-title">05 · Buttons</div>
+    <div class="sg-row">
+      <div>
+        <a class="btn-sg btn-sg--primary">도입 문의</a>
+        <div class="sg-label">Hero 주 CTA</div>
+        <div class="sg-var">.btn-hero--white · bg #BE9055 · pill</div>
+      </div>
+      <div style="background:#16130E;padding:16px 20px;border-radius:12px;">
+        <a class="btn-sg btn-sg--outline-dark">더 알아보기</a>
+        <div class="sg-label" style="color:rgba(255,255,255,0.3);">Hero 보조 CTA (다크 배경)</div>
+        <div class="sg-var" style="color:rgba(190,144,85,0.6);">.btn-hero--outline</div>
+      </div>
+      <div>
+        <a class="btn-sg btn-sg--gnb">도입 문의</a>
+        <div class="sg-label">GNB CTA</div>
+        <div class="sg-var">.gnb__cta · bg #16130E → hover #BE9055</div>
+      </div>
+      <div>
+        <a class="btn-sg btn-sg--outline">자세히 보기</a>
+        <div class="sg-label">아웃라인</div>
+        <div class="sg-var">.btn-outline · radius 8px</div>
+      </div>
+      <div>
+        <a class="btn-sg btn-sg--text">더 보기 →</a>
+        <div class="sg-label">텍스트 링크</div>
+        <div class="sg-var">.btn-text · color --brand</div>
+      </div>
+    </div>
+    <div class="sg-note" style="margin-top:12px;">모바일에서 Hero 버튼: <code>width: 100%; max-width: 320px</code> / 전환: <code>transition: 0.3s ease</code></div>
+  </section>
+
+
+  <!-- ── 6. 배지·레이블 ── -->
+  <section class="sg-section" id="s-badge">
+    <div class="sg-section-title">06 · Labels & Badges</div>
+    <div class="sg-row">
+      <div>
+        <div class="sg-section-label">서비스</div>
+        <div class="sg-label">섹션 레이블</div>
+        <div class="sg-var">.section-label · 11px / 700 / uppercase</div>
+      </div>
+      <div>
+        <div class="badge-primary">주력 서비스</div>
+        <div class="sg-label">강조 배지 (골드 solid)</div>
+        <div class="sg-var">.platform-card__main-badge</div>
+      </div>
+      <div>
+        <div class="badge-platform">PROCSY</div>
+        <div class="sg-label">플랫폼 배지 (골드 outline)</div>
+        <div class="sg-var">.platform-card__badge</div>
+      </div>
+      <div>
+        <div class="badge-chip">✓ 승인 자동화</div>
+        <div class="sg-label">기능 칩</div>
+        <div class="sg-var">.procsy-feature-chip</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── 7. 카드 ── -->
+  <section class="sg-section" id="s-card">
+    <div class="sg-section-title">07 · Cards</div>
+
+    <div class="sg-sub-title">Feature 카드 (라이트) — hover 해보세요</div>
+    <div class="sg-row">
+      <div>
+        <div class="card-white">
+          <div class="card-bar"></div>
+          <h3>구매·발주 자동화</h3>
+          <p>승인 플로우부터 정산까지 하나의 플랫폼에서 처리합니다.</p>
+        </div>
+        <div class="sg-label" style="margin-top:8px;">.feature-item · bg #fff · border 1.5px #E8E4DC · radius 20px</div>
+        <div class="sg-var">hover: 상단 3px 골드 라인 등장 + translateY(-3px)</div>
+      </div>
+      <div>
+        <div class="card-dark">
+          <div class="card-bar"></div>
+          <h3>Procsy 플랫폼</h3>
+          <p>구매·발주·정산을 하나로 연결하는 기업 운영 플랫폼.</p>
+        </div>
+        <div class="sg-label" style="margin-top:8px;">.platform-card--procsy head · bg #1E1A13</div>
+      </div>
+    </div>
+
+    <div class="sg-sub-title">Pricing 카드</div>
+    <div class="sg-row">
+      <div style="background:#fff;border-radius:24px;border:1.5px solid rgba(0,0,0,0.07);padding:32px 28px;max-width:240px;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#BE9055;margin-bottom:6px;">STARTER</div>
+        <div style="font-size:18px;font-weight:700;color:#191919;margin-bottom:8px;">소규모 팀</div>
+        <div style="font-size:36px;font-weight:700;letter-spacing:-0.04em;color:#191919;line-height:1;margin-bottom:4px;">₩99,000</div>
+        <div style="font-size:13px;color:#A0A0A0;margin-bottom:20px;">/월</div>
+      </div>
+      <div style="background:#2C2620;border-radius:24px;border:1.5px solid transparent;padding:32px 28px;max-width:240px;position:relative;">
+        <div style="position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:#BE9055;color:#fff;font-size:11px;font-weight:700;padding:3px 12px;border-radius:999px;">추천</div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#BE9055;margin-bottom:6px;">BUSINESS</div>
+        <div style="font-size:18px;font-weight:700;color:#fff;margin-bottom:8px;">성장하는 기업</div>
+        <div style="font-size:36px;font-weight:700;letter-spacing:-0.04em;color:#fff;line-height:1;margin-bottom:4px;">₩299,000</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.35);margin-bottom:20px;">/월</div>
+      </div>
+    </div>
+    <div class="sg-note">기본 카드: bg #fff / 추천 카드: bg #2C2620 / border-radius: 24px / padding: 48px 44px 52px (Desktop)</div>
+  </section>
+
+
+  <!-- ── 8. 탭 UI ── -->
+  <section class="sg-section" id="s-tab">
+    <div class="sg-section-title">08 · Tab UI</div>
+
+    <div class="sg-sub-title">Platform Detail 탭 — 실제 기준 (modern-proctabs.css)</div>
+    <div style="background:#EEEBE6;border-radius:14px;padding:6px;display:flex;gap:6px;max-width:520px;">
+      <button style="flex:1;padding:16px 24px;border:none;border-radius:10px;background:#fff;box-shadow:0 1px 6px rgba(0,0,0,0.1);font-size:16px;font-weight:700;color:#191919;font-family:inherit;cursor:pointer;">Procsy 개요</button>
+      <button style="flex:1;padding:16px 24px;border:none;border-radius:10px;background:transparent;font-size:16px;font-weight:600;color:#A0A0A0;font-family:inherit;cursor:pointer;">핵심 기능</button>
+      <button style="flex:1;padding:16px 24px;border:none;border-radius:10px;background:transparent;font-size:16px;font-weight:600;color:#A0A0A0;font-family:inherit;cursor:pointer;">도입 과정</button>
+    </div>
+    <div class="sg-note" style="margin-top:8px;">
+      컨테이너: <code>background: #EEEBE6</code> / <code>border-radius: 14px</code> / <code>padding: 6px</code><br>
+      활성 탭: <code>background: #fff</code> / <code>box-shadow: 0 1px 6px rgba(0,0,0,0.1)</code> / border-top 없음<br>
+      패널: border 없음 / <code>background: transparent</code> / <code>padding: 64px 0 40px</code><br>
+      ⚠ <strong>탭 수정 시 <code>modern-proctabs.css</code>에서만 할 것</strong> — 이 파일이 platform-tabs.css·responsive.css를 !important로 오버라이드
+    </div>
+
+    <div class="sg-sub-title" style="margin-top:28px;">Pill 탭 (Services·Pricing·Howto 탭 / 태블릿·모바일)</div>
+    <div class="pill-tabs">
+      <button class="pill-tab active">Procsy 개요</button>
+      <button class="pill-tab">핵심 기능</button>
+      <button class="pill-tab">도입 과정</button>
+    </div>
+    <div class="sg-note" style="margin-top:8px;">
+      Services/Pricing: 컨테이너 bg <code>#E8E5E0</code> / Howto: <code>#ECEAE6</code> (섹션마다 다름)<br>
+      활성 탭: <code>background: #fff</code> / <code>box-shadow: 0 1px 6px rgba(0,0,0,0.1)</code><br>
+      Services padding: <code>18px 8px</code> / Pricing: <code>10px 6px</code> / Howto: <code>10px 6px</code>
+    </div>
+  </section>
+
+
+  <!-- ── 9. Intro Strip ── -->
+  <section class="sg-section" id="s-strip">
+    <div class="sg-section-title">09 · Intro Strip (히어로 하단 수치 띠)</div>
+    <div class="strip-demo">
+      <div class="strip-inner">
+        <div class="strip-item"><strong>500+</strong><span>도입 기업</span></div>
+        <div class="strip-divider"></div>
+        <div class="strip-item"><strong>99.9%</strong><span>서비스 가동률</span></div>
+        <div class="strip-divider"></div>
+        <div class="strip-item"><strong>3배</strong><span>업무 효율 향상</span></div>
+      </div>
+    </div>
+    <div class="sg-note" style="margin-top:10px;">배경: #1E1A13 / 수치 컬러: #CF9F68 / 설명 컬러: rgba(208,165,106,0.55)<br>Mobile: 설명 텍스트 숨김 (<code>display:none</code>), 숫자 20px</div>
+  </section>
+
+
+  <!-- ── 10. 클라이언트 로고 박스 ── -->
+  <section class="sg-section" id="s-logo">
+    <div class="sg-section-title">10 · Client Card — Logo Box</div>
+
+    <div class="sg-sub-title">로고 박스 크기 비교</div>
+    <div class="logo-box-demo">
+      <div>
+        <div class="logo-box logo-box--desktop"><span>Desktop<br>aspect-ratio 4/3</span></div>
+        <div class="sg-label">Desktop · radius 20px</div>
+      </div>
+      <div>
+        <div class="logo-box logo-box--tablet"><span>Tablet<br>110px</span></div>
+        <div class="sg-label">Tablet · radius 14px · padding 20px</div>
+      </div>
+      <div>
+        <div class="logo-box logo-box--mobile"><span>Mobile<br>72px</span></div>
+        <div class="sg-label">Mobile · radius 12px · padding 20px 16px</div>
+      </div>
+    </div>
+
+    <div class="sg-sub-title" style="margin-top:32px;">로고 이미지 사이즈</div>
+    <table>
+      <thead><tr><th>클래스</th><th>Desktop</th><th>Tablet</th><th>Mobile</th></tr></thead>
+      <tbody>
+        <tr><td>기본 (img)</td><td>auto</td><td>20px</td><td>20px</td></tr>
+        <tr><td>.logo--coupang</td><td>24px</td><td>18px</td><td>16px</td></tr>
+        <tr><td>.logo--welcomepayments</td><td>20px (max-width 85%)</td><td>13px</td><td>12px</td></tr>
+        <tr><td>.logo--dior</td><td>26px</td><td>17px</td><td>16px</td></tr>
+        <tr><td>.logo--handok</td><td>30px</td><td>21px</td><td>18px</td></tr>
+      </tbody>
+    </table>
+
+    <div class="sg-sub-title" style="margin-top:24px;">그리드 & 카드 gap</div>
+    <table>
+      <thead><tr><th>항목</th><th>Desktop</th><th>Tablet</th><th>Mobile</th></tr></thead>
+      <tbody>
+        <tr><td>열 수</td><td>4열</td><td>4열</td><td>2열</td></tr>
+        <tr><td>column-gap</td><td>20px</td><td>16px</td><td>16px</td></tr>
+        <tr><td>row-gap</td><td>20px</td><td>16px</td><td>24px</td></tr>
+        <tr><td>카드 gap (로고↔기업명)</td><td>14px</td><td>18px</td><td>8px</td></tr>
+        <tr><td>기업명 font-size</td><td>16px</td><td>14px</td><td>14px</td></tr>
+        <tr><td>산업군 표시 방식</td><td>배지 (absolute, 카드 위)</td><td>2줄 (display: block)</td><td>2줄 (display: block)</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+
+  <!-- ── 11. 섹션 구조 ── -->
+  <section class="sg-section" id="s-section">
+    <div class="sg-section-title">11 · 섹션 공통 구조</div>
+    <pre>&lt;section class="section [section--bg|section--dark]" id="section-id"&gt;
+  &lt;div class="container"&gt;
+    &lt;span class="section-label"&gt;라벨&lt;/span&gt;
+    &lt;h2 class="section-title"&gt;제목 &lt;em class="point"&gt;강조&lt;/em&gt;&lt;/h2&gt;
+    &lt;p class="section-desc"&gt;설명&lt;/p&gt;
+    &lt;!-- 콘텐츠 --&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</pre>
+
+    <div class="sg-sub-title" style="margin-top:24px;">섹션 클래스</div>
+    <table>
+      <thead><tr><th>클래스</th><th>배경</th><th>용도</th></tr></thead>
+      <tbody>
+        <tr><td>.section</td><td>#FFFFFF</td><td>기본 (About, Services, Platform Detail, Features, Howto, Vision)</td></tr>
+        <tr><td>.section--bg</td><td>#F5F5F7</td><td>연회색 (Pricing)</td></tr>
+        <tr><td>.section--dark</td><td>#191919</td><td>다크 (미사용 예비)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="sg-sub-title" style="margin-top:24px;">섹션 ID 목록</div>
+    <table>
+      <thead><tr><th>ID</th><th>섹션</th><th>설명</th></tr></thead>
+      <tbody>
+        <tr><td>#about</td><td>회사 소개</td><td>회사 정보, 연혁</td></tr>
+        <tr><td>#services</td><td>서비스 플랫폼 카드</td><td>Procsy + Grove 카드 2열</td></tr>
+        <tr><td>#platform-detail</td><td>Procsy 3탭 상세</td><td>개요 / 핵심 기능 / 도입 과정</td></tr>
+        <tr><td>#grove-detail</td><td>Grove 상세</td><td>HR 관리 섹션</td></tr>
+        <tr><td>#pricing</td><td>요금제</td><td>3플랜 카드</td></tr>
+        <tr><td>#contact</td><td>문의</td><td>폼 + 통계</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+
+  <!-- ── 12. 반응형 ── -->
+  <section class="sg-section" id="s-bp">
+    <div class="sg-section-title">12 · Responsive Breakpoints</div>
+
+    <div class="bp-demo">
+      <div class="bp-box" style="width:200px;height:90px;">
+        <strong>Desktop</strong>
+        <span>≥ 1025px</span>
+        <em>섹션 160px / 컨테이너 --space-5</em>
+      </div>
+      <div class="bp-box" style="width:160px;height:90px;">
+        <strong>Tablet</strong>
+        <span>769–1024px</span>
+        <em>섹션 100px / 탭 UI 전환</em>
+      </div>
+      <div class="bp-box" style="width:120px;height:90px;">
+        <strong>Mobile</strong>
+        <span>≤ 768px</span>
+        <em>섹션 72px / 햄버거</em>
+      </div>
+    </div>
+
+    <div class="sg-sub-title" style="margin-top:28px;">레이아웃 변환 요약</div>
+    <table>
+      <thead><tr><th>컴포넌트</th><th>Desktop</th><th>Tablet</th><th>Mobile</th></tr></thead>
+      <tbody>
+        <tr><td>GNB</td><td>풀 메뉴 + CTA</td><td>풀 메뉴 + CTA</td><td>햄버거 메뉴</td></tr>
+        <tr><td>Hero 버튼</td><td>가로 나열</td><td>가로 나열</td><td>세로 (full width)</td></tr>
+        <tr><td>Intro Strip</td><td>가로 / 설명 표시</td><td>가로 / 설명 표시</td><td>가로 / 설명 숨김</td></tr>
+        <tr><td>플랫폼 카드</td><td>2열 그리드</td><td>탭 전환 (1개씩)</td><td>탭 전환 (1개씩)</td></tr>
+        <tr><td>Platform 탭</td><td>상단 골드 라인 탭</td><td>Pill 탭 (17px)</td><td>Pill 탭 (13px)</td></tr>
+        <tr><td>Feature 카드</td><td>2열</td><td>2열</td><td>2열</td></tr>
+        <tr><td>Client 카드</td><td>4열 (gap 20px)</td><td>4열 (gap 16px)</td><td>2열 (gap 16/24px)</td></tr>
+        <tr><td>About Trust</td><td>4열</td><td>2열</td><td>2열</td></tr>
+        <tr><td>Pricing 카드</td><td>3열</td><td>탭 전환</td><td>탭 전환</td></tr>
+        <tr><td>Footer</td><td>4열</td><td>4열</td><td>브랜드 풀 + 링크 3열</td></tr>
+        <tr><td>News</td><td>3열</td><td>2열 (3번째 숨김)</td><td>1열</td></tr>
+      </tbody>
+    </table>
+
+    <div class="sg-sub-title" style="margin-top:24px;">터치 디바이스 처리</div>
+    <div class="sg-note">
+      • hover 효과: <code>@media (hover: hover) and (pointer: fine)</code> 내에서만 정의<br>
+      • 터치: <code>@media (hover: none)</code> — transform/shadow/transition 모두 제거<br>
+      • 카드: <code>-webkit-tap-highlight-color: transparent</code> 공통 적용<br>
+      • 카드 자체 <code>pointer-events: none</code> / 내부 링크·버튼 <code>pointer-events: auto</code>
+    </div>
+  </section>
+
+
+  <!-- ── 13. 네비게이션 ── -->
+  <section class="sg-section" id="s-nav">
+    <div class="sg-section-title">13 · Navigation Links</div>
+    <table>
+      <thead><tr><th>메뉴</th><th>href</th><th>위치</th></tr></thead>
+      <tbody>
+        <tr><td>회사 소개</td><td>#about</td><td>GNB + 푸터</td></tr>
+        <tr><td>서비스 › Procsy</td><td>#platform-detail</td><td>GNB 드롭다운 + 푸터</td></tr>
+        <tr><td>서비스 › Grove</td><td>#grove-detail</td><td>GNB 드롭다운 + 푸터</td></tr>
+        <tr><td>요금제</td><td>#pricing</td><td>GNB + 푸터</td></tr>
+        <tr><td>문의</td><td>#contact</td><td>GNB + 푸터</td></tr>
+        <tr><td>도입 문의 CTA</td><td>Google Forms URL</td><td>GNB + 모바일 메뉴 + 푸터 · target="_blank"</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+
+  <!-- ── 15. Vision ── -->
+  <section class="sg-section" id="s-vision">
+    <div class="sg-section-title">15 · Vision 섹션</div>
+    <div class="vision-demo">
+      <div class="vision-label">VISION</div>
+      <div class="vision-title">리버스그라운드가 <em>그리는</em> 미래</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.45);margin-bottom:24px;line-height:1.7;">기업 운영의 복잡함을 단순하게, 비용은 합리적으로.</div>
+      <div class="vision-cards">
+        <div class="vision-card"><div class="vision-card__num">01 · 표준화</div><h3>운영 기준 수립</h3><p>구매·HR 프로세스를 표준화해 누구나 동일한 방식으로 운영합니다.</p></div>
+        <div class="vision-card"><div class="vision-card__num">02 · 자동화</div><h3>반복 업무 제거</h3><p>승인·정산·알림을 자동화해 팀이 본업에 집중할 수 있게 합니다.</p></div>
+        <div class="vision-card"><div class="vision-card__num">03 · 연결</div><h3>하나의 플랫폼</h3><p>Procsy와 Grove를 연결해 기업 운영 전반을 단일 계정으로 관리합니다.</p></div>
+      </div>
+    </div>
+    <div class="sg-note" style="margin-top:10px;">
+      배경: <code>#16130E</code> + radial-gradient 글로우 / 타이틀 이탤릭 강조: <code>#CF9F68</code><br>
+      카드: <code>rgba(255,255,255,0.04)</code> / border: <code>rgba(190,144,85,0.15)</code> / hover: 상단 2px 골드 라인<br>
+      Mobile: Pill 탭 전환 (<code>background: rgba(190,144,85,0.15)</code> 활성) / Tablet: 3열 유지
+    </div>
+  </section>
+
+  <!-- ── 16. Howto ── -->
+  <section class="sg-section" id="s-howto">
+    <div class="sg-section-title">16 · Howto 섹션 (도입 과정)</div>
+    <div class="howto-demo">
+      <div class="howto-card-sg"><div class="howto-icon"></div><div class="howto-step">STEP 01</div><h3>상담 신청</h3><p>도입 문의 폼을 작성하면 담당자가 1영업일 내 연락합니다.</p></div>
+      <div class="howto-arrow-sg">›</div>
+      <div class="howto-card-sg"><div class="howto-icon"></div><div class="howto-step">STEP 02</div><h3>니즈 분석</h3><p>현재 운영 방식을 파악하고 최적 플랜을 제안합니다.</p></div>
+      <div class="howto-arrow-sg">›</div>
+      <div class="howto-card-sg"><div class="howto-icon"></div><div class="howto-step">STEP 03</div><h3>세팅 지원</h3><p>전담 CS가 초기 세팅부터 데이터 이관까지 함께 진행합니다.</p></div>
+      <div class="howto-arrow-sg">›</div>
+      <div class="howto-card-sg"><div class="howto-icon"></div><div class="howto-step">STEP 04</div><h3>운영 시작</h3><p>도입 후에도 지속적인 업데이트와 고객 지원을 제공합니다.</p></div>
+    </div>
+    <div class="sg-note" style="margin-top:10px;">
+      배경: <code>#F5F5F7</code> / 카드: bg <code>#fff</code> / border-radius: 20px / padding: <code>40px 36px</code><br>
+      화살표: <code>rgba(190,144,85,0.4)</code> / 아이콘 박스: 52×52px / border-radius: 14px<br>
+      Tablet·Mobile (≤1024px): Pill 탭 전환 — 컨테이너 bg <code>#ECEAE6</code> (다른 섹션의 <code>#E8E5E0</code>와 다름)<br>
+      Mobile 페이지네이션: dot 비활성 6×6px 원 / 활성 20×6px 골드 pill
+    </div>
+  </section>
+
+  <!-- ── 17. Grove Detail ── -->
+  <section class="sg-section" id="s-grove">
+    <div class="sg-section-title">17 · Grove Detail 섹션 (#grove-detail)</div>
+    <p class="sg-note">클래스: <code>.platform-detail.section.section--bg</code> · 배경: <code>#F5F5F7</code></p>
+
+    <div class="sg-sub-title">Procsy 연동 배지</div>
+    <div class="grove-sync-sg">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8C2 4.69 4.69 2 8 2s6 2.69 6 6-2.69 6-6 6" stroke="#BE9055" stroke-width="1.5" stroke-linecap="round"/><path d="M10.5 8L8 10.5 5.5 8" stroke="#BE9055" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span><strong>Procsy와 연동</strong>하면 구매 + HR 운영을 하나의 계정으로 — 별도 로그인 없이 통합 관리</span>
+    </div>
+    <div class="sg-note" style="margin-top:6px;"><code>.grove-panel-sync</code> · bg <code>rgba(190,144,85,0.06)</code> · border-radius: 12px · margin-top: 48px</div>
+
+    <div class="sg-sub-title">피처 카드</div>
+    <p class="sg-note"><code>.features__grid</code> (2열) + <code>.feature-item</code> — features.css 와 동일한 컴포넌트 재사용</p>
+
+    <div class="sg-sub-title">베타 안내</div>
+    <div class="grove-beta-sg">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#BE9055" stroke-width="1.5"/><path d="M8 5v3.5l2 2" stroke="#BE9055" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <span>현재 초대 기반 베타 운영 중 —</span>
+      <span class="grove-beta-link">도입 문의 시 우선 접근 가능 →</span>
+    </div>
+    <div class="sg-note" style="margin-top:6px;"><code>.grove-panel-beta</code> · bg <code>#FAFAF8</code> · border: <code>#E8E4DC</code> · border-radius: 10px · margin-top: 48px</div>
+  </section>
+
+  <!-- ── 18. News ── -->
+  <section class="sg-section" id="s-news">
+    <div class="sg-section-title">18 · News 섹션</div>
+    <div class="news-demo">
+      <div class="news-card-sg"><div class="news-img news-img--1"></div><div class="news-body"><div class="news-tag">공지</div><h3>Procsy 2.0 업데이트</h3><p style="font-size:13px;color:#505050;line-height:1.55;margin:6px 0;">구매·정산 플로우 전면 개편 및 모바일 앱 출시</p><div class="news-date">2025. 06. 01</div></div></div>
+      <div class="news-card-sg"><div class="news-img news-img--2"></div><div class="news-body"><div class="news-tag">보도자료</div><h3>Series A 투자 유치</h3><p style="font-size:13px;color:#505050;line-height:1.55;margin:6px 0;">리버스그라운드, 30억 규모 시리즈 A 완료</p><div class="news-date">2025. 04. 15</div></div></div>
+      <div class="news-card-sg"><div class="news-img news-img--3"></div><div class="news-body"><div class="news-tag">업데이트</div><h3>Grove 베타 오픈</h3><p style="font-size:13px;color:#505050;line-height:1.55;margin:6px 0;">HR 플랫폼 Grove 초대 기반 베타 서비스 시작</p><div class="news-date">2025. 03. 20</div></div></div>
+    </div>
+    <div class="sg-note" style="margin-top:10px;">
+      Desktop: 3열 / Tablet: 2열 (3번째 숨김) / Mobile: 1열 (모두 표시)<br>
+      카드: border-radius 20px / border <code>#E8E4DC</code> / 이미지 height 200px<br>
+      이미지 그라디언트: <code>--1</code> 다크그레이 / <code>--2</code> 골드 / <code>--3</code> 차콜
+    </div>
+  </section>
+
+  <!-- ── 14. 파일 구조 ── -->
+  <section class="sg-section" id="s-file">
+    <div class="sg-section-title">14 · File Structure & CSS Load Order</div>
+    <pre>reverseground-v2/
+├── option-a-proctabs.html     ← 메인 페이지
+├── DESIGN.md                  ← 텍스트 디자인 가이드 (이 파일의 텍스트 버전)
+├── styleguide.html            ← 라이브 스타일가이드 (이 파일)
+├── components/
+│   └── gnb.js                 ← GNB (HTML + CSS + JS 통합)
+└── css/
+    ├── tokens.css             ① 디자인 토큰 (변수 정의) ★ 가장 먼저
+    ├── base.css               ② 리셋, 공통, 버튼
+    ├── hero.css               ③ Hero + Intro strip
+    ├── services.css           ④ 플랫폼 카드 (#services)
+    ├── platform-tabs.css      ⑤ Procsy 3탭 (#platform-detail)
+    ├── features.css           ⑥ 피처 카드 + 클라이언트 카드
+    ├── about.css              ⑦ 회사 소개
+    ├── vision.css             ⑧ 비전
+    ├── howto.css              ⑨ 도입 과정
+    ├── pricing.css            ⑩ 요금제
+    ├── contact.css            ⑪ 문의
+    ├── footer.css             ⑫ 푸터
+    ├── modern-proctabs.css    ⑬ 추가 커스텀
+    └── responsive.css         ⑭ 반응형 오버라이드 ★ 항상 마지막</pre>
+    <div class="sg-note" style="margin-top:12px;">⚠ <strong>캐스케이드 주의</strong>: responsive.css 가 마지막 로드 → 같은 속성은 responsive.css 값이 우선 적용됩니다.</div>
+  </section>
+
+</div>
+</body>
+</html>

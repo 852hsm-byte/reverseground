@@ -1,0 +1,93 @@
+/* ============================================================
+   PROCTABS — Procsy 3탭 전용 스타일
+   ============================================================ */
+
+/* 탭 컨테이너 */
+.platform-tabs {
+  display: flex;
+  gap: 6px;
+  background: #EEEBE6;
+  border-radius: 14px;
+  padding: 6px;
+  margin-top: 20px;
+  border-bottom: none;
+  width: 100%;
+}
+
+/* 탭 버튼 */
+.platform-tab {
+  flex: 1;
+  padding: 16px 24px;
+  border: none !important;
+  border-radius: 10px !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  margin-bottom: 0 !important;
+  text-align: center;
+  align-items: center;
+  transition: all 0.18s ease;
+}
+.platform-tab:first-child { border-radius: 10px !important; }
+.platform-tab:last-child  { border-radius: 10px !important; border-left: none !important; }
+
+.platform-tab__name {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--color-text-tertiary);
+}
+.platform-tab__desc { display: none; }
+
+/* 활성 탭 */
+.platform-tab.active {
+  background: #FFFFFF !important;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.1) !important;
+  border-top: none !important;
+}
+.platform-tab.active .platform-tab__name {
+  color: var(--color-text-primary);
+  font-weight: 700;
+}
+.platform-tab:not(.active):hover {
+  background: rgba(255,255,255,0.4) !important;
+}
+.platform-tab:not(.active):hover .platform-tab__name { color: var(--color-text-secondary); }
+
+/* 패널 */
+.platform-panel {
+  border: none !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  padding: 64px 0 40px !important;
+  margin-top: 0 !important;
+  box-shadow: none !important;
+}
+
+/* 패널 내 서브타이틀 — 섹션 타이틀보다 작게, 읽힐 정도로 */
+.platform-panel .platform-panel__title {
+  font-size: clamp(1.3rem, 2.4vw, 1.9rem) !important;
+  font-weight: 700 !important;
+  margin-bottom: 8px !important;
+}
+.platform-panel .platform-panel__desc {
+  font-size: var(--font-size-body-md) !important;
+  margin-bottom: 0 !important;
+}
+
+/* howto 카드 — 박스 유지 */
+/* howto 4열 복원 */
+.howto__grid {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 4px !important;
+  align-items: stretch !important;
+  margin-top: 48px !important;
+}
+.howto__arrow {
+  align-self: center;
+  padding: 0 6px !important;
+  color: rgba(190,144,85,0.7) !important;
+  font-size: 18px !important;
+}
+
+/* 소형 데스크탑/태블릿/모바일 반응형 */

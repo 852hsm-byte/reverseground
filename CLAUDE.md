@@ -1,0 +1,57 @@
+# ReverseGround v2 — Claude Instructions
+
+## 프로젝트 개요
+
+ReverseGround의 랜딩페이지. 메인 파일은 `option-a-proctabs.html`.  
+Procsy(구매·발주·정산 플랫폼)와 Grove(HR 플랫폼) 두 제품을 소개한다.
+
+## 작업 시작 전 필수
+
+**반드시 `DESIGN.md`를 먼저 읽어라.** 모든 수정·추가 작업의 기준이다.  
+시각적 확인이 필요하면 `styleguide.html`을 참조하라.
+
+## 핵심 규칙
+
+### CSS
+- 변수는 항상 `css/tokens.css`에 정의된 것을 사용한다 (`--brand`, `--space-*`, `--font-size-*` 등)
+- 반응형 오버라이드는 반드시 `css/responsive.css`에 작성한다 (항상 마지막 로드)
+- `css/features.css`는 `css/responsive.css`보다 먼저 로드된다 — 같은 속성은 responsive.css가 이긴다
+- 브레이크포인트: Desktop `≥1025px` / Tablet `769–1024px` / Mobile `≤768px`
+- hover 효과는 반드시 `@media (hover: hover) and (pointer: fine)` 안에만 넣는다
+- 터치 디바이스 리셋은 `@media (hover: none)` 안에 넣는다
+- Pure black `#000` 사용 금지 — 텍스트는 `#191919` (`--text-default`) 사용
+
+### 브랜드 컬러
+- 브랜드 골드: `#BE9055` (`--brand`)
+- 다크 배경: `#16130E` (Hero, Footer, GNB CTA) / `#1E1A13` (Procsy 카드, About)
+- 임의 색상 추가 금지 — 반드시 `tokens.css` 팔레트 내에서 사용
+
+### 네비게이션 링크 (GNB + 푸터 동일하게 유지)
+- Procsy → `#platform-detail`
+- Grove → `#grove-detail`
+- 회사 소개 → `#about`
+- 요금제 → `#pricing`
+- 문의 → `#contact`
+
+### 플랫폼 탭 수정 시 주의
+- `platform-tabs.css`와 `responsive.css`의 탭 스타일은 `modern-proctabs.css`가 `!important`로 전부 덮어씌움
+- **탭 관련 수정은 반드시 `css/modern-proctabs.css`에서 할 것**
+- 실제 탭 컨테이너: bg `#EEEBE6` / border-radius 14px / padding 6px
+- 실제 활성 탭: bg `#FFFFFF` / box-shadow만, border-top 없음
+- 실제 패널: border 없음, bg transparent, padding `64px 0 40px`
+
+### HTML 구조
+- GNB는 `components/gnb.js`가 주입 — HTML 파일에서 직접 수정하지 말 것
+- 섹션 구조: `.section > .container > .section-label + .section-title + .section-desc`
+- 새 섹션 추가 시 위 구조를 따르고 `tokens.css` 변수를 사용할 것
+
+### 로컬 서버
+- `python3 -m http.server 3030 --bind 0.0.0.0` 으로 실행 (IPv4 바인딩 필수)
+- 아이폰 접속: `http://192.168.219.42:3030/option-a-proctabs.html`
+
+## 작업 금지 사항
+
+- `css/tokens.css` 변수값 임의 변경 금지
+- `components/gnb.js` 내 네비게이션 링크를 DESIGN.md 기준과 다르게 바꾸지 말 것
+- 하드코딩 색상값 추가 금지 (토큰 없이 hex 직접 사용)
+- 새 CSS 파일 추가 시 `responsive.css`보다 앞에 로드할 것

@@ -1,0 +1,77 @@
+/* ============================================================
+   NEWS — 뉴스/소식 카드
+   수정: 카드 이미지 → .news-card__img--N { background-image: url('...') }
+   ============================================================ */
+
+.news__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 48px;
+}
+
+.news__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--card-gap);                      /* 20px */
+}
+
+.news-card {
+  background: var(--bg-default);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  border: 1.5px solid #E8E4DC;
+}
+@media (hover: hover) and (pointer: fine) {
+  .news-card { transition: all 0.25s ease; }
+  .news-card:hover {
+    border-color: rgba(190,144,85,0.35);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.10);
+    transform: translateY(-4px);
+  }
+}
+
+/* ── 카드 이미지 ── */
+.news-card__img {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
+.news-card__img--1 { background: linear-gradient(135deg, #1D1D1F 0%, #3A3A3C 100%); }
+.news-card__img--2 { background: linear-gradient(135deg, #BE9055 0%, #A87038 100%); }
+.news-card__img--3 { background: linear-gradient(135deg, #2C2C2E 0%, #48484A 100%); }
+
+.news-card__body { padding: 28px 32px; flex: 1; }
+.news-card__tag {
+  display: inline-block;
+  font-size: var(--font-size-body-sm);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--brand);
+  background: rgba(190,144,85,0.08);
+  padding: 3px 8px;
+  border-radius: var(--radius-rounded);
+  margin-bottom: 10px;
+}
+.news-card__body h3 {
+  font-size: 16px;
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-body-lg);
+  color: var(--text-default);
+  margin-bottom: 10px;
+}
+.news-card__body p {
+  font-size: var(--font-size-body-md);
+  line-height: var(--line-height-body-md);
+  color: var(--text-muted);
+  margin-bottom: var(--space-3);
+}
+.news-card__date {
+  font-size: var(--font-size-body-sm);
+  line-height: var(--line-height-body-sm);
+  color: var(--text-subtle);
+  font-weight: var(--font-weight-medium);
+}
