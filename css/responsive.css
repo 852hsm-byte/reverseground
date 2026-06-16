@@ -485,9 +485,12 @@
     gap: 16px;
   }
   .footer__bottom p {
-    word-break: keep-all;
-    word-spacing: -0.02em;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
   }
+  .footer__info-sep { display: none; }
+  .footer__info-item { display: block; }
   .footer__bottom-links {
     gap: 16px;
   }
