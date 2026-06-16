@@ -266,7 +266,7 @@
   .intro-strip__divider { display: block; }
   .intro-strip__item    { flex: 1; text-align: center; padding: 36px 4px; }
   .intro-strip__item strong { font-size: 22px; letter-spacing: -0.03em; display: block; line-height: 1; }
-  .intro-strip__item span   { font-size: 10px; white-space: nowrap; display: block !important; margin-top: 7px; opacity: 0.55; letter-spacing: 0.01em; }
+  .intro-strip__item span   { font-size: 12px; white-space: nowrap; display: block !important; margin-top: 7px; opacity: 0.55; letter-spacing: 0.01em; }
 
   /* ── About ── */
   .about__layout    { grid-template-columns: 1fr; gap: var(--space-8); }
