@@ -5,6 +5,12 @@
    ============================================================ */
 
 (function () {
+  // 메인 페이지가 아닌 곳(terms.html, privacy.html 등)에서는
+  // 앵커 링크를 메인 페이지로 보내도록 접두사를 붙인다
+  const MAIN_PAGE = 'option-a-proctabs.html';
+  const isMainPage = /(^|\/)(option-a-proctabs\.html)?$/.test(location.pathname);
+  const anchorPrefix = isMainPage ? '' : MAIN_PAGE;
+
   const MENU = [
     { label: '회사 소개', href: '#about' },
     {
@@ -35,15 +41,19 @@
   };
 
   // ── HTML 생성 ──────────────────────────────────────────────
+  function navHref(href) {
+    return href.startsWith('#') ? anchorPrefix + href : href;
+  }
+
   function buildDesktopNav() {
     return MENU.map(item => {
       if (!item.children) {
         return `<li class="gnb-item">
-          <a class="gnb-link" href="${item.href}">${item.label}</a>
+          <a class="gnb-link" href="${navHref(item.href)}">${item.label}</a>
         </li>`;
       }
       const drops = item.children.map(c => `
-        <a class="gnb-drop__item" href="${c.href}">
+        <a class="gnb-drop__item" href="${navHref(c.href)}">
           <span class="gnb-drop__icon">${c.icon}</span>
           <span class="gnb-drop__body">
             <span class="gnb-drop__title">${c.title}</span>
@@ -51,7 +61,7 @@
           </span>
         </a>`).join('');
       return `<li class="gnb-item gnb-item--has-drop">
-        <a class="gnb-link gnb-link--arrow" href="${item.href}">
+        <a class="gnb-link gnb-link--arrow" href="${navHref(item.href)}">
           ${item.label}
           <svg class="gnb-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none">
             <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -65,10 +75,10 @@
   function buildMobileNav() {
     return MENU.map(item => {
       if (!item.children) {
-        return `<li><a class="gnb-mob__link" href="${item.href}">${item.label}</a></li>`;
+        return `<li><a class="gnb-mob__link" href="${navHref(item.href)}">${item.label}</a></li>`;
       }
       const subs = item.children.map(c => `
-        <a class="gnb-mob__sub" href="${c.href}">
+        <a class="gnb-mob__sub" href="${navHref(c.href)}">
           <span class="gnb-mob__sub-icon">${c.icon}</span>
           <span>
             <span class="gnb-mob__sub-title">${c.title}</span>
@@ -92,7 +102,7 @@
     <div class="gnb__inner container">
 
       <!-- 로고 -->
-      <a href="#" class="gnb__logo">
+      <a href="${isMainPage ? '#' : MAIN_PAGE}" class="gnb__logo">
         <span class="gnb__logo-rev">REVERSE</span><span class="gnb__logo-gnd">GROUND</span>
       </a>
 
