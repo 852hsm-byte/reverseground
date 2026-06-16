@@ -477,4 +477,18 @@
   .procsy-feature-card,
   .client-card,
   .client-card__logo { transition: none !important; }
+
+  /* Footer bottom — 모바일 세로 정렬 */
+  .footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .footer__bottom p {
+    word-break: keep-all;
+    word-spacing: -0.02em;
+  }
+  .footer__bottom-links {
+    gap: 16px;
+  }
 }
