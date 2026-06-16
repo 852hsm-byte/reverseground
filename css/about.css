@@ -28,7 +28,7 @@
   color: var(--brand);
   line-height: 1;
   margin-top: 0;
-  margin-bottom: 20px;
+  margin-bottom: var(--spacing-20);
   word-break: keep-all;
 }
 
@@ -38,7 +38,7 @@
   font-weight: 400;
   line-height: 1.75;
   color: var(--color-text-primary);
-  margin-bottom: 12px;
+  margin-bottom: var(--spacing-12);
   word-break: keep-all;
 }
 .about__lead strong {
@@ -57,8 +57,8 @@
 .about__more-btn {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 12px 28px;
+  gap: var(--spacing-6);
+  padding: var(--spacing-12) var(--spacing-28);
   background: var(--dark-800);
   border: 1px solid rgba(190,144,85,0.3);
   border-radius: var(--radius-rounded);
@@ -86,18 +86,18 @@
 .about__trust-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  margin-top: 64px;
+  gap: var(--spacing-16);
+  margin-top: var(--spacing-64);
 }
 
 .about__trust-card {
   background: var(--white);
   border: 1.5px solid var(--sand-10);
   border-radius: var(--radius-3xl);
-  padding: 28px 24px;
+  padding: var(--spacing-28) var(--spacing-24);
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: var(--spacing-10);
 }
 @media (hover: hover) and (pointer: fine) {
   .about__trust-card { transition: all 0.22s ease; }
@@ -141,9 +141,9 @@
 .about__meta {
   display: grid;
   grid-template-columns: 1fr 1px 1fr;
-  gap: 72px;
-  margin-top: 80px;
-  padding-top: 72px;
+  gap: var(--spacing-72);
+  margin-top: var(--spacing-80);
+  padding-top: var(--spacing-72);
   border-top: 1px solid var(--color-border-tertiary);
   align-items: start;
 }
@@ -153,8 +153,8 @@
   background: var(--dark-800);
   border-top: none;
   border-radius: var(--radius-20);
-  padding: 56px 64px;
-  margin-top: 64px;
+  padding: var(--spacing-56) var(--spacing-64);
+  margin-top: var(--spacing-64);
 }
 .about__meta--dark .about__info-title {
   color: var(--white);
@@ -195,21 +195,21 @@
   font-weight: 800;
   letter-spacing: -0.03em;
   color: var(--color-text-primary);
-  margin-bottom: 22px;
+  margin-bottom: var(--spacing-22);
 }
 
 .about__info-list {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 20px;                 /* 16 → 20: 항목 간 여백 확보 */
+  gap: var(--spacing-20);                 /* 16 → 20: 항목 간 여백 확보 */
 }
 
 /* 기업 정보 — 라벨+값 */
 .about__info-list li {
   display: flex;
   align-items: flex-start;
-  gap: 16px;
+  gap: var(--spacing-16);
   font-size: var(--font-size-body-md);
   line-height: 1.6;
   color: var(--color-text-secondary);
@@ -224,13 +224,13 @@
   background: rgba(190,144,85,0.1);
   border: 1px solid rgba(190,144,85,0.2);
   border-radius: var(--radius-md);
-  padding: 3px 0;
+  padding: var(--spacing-3) 0;
   width: 48px;
   text-align: center;
   flex-shrink: 0;
   white-space: nowrap;
   align-self: flex-start;  /* baseline → flex-start: 긴 주소 줄바꿈 시 라벨이 상단 고정 */
-  margin-top: 2px;
+  margin-top: var(--spacing-2);
 }
 
 /* 연혁 타임라인 */
@@ -255,8 +255,8 @@
 .about__timeline li {
   display: flex;
   align-items: baseline;
-  gap: 16px;
-  padding: 9px 0 9px 28px;
+  gap: var(--spacing-16);
+  padding: var(--spacing-9) 0 var(--spacing-9) var(--spacing-28);
   position: relative;
   font-size: var(--font-size-body-sm);
   color: var(--color-text-secondary);

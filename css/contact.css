@@ -6,7 +6,7 @@
   background: var(--dark-900);
   position: relative;
   overflow: hidden;
-  padding: 120px 0 80px;
+  padding: var(--spacing-120) 0 var(--spacing-80);
 }
 
 /* 배경 골드 글로우 */
@@ -26,14 +26,14 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 56px;
+  gap: var(--spacing-56);
 }
 
 /* 레이블 */
 .section-label--gold {
   display: inline-flex;
   align-items: center;
-  padding: 6px 18px;
+  padding: var(--spacing-6) var(--spacing-18);
   border-radius: var(--radius-rounded);
   background: rgba(190,144,85,0.12);
   border: 1px solid rgba(190,144,85,0.3);
@@ -49,7 +49,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: var(--spacing-20);
 }
 
 .contact__title {
@@ -78,15 +78,15 @@
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: var(--radius-20);
-  padding: 32px 56px;
-  gap: 48px;
+  padding: var(--spacing-32) var(--spacing-56);
+  gap: var(--spacing-48);
 }
 
 .contact__stat {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
+  gap: var(--spacing-6);
 }
 
 .contact__stat-num {
@@ -113,14 +113,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 14px;
+  gap: var(--spacing-14);
 }
 
 .btn-contact-cta {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 18px 52px;
+  gap: var(--spacing-8);
+  padding: var(--spacing-18) var(--spacing-52);
   background: var(--brand);
   color: var(--white);
   font-size: var(--font-size-body-md);
@@ -146,7 +146,7 @@
 .contact__info-bar {
   display: flex;
   justify-content: center;
-  padding-top: 40px;
+  padding-top: var(--spacing-40);
   border-top: 1px solid rgba(255,255,255,0.08);
   width: 100%;
 }
@@ -154,7 +154,7 @@
 .contact__info-item {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--spacing-12);
   font-size: var(--font-size-body-md);
 }
 
@@ -183,7 +183,7 @@
     flex-direction: row;
     justify-content: center;
     gap: 0;
-    padding: 24px 20px;
+    padding: var(--spacing-24) var(--spacing-20);
     width: 100%;
   }
   .contact__stat { flex: 1; }
@@ -193,6 +193,6 @@
     height: 40px;
   }
   .contact__info-bar {
-    gap: 12px 24px;
+    gap: var(--spacing-12) var(--spacing-24);
   }
 }

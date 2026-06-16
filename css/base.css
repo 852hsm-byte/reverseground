@@ -4,7 +4,7 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-padding-top: 72px; }
+html { scroll-padding-top: var(--spacing-72); }
 
 body {
   font-family: var(--font-base);
@@ -25,7 +25,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* ── Section ── */
-.section          { padding: var(--section-py) 0; position: relative; scroll-margin-top: 64px; }
+.section          { padding: var(--section-py) 0; position: relative; scroll-margin-top: var(--spacing-64); }
 .section--bg      { background: var(--sand-3); }
 .section--dark    { background: var(--accent); }
 .section > .container { position: relative; z-index: 1; }
@@ -33,7 +33,7 @@ a { text-decoration: none; color: inherit; }
 .section-label {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--spacing-6);
   font-size: var(--font-size-11);
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -41,9 +41,9 @@ a { text-decoration: none; color: inherit; }
   color: var(--brand);
   background: rgba(190,144,85,0.08);
   border: 1px solid rgba(190,144,85,0.18);
-  padding: 5px 14px;
+  padding: var(--spacing-5) var(--spacing-14);
   border-radius: var(--radius-rounded);
-  margin-bottom: 20px;
+  margin-bottom: var(--spacing-20);
 }
 .section-label--light {
   color: var(--brand);
@@ -57,7 +57,7 @@ a { text-decoration: none; color: inherit; }
   line-height: 1.15;
   letter-spacing: -0.03em;
   color: var(--text-default);
-  margin-bottom: 16px;
+  margin-bottom: var(--spacing-16);
 }
 .section-title--light { color: var(--white); }
 .section-title .point,
@@ -73,7 +73,7 @@ em.point,
   line-height: 1.75;
   color: var(--color-text-secondary);
   max-width: 580px;
-  margin-top: 12px;
+  margin-top: var(--spacing-12);
   word-break: keep-all;
 }
 
@@ -81,7 +81,7 @@ em.point,
 .btn-hero {
   display: inline-flex;
   align-items: center;
-  padding: 14px 32px;
+  padding: var(--spacing-14) var(--spacing-32);
   font-size: var(--font-size-body-md);
   font-weight: var(--font-weight-bold);
   letter-spacing: 0.04em;
@@ -96,7 +96,7 @@ em.point,
 
 .btn-outline {
   display: inline-block;
-  padding: 12px 28px;
+  padding: var(--spacing-12) var(--spacing-28);
   border: 1.5px solid var(--text-default);
   font-size: var(--font-size-body-md);
   font-weight: var(--font-weight-bold);
@@ -119,7 +119,7 @@ em.point,
   background: var(--brand);
   color: var(--white);
   border: none;
-  padding: 14px;
+  padding: var(--spacing-14);
   font-size: var(--font-size-body-md);
   font-weight: var(--font-weight-bold);
   cursor: pointer;
@@ -133,13 +133,13 @@ em.point,
 /* ── Highlight Banner (withu 스타일 색상 띠) ── */
 .highlight-banner {
   background: linear-gradient(90deg, var(--dark-800) 0%, var(--dark-750) 100%);
-  padding: 14px 0;
+  padding: var(--spacing-14) 0;
   border-top: 1px solid rgba(255,255,255,0.05);
 }
 .highlight-banner__inner {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: var(--spacing-14);
 }
 .highlight-banner__tag {
   flex-shrink: 0;
@@ -148,7 +148,7 @@ em.point,
   font-size: var(--font-size-10);
   font-weight: 800;
   letter-spacing: 0.1em;
-  padding: 3px 9px;
+  padding: var(--spacing-3) var(--spacing-9);
   border-radius: var(--radius-rounded);
 }
 .highlight-banner p {

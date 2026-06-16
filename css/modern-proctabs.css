@@ -5,11 +5,11 @@
 /* 탭 컨테이너 */
 .platform-tabs {
   display: flex;
-  gap: 6px;
+  gap: var(--spacing-6);
   background: var(--sand-7);
   border-radius: var(--radius-14);
-  padding: 6px;
-  margin-top: 20px;
+  padding: var(--spacing-6);
+  margin-top: var(--spacing-20);
   border-bottom: none;
   width: 100%;
 }
@@ -17,7 +17,7 @@
 /* 탭 버튼 */
 .platform-tab {
   flex: 1;
-  padding: 16px 24px;
+  padding: var(--spacing-16) var(--spacing-24);
   border: none !important;
   border-radius: var(--radius-10) !important;
   background: transparent !important;
@@ -58,7 +58,7 @@
   border: none !important;
   border-radius: 0 !important;
   background: transparent !important;
-  padding: 64px 0 40px !important;
+  padding: var(--spacing-64) 0 var(--spacing-40) !important;
   margin-top: 0 !important;
   box-shadow: none !important;
 }
@@ -67,7 +67,7 @@
 .platform-panel .platform-panel__title {
   font-size: clamp(1.3rem, 2.4vw, 1.9rem) !important;
   font-weight: 700 !important;
-  margin-bottom: 8px !important;
+  margin-bottom: var(--spacing-8) !important;
 }
 .platform-panel .platform-panel__desc {
   font-size: var(--font-size-body-md) !important;
@@ -79,18 +79,18 @@
 .howto__grid {
   display: flex !important;
   flex-direction: row !important;
-  gap: 4px !important;
+  gap: var(--spacing-4) !important;
   align-items: stretch !important;
-  margin-top: 48px !important;
+  margin-top: var(--spacing-48) !important;
 }
 .howto__arrow {
   align-self: center;
-  padding: 0 6px !important;
+  padding: 0 var(--spacing-6) !important;
   color: rgba(190,144,85,0.7) !important;
   font-size: var(--font-size-body-lg) !important;
 }
 
 /* 소형 데스크탑/태블릿/모바일 반응형 */
 @media (max-width: 768px) {
-  .platform-panel { padding: 28px 0 36px !important; }
+  .platform-panel { padding: var(--spacing-28) 0 var(--spacing-36) !important; }
 }
