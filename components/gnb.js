@@ -42,7 +42,11 @@
 
   // ── HTML 생성 ──────────────────────────────────────────────
   function navHref(href) {
-    return href.startsWith('#') ? anchorPrefix + href : href;
+    if (!href.startsWith('#')) return href;
+    if (isMainPage) return href;
+    // 다른 페이지(terms.html 등)에서는 네이티브 해시 점프 대신
+    // ?scrollTo= 쿼리로 넘겨 iOS Safari의 줌 계산 버그를 피한다
+    return anchorPrefix + '?scrollTo=' + href.slice(1);
   }
 
   function buildDesktopNav() {
@@ -425,6 +429,18 @@
     window.addEventListener('scroll', function () {
       gnb.classList.toggle('scrolled', window.scrollY > 10);
     }, { passive: true });
+
+    // 다른 페이지에서 ?scrollTo= 로 넘어온 경우, 로드 완료 후 해당 섹션으로 스크롤
+    const scrollTo = new URLSearchParams(location.search).get('scrollTo');
+    if (scrollTo) {
+      const doScroll = function () {
+        const target = document.getElementById(scrollTo);
+        if (target) target.scrollIntoView();
+        history.replaceState(null, '', location.pathname);
+      };
+      if (document.readyState === 'complete') doScroll();
+      else window.addEventListener('load', doScroll);
+    }
   });
 
 })();
