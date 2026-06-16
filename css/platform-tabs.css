@@ -6,6 +6,27 @@
   background: #FFFFFF;
 }
 
+/* Procsy와 Grove(둘 다 흰 배경) 사이 — 색 대신 구분선으로 분리
+   border-top은 padding 밖(박스 경계)에 그려져 풀폭이 되므로,
+   padding 안쪽 흐름을 타는 ::before로 컨텐츠 폭에만 맞춤 */
+#grove-detail .container {
+  position: relative;
+}
+#grove-detail .container::before {
+  content: '';
+  display: block;
+  height: 1px;
+  background: rgba(0,0,0,0.08);
+  margin-bottom: 160px;
+}
+
+/* Procsy↔Grove 전환부 — 위/아래 여백을 이 구간의 section 기본 패딩(데스크탑 160px)과 동일하게.
+   .platform-panel이 이미 자체 padding-bottom(40px !important)을 갖고 있어서
+   #grove-detail padding-top에 그 차이(160-40=120px)만 더해 총 160px을 맞춤.
+   (태블릿/모바일은 responsive.css에서 각 구간 section 패딩과 동일하게 재조정) */
+#platform-detail { padding-bottom: 0; }
+#grove-detail     { padding-top: 120px; }
+
 /* ── 탭 버튼 그룹 ── */
 .platform-tabs {
   display: flex;
