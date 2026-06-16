@@ -279,10 +279,17 @@
   .intro-strip__item span   { font-size: 12px; white-space: nowrap; display: block !important; margin-top: 7px; opacity: 0.55; letter-spacing: 0.01em; }
 
   /* ── About ── */
-  .about__meta--dark { grid-template-columns: 1fr; padding: 36px 24px; gap: 28px; }
+  .about__lead         { margin-bottom: 4px; }
+  .about__trust-grid  { margin-top: 36px; }
+  .about__meta--dark  { grid-template-columns: 1fr; padding: 36px 24px; gap: 28px; margin-top: 36px; }
   .about__meta--dark .about__info-divider { display: none; }
   .about__trust-card { padding: 20px 18px; }
   .about__trust-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* ── Grove 패널 (인라인 margin-top 오버라이드 — !important 필요) ── */
+  #grove-detail .grove-panel-sync  { margin-top: 28px !important; }
+  #grove-detail .features__grid    { margin-top: 28px !important; }
+  #grove-detail .grove-panel-beta  { margin-top: 28px !important; }
 
   /* ── Platform card ── */
   .platform-card__head     { padding: 28px 24px; min-height: auto; }
@@ -298,9 +305,10 @@
   .howto__arrow { margin: 0 auto !important; }
 
   /* ── Vision ── */
-  .vision__item     { padding: 28px 24px; gap: 16px; }
+  .vision__item     { padding: 32px 28px; gap: 20px; }
   .vision__strategy { grid-template-columns: 1fr; gap: 10px; }
-  .vision__header   { margin-bottom: 40px; }
+  .vision__header   { margin-bottom: 48px; }
+  .vision__mobile-tabs { margin-bottom: 24px; }
 
   /* ── Features ── */
   .features__grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
