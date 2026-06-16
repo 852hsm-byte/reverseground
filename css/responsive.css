@@ -279,7 +279,6 @@
   .intro-strip__item span   { font-size: 12px; white-space: nowrap; display: block !important; margin-top: 7px; opacity: 0.55; letter-spacing: 0.01em; }
 
   /* ── About ── */
-  .about__layout    { grid-template-columns: 1fr; gap: var(--space-8); }
   .about__meta--dark { grid-template-columns: 1fr; padding: 36px 24px; gap: 28px; }
   .about__meta--dark .about__info-divider { display: none; }
   .about__trust-card { padding: 20px 18px; }
