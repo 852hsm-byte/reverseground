@@ -168,6 +168,17 @@
   .howto__grid { flex-direction: column; gap: 12px; }
   .howto__arrow { transform: rotate(90deg); margin: 0 auto; }
 
+  /* ── Footer: 4열 → 2열 (브랜드 전체 폭) ── */
+  .footer__top {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+  .footer__brand {
+    grid-column: 1 / -1;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
 }
 
 
@@ -177,7 +188,7 @@
 @media (max-width: 768px) {
 
   /* ── 기본 ── */
-  .container { padding: 0 var(--space-4); }
+  .container { padding: 0 var(--space-3); }
   .section   { padding: 72px 0; }
 
   /* ── 푸터: 브랜드 위 + 링크 3열 가로 ── */
@@ -238,7 +249,6 @@
   .howto-card__icon svg { width: 16px; height: 16px; }
 
   /* ── 타이포그래피 — 하드코딩 클래스 모바일 오버라이드 ── */
-  .intro-strip__item strong  { font-size: 24px; }   /* 48 → 24 */
   .platform-card__name       { font-size: 1.4rem; } /* 2.4rem → 1.4rem */
   .platform-card__stat strong{ font-size: 20px; }   /* 26 → 20 */
   .pricing-card__num         { font-size: 32px; }   /* 42 → 32 */
@@ -265,7 +275,7 @@
   .intro-strip__inner   { display: flex; flex-wrap: nowrap; justify-content: center; gap: 0; }
   .intro-strip__divider { display: block; }
   .intro-strip__item    { flex: 1; text-align: center; padding: 36px 4px; }
-  .intro-strip__item strong { font-size: 22px; letter-spacing: -0.03em; display: block; line-height: 1; }
+  .intro-strip__item strong { font-size: 20px; letter-spacing: -0.03em; display: block; line-height: 1; }
   .intro-strip__item span   { font-size: 12px; white-space: nowrap; display: block !important; margin-top: 7px; opacity: 0.55; letter-spacing: 0.01em; }
 
   /* ── About ── */
@@ -358,11 +368,7 @@
   .pricing-card__saving    { font-size: 12px; margin-top: 6px; }
 
   /* ── 소형 모바일 규칙 통합 (모바일 전체 적용) ── */
-  .container { padding: 0 var(--space-3); }
   .intro-strip__inner { flex-wrap: nowrap; }
-  .intro-strip__item span   { display: none; }
-  .intro-strip__item strong { font-size: 20px; }
-  .intro-strip__item        { padding: 36px 4px; }
   .intro-strip__divider     { display: block; }
   .services__grid { grid-template-columns: 1fr; }
   .features__grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
