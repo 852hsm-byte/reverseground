@@ -59,10 +59,10 @@
   align-items: center;
   gap: 6px;
   padding: 12px 28px;
-  background: #1E1A13;
+  background: var(--dark-800);
   border: 1px solid rgba(190,144,85,0.3);
   border-radius: var(--radius-rounded);
-  font-size: 14px;
+  font-size: var(--font-size-body-sm);
   font-weight: 700;
   color: var(--brand);
   letter-spacing: -0.01em;
@@ -70,7 +70,7 @@
 }
 .about__more-btn:hover {
   background: var(--brand);
-  color: #FFFFFF;
+  color: var(--white);
   border-color: var(--brand);
 }
 
@@ -91,9 +91,9 @@
 }
 
 .about__trust-card {
-  background: #FFFFFF;
-  border: 1.5px solid #E8E4DC;
-  border-radius: 16px;
+  background: var(--white);
+  border: 1.5px solid var(--sand-10);
+  border-radius: var(--radius-3xl);
   padding: 28px 24px;
   display: flex;
   flex-direction: column;
@@ -111,7 +111,7 @@
 .about__trust-card-icon {
   width: 28px;
   height: 28px;
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   background: rgba(190,144,85,0.1);
   border: 1px solid rgba(190,144,85,0.2);
   display: flex;
@@ -150,14 +150,14 @@
 
 /* 다크 카드 변형 */
 .about__meta--dark {
-  background: #1E1A13;
+  background: var(--dark-800);
   border-top: none;
-  border-radius: 20px;
+  border-radius: var(--radius-20);
   padding: 56px 64px;
   margin-top: 64px;
 }
 .about__meta--dark .about__info-title {
-  color: #FFFFFF;
+  color: var(--white);
 }
 .about__meta--dark .about__info-list li {
   color: rgba(255,255,255,0.55);
@@ -172,7 +172,7 @@
   background: linear-gradient(to bottom, var(--brand), rgba(190,144,85,0.15));
 }
 .about__meta--dark .about__timeline-dot {
-  background: #1E1A13;
+  background: var(--dark-800);
   border-color: rgba(190,144,85,0.5);
 }
 .about__meta--dark .about__timeline-item--current .about__timeline-dot {
@@ -191,7 +191,7 @@
 }
 
 .about__info-title {
-  font-size: 20px;
+  font-size: var(--font-size-body-1xl);
   font-weight: 800;
   letter-spacing: -0.03em;
   color: var(--color-text-primary);
@@ -217,13 +217,13 @@
 }
 
 .about__info-label {
-  font-size: 11px;
+  font-size: var(--font-size-11);
   font-weight: 700;
   letter-spacing: 0.06em;
   color: var(--brand);
   background: rgba(190,144,85,0.1);
   border: 1px solid rgba(190,144,85,0.2);
-  border-radius: 4px;
+  border-radius: var(--radius-md);
   padding: 3px 0;
   width: 48px;
   text-align: center;
@@ -271,7 +271,7 @@
   width: 11px;
   height: 11px;
   border-radius: 50%;
-  background: #FFFFFF;
+  background: var(--white);
   border: 2px solid rgba(190,144,85,0.4);
   flex-shrink: 0;
 }

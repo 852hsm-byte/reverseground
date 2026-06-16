@@ -30,7 +30,7 @@
 
   /* ── Intro strip ── */
   .intro-strip__item        { padding: 44px 56px; }
-  .intro-strip__item strong { font-size: 48px; }
+  .intro-strip__item strong { font-size: var(--font-size-heading-3xl); }
 
 }
 
@@ -41,12 +41,12 @@
 @media (min-width: 769px) and (max-width: 1024px) {
 
   /* ── 타이포그래피 — 하드코딩 클래스 반응형 오버라이드 ── */
-  .intro-strip__item strong  { font-size: 36px; }   /* 48 → 36 */
-  .platform-card__name       { font-size: 1.9rem; } /* 2.4rem → 1.9rem */
-  .platform-card__stat strong{ font-size: 22px; }   /* 26 → 22 */
-  .pricing-card__num         { font-size: 34px; }   /* 42 → 34 */
-  .pricing-card__title       { font-size: 20px; }   /* 22 → 20 */
-  .contact__stat-num         { font-size: 28px; }   /* 32 → 28 */
+  .intro-strip__item strong  { font-size: var(--font-size-heading-2xl); }   /* 48 → 36 */
+  .platform-card__name       { font-size: var(--font-size-rem-1-9); } /* 2.4rem → 1.9rem */
+  .platform-card__stat strong{ font-size: var(--font-size-22); }   /* 26 → 22 */
+  .pricing-card__num         { font-size: var(--font-size-34); }   /* 42 → 34 */
+  .pricing-card__title       { font-size: var(--font-size-body-1xl); }   /* 22 → 20 */
+  .contact__stat-num         { font-size: var(--font-size-28); }   /* 32 → 28 */
 
   /* ── 섹션 패딩 — 데스크탑보다 좁게 ── */
   .section { padding: 100px 0; }
@@ -61,7 +61,7 @@
 
   /* ── Intro strip ── */
   .intro-strip__item        { padding: 36px 24px; }
-  .intro-strip__item strong { font-size: 34px; }
+  .intro-strip__item strong { font-size: var(--font-size-34); }
 
   /* ── About trust grid: 4열 → 2열 ── */
   .about__trust-grid { grid-template-columns: repeat(2, 1fr); }
@@ -84,7 +84,7 @@
   .client-card { gap: 18px; }
   .client-card__industry--badge  { display: none; }
   .client-card__industry--inline { display: inline; }
-  .client-card__name { font-size: 14px; line-height: 1.4; }
+  .client-card__name { font-size: var(--font-size-body-sm); line-height: 1.4; }
   .client-card__name .client-card__industry--inline { display: block; margin-top: 3px; }
   .client-card__logo--cta,
   .client-card--empty .client-card__logo {
@@ -103,7 +103,7 @@
     padding: 20px;
     align-items: center;
     justify-content: center;
-    border-radius: 14px;
+    border-radius: var(--radius-14);
   }
   .client-card__logo img              { height: 20px; }
   .client-card__logo img.logo--coupang      { height: 18px; }
@@ -131,7 +131,7 @@
 
   /* ── Vision ── */
   .vision__strategy { grid-template-columns: repeat(3, 1fr); gap: 12px; }
-  .vision__title    { font-size: 2rem; }
+  .vision__title    { font-size: var(--font-size-rem-2); }
 
   /* ── Platform grid ── */
   .platform-card__features { grid-template-columns: 1fr; }
@@ -141,8 +141,8 @@
   /* platform-tabs → pill 스타일 */
   .platform-tabs {
     margin-top: 28px;
-    background: #E8E5E0;
-    border-radius: 12px;
+    background: var(--sand-9);
+    border-radius: var(--radius-2xl);
     padding: 5px;
     gap: 6px;
     border-bottom: none;
@@ -151,27 +151,27 @@
     flex: 1;
     padding: 17px 6px;
     border: none;
-    border-radius: 8px;
+    border-radius: var(--radius-xl);
     background: transparent;
-    font-size: 13px;
+    font-size: var(--font-size-13);
     font-weight: 600;
     color: rgba(0,0,0,0.4);
     margin-bottom: 0;
   }
-  .platform-tab__name { font-size: 13px; font-weight: 600; }
+  .platform-tab__name { font-size: var(--font-size-13); font-weight: 600; }
   .platform-tab__desc { display: none; }
   .platform-tab.active {
-    background: #fff;
-    color: #111;
+    background: var(--white);
+    color: var(--near-black);
     box-shadow: 0 1px 6px rgba(0,0,0,0.1);
     border-top: none;
   }
-  .platform-tab.active .platform-tab__name { color: #111; }
+  .platform-tab.active .platform-tab__name { color: var(--near-black); }
   .platform-tab:not(.active):hover { background: transparent; }
   .platform-panel {
     padding: 36px 32px 48px;
-    border-radius: 14px;
-    border-top: 1.5px solid #E8E4DC;
+    border-radius: var(--radius-14);
+    border-top: 1.5px solid var(--sand-10);
   }
 
   /* ── Howto 그리드: 탭 UI 사용으로 데스크탑 화살표 세로 전환 ── */
@@ -225,8 +225,8 @@
   /* ── Platform Detail 섹션 ── */
   .platform-tabs {
     margin-top: 28px;
-    background: #E8E5E0;
-    border-radius: 12px;
+    background: var(--sand-9);
+    border-radius: var(--radius-2xl);
     padding: 5px;
     gap: 6px;
     border-bottom: none;
@@ -234,25 +234,25 @@
   .platform-tab {
     padding: 13px 4px !important;
     border: none !important;
-    border-radius: 8px !important;
+    border-radius: var(--radius-xl) !important;
     background: transparent !important;
-    font-size: 13px;
+    font-size: var(--font-size-13);
     font-weight: 600;
     color: rgba(0,0,0,0.4);
     margin-bottom: 0 !important;
     box-shadow: none !important;
   }
   .platform-tab.active {
-    background: #fff !important;
-    color: #111 !important;
+    background: var(--white) !important;
+    color: var(--near-black) !important;
     box-shadow: 0 1px 6px rgba(0,0,0,0.1) !important;
     border-top: none !important;
   }
-  .platform-tab__name { font-size: 13px !important; font-weight: 600; white-space: nowrap; }
+  .platform-tab__name { font-size: var(--font-size-13) !important; font-weight: 600; white-space: nowrap; }
   .platform-tab__desc { display: none; }
   .platform-panel { padding: 28px 20px 36px; }
-  .platform-panel__title { font-size: 1.5rem; margin-bottom: 8px; }
-  .platform-panel__desc { font-size: 1.4rem; margin-bottom: 0; }
+  .platform-panel__title { font-size: var(--font-size-rem-1-5); margin-bottom: 8px; }
+  .platform-panel__desc { font-size: var(--font-size-rem-1-4); margin-bottom: 0; }
   .howto__mobile-tabs { margin-top: 28px !important; }
   .procsy-features__main { margin-top: 28px !important; }
   .clients__grid { margin-top: 28px !important; }
@@ -260,17 +260,17 @@
   /* ── Procsy 핵심 기능 ── */
   .procsy-features__main { grid-template-columns: 1fr; }
   .procsy-feature-card { padding: 24px 20px 28px; }
-  .procsy-feature-card__icon { width: 36px; height: 36px; border-radius: 10px; margin-bottom: 12px; }
+  .procsy-feature-card__icon { width: 36px; height: 36px; border-radius: var(--radius-10); margin-bottom: 12px; }
   .procsy-feature-card__icon svg { width: 16px; height: 16px; }
-  .howto-card__icon { width: 36px; height: 36px; border-radius: 10px; margin-bottom: 12px; }
+  .howto-card__icon { width: 36px; height: 36px; border-radius: var(--radius-10); margin-bottom: 12px; }
   .howto-card__icon svg { width: 16px; height: 16px; }
 
   /* ── 타이포그래피 — 하드코딩 클래스 모바일 오버라이드 ── */
-  .platform-card__name       { font-size: 1.4rem; } /* 2.4rem → 1.4rem */
-  .platform-card__stat strong{ font-size: 20px; }   /* 26 → 20 */
-  .pricing-card__num         { font-size: 32px; }   /* 42 → 32 */
-  .pricing-card__title       { font-size: 18px; }   /* 22 → 18 */
-  .contact__stat-num         { font-size: 24px; }   /* 32 → 24 */
+  .platform-card__name       { font-size: var(--font-size-rem-1-4); } /* 2.4rem → 1.4rem */
+  .platform-card__stat strong{ font-size: var(--font-size-body-1xl); }   /* 26 → 20 */
+  .pricing-card__num         { font-size: var(--font-size-display-sm); }   /* 42 → 32 */
+  .pricing-card__title       { font-size: var(--font-size-body-lg); }   /* 22 → 18 */
+  .contact__stat-num         { font-size: var(--font-size-heading-lg); }   /* 32 → 24 */
 
   /* ── 섹션 공통 폰트 — 모바일 기본값 유지 ── */
   .section-desc { font-size: var(--font-size-body-md); }   /* 16px */
@@ -292,8 +292,8 @@
   .intro-strip__inner   { display: flex; flex-wrap: nowrap; justify-content: center; gap: 0; }
   .intro-strip__divider { display: block; }
   .intro-strip__item    { flex: 1; text-align: center; padding: 36px 4px; }
-  .intro-strip__item strong { font-size: 20px; letter-spacing: -0.03em; display: block; line-height: 1; }
-  .intro-strip__item span   { font-size: 12px; white-space: nowrap; display: block !important; margin-top: 7px; opacity: 0.55; letter-spacing: 0.01em; }
+  .intro-strip__item strong { font-size: var(--font-size-body-1xl); letter-spacing: -0.03em; display: block; line-height: 1; }
+  .intro-strip__item span   { font-size: var(--font-size-12); white-space: nowrap; display: block !important; margin-top: 7px; opacity: 0.55; letter-spacing: 0.01em; }
 
   /* ── About ── */
   .about__lead         { margin-bottom: 4px; }
@@ -315,8 +315,8 @@
   /* ── Platform card ── */
   .platform-card__head     { padding: 28px 24px; min-height: auto; }
   .platform-card__stats    { padding: 20px 12px; gap: 0; }
-  .platform-card__stat strong { font-size: 20px; }
-  .platform-card__stat span   { font-size: 11px; }
+  .platform-card__stat strong { font-size: var(--font-size-body-1xl); }
+  .platform-card__stat span   { font-size: var(--font-size-11); }
   .platform-card__features { padding: 28px 28px 32px; gap: 14px; grid-template-columns: 1fr; }
   .platform-card__features--grid { grid-template-columns: 1fr 1fr !important; }
 
@@ -351,7 +351,7 @@
     min-height: 72px;
     align-items: center;
     justify-content: center;
-    border-radius: 12px;
+    border-radius: var(--radius-2xl);
   }
   /* CTA 배너 — 세로 중앙 정렬 (패딩/높이 오버라이드) */
   .client-card--empty .client-card__logo {
@@ -385,15 +385,15 @@
   .pricing-card            { padding: 32px 24px 28px; }
   .pricing-card__head      { min-height: unset; margin-bottom: 20px; }
   .pricing-card__icon      { width: 36px; height: 36px; margin-bottom: 16px; }
-  .pricing-card__title     { font-size: 18px; margin-bottom: 8px; }
-  .pricing-card__desc      { font-size: 13px; line-height: 1.6; }
+  .pricing-card__title     { font-size: var(--font-size-body-lg); margin-bottom: 8px; }
+  .pricing-card__desc      { font-size: var(--font-size-13); line-height: 1.6; }
   .pricing-card__price     { min-height: unset; margin-bottom: 12px; padding-bottom: 12px; }
-  .pricing-card__num       { font-size: 32px; }
-  .pricing-card__currency  { font-size: 15px; }
+  .pricing-card__num       { font-size: var(--font-size-display-sm); }
+  .pricing-card__currency  { font-size: var(--font-size-15); }
   .pricing-card__features  { gap: 10px; margin-bottom: 20px; }
-  .pricing-card__features li { font-size: 13px; }
-  .pricing-card__cta       { padding: 12px 20px; font-size: 13px; }
-  .pricing-card__saving    { font-size: 12px; margin-top: 6px; }
+  .pricing-card__features li { font-size: var(--font-size-13); }
+  .pricing-card__cta       { padding: 12px 20px; font-size: var(--font-size-13); }
+  .pricing-card__saving    { font-size: var(--font-size-12); margin-top: 6px; }
 
   /* ── 소형 모바일 규칙 통합 (모바일 전체 적용) ── */
   .intro-strip__inner { flex-wrap: nowrap; }
@@ -472,7 +472,7 @@
   .pricing-card--featured:active {
     transform: none !important;
     box-shadow: none !important;
-    background: #2C2620 !important;
+    background: var(--dark-700) !important;
     border-color: transparent !important;
   }
 
@@ -481,7 +481,7 @@
   .feature-item:active,
   .procsy-feature-card:hover,
   .procsy-feature-card:active {
-    border-color: #E8E4DC !important;
+    border-color: var(--sand-10) !important;
     box-shadow: none !important;
     transform: none !important;
   }

@@ -3,7 +3,7 @@
    ============================================================ */
 
 .howto {
-  background: #F5F5F7;
+  background: var(--sand-3);
   position: relative;
 }
 
@@ -31,9 +31,9 @@
 /* ── Card ── */
 .howto-card {
   flex: 1;
-  background: #FFFFFF;
-  border-radius: 20px;
-  border: 1.5px solid #E8E4DC;
+  background: var(--white);
+  border-radius: var(--radius-20);
+  border: 1.5px solid var(--sand-10);
   padding: 40px 36px;
   display: flex;
   flex-direction: column;
@@ -52,7 +52,7 @@
 .howto-card__icon {
   width: 52px;
   height: 52px;
-  border-radius: 14px;
+  border-radius: var(--radius-14);
   background: rgba(190,144,85,0.08);
   border: 1px solid rgba(190,144,85,0.2);
   margin-bottom: 28px;
@@ -101,8 +101,8 @@
   .howto__mobile-tabs {
     display: flex;
     gap: 6px;
-    background: #ECEAE6;
-    border-radius: 12px;
+    background: var(--sand-8);
+    border-radius: var(--radius-2xl);
     padding: 5px;
     margin-top: 32px;
     margin-bottom: 0;
@@ -111,9 +111,9 @@
     flex: 1;
     padding: 10px 6px;
     border: none;
-    border-radius: 8px;
+    border-radius: var(--radius-xl);
     background: transparent;
-    font-size: 13px;
+    font-size: var(--font-size-13);
     font-weight: 600;
     color: rgba(0,0,0,0.4);
     cursor: pointer;
@@ -122,15 +122,15 @@
     letter-spacing: -0.01em;
   }
   .howto__mobile-tab.active {
-    background: #fff;
-    color: #111;
+    background: var(--white);
+    color: var(--near-black);
     box-shadow: 0 1px 6px rgba(0,0,0,0.1);
   }
   .howto__tab-arrow {
     display: flex;
     align-items: center;
     color: rgba(190,144,85,0.5);
-    font-size: 16px;
+    font-size: var(--font-size-body-md);
     flex-shrink: 0;
     pointer-events: none;
   }
@@ -157,7 +157,7 @@
     height: 40px;
     border-radius: 50%;
     border: 1.5px solid rgba(190,144,85,0.3);
-    background: #fff;
+    background: var(--white);
     color: var(--brand);
     cursor: pointer;
     flex-shrink: 0;
@@ -181,7 +181,7 @@
   }
   .howto__mobile-dot.active {
     width: 20px;
-    border-radius: 3px;
+    border-radius: var(--radius-3);
     background: var(--brand);
   }
 }

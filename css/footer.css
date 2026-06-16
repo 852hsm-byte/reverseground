@@ -3,7 +3,7 @@
    ============================================================ */
 
 .footer {
-  background: #16130E;
+  background: var(--dark-900);
   padding: 64px 0 40px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   position: relative;
@@ -42,7 +42,7 @@
 /* Brand column */
 .footer__brand {}
 .footer__logo {
-  font-size: 20px;
+  font-size: var(--font-size-body-1xl);
   font-weight: var(--font-weight-bold);
   letter-spacing: -0.02em;
   color: rgba(255, 255, 255, 0.92);
@@ -51,7 +51,7 @@
 }
 .footer__logo span { color: var(--brand); }
 .footer__tagline {
-  font-size: 15px;
+  font-size: var(--font-size-15);
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.35);
   max-width: 240px;
@@ -71,8 +71,8 @@
   padding: 4px 10px;
   background: rgba(190,144,85,0.10);
   border: 1px solid rgba(190,144,85,0.22);
-  border-radius: 999px;
-  font-size: 12px;
+  border-radius: var(--radius-rounded);
+  font-size: var(--font-size-12);
   font-weight: 600;
   color: rgba(190,144,85,0.75);
   letter-spacing: 0.01em;
@@ -111,7 +111,7 @@
   flex-wrap: wrap;
 }
 .footer__bottom p {
-  font-size: 12px;
+  font-size: var(--font-size-12);
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.25);
 }
@@ -122,7 +122,7 @@
   flex-shrink: 0;
 }
 .footer__bottom-links li a {
-  font-size: 13px;
+  font-size: var(--font-size-13);
   color: rgba(255, 255, 255, 0.35);
   transition: color var(--transition);
 }

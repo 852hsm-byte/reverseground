@@ -3,7 +3,7 @@
    ============================================================ */
 
 .platform-detail.section {
-  background: #FFFFFF;
+  background: var(--white);
 }
 
 /* Procsy와 Grove(둘 다 흰 배경) 사이 — 색 대신 구분선으로 분리
@@ -44,27 +44,27 @@
   gap: 6px;
   padding: 28px 0;
   flex: 1;
-  border: 1.5px solid #E8E4DC;
+  border: 1.5px solid var(--sand-10);
   border-bottom: none;
-  background: #F5F5F7;
+  background: var(--sand-3);
   cursor: pointer;
   transition: all 0.22s ease;
   margin-bottom: -1.5px;
 }
 
 .platform-tab:first-child {
-  border-radius: 14px 0 0 0;
+  border-radius: var(--radius-14) 0 0 0;
 }
 
 .platform-tab:last-child {
-  border-radius: 0 14px 0 0;
+  border-radius: 0 var(--radius-14) 0 0;
   border-left: none;
 }
 
 /* ── 패널 상단은 탭이 전체 커버 → 상단 radius 제거 ── */
 
 .platform-tab__name {
-  font-size: 1.4rem;
+  font-size: var(--font-size-rem-1-4);
   font-weight: 800;
   letter-spacing: -0.03em;
   color: var(--color-text-tertiary);
@@ -79,7 +79,7 @@
 }
 
 .platform-tab.active {
-  background: #FFFFFF;
+  background: var(--white);
   border-top: 2px solid var(--brand);
   z-index: 2;
 }
@@ -93,7 +93,7 @@
 }
 
 .platform-tab:not(.active):hover {
-  background: #EFEFEF;
+  background: var(--sand-5);
 }
 
 .platform-tab:not(.active):hover .platform-tab__name {
@@ -103,9 +103,9 @@
 /* ── 패널 (콘텐츠 박스) ── */
 .platform-panel {
   margin-top: 0;
-  border: 1.5px solid #E8E4DC;
-  border-radius: 0 0 14px 14px;
-  background: #FFFFFF;
+  border: 1.5px solid var(--sand-10);
+  border-radius: 0 0 var(--radius-14) var(--radius-14);
+  background: var(--white);
   padding: 64px 72px 80px;
   position: relative;
   z-index: 0;
@@ -118,7 +118,7 @@
 /* 패널 내 서브 레이블 */
 .platform-panel__sub-label {
   display: inline-block;
-  font-size: 11px;
+  font-size: var(--font-size-11);
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -154,9 +154,9 @@
 }
 
 .procsy-feature-card {
-  background: #F9F8F6;
-  border: 1.5px solid #E8E4DC;
-  border-radius: 20px;
+  background: var(--sand-2);
+  border: 1.5px solid var(--sand-10);
+  border-radius: var(--radius-20);
   padding: 40px 36px 44px;
   position: relative;
   overflow: hidden;
@@ -167,7 +167,7 @@
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--brand), #A87038);
+  background: linear-gradient(90deg, var(--brand), var(--brand-hover));
   opacity: 0;
 }
 
@@ -185,7 +185,7 @@
 .procsy-feature-card__icon {
   width: 48px;
   height: 48px;
-  border-radius: 13px;
+  border-radius: var(--radius-13);
   background: rgba(190,144,85,0.08);
   border: 1px solid rgba(190,144,85,0.18);
   display: flex;
@@ -195,7 +195,7 @@
 }
 
 .procsy-feature-card h4 {
-  font-size: 1.1rem;
+  font-size: var(--font-size-rem-1-1);
   font-weight: 800;
   letter-spacing: -0.025em;
   color: var(--color-text-primary);
@@ -222,8 +222,8 @@
   align-items: center;
   gap: 6px;
   padding: 8px 16px;
-  background: #FFFFFF;
-  border: 1.5px solid #E8E4DC;
+  background: var(--white);
+  border: 1.5px solid var(--sand-10);
   border-radius: var(--radius-rounded);
   font-size: var(--font-size-body-sm);
   font-weight: 600;
@@ -234,7 +234,7 @@
 .platform-panel__divider {
   margin: 80px -72px 0;
   height: 1px;
-  background: #E8E4DC;
+  background: var(--sand-10);
 }
 
 /* 구분선 이후 섹션 블록 */
@@ -254,7 +254,7 @@
   padding: 18px 28px;
   background: rgba(190,144,85,0.06);
   border: 1px solid rgba(190,144,85,0.2);
-  border-radius: 12px;
+  border-radius: var(--radius-2xl);
   max-width: 100%;
 }
 .grove-panel-sync svg { flex-shrink: 0; margin-top: 2px; }
@@ -273,10 +273,10 @@
   flex-wrap: wrap;
   margin-top: 40px;
   padding-top: 32px;
-  border-top: 1px dashed #E0DDD8;
+  border-top: 1px dashed var(--sand-11);
 }
 .grove-panel-roadmap__label {
-  font-size: 10px;
+  font-size: var(--font-size-10);
   font-weight: 800;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -292,8 +292,8 @@
   font-size: var(--font-size-body-sm);
   font-weight: 600;
   color: var(--color-text-tertiary);
-  background: #F5F3F0;
-  border: 1px solid #E8E4DC;
+  background: var(--sand-4);
+  border: 1px solid var(--sand-10);
   border-radius: var(--radius-rounded);
   padding: 4px 14px;
 }
@@ -306,9 +306,9 @@
   flex-wrap: wrap;
   margin-top: 32px;
   padding: 18px 28px;
-  background: #FAFAF8;
-  border: 1px solid #E8E4DC;
-  border-radius: 10px;
+  background: var(--sand-1);
+  border: 1px solid var(--sand-10);
+  border-radius: var(--radius-10);
   max-width: 100%;
 }
 .grove-panel-beta svg { flex-shrink: 0; }

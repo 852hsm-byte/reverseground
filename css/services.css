@@ -29,9 +29,9 @@
 }
 
 .platform-card {
-  border-radius: 20px;
+  border-radius: var(--radius-20);
   overflow: hidden;
-  border: 1.5px solid #E8E4DC;
+  border: 1.5px solid var(--sand-10);
   box-shadow: 0 4px 20px rgba(0,0,0,0.06);
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   display: flex;
@@ -51,7 +51,7 @@
   top: 24px;
   left: 36px;
   background: var(--brand);
-  color: #FFFFFF;
+  color: var(--white);
   font-size: var(--font-size-body-sm);
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -66,7 +66,7 @@
   position: absolute;
   top: -10px;
   right: 32px;
-  font-size: 180px;
+  font-size: var(--font-size-deco);
   font-weight: 800;
   letter-spacing: -0.06em;
   line-height: 1;
@@ -94,7 +94,7 @@
   text-align: center;
 }
 .platform-card__stat strong {
-  font-size: 26px;
+  font-size: var(--font-size-26);
   font-weight: 800;
   letter-spacing: -0.04em;
   color: var(--platform-color);
@@ -102,7 +102,7 @@
   white-space: nowrap;
 }
 .platform-card__stat span {
-  font-size: 12px;
+  font-size: var(--font-size-12);
   font-weight: 500;
   color: rgba(255,255,255,0.45);
   letter-spacing: 0.01em;
@@ -138,7 +138,7 @@
 }
 .platform-card__features--grid li {
   white-space: normal;
-  font-size: 13px;
+  font-size: var(--font-size-13);
   align-items: flex-start;
 }
 
@@ -153,10 +153,10 @@
   min-height: 520px;         /* 두 카드 헤더 동일 높이 고정 */
 }
 .platform-card--procsy .platform-card__head {
-  background: #1E1A13;
+  background: var(--dark-800);
 }
 .platform-card--grove .platform-card__head {
-  background: #F5F5F7;
+  background: var(--sand-3);
 }
 
 .platform-card__badge {
@@ -165,7 +165,7 @@
   gap: 6px;
   padding: 5px 16px;
   border-radius: var(--radius-rounded);
-  font-size: 11px;
+  font-size: var(--font-size-11);
   font-weight: 500;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -181,13 +181,13 @@
 }
 
 .platform-card__name {
-  font-size: 2.4rem;
+  font-size: var(--font-size-rem-2-4);
   font-weight: 800;
   letter-spacing: -0.04em;
   line-height: 1;
   margin-bottom: var(--space-4);
 }
-.platform-card--procsy .platform-card__name { color: #FFFFFF; }
+.platform-card--procsy .platform-card__name { color: var(--white); }
 .platform-card--grove  .platform-card__name { color: var(--color-text-primary); }
 
 .platform-card__desc {
@@ -213,7 +213,7 @@
 }
 .platform-card--procsy .platform-card__cta {
   background: var(--platform-color);
-  color: #FFFFFF;
+  color: var(--white);
 }
 @media (hover: hover) and (pointer: fine) {
   .platform-card--procsy .platform-card__cta:hover { background: var(--brand-hover); }
@@ -235,7 +235,7 @@
 .platform-card--grove  .platform-card__cta {
   background: transparent;
   color: var(--color-text-secondary);
-  border: 1.5px solid #D0CCC4;
+  border: 1.5px solid var(--sand-12);
 }
 @media (hover: hover) and (pointer: fine) {
   .platform-card--grove .platform-card__cta:hover {
@@ -246,7 +246,7 @@
 
 /* Grove 보조 카드 */
 .platform-card--secondary .platform-card__head {
-  background: #FAFAF8;
+  background: var(--sand-1);
 }
 .platform-card--secondary {
   opacity: 0.85;
@@ -264,7 +264,7 @@
   padding: 10px 16px;
   background: rgba(190,144,85,0.07);
   border: 1px solid rgba(190,144,85,0.2);
-  border-radius: 10px;
+  border-radius: var(--radius-10);
 }
 .grove-sync span {
   font-size: var(--font-size-body-sm);
@@ -276,11 +276,11 @@
 /* ── 로드맵 ── */
 .grove-roadmap {
   padding: 20px 60px 24px;
-  background: #FAFAF8;
-  border-top: 1.5px dashed #E8E4DC;
+  background: var(--sand-1);
+  border-top: 1.5px dashed var(--sand-10);
 }
 .grove-roadmap__label {
-  font-size: 10px;
+  font-size: var(--font-size-10);
   font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -296,8 +296,8 @@
   font-size: var(--font-size-body-sm);
   font-weight: 600;
   color: var(--color-text-tertiary);
-  background: #FFFFFF;
-  border: 1px solid #E0DDD8;
+  background: var(--white);
+  border: 1px solid var(--sand-11);
   border-radius: var(--radius-rounded);
   padding: 4px 12px;
 }
@@ -309,14 +309,14 @@
   gap: 16px;
   flex-wrap: wrap;
   padding: 16px 60px 28px;
-  background: #FFFFFF;
+  background: var(--white);
 }
 .platform-card__coming span {
   display: inline-block;
   font-size: var(--font-size-body-sm);
   font-weight: 600;
   color: var(--color-text-tertiary);
-  background: #F0EDE8;
+  background: var(--sand-6);
   border-radius: var(--radius-rounded);
   padding: 5px 14px;
 }
@@ -337,7 +337,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 16px;
-  background: #FFFFFF;
+  background: var(--white);
   border-top: none;
 }
 .platform-card__features li {
@@ -355,7 +355,7 @@
   flex-shrink: 0;
   background-color: rgba(190,144,85,0.12);
   border: 1px solid rgba(190,144,85,0.25);
-  border-radius: 4px;
+  border-radius: var(--radius-md);
   background-image: url("data:image/svg+xml,%3Csvg width='10' height='10' viewBox='0 0 10 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.5 5L3.8 7.5L8.5 2.5' stroke='%23BE9055' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: center;
@@ -393,9 +393,9 @@
     flex: 1;
     padding: 18px 8px;
     border: 1.5px solid rgba(0,0,0,0.1);
-    border-radius: 12px;
-    background: #fff;
-    font-size: 13px;
+    border-radius: var(--radius-2xl);
+    background: var(--white);
+    font-size: var(--font-size-13);
     font-weight: 700;
     color: rgba(0,0,0,0.35);
     cursor: pointer;

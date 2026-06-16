@@ -2,7 +2,7 @@
    PRICING — 알뜰한 구독 방법 (플랜 카드)
    ============================================================ */
 
-.pricing.section { background: #F5F5F7; }
+.pricing.section { background: var(--sand-3); }
 
 .pricing__header {
   text-align: center;
@@ -17,7 +17,7 @@
   align-items: center;
   gap: 10px;
   margin-top: 24px;
-  background: #F5F5F7;
+  background: var(--sand-3);
   border-radius: var(--radius-rounded);
   padding: 4px;
 }
@@ -34,7 +34,7 @@
   letter-spacing: -0.01em;
 }
 .pricing__toggle-btn.active {
-  background: #FFFFFF;
+  background: var(--white);
   color: var(--color-text-primary);
   box-shadow: 0 1px 6px rgba(0,0,0,0.10);
 }
@@ -49,7 +49,7 @@
 
 /* ── Card base ── */
 .pricing-card {
-  border-radius: 24px;
+  border-radius: var(--radius-24);
   padding: 48px 44px 52px;
   display: flex;
   flex-direction: column;
@@ -64,14 +64,14 @@
 
 /* 기본 카드 */
 .pricing-card--default {
-  background: #FFFFFF;
+  background: var(--white);
   border: 1.5px solid rgba(0,0,0,0.07);
   box-shadow: 0 2px 12px rgba(0,0,0,0.05);
 }
 
 /* 추천 카드 (묶음) — 다크 */
 .pricing-card--featured {
-  background: #2C2620;
+  background: var(--dark-700);
   border: 1.5px solid transparent;
 }
 
@@ -82,7 +82,7 @@
   left: 50%;
   transform: translateX(-50%);
   background: var(--brand);
-  color: #FFFFFF;
+  color: var(--white);
   font-size: var(--font-size-body-sm);
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -103,7 +103,7 @@
 .pricing-card__icon {
   width: 44px;
   height: 44px;
-  border-radius: 12px;
+  border-radius: var(--radius-2xl);
   background: rgba(190,144,85,0.1);
   border: 1px solid rgba(190,144,85,0.2);
   display: flex;
@@ -127,14 +127,14 @@
   color: var(--brand);
 }
 .pricing-card__title {
-  font-size: 22px;
+  font-size: var(--font-size-22);
   font-weight: 700;
   letter-spacing: -0.03em;
   color: var(--color-text-primary);
   margin-bottom: 12px;
   line-height: 1.35;
 }
-.pricing-card--featured .pricing-card__title { color: #FFFFFF; }
+.pricing-card--featured .pricing-card__title { color: var(--white); }
 
 .pricing-card__desc {
   font-size: var(--font-size-body-md);
@@ -164,21 +164,21 @@
   flex-wrap: wrap;
 }
 .pricing-card__currency {
-  font-size: 18px;
+  font-size: var(--font-size-body-lg);
   font-weight: 600;
   color: var(--color-text-primary);
   letter-spacing: -0.02em;
 }
-.pricing-card--featured .pricing-card__currency { color: #FFFFFF; }
+.pricing-card--featured .pricing-card__currency { color: var(--white); }
 
 .pricing-card__num {
-  font-size: 42px;
+  font-size: var(--font-size-42);
   font-weight: 700;
   letter-spacing: -0.04em;
   color: var(--color-text-primary);
   line-height: 1;
 }
-.pricing-card--featured .pricing-card__num { color: #FFFFFF; }
+.pricing-card--featured .pricing-card__num { color: var(--white); }
 
 .pricing-card__unit {
   font-size: var(--font-size-body-md);
@@ -227,7 +227,7 @@
   content: '✓';
   color: var(--brand);
   font-weight: 700;
-  font-size: 12px;
+  font-size: var(--font-size-12);
   flex-shrink: 0;
   margin-top: 1px;
 }
@@ -238,18 +238,18 @@
   text-align: center;
   padding: 14px 24px;
   border-radius: var(--radius-rounded);
-  font-size: 14px;
+  font-size: var(--font-size-body-sm);
   font-weight: 700;
   letter-spacing: -0.01em;
   transition: all 0.2s ease;
 }
 .pricing-card--default .pricing-card__cta {
   background: var(--color-text-primary);
-  color: #FFFFFF;
+  color: var(--white);
 }
 .pricing-card--featured .pricing-card__cta {
   background: var(--brand);
-  color: #FFFFFF;
+  color: var(--white);
 }
 @media (hover: hover) and (pointer: fine) {
   .pricing-card--default .pricing-card__cta:hover { opacity: 0.8; }
@@ -275,8 +275,8 @@
   .pricing__mobile-tabs {
     display: flex;
     gap: 6px;
-    background: #E8E5E0;
-    border-radius: 12px;
+    background: var(--sand-9);
+    border-radius: var(--radius-2xl);
     padding: 5px;
     margin-bottom: 32px;
   }
@@ -284,9 +284,9 @@
     flex: 1;
     padding: 10px 6px;
     border: none;
-    border-radius: 8px;
+    border-radius: var(--radius-xl);
     background: transparent;
-    font-size: 13px;
+    font-size: var(--font-size-13);
     font-weight: 600;
     color: rgba(0,0,0,0.4);
     cursor: pointer;
@@ -294,8 +294,8 @@
     line-height: 1.3;
   }
   .pricing__mobile-tab.active {
-    background: #fff;
-    color: #111;
+    background: var(--white);
+    color: var(--near-black);
     box-shadow: 0 1px 6px rgba(0,0,0,0.1);
   }
   .pricing__mobile-tab--featured.active {

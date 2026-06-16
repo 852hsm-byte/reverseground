@@ -3,7 +3,7 @@
    ============================================================ */
 
 .vision--dark {
-  background: #16130E;
+  background: var(--dark-900);
   position: relative;
   overflow: hidden;
 }
@@ -44,13 +44,13 @@
   font-weight: 800;
   line-height: 1.2;
   letter-spacing: -0.035em;
-  color: #FFFFFF;
+  color: var(--white);
   margin-bottom: 16px;
 }
 
 .vision__accent {
   font-style: italic;
-  color: #CF9F68;
+  color: var(--orange-300);
 }
 
 .vision__subtitle {
@@ -70,7 +70,7 @@
 .vision__item {
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(190,144,85,0.15);
-  border-radius: 20px;
+  border-radius: var(--radius-20);
   padding: 52px 44px;
   display: flex;
   flex-direction: column;
@@ -95,7 +95,7 @@
 .vision__icon {
   width: 48px;
   height: 48px;
-  border-radius: 13px;
+  border-radius: var(--radius-13);
   background: rgba(190,144,85,0.12);
   border: 1px solid rgba(190,144,85,0.25);
   margin-bottom: 4px;
@@ -109,7 +109,7 @@
   content: '';
   position: absolute;
   background: rgba(190,144,85,0.7);
-  border-radius: 2px;
+  border-radius: var(--radius-sm);
 }
 .vision__icon--1::before {
   width: 18px; height: 3px;
@@ -165,7 +165,7 @@
 .vision__item h3 {
   font-size: clamp(1.2rem, 2vw, 1.5rem);
   font-weight: 800;
-  color: #FFFFFF;
+  color: var(--white);
   letter-spacing: -0.03em;
   margin-top: 2px;
 }
@@ -191,9 +191,9 @@
     flex: 1;
     padding: 12px 8px;
     border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 12px;
+    border-radius: var(--radius-2xl);
     background: rgba(255,255,255,0.04);
-    font-size: 13px;
+    font-size: var(--font-size-13);
     font-weight: 600;
     color: rgba(255,255,255,0.4);
     cursor: pointer;

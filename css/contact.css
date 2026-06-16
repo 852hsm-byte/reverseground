@@ -3,7 +3,7 @@
    ============================================================ */
 
 .contact.contact--dark {
-  background: #16130E;
+  background: var(--dark-900);
   position: relative;
   overflow: hidden;
   padding: 120px 0 80px;
@@ -34,11 +34,11 @@
   display: inline-flex;
   align-items: center;
   padding: 6px 18px;
-  border-radius: 999px;
+  border-radius: var(--radius-rounded);
   background: rgba(190,144,85,0.12);
   border: 1px solid rgba(190,144,85,0.3);
   color: var(--brand);
-  font-size: 11px;
+  font-size: var(--font-size-11);
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -56,7 +56,7 @@
   font-size: clamp(2rem, 3.8vw, 3.4rem);
   font-weight: 800;
   line-height: 1.2;
-  color: #FFFFFF;
+  color: var(--white);
   letter-spacing: -0.03em;
 }
 .contact__title .point {
@@ -77,7 +77,7 @@
   gap: 0;
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 20px;
+  border-radius: var(--radius-20);
   padding: 32px 56px;
   gap: 48px;
 }
@@ -90,14 +90,14 @@
 }
 
 .contact__stat-num {
-  font-size: 32px;
+  font-size: var(--font-size-display-sm);
   font-weight: 800;
   color: var(--brand);
   letter-spacing: -0.02em;
 }
 
 .contact__stat-label {
-  font-size: 13px;
+  font-size: var(--font-size-13);
   color: rgba(255,255,255,0.45);
   white-space: nowrap;
 }
@@ -122,7 +122,7 @@
   gap: 8px;
   padding: 18px 52px;
   background: var(--brand);
-  color: #fff;
+  color: var(--white);
   font-size: var(--font-size-body-md);
   font-weight: 700;
   border-radius: var(--radius-rounded);
@@ -132,13 +132,13 @@
   box-shadow: 0 0 40px rgba(190,144,85,0.35);
 }
 .btn-contact-cta:hover {
-  background: #d4a85a;
+  background: var(--brand-hover-light);
   transform: translateY(-3px);
   box-shadow: 0 0 60px rgba(190,144,85,0.5);
 }
 
 .contact__cta-note {
-  font-size: 13px;
+  font-size: var(--font-size-13);
   color: rgba(255,255,255,0.3);
 }
 
@@ -166,7 +166,7 @@
 .contact__info-item a {
   color: var(--brand);
   font-weight: 600;
-  font-size: 16px;
+  font-size: var(--font-size-body-md);
   letter-spacing: -0.01em;
   text-decoration: underline;
   text-underline-offset: 4px;
@@ -187,7 +187,7 @@
     width: 100%;
   }
   .contact__stat { flex: 1; }
-  .contact__stat-num { font-size: 24px; }
+  .contact__stat-num { font-size: var(--font-size-heading-lg); }
   .contact__stat-divider {
     width: 1px;
     height: 40px;
