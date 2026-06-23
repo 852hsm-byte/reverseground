@@ -361,8 +361,8 @@
 .procsy-step-desc {
   display: none;
   padding: var(--spacing-16) var(--spacing-20);
-  background: rgba(190,144,85,0.08);
-  border: 1px solid rgba(190,144,85,0.2);
+  background: rgba(190,144,85,0.12);
+  border: 1px solid rgba(190,144,85,0.4);
   border-radius: var(--radius-xl);
   animation: stepFadeIn 0.3s ease;
 }
