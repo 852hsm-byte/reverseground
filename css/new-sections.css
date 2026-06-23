@@ -517,9 +517,24 @@
   .procsy-flex__item   { padding: var(--spacing-24) var(--spacing-20) var(--spacing-28); }
   .procsy-flex__icon   { width: 40px; height: 40px; }
 
-  .procsy-process-compare { grid-template-columns: 1fr; gap: var(--spacing-12); margin: var(--spacing-28) 0 var(--spacing-36); }
-  .procsy-process-compare__arrow { transform: rotate(90deg); font-size: var(--font-size-22); }
-  .procsy-process-compare__card { padding: var(--spacing-20) var(--spacing-20) var(--spacing-24); }
+  .procsy-process-compare {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: var(--spacing-12);
+    margin: var(--spacing-28) 0 var(--spacing-36);
+  }
+  .procsy-process-compare__card {
+    grid-row: auto;
+    grid-template-rows: none;
+    display: block;
+    padding: var(--spacing-20) var(--spacing-20) var(--spacing-24);
+  }
+  .procsy-process-compare__arrow {
+    grid-row: auto;
+    justify-content: center;
+    font-size: var(--font-size-22);
+    transform: rotate(90deg);
+  }
 
   .procsy-benefit-grid { grid-template-columns: 1fr; gap: var(--spacing-12); margin: var(--spacing-36) 0 var(--spacing-28); }
   .procsy-benefit-card { padding: var(--spacing-20) var(--spacing-20) var(--spacing-24); }
