@@ -287,10 +287,9 @@
 }
 
 .procsy-process-focus {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: var(--spacing-10);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 
 .procsy-process-focus span {
