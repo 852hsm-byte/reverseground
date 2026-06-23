@@ -258,7 +258,7 @@
   gap: var(--spacing-16);
   padding: var(--spacing-9) 0 var(--spacing-9) var(--spacing-28);
   position: relative;
-  font-size: var(--font-size-body-sm);
+  font-size: var(--font-size-body-md);
   color: var(--color-text-secondary);
   line-height: 1.5;
 }
