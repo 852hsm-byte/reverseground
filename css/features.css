@@ -41,7 +41,7 @@
 
 .feature-item {
   background: var(--white);
-  padding: var(--spacing-48) var(--spacing-44);
+  padding: var(--spacing-32) var(--spacing-36);
   border-radius: var(--radius-20);
   border: 1.5px solid var(--sand-10);
   box-shadow: none;
