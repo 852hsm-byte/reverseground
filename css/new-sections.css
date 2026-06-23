@@ -226,8 +226,8 @@
 }
 
 .procsy-process-compare__card--highlight {
-  background: var(--dark-800);
-  border-color: rgba(190,144,85,0.25);
+  background: rgba(190,144,85,0.06);
+  border-color: rgba(190,144,85,0.35);
 }
 
 .procsy-process-compare__label {
@@ -254,7 +254,7 @@
 }
 
 .procsy-process-compare__card--highlight > strong {
-  color: var(--white);
+  color: var(--color-text-primary);
 }
 
 .procsy-process-compare__card > strong em {
@@ -291,10 +291,10 @@
   align-items: center;
   gap: var(--spacing-10);
   font-size: var(--font-size-body-md);
-  color: rgba(255,255,255,0.85);
+  color: var(--color-text-primary);
   padding: var(--spacing-10) var(--spacing-14);
-  background: rgba(190,144,85,0.08);
-  border: 1px solid rgba(190,144,85,0.18);
+  background: var(--white);
+  border: 1px solid rgba(190,144,85,0.2);
   border-radius: var(--radius-xl);
 }
 
