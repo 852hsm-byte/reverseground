@@ -55,8 +55,9 @@
 
 .vision__subtitle {
   font-size: var(--font-size-body-md);
-  line-height: 1.7;
-  color: rgba(255,255,255,0.45);
+  line-height: 1.8;
+  color: rgba(255,255,255,0.65);
+  word-break: keep-all;
 }
 
 /* ── 카드 그리드 ── */
@@ -71,10 +72,10 @@
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(190,144,85,0.15);
   border-radius: var(--radius-20);
-  padding: var(--spacing-52) var(--spacing-44);
+  padding: var(--spacing-40) var(--spacing-36);
   display: flex;
   flex-direction: column;
-  gap: var(--space-5);
+  gap: var(--space-4);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -88,6 +89,14 @@
   background: linear-gradient(90deg, var(--brand), transparent);
   opacity: 0;
   transition: opacity 0.3s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .vision__item:hover {
+    background: rgba(255,255,255,0.07);
+    border-color: rgba(190,144,85,0.3);
+  }
+  .vision__item:hover::before { opacity: 1; }
 }
 
 
@@ -163,17 +172,18 @@
 }
 
 .vision__item h3 {
-  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
   font-weight: 800;
   color: var(--white);
   letter-spacing: -0.03em;
-  margin-top: var(--spacing-2);
+  margin-top: var(--spacing-4);
 }
 
 .vision__item p {
   font-size: var(--font-size-body-md);
-  line-height: 1.75;
-  color: rgba(255,255,255,0.55);
+  line-height: 1.78;
+  color: rgba(255,255,255,0.68);
+  word-break: keep-all;
 }
 
 /* vision__strategy 1열 전환 → responsive.css tablet/mobile 구역에서 관리 */
