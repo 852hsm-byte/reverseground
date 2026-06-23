@@ -52,12 +52,12 @@ a { text-decoration: none; color: inherit; }
 }
 
 .section-title {
-  font-size: clamp(2rem, 3.8vw, 3.4rem);
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
   font-weight: 800;
-  line-height: 1.15;
-  letter-spacing: -0.03em;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
   color: var(--text-default);
-  margin-bottom: var(--spacing-16);
+  margin-bottom: var(--spacing-20);
 }
 .section-title--light { color: var(--white); }
 .section-title .point,
@@ -69,12 +69,13 @@ em.point,
 }
 
 .section-desc {
-  font-size: var(--font-size-body-md);  /* 기본(모바일): 16px — 데스크탑 override → responsive.css */
-  line-height: 1.75;
+  font-size: var(--font-size-body-md);
+  line-height: 1.8;
   color: var(--color-text-secondary);
-  max-width: 580px;
-  margin-top: var(--spacing-12);
+  max-width: 600px;
+  margin-top: var(--spacing-16);
   word-break: keep-all;
+  word-spacing: 0.01em;
 }
 
 /* ── Buttons ── */

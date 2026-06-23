@@ -13,7 +13,7 @@
 @media (min-width: 1025px) {
 
   /* ── 섹션 공통 폰트 — 데스크탑에서만 키움 ── */
-  .section-desc { font-size: var(--font-size-body-lg); }   /* 16px → 18px */
+  .section-desc { font-size: var(--font-size-body-lg); line-height: 1.8; }   /* 16px → 18px */
 
   /* ── 섹션 패딩 ── */
   .section { padding: var(--section-py) 0; }               /* 160px (토큰 기본값) */
@@ -311,6 +311,11 @@
   #grove-detail .grove-panel-sync  { margin-top: var(--spacing-28) !important; }
   #grove-detail .features__grid    { margin-top: var(--spacing-28) !important; }
   #grove-detail .grove-panel-beta  { margin-top: var(--spacing-28) !important; }
+
+  /* ── Grove 기능 카드 모바일 ── */
+  .grove-features__grid { grid-template-columns: 1fr; gap: var(--spacing-12); }
+  .grove-feature-item { padding: var(--spacing-20) var(--spacing-20); gap: var(--spacing-14); }
+  .grove-feature-item__icon { width: 36px; height: 36px; }
 
   /* ── Platform card ── */
   .platform-card__head     { padding: var(--spacing-28) var(--spacing-24); min-height: auto; }

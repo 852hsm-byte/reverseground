@@ -132,18 +132,20 @@
 }
 
 .platform-panel__title {
-  font-size: clamp(1.8rem, 3.2vw, 2.8rem);
+  font-size: clamp(1.9rem, 3.4vw, 3rem);
   font-weight: 800;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.035em;
   color: var(--color-text-primary);
-  line-height: 1.2;
-  margin-bottom: var(--spacing-16);
+  line-height: 1.15;
+  margin-bottom: var(--spacing-12);
 }
 
 .platform-panel__desc {
   font-size: var(--font-size-body-md);
-  line-height: 1.75;
+  line-height: 1.8;
   color: var(--color-text-secondary);
+  max-width: 560px;
+  word-break: keep-all;
 }
 
 /* ── Procsy 핵심 기능 ── */
