@@ -1,40 +1,44 @@
 /* ============================================================
-   NEW SECTIONS — 페인포인트 / 유연한 시스템
+   NEW SECTIONS — Procsy 내부 페인포인트 / 유연한 시스템 블록
+   (독립 섹션이 아닌 platform-detail 안의 콘텐츠 블록)
    ============================================================ */
 
-/* ── Pain Points ── */
-.pain-points {
-  background: var(--dark-900);
+/* ── Pain Points 블록 (Procsy 섹션 내부) ── */
+.procsy-pain {
+  margin: var(--spacing-60) 0;
 }
 
-.pain-points .section-title--light {
-  color: var(--white);
+.procsy-pain__desc {
+  font-size: var(--font-size-body-md);
+  color: var(--color-text-secondary);
+  margin-top: var(--spacing-8);
+  line-height: 1.7;
 }
 
-.pain-points__layout {
+.procsy-pain__layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-28);
-  margin-top: var(--spacing-60);
+  gap: var(--spacing-20);
+  margin-top: var(--spacing-40);
   align-items: start;
 }
 
-.pain-points__col {
+.procsy-pain__col {
   border-radius: var(--radius-20);
   padding: var(--spacing-36) var(--spacing-40);
 }
 
-.pain-points__before {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
+.procsy-pain__before {
+  background: var(--sand-3);
+  border: 1.5px solid var(--sand-10);
 }
 
-.pain-points__after {
-  background: rgba(190,144,85,0.07);
-  border: 1px solid rgba(190,144,85,0.2);
+.procsy-pain__after {
+  background: var(--dark-800);
+  border: 1.5px solid transparent;
 }
 
-.pain-points__col-label {
+.procsy-pain__col-label {
   font-size: var(--font-size-11);
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -45,15 +49,15 @@
   gap: var(--spacing-8);
 }
 
-.pain-points__before .pain-points__col-label {
-  color: rgba(255,255,255,0.35);
+.procsy-pain__before .procsy-pain__col-label {
+  color: var(--color-text-tertiary);
 }
 
-.pain-points__after .pain-points__col-label {
+.procsy-pain__after .procsy-pain__col-label {
   color: var(--brand);
 }
 
-.pain-points__col-label span {
+.procsy-pain__col-label span {
   width: 18px;
   height: 18px;
   border-radius: 50%;
@@ -65,48 +69,48 @@
   flex-shrink: 0;
 }
 
-.pain-points__before .pain-points__col-label span {
-  background: rgba(255,80,80,0.15);
-  color: rgba(255,100,100,0.7);
+.procsy-pain__before .procsy-pain__col-label span {
+  background: rgba(200,60,60,0.1);
+  color: rgba(200,60,60,0.7);
 }
 
-.pain-points__after .pain-points__col-label span {
+.procsy-pain__after .procsy-pain__col-label span {
   background: rgba(190,144,85,0.15);
   color: var(--brand);
 }
 
-.pain-points__list {
+.procsy-pain__list {
   list-style: none;
   display: flex;
   flex-direction: column;
   gap: var(--spacing-14);
 }
 
-.pain-points__list li {
+.procsy-pain__list li {
   font-size: var(--font-size-body-md);
   line-height: 1.65;
   padding-left: var(--spacing-22);
   position: relative;
 }
 
-.pain-points__before .pain-points__list li {
-  color: rgba(255,255,255,0.5);
+.procsy-pain__before .procsy-pain__list li {
+  color: var(--color-text-secondary);
 }
 
-.pain-points__before .pain-points__list li::before {
+.procsy-pain__before .procsy-pain__list li::before {
   content: '✕';
   position: absolute;
   left: 0;
   font-size: var(--font-size-11);
-  color: rgba(255,100,100,0.55);
+  color: rgba(200,60,60,0.55);
   top: var(--spacing-2);
 }
 
-.pain-points__after .pain-points__list li {
-  color: rgba(255,255,255,0.82);
+.procsy-pain__after .procsy-pain__list li {
+  color: rgba(255,255,255,0.8);
 }
 
-.pain-points__after .pain-points__list li::before {
+.procsy-pain__after .procsy-pain__list li::before {
   content: '✓';
   position: absolute;
   left: 0;
@@ -116,28 +120,48 @@
   top: var(--spacing-1);
 }
 
-/* ── Flexible System ── */
-.flex-system {
-  background: var(--sand-3);
+/* ── Flexible System 블록 (Procsy 섹션 내부) ── */
+.procsy-flex {
+  margin-top: var(--spacing-80);
+  padding-top: var(--spacing-64);
+  border-top: 1px solid var(--sand-9);
 }
 
-.flex-system__grid {
+.procsy-flex__header {
+  margin-bottom: var(--spacing-44);
+}
+
+.procsy-flex__title {
+  font-size: clamp(1.4rem, 2.4vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--color-text-primary);
+  line-height: 1.25;
+  margin-bottom: var(--spacing-12);
+}
+
+.procsy-flex__desc {
+  font-size: var(--font-size-body-md);
+  color: var(--color-text-secondary);
+  line-height: 1.75;
+}
+
+.procsy-flex__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: var(--spacing-20);
-  margin-top: var(--spacing-60);
+  gap: var(--spacing-16);
 }
 
-.flex-system__item {
-  background: var(--white);
+.procsy-flex__item {
+  background: var(--sand-2);
   border: 1.5px solid var(--sand-10);
   border-radius: var(--radius-20);
-  padding: var(--spacing-40) var(--spacing-36) var(--spacing-44);
+  padding: var(--spacing-36) var(--spacing-32) var(--spacing-40);
   position: relative;
   overflow: hidden;
 }
 
-.flex-system__item::after {
+.procsy-flex__item::after {
   content: '';
   position: absolute;
   bottom: 0; left: 0; right: 0;
@@ -148,24 +172,24 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .flex-system__item:hover::after { opacity: 1; }
-  .flex-system__item { transition: box-shadow 0.25s ease, transform 0.25s ease; }
-  .flex-system__item:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(190,144,85,0.1); }
+  .procsy-flex__item { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+  .procsy-flex__item:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(190,144,85,0.1); }
+  .procsy-flex__item:hover::after { opacity: 1; }
 }
 
-.flex-system__icon {
-  width: 48px;
-  height: 48px;
+.procsy-flex__icon {
+  width: 44px;
+  height: 44px;
   border-radius: var(--radius-13);
   background: rgba(190,144,85,0.08);
   border: 1px solid rgba(190,144,85,0.18);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: var(--spacing-24);
+  margin-bottom: var(--spacing-20);
 }
 
-.flex-system__item h3 {
+.procsy-flex__item h3 {
   font-size: var(--font-size-rem-1-1);
   font-weight: 700;
   color: var(--color-text-primary);
@@ -174,7 +198,7 @@
   line-height: 1.35;
 }
 
-.flex-system__item p {
+.procsy-flex__item p {
   font-size: var(--font-size-body-md);
   color: var(--color-text-secondary);
   line-height: 1.75;
@@ -182,29 +206,19 @@
 
 /* ── 반응형 ── */
 @media (max-width: 1024px) {
-  .pain-points__layout {
-    gap: var(--spacing-16);
-    margin-top: var(--spacing-48);
-  }
-  .pain-points__col { padding: var(--spacing-28) var(--spacing-28); }
-
-  .flex-system__grid { gap: var(--spacing-16); }
-  .flex-system__item { padding: var(--spacing-32) var(--spacing-28) var(--spacing-36); }
+  .procsy-pain__layout { gap: var(--spacing-14); }
+  .procsy-pain__col    { padding: var(--spacing-28); }
+  .procsy-flex__grid   { gap: var(--spacing-14); }
+  .procsy-flex__item   { padding: var(--spacing-28) var(--spacing-24) var(--spacing-32); }
 }
 
 @media (max-width: 768px) {
-  .pain-points__layout {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-14);
-    margin-top: var(--spacing-36);
-  }
-  .pain-points__col { padding: var(--spacing-24) var(--spacing-20); }
+  .procsy-pain         { margin: var(--spacing-44) 0; }
+  .procsy-pain__layout { grid-template-columns: 1fr; gap: var(--spacing-12); margin-top: var(--spacing-28); }
+  .procsy-pain__col    { padding: var(--spacing-24) var(--spacing-20); }
 
-  .flex-system__grid {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-14);
-    margin-top: var(--spacing-36);
-  }
-  .flex-system__item { padding: var(--spacing-28) var(--spacing-24) var(--spacing-32); }
-  .flex-system__icon { width: 40px; height: 40px; margin-bottom: var(--spacing-20); }
+  .procsy-flex         { margin-top: var(--spacing-52); padding-top: var(--spacing-44); }
+  .procsy-flex__grid   { grid-template-columns: 1fr; gap: var(--spacing-12); }
+  .procsy-flex__item   { padding: var(--spacing-24) var(--spacing-20) var(--spacing-28); }
+  .procsy-flex__icon   { width: 40px; height: 40px; }
 }
