@@ -96,7 +96,7 @@
 .platform-card__stat strong {
   font-size: var(--font-size-26);
   font-weight: 800;
-  letter-spacing: -0.04em;
+  letter-spacing: 0;
   color: var(--platform-color);
   line-height: 1;
   white-space: nowrap;
@@ -183,7 +183,7 @@
 .platform-card__name {
   font-size: var(--font-size-rem-2-4);
   font-weight: 800;
-  letter-spacing: -0.04em;
+  letter-spacing: 0;
   line-height: 1;
   margin-bottom: var(--space-4);
 }

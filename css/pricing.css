@@ -139,7 +139,7 @@
 .pricing-card__title {
   font-size: var(--font-size-22);
   font-weight: 700;
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
   color: var(--color-text-primary);
   margin-bottom: var(--spacing-12);
   line-height: 1.35;
@@ -176,14 +176,14 @@
   font-size: var(--font-size-body-lg);
   font-weight: 600;
   color: var(--color-text-primary);
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
 }
 .pricing-card--featured .pricing-card__currency { color: var(--white); }
 
 .pricing-card__num {
   font-size: var(--font-size-42);
   font-weight: 700;
-  letter-spacing: -0.04em;
+  letter-spacing: 0;
   color: var(--color-text-primary);
   line-height: 1;
 }

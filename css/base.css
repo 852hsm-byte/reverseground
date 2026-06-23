@@ -55,7 +55,7 @@ a { text-decoration: none; color: inherit; }
   font-size: clamp(2.2rem, 4vw, 3.6rem);
   font-weight: 800;
   line-height: 1.12;
-  letter-spacing: -0.035em;
+  letter-spacing: 0;
   color: var(--text-default);
   margin-bottom: var(--spacing-20);
 }

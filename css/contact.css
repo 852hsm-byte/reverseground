@@ -53,11 +53,11 @@
 }
 
 .contact__title {
-  font-size: clamp(2rem, 3.8vw, 3.4rem);
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
   font-weight: 800;
   line-height: 1.25;
   color: var(--white);
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
 }
 .contact__title .point {
   color: var(--brand);
@@ -94,7 +94,7 @@
   font-size: var(--font-size-display-sm);
   font-weight: 800;
   color: var(--brand);
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
 }
 
 .contact__stat-label {

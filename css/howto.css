@@ -81,7 +81,7 @@
 .howto-card__title {
   font-size: var(--font-size-heading-md);
   font-weight: var(--font-weight-bold);
-  letter-spacing: -0.025em;
+  letter-spacing: 0;
   color: var(--color-text-primary);
   margin-top: var(--spacing-8);
   margin-bottom: var(--spacing-16);

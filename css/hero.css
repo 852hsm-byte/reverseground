@@ -99,7 +99,7 @@
   font-weight: 800;
   line-height: 1.08;
   color: var(--white);
-  letter-spacing: -0.04em;
+  letter-spacing: 0;
   margin-bottom: var(--space-5);
   word-break: keep-all;
 }
@@ -230,7 +230,7 @@
   font-size: clamp(1.8rem, 2.8vw, 2.6rem);
   font-weight: 800;
   color: var(--orange-300);
-  letter-spacing: -0.04em;
+  letter-spacing: 0;
   line-height: 1;
   white-space: nowrap;
 }

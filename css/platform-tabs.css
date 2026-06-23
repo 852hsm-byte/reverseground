@@ -66,7 +66,7 @@
 .platform-tab__name {
   font-size: var(--font-size-rem-1-4);
   font-weight: 800;
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
   color: var(--color-text-tertiary);
   transition: color 0.22s ease;
 }
@@ -134,7 +134,7 @@
 .platform-panel__title {
   font-size: clamp(1.9rem, 3.4vw, 3rem);
   font-weight: 800;
-  letter-spacing: -0.035em;
+  letter-spacing: 0;
   color: var(--color-text-primary);
   line-height: 1.15;
   margin-bottom: var(--spacing-12);
@@ -200,7 +200,7 @@
 .procsy-feature-card h4 {
   font-size: var(--font-size-rem-1-1);
   font-weight: 800;
-  letter-spacing: -0.025em;
+  letter-spacing: 0;
   color: var(--color-text-primary);
   margin-bottom: var(--spacing-12);
   line-height: 1.3;

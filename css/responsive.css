@@ -47,6 +47,7 @@
   .pricing-card__num         { font-size: var(--font-size-34); }   /* 42 → 34 */
   .pricing-card__title       { font-size: var(--font-size-body-1xl); }   /* 22 → 20 */
   .contact__stat-num         { font-size: var(--font-size-28); }   /* 32 → 28 */
+  .platform-panel__title     { font-size: var(--font-size-rem-2); }   /* clamp(1.9,3.4vw,3rem) → 2rem=32px */
 
   /* ── 섹션 패딩 — 데스크탑보다 좁게 ── */
   .section { padding: var(--spacing-100) 0; }
@@ -131,7 +132,7 @@
 
   /* ── Vision ── */
   .vision__strategy { grid-template-columns: repeat(3, 1fr); gap: var(--spacing-12); }
-  .vision__title    { font-size: var(--font-size-rem-2); }
+  .vision__title    { font-size: var(--font-size-rem-2); }   /* clamp 최솟값 대응 */
 
   /* ── Platform grid ── */
   .platform-card__features { grid-template-columns: 1fr; }
@@ -252,7 +253,7 @@
   .platform-tab__desc { display: none; }
   .platform-panel { padding: var(--spacing-28) var(--spacing-20) var(--spacing-36); }
   .platform-panel__title { font-size: var(--font-size-rem-1-5); margin-bottom: var(--spacing-8); }
-  .platform-panel__desc { font-size: var(--font-size-rem-1-4); margin-bottom: 0; }
+  .platform-panel__desc { font-size: var(--font-size-body-md); margin-bottom: 0; }
   .howto__mobile-tabs { margin-top: var(--spacing-28) !important; }
   .procsy-features__main { margin-top: var(--spacing-28) !important; }
   .clients__grid { margin-top: var(--spacing-28) !important; }
@@ -292,7 +293,7 @@
   .intro-strip__inner   { display: flex; flex-wrap: nowrap; justify-content: center; gap: 0; }
   .intro-strip__divider { display: block; }
   .intro-strip__item    { flex: 1; text-align: center; padding: var(--spacing-44) var(--spacing-4); }
-  .intro-strip__item strong { font-size: var(--font-size-22); letter-spacing: -0.03em; display: block; line-height: 1; }
+  .intro-strip__item strong { font-size: var(--font-size-22); letter-spacing: 0; display: block; line-height: 1; }
   .intro-strip__item span   { font-size: var(--font-size-13); white-space: nowrap; display: block !important; margin-top: var(--spacing-9); opacity: 0.55; letter-spacing: 0.01em; }
 
   /* ── About ── */

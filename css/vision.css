@@ -40,10 +40,10 @@
 }
 
 .vision__title {
-  font-size: clamp(2rem, 3.8vw, 3.4rem);
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
   font-weight: 800;
   line-height: 1.2;
-  letter-spacing: -0.035em;
+  letter-spacing: 0;
   color: var(--white);
   margin-bottom: var(--spacing-16);
 }
@@ -175,7 +175,7 @@
   font-size: clamp(1.25rem, 2vw, 1.6rem);
   font-weight: 800;
   color: var(--white);
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
   margin-top: var(--spacing-4);
 }
 
