@@ -44,7 +44,7 @@
 .footer__logo {
   font-size: var(--font-size-body-1xl);
   font-weight: var(--font-weight-bold);
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
   color: rgba(255, 255, 255, 0.92);
   display: block;
   margin-bottom: var(--spacing-14);

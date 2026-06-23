@@ -129,7 +129,7 @@
   border-radius: var(--radius-rounded);
   border: none;
   transition: all 0.25s ease;
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
   box-shadow: 0 0 40px rgba(190,144,85,0.35);
 }
 @media (hover: hover) and (pointer: fine) {
@@ -170,7 +170,7 @@
   color: var(--brand);
   font-weight: 600;
   font-size: var(--font-size-body-md);
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
   text-decoration: underline;
   text-underline-offset: 4px;
   text-decoration-color: rgba(190,144,85,0.4);

@@ -333,7 +333,7 @@
   font-size: var(--font-size-body-md);
   font-weight: 600;
   color: rgba(255,255,255,0.45);
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
   background: none;
   border: none;
   padding: 0;

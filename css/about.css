@@ -65,7 +65,7 @@
   font-size: var(--font-size-body-sm);
   font-weight: 700;
   color: var(--brand);
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
   transition: all 0.2s ease;
 }
 @media (hover: hover) and (pointer: fine) {

@@ -33,7 +33,7 @@
 .platform-tab__name {
   font-size: var(--font-size-rem-1);
   font-weight: 600;
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
   color: var(--color-text-tertiary);
 }
 .platform-tab__desc { display: none; }

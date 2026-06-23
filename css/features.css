@@ -260,7 +260,7 @@
   color: var(--text-default);
   text-align: center;
   line-height: 1.4;
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
 }
 
 /* 빈 카드 — 그리드 밖 풀 와이드 배너 */
