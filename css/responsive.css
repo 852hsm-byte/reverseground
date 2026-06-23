@@ -270,7 +270,7 @@
   .platform-card__name       { font-size: var(--font-size-rem-1-4); } /* 2.4rem → 1.4rem */
   .platform-card__stat strong{ font-size: var(--font-size-body-1xl); }   /* 26 → 20 */
   .pricing-card__num         { font-size: var(--font-size-display-sm); }   /* 42 → 32 */
-  .pricing-card__title       { font-size: var(--font-size-body-lg); }   /* 22 → 18 */
+  .pricing-card__title       { font-size: var(--font-size-22); }   /* 고정 22px — body-lg가 모바일에서 16px로 축소되는 문제 방지 */
   .contact__stat-num         { font-size: var(--font-size-heading-lg); }   /* 32 → 24 */
 
   /* ── 섹션 공통 폰트 — 모바일 기본값 유지 ── */
