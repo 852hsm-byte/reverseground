@@ -370,22 +370,24 @@
             <strong>4단계 통합 구매</strong>
             <div class="procsy-process-focus" aria-label="Procsy 통합 구매 프로세스 4단계">
               <div class="procsy-step-tabs">
-                <button class="procsy-step-tab active" data-step="0"><b>01</b> 구매 신청</button>
-                <button class="procsy-step-tab" data-step="1"><b>02</b> 결재 승인</button>
-                <button class="procsy-step-tab" data-step="2"><b>03</b> 자동 발주</button>
-                <button class="procsy-step-tab" data-step="3"><b>04</b> 통합 정산</button>
+                <button class="procsy-step-tab active" data-step="0"><b>01</b><span>구매 신청</span></button>
+                <button class="procsy-step-tab" data-step="1"><b>02</b><span>결재 승인</span></button>
+                <button class="procsy-step-tab" data-step="2"><b>03</b><span>자동 발주</span></button>
+                <button class="procsy-step-tab" data-step="3"><b>04</b><span>통합 정산</span></button>
               </div>
-              <div class="procsy-step-desc active" data-step="0">
-                <p>Procsy에서 상품을 선택하고 부서 예산 안에서 구매 요청을 시작합니다.</p>
-              </div>
-              <div class="procsy-step-desc" data-step="1">
-                <p>다단계 결재 라인과 실시간 알림으로 의사결정 속도를 높입니다.</p>
-              </div>
-              <div class="procsy-step-desc" data-step="2">
-                <p>최종 승인 후 발주가 이어져 견적 검토, 업체 확정, 수기 주문 부담을 줄입니다.</p>
-              </div>
-              <div class="procsy-step-desc" data-step="3">
-                <p>월 1회 통합 청구서로 명세서 확인, 계산서 발행, 대금 지급을 처리합니다.</p>
+              <div class="procsy-step-body">
+                <div class="procsy-step-desc active" data-step="0">
+                  <p>Procsy에서 상품을 선택하고 부서 예산 안에서 구매 요청을 시작합니다.</p>
+                </div>
+                <div class="procsy-step-desc" data-step="1">
+                  <p>다단계 결재 라인과 실시간 알림으로 의사결정 속도를 높입니다.</p>
+                </div>
+                <div class="procsy-step-desc" data-step="2">
+                  <p>최종 승인 후 발주가 이어져 견적 검토, 업체 확정, 수기 주문 부담을 줄입니다.</p>
+                </div>
+                <div class="procsy-step-desc" data-step="3">
+                  <p>월 1회 통합 청구서로 명세서 확인, 계산서 발행, 대금 지급을 처리합니다.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -943,17 +945,39 @@
     })();
   </script>
   <script>
-    // 프로세스 비교 스텝 탭
-    document.querySelectorAll('.procsy-step-tab').forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        var focus = btn.closest('.procsy-process-focus');
-        var step = btn.dataset.step;
-        focus.querySelectorAll('.procsy-step-tab').forEach(function(b) { b.classList.remove('active'); });
-        focus.querySelectorAll('.procsy-step-desc').forEach(function(d) { d.classList.remove('active'); });
-        btn.classList.add('active');
-        focus.querySelector('.procsy-step-desc[data-step="' + step + '"]').classList.add('active');
+    // 프로세스 비교 스텝 탭 + 자동 슬라이드
+    (function() {
+      var focus = document.querySelector('.procsy-process-focus');
+      if (!focus) return;
+      var tabs = focus.querySelectorAll('.procsy-step-tab');
+      var descs = focus.querySelectorAll('.procsy-step-desc');
+      var current = 0;
+      var timer;
+
+      function goTo(idx) {
+        current = idx;
+        tabs.forEach(function(t) { t.classList.remove('active'); });
+        descs.forEach(function(d) { d.classList.remove('active'); });
+        tabs[idx].classList.add('active');
+        descs[idx].classList.add('active');
+      }
+
+      function startAuto() {
+        timer = setInterval(function() {
+          goTo((current + 1) % tabs.length);
+        }, 3000);
+      }
+
+      tabs.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          clearInterval(timer);
+          goTo(parseInt(btn.dataset.step));
+          startAuto();
+        });
       });
-    });
+
+      startAuto();
+    })();
   </script>
 </body>
 </html>
