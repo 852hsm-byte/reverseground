@@ -52,7 +52,7 @@
 /* ── Card base ── */
 .pricing-card {
   border-radius: var(--radius-24);
-  padding: var(--spacing-48) var(--spacing-44) var(--spacing-52);
+  padding: var(--spacing-40) var(--spacing-40) var(--spacing-44);
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -97,7 +97,6 @@
 /* ── 카드 헤더 ── */
 .pricing-card__head {
   margin-bottom: var(--spacing-28);
-  min-height: 220px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -152,14 +151,13 @@
   line-height: 1.75;
   color: var(--color-text-secondary);
 }
-.pricing-card--featured .pricing-card__desc { color: rgba(255,255,255,0.55); }
+.pricing-card--featured .pricing-card__desc { color: rgba(255,255,255,0.68); }
 
 /* ── 가격 ── */
 .pricing-card__price {
   margin-bottom: var(--spacing-16);
   padding-bottom: var(--spacing-16);
   border-bottom: 1px solid rgba(0,0,0,0.08);
-  min-height: 157px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -196,14 +194,14 @@
   color: var(--color-text-tertiary);
   margin-left: var(--spacing-2);
 }
-.pricing-card--featured .pricing-card__unit { color: rgba(255,255,255,0.4); }
+.pricing-card--featured .pricing-card__unit { color: rgba(255,255,255,0.55); }
 
 .pricing-card__billing {
   font-size: var(--font-size-body-sm);
   color: var(--color-text-tertiary);
   margin-top: var(--spacing-4);
 }
-.pricing-card--featured .pricing-card__billing { color: rgba(255,255,255,0.35); }
+.pricing-card--featured .pricing-card__billing { color: rgba(255,255,255,0.55); }
 
 .pricing-card__saving {
   display: inline-block;
@@ -252,7 +250,7 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-16);
+  gap: var(--spacing-12);
   margin-bottom: var(--spacing-36);
   flex: 1;
 }
@@ -261,8 +259,9 @@
   align-items: flex-start;
   gap: var(--spacing-10);
   font-size: var(--font-size-body-md);
-  line-height: 1.6;
+  line-height: 1.72;
   color: var(--color-text-secondary);
+  word-break: keep-all;
 }
 .pricing-card--featured .pricing-card__features li { color: rgba(255,255,255,0.7); }
 .pricing-card__features li::before {

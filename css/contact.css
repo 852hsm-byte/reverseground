@@ -55,7 +55,7 @@
 .contact__title {
   font-size: clamp(2rem, 3.8vw, 3.4rem);
   font-weight: 800;
-  line-height: 1.2;
+  line-height: 1.25;
   color: var(--white);
   letter-spacing: -0.03em;
 }
@@ -67,7 +67,8 @@
 .contact__desc {
   font-size: var(--font-size-body-md);
   line-height: 1.8;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.65);
+  word-break: keep-all;
 }
 
 /* 스탯 */
@@ -98,7 +99,7 @@
 
 .contact__stat-label {
   font-size: var(--font-size-13);
-  color: rgba(255,255,255,0.45);
+  color: rgba(255,255,255,0.60);
   white-space: nowrap;
 }
 
@@ -131,15 +132,17 @@
   letter-spacing: -0.01em;
   box-shadow: 0 0 40px rgba(190,144,85,0.35);
 }
-.btn-contact-cta:hover {
-  background: var(--brand-hover-light);
-  transform: translateY(-3px);
-  box-shadow: 0 0 60px rgba(190,144,85,0.5);
+@media (hover: hover) and (pointer: fine) {
+  .btn-contact-cta:hover {
+    background: var(--brand-hover-light);
+    transform: translateY(-3px);
+    box-shadow: 0 0 60px rgba(190,144,85,0.5);
+  }
 }
 
 .contact__cta-note {
   font-size: var(--font-size-13);
-  color: rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.50);
 }
 
 /* 회사 정보 바 */
@@ -159,7 +162,7 @@
 }
 
 .contact__info-item span {
-  color: rgba(255,255,255,0.4);
+  color: rgba(255,255,255,0.55);
   white-space: nowrap;
 }
 
@@ -173,8 +176,10 @@
   text-decoration-color: rgba(190,144,85,0.4);
   transition: text-decoration-color 0.2s;
 }
-.contact__info-item a:hover {
-  text-decoration-color: var(--brand);
+@media (hover: hover) and (pointer: fine) {
+  .contact__info-item a:hover {
+    text-decoration-color: var(--brand);
+  }
 }
 
 /* 반응형 */

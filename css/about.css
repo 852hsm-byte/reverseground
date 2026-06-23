@@ -68,10 +68,12 @@
   letter-spacing: -0.01em;
   transition: all 0.2s ease;
 }
-.about__more-btn:hover {
-  background: var(--brand);
-  color: var(--white);
-  border-color: var(--brand);
+@media (hover: hover) and (pointer: fine) {
+  .about__more-btn:hover {
+    background: var(--brand);
+    color: var(--white);
+    border-color: var(--brand);
+  }
 }
 
 /* ────────────────────────────
@@ -131,8 +133,9 @@
 
 .about__trust-card p {
   font-size: var(--font-size-body-md);
-  line-height: 1.55;
+  line-height: 1.72;
   color: var(--color-text-tertiary);
+  word-break: keep-all;
 }
 
 /* ────────────────────────────
@@ -160,13 +163,13 @@
   color: var(--white);
 }
 .about__meta--dark .about__info-list li {
-  color: rgba(255,255,255,0.55);
+  color: rgba(255,255,255,0.68);
 }
 .about__meta--dark .about__info-divider {
   background: rgba(255,255,255,0.1);
 }
 .about__meta--dark .about__timeline li {
-  color: rgba(255,255,255,0.55);
+  color: rgba(255,255,255,0.68);
 }
 .about__meta--dark .about__timeline::before {
   background: linear-gradient(to bottom, var(--brand), rgba(190,144,85,0.15));
@@ -211,7 +214,7 @@
   align-items: flex-start;
   gap: var(--spacing-16);
   font-size: var(--font-size-body-md);
-  line-height: 1.6;
+  line-height: 1.72;
   color: var(--color-text-secondary);
   word-break: keep-all;
 }
@@ -260,7 +263,7 @@
   position: relative;
   font-size: var(--font-size-body-md);
   color: var(--color-text-secondary);
-  line-height: 1.5;
+  line-height: 1.65;
 }
 
 .about__timeline-dot {
