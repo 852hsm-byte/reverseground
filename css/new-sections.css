@@ -435,9 +435,8 @@
 .procsy-setup {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-20);
-  background: var(--sand-2);
-  border: 1.5px solid var(--sand-10);
+  gap: var(--spacing-28);
+  background: var(--dark-800);
   border-radius: var(--radius-20);
   padding: var(--spacing-44) var(--spacing-52);
   margin-top: var(--spacing-36);
@@ -471,40 +470,30 @@
 }
 
 .procsy-setup h4 {
-  font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+  font-size: var(--font-size-rem-1-4);
   font-weight: 700;
-  color: var(--color-text-secondary);
-  font-size: var(--font-size-body-lg);
-  font-weight: 600;
-  letter-spacing: -0.015em;
-  line-height: 1.4;
-  margin: 0 0 0;
-}
-
-.procsy-setup p {
-  font-size: var(--font-size-body-md);
-  color: rgba(255,255,255,0.55);
-  line-height: 1.7;
+  color: var(--white);
+  letter-spacing: -0.025em;
+  line-height: 1.35;
+  margin: 0;
 }
 
 .procsy-setup__steps {
   list-style: none;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: stretch;
   gap: var(--spacing-8);
 }
 
 .procsy-setup__steps li {
   display: flex;
-  align-items: center;
-  gap: var(--spacing-10);
-  font-size: var(--font-size-body-md);
-  color: var(--neutral-900);
-  padding: var(--spacing-12) var(--spacing-20);
-  background: var(--white);
-  border: 1.5px solid var(--sand-10);
-  border-radius: var(--radius-xl);
+  flex-direction: column;
+  gap: var(--spacing-8);
+  padding: var(--spacing-16) var(--spacing-20);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-14);
   flex: 1;
 }
 
@@ -513,16 +502,24 @@
   background: none;
   border: none;
   padding: 0 var(--spacing-4);
-  font-size: var(--font-size-22);
-  color: var(--sand-10);
+  display: flex;
+  align-items: center;
+  font-size: var(--font-size-15);
+  color: rgba(255,255,255,0.2);
 }
 
 .procsy-setup__steps li span {
+  display: block;
   font-size: var(--font-size-11);
   font-weight: 800;
   color: var(--brand);
-  letter-spacing: 0.05em;
-  min-width: 22px;
+  letter-spacing: 0.08em;
+}
+
+.procsy-setup__steps li:not(.procsy-setup__arrow) {
+  font-size: var(--font-size-body-md);
+  font-weight: 500;
+  color: rgba(255,255,255,0.75);
 }
 
 /* ── 반응형 ── */
