@@ -1,0 +1,210 @@
+/* ============================================================
+   NEW SECTIONS — 페인포인트 / 유연한 시스템
+   ============================================================ */
+
+/* ── Pain Points ── */
+.pain-points {
+  background: var(--dark-900);
+}
+
+.pain-points .section-title--light {
+  color: var(--white);
+}
+
+.pain-points__layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-28);
+  margin-top: var(--spacing-60);
+  align-items: start;
+}
+
+.pain-points__col {
+  border-radius: var(--radius-20);
+  padding: var(--spacing-36) var(--spacing-40);
+}
+
+.pain-points__before {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.pain-points__after {
+  background: rgba(190,144,85,0.07);
+  border: 1px solid rgba(190,144,85,0.2);
+}
+
+.pain-points__col-label {
+  font-size: var(--font-size-11);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: var(--spacing-24);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+}
+
+.pain-points__before .pain-points__col-label {
+  color: rgba(255,255,255,0.35);
+}
+
+.pain-points__after .pain-points__col-label {
+  color: var(--brand);
+}
+
+.pain-points__col-label span {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-10);
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.pain-points__before .pain-points__col-label span {
+  background: rgba(255,80,80,0.15);
+  color: rgba(255,100,100,0.7);
+}
+
+.pain-points__after .pain-points__col-label span {
+  background: rgba(190,144,85,0.15);
+  color: var(--brand);
+}
+
+.pain-points__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-14);
+}
+
+.pain-points__list li {
+  font-size: var(--font-size-body-md);
+  line-height: 1.65;
+  padding-left: var(--spacing-22);
+  position: relative;
+}
+
+.pain-points__before .pain-points__list li {
+  color: rgba(255,255,255,0.5);
+}
+
+.pain-points__before .pain-points__list li::before {
+  content: '✕';
+  position: absolute;
+  left: 0;
+  font-size: var(--font-size-11);
+  color: rgba(255,100,100,0.55);
+  top: var(--spacing-2);
+}
+
+.pain-points__after .pain-points__list li {
+  color: rgba(255,255,255,0.82);
+}
+
+.pain-points__after .pain-points__list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  font-size: var(--font-size-12);
+  color: var(--brand);
+  font-weight: 800;
+  top: var(--spacing-1);
+}
+
+/* ── Flexible System ── */
+.flex-system {
+  background: var(--sand-3);
+}
+
+.flex-system__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-20);
+  margin-top: var(--spacing-60);
+}
+
+.flex-system__item {
+  background: var(--white);
+  border: 1.5px solid var(--sand-10);
+  border-radius: var(--radius-20);
+  padding: var(--spacing-40) var(--spacing-36) var(--spacing-44);
+  position: relative;
+  overflow: hidden;
+}
+
+.flex-system__item::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--brand), var(--brand-hover));
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .flex-system__item:hover::after { opacity: 1; }
+  .flex-system__item { transition: box-shadow 0.25s ease, transform 0.25s ease; }
+  .flex-system__item:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(190,144,85,0.1); }
+}
+
+.flex-system__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-13);
+  background: rgba(190,144,85,0.08);
+  border: 1px solid rgba(190,144,85,0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--spacing-24);
+}
+
+.flex-system__item h3 {
+  font-size: var(--font-size-rem-1-1);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-10);
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+}
+
+.flex-system__item p {
+  font-size: var(--font-size-body-md);
+  color: var(--color-text-secondary);
+  line-height: 1.75;
+}
+
+/* ── 반응형 ── */
+@media (max-width: 1024px) {
+  .pain-points__layout {
+    gap: var(--spacing-16);
+    margin-top: var(--spacing-48);
+  }
+  .pain-points__col { padding: var(--spacing-28) var(--spacing-28); }
+
+  .flex-system__grid { gap: var(--spacing-16); }
+  .flex-system__item { padding: var(--spacing-32) var(--spacing-28) var(--spacing-36); }
+}
+
+@media (max-width: 768px) {
+  .pain-points__layout {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-14);
+    margin-top: var(--spacing-36);
+  }
+  .pain-points__col { padding: var(--spacing-24) var(--spacing-20); }
+
+  .flex-system__grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-14);
+    margin-top: var(--spacing-36);
+  }
+  .flex-system__item { padding: var(--spacing-28) var(--spacing-24) var(--spacing-32); }
+  .flex-system__icon { width: 40px; height: 40px; margin-bottom: var(--spacing-20); }
+}

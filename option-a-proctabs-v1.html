@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>리버스그라운드 — 기업 구매관리 솔루션 Procsy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <!-- header.css는 gnb.js 내장 스타일로 대체 -->
+  <link rel="stylesheet" href="css/hero.css" />
+  <link rel="stylesheet" href="css/about.css" />
+  <link rel="stylesheet" href="css/services.css" />
+  <link rel="stylesheet" href="css/vision.css" />
+  <link rel="stylesheet" href="css/features.css" />
+  <link rel="stylesheet" href="css/howto.css" />
+  <link rel="stylesheet" href="css/pricing.css" />
+  <link rel="stylesheet" href="css/news.css" />
+  <link rel="stylesheet" href="css/contact.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/platform-tabs.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/modern-proctabs.css" />
+</head>
+<body>
+
+  <!-- GNB Component -->
+  <div id="gnb-root"></div>
+  <script src="components/gnb.js"></script>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__bg-blob hero__bg-blob--1"></div>
+    <div class="hero__bg-blob hero__bg-blob--2"></div>
+    <div class="hero__bg-blob hero__bg-blob--3"></div>
+    <div class="container hero__content">
+      <p class="hero__eyebrow">ReverseGround Inc.</p>
+      <h1 class="hero__title">기업 운영의<br /><span class="hero__title-accent">새로운 기준</span></h1>
+      <p class="hero__sub">복잡함을 단순하고 스마트하게</p>
+      <div class="hero__actions">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScvLJw9_BAMzTJJOBYJ0WZ_li9ZGZTWDzjpKdU3_JXFrfQx-w/viewform" target="_blank" rel="noopener noreferrer" class="btn-hero btn-hero--white">Procsy 도입 상담하기</a>
+        <a href="#services" class="btn-hero btn-hero--outline">서비스 알아보기</a>
+      </div>
+      <div class="hero__services">
+        <span class="hero__service-tag">📦 Procsy — 구매관리</span>
+        <span class="hero__service-divider">+</span>
+        <span class="hero__service-tag">🌿 Grove — HR 관리</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO STRIP -->
+  <section class="intro-strip">
+    <div class="container intro-strip__inner">
+      <div class="intro-strip__item">
+        <strong>40,000+</strong>
+        <span>구매 품목</span>
+      </div>
+      <div class="intro-strip__divider"></div>
+      <div class="intro-strip__item">
+        <strong>월 1회</strong>
+        <span>후불 정산</span>
+      </div>
+      <div class="intro-strip__divider"></div>
+      <div class="intro-strip__item">
+        <strong>1영업일</strong>
+        <span>응답 시간</span>
+      </div>
+      <div class="intro-strip__divider"></div>
+      <div class="intro-strip__item">
+        <strong>0원</strong>
+        <span>초기 비용</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about section section--bg" id="about">
+    <div class="container">
+
+      <!-- 상단: 신뢰형 소개 -->
+      <div class="about__layout">
+
+        <!-- 좌: 핵심 메시지 -->
+        <div class="about__left">
+          <h2 class="about__brand-name">리버스그라운드</h2>
+          <p class="about__lead">기업 운영의 복잡함을 <strong>단순하고 스마트하게</strong> 바꿉니다.</p>
+          <p class="about__desc">구매·HR·운영 전반을 디지털로 전환해 더 빠르고, 더 투명한 기업 환경을 만듭니다.</p>
+        </div>
+
+        <!-- 우: 역량 신호 카드 -->
+        <div class="about__right">
+          <div class="about__trust-grid">
+            <div class="about__trust-card">
+              <div class="about__trust-card-icon">
+                <svg width="14" height="14" viewBox="0 0 18 18" fill="none"><path d="M3 9.5L7 13.5L15 5" stroke="#BE9055" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <strong>Procsy 플랫폼 운영</strong>
+              <p>요청부터 정산까지 하나의 플랫폼으로</p>
+            </div>
+            <div class="about__trust-card">
+              <div class="about__trust-card-icon">
+                <svg width="14" height="14" viewBox="0 0 18 18" fill="none"><path d="M3 9.5L7 13.5L15 5" stroke="#BE9055" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <strong>40,000+ 구매 품목</strong>
+              <p>다양한 카테고리 기업 구매 수요 커버</p>
+            </div>
+            <div class="about__trust-card">
+              <div class="about__trust-card-icon">
+                <svg width="14" height="14" viewBox="0 0 18 18" fill="none"><path d="M3 9.5L7 13.5L15 5" stroke="#BE9055" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <strong>월 1회 통합 후불 정산</strong>
+              <p>세금계산서 한 장으로 증빙 완료</p>
+            </div>
+            <div class="about__trust-card">
+              <div class="about__trust-card-icon">
+                <svg width="14" height="14" viewBox="0 0 18 18" fill="none"><path d="M3 9.5L7 13.5L15 5" stroke="#BE9055" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <strong>주요 고객사 레퍼런스</strong>
+              <p>쿠팡 풀필먼트, 크리스찬디올 부띠끄 등</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 하단: 기업 정보 + 연혁 -->
+      <div class="about__meta about__meta--dark">
+
+        <div class="about__info-item">
+          <h3 class="about__info-title">기업 정보</h3>
+          <ul class="about__info-list">
+            <li>
+              <span class="about__info-label">법인명</span>
+              <span>주식회사 리버스그라운드</span>
+            </li>
+            <li>
+              <span class="about__info-label">대표</span>
+              <span>조정훈</span>
+            </li>
+            <li>
+              <span class="about__info-label">설립일</span>
+              <span>2025년 1월 15일</span>
+            </li>
+            <li>
+              <span class="about__info-label">주소</span>
+              <span>서울시 강서구 마곡중앙4로 22, 제에이 704호 (마곡동, 파인스퀘어)</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="about__info-divider"></div>
+
+        <div class="about__info-item">
+          <h3 class="about__info-title">주요 연혁</h3>
+          <ul class="about__timeline">
+            <li>
+              <span class="about__timeline-dot"></span>
+              <span class="about__timeline-date">2025. 01</span>
+              <span>주식회사 리버스그라운드 설립</span>
+            </li>
+            <li>
+              <span class="about__timeline-dot"></span>
+              <span class="about__timeline-date">2025. 09</span>
+              <span>기업 구매관리 플랫폼 Procsy 런칭</span>
+            </li>
+            <li>
+              <span class="about__timeline-dot"></span>
+              <span class="about__timeline-date">2026. 04</span>
+              <span>기술보증기금 보증 승인</span>
+            </li>
+            <li class="about__timeline-item--current">
+              <span class="about__timeline-dot"></span>
+              <span class="about__timeline-date">2026. 05</span>
+              <span>HR 플랫폼 Grove 정식 출시</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- SERVICES -->
+  <section class="services section" id="services">
+    <div class="container">
+
+      <!-- 섹션 헤더 — 좌우 분할 -->
+      <div class="services__header">
+        <div class="section-label">OUR SERVICES</div>
+        <h2 class="section-title">두 플랫폼,<br /><em class="point">하나의 솔루션</em></h2>
+        <p class="section-desc">구매와 HR, 기업 운영에 필요한 모든 것을 리버스그라운드가 연결합니다.</p>
+      </div>
+
+      <!-- 모바일 전용 플랫폼 탭 -->
+      <div class="services__mobile-tabs">
+        <button class="services__mobile-tab active" data-stab="procsy">📦 Procsy</button>
+        <button class="services__mobile-tab" data-stab="grove">🌿 Grove</button>
+      </div>
+
+      <div class="platform-grid">
+
+        <!-- Procsy — 주력 서비스 -->
+        <div class="platform-card platform-card--procsy" data-scard="procsy">
+          <div class="platform-card__head">
+            <div class="platform-card__badge">기업 구매 운영 플랫폼</div>
+            <h3 class="platform-card__name">Procsy</h3>
+            <p class="platform-card__desc">요청부터 승인, 주문, 정산까지<br />구매 업무를 하나의 시스템으로 통합합니다.</p>
+            <!-- 핵심 수치 -->
+            <div class="platform-card__stats">
+              <div class="platform-card__stat">
+                <strong>40,000+</strong>
+                <span>구매 가능 품목</span>
+              </div>
+              <div class="platform-card__stat-divider"></div>
+              <div class="platform-card__stat">
+                <strong>0원</strong>
+                <span>초기 도입 비용</span>
+              </div>
+              <div class="platform-card__stat-divider"></div>
+              <div class="platform-card__stat">
+                <strong>1영업일</strong>
+                <span>주문 응답 시간</span>
+              </div>
+            </div>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScvLJw9_BAMzTJJOBYJ0WZ_li9ZGZTWDzjpKdU3_JXFrfQx-w/viewform" target="_blank" rel="noopener noreferrer" class="platform-card__cta platform-card__cta--primary">Procsy 도입 상담하기 →</a>
+          </div>
+          <ul class="platform-card__features platform-card__features--grid">
+            <li>월 1회 통합 정산</li>
+            <li>맞춤형 카테고리 분류</li>
+            <li>외부 상품 구매</li>
+            <li>주문·승인 즉시 알림</li>
+            <li>결재선 구매</li>
+            <li>초기 세팅 무료</li>
+          </ul>
+        </div>
+
+        <!-- Grove — 보조 서비스 -->
+        <div class="platform-card platform-card--grove platform-card--secondary" data-scard="grove">
+          <div class="platform-card__head">
+            <div class="platform-card__badge">HR 관리 플랫폼</div>
+            <h3 class="platform-card__name">Grove</h3>
+            <p class="platform-card__desc">인사 운영의 번거로움을 없애는<br /><strong>올인원 HR 플랫폼</strong></p>
+
+            <!-- Grove 수치 -->
+            <div class="platform-card__stats platform-card__stats--light">
+              <div class="platform-card__stat">
+                <strong>무료</strong>
+                <span>베타 무료</span>
+              </div>
+              <div class="platform-card__stat-divider"></div>
+              <div class="platform-card__stat">
+                <strong>Procsy</strong>
+                <span>연동 지원</span>
+              </div>
+            </div>
+
+            <a href="https://grove-hr.vercel.app/login" target="_blank" rel="noopener noreferrer" class="platform-card__cta">Grove 바로 사용하기 →</a>
+          </div>
+
+          <!-- 핵심 기능 -->
+          <ul class="platform-card__features platform-card__features--grid">
+            <li>고객·거래처 관리</li>
+            <li>매출 현황 집계</li>
+            <li>업무·일정 관리</li>
+            <li>견적서 작성</li>
+            <li>휴가·연차 관리</li>
+            <li>기기·비품 자산 관리</li>
+          </ul>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- VISION -->
+  <section class="vision section vision--dark">
+    <div class="container">
+      <div class="vision__header">
+        <div class="section-label section-label--light">VISION</div>
+        <h2 class="vision__title">업무의 복잡함을 없애,<br /><em class="vision__accent">일하는 방식을 바꾸다</em></h2>
+        <p class="vision__subtitle">리버스그라운드는 기업이 본질에 집중할 수 있도록<br>운영의 모든 복잡함을 단순하게 만듭니다.</p>
+      </div>
+      <!-- 모바일 전용 vision 탭 -->
+      <div class="vision__mobile-tabs">
+        <button class="vision__mobile-tab active" data-vtab="0">01 표준화</button>
+        <button class="vision__mobile-tab" data-vtab="1">02 자동화</button>
+        <button class="vision__mobile-tab" data-vtab="2">03 연결</button>
+      </div>
+      <div class="vision__strategy">
+        <div class="vision__item" data-vitem="0">
+          <div class="vision__icon vision__icon--1"></div>
+          <span class="vision__num">01</span>
+          <h3>표준화</h3>
+          <p>흩어진 업무 프로세스를 하나의 플랫폼으로 통합합니다.</p>
+        </div>
+        <div class="vision__item" data-vitem="1">
+          <div class="vision__icon vision__icon--2"></div>
+          <span class="vision__num">02</span>
+          <h3>자동화</h3>
+          <p>반복적인 승인·정산·관리 업무를 시스템이 대신합니다.</p>
+        </div>
+        <div class="vision__item" data-vitem="2">
+          <div class="vision__icon vision__icon--3"></div>
+          <span class="vision__num">03</span>
+          <h3>연결</h3>
+          <p>Procsy와 Grove를 연동해 기업 운영 전체를 커버합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLATFORM DETAIL — Procsy 3탭 -->
+  <section class="platform-detail section" id="platform-detail">
+    <div class="container">
+      <div class="section-label">PROCSY</div>
+      <h2 class="section-title">구매 운영의 <em class="point">새로운 기준</em></h2>
+      <!-- 탭 -->
+      <div class="platform-tabs" id="procsy-tabs">
+        <button class="platform-tab active" data-tab="process">
+          <span class="platform-tab__name">구매 프로세스</span>
+          <span class="platform-tab__desc">4단계로 끝나는 구매</span>
+        </button>
+        <button class="platform-tab" data-tab="features">
+          <span class="platform-tab__name">핵심 기능</span>
+          <span class="platform-tab__desc">승인·예산·정산 통합</span>
+        </button>
+        <button class="platform-tab" data-tab="clients">
+          <span class="platform-tab__name">도입사</span>
+          <span class="platform-tab__desc">함께하는 기업들</span>
+        </button>
+      </div>
+
+      <!-- 탭1: 구매 프로세스 -->
+      <div class="platform-panel" id="panel-process">
+        <h3 class="platform-panel__title">구매 업무, <em class="point">4단계</em>로 끝납니다</h3>
+        <p class="platform-panel__desc">복잡한 구매 업무, 이제 하나의 흐름으로 끝냅니다.</p>
+        <!-- 모바일 전용 howto 탭 -->
+        <div class="howto__mobile-tabs">
+          <button class="howto__mobile-tab active" data-htab="0">구매 요청</button>
+          <span class="howto__tab-arrow">›</span>
+          <button class="howto__mobile-tab" data-htab="1">결재 승인</button>
+          <span class="howto__tab-arrow">›</span>
+          <button class="howto__mobile-tab" data-htab="2">발주·배송</button>
+          <span class="howto__tab-arrow">›</span>
+          <button class="howto__mobile-tab" data-htab="3">정산 완료</button>
+        </div>
+        <div class="howto__grid" style="margin-top: 24px;">
+
+          <div class="howto-card" data-hitem="0">
+            <div class="howto-card__icon">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="2" y="5" width="18" height="2.5" rx="1.25" fill="#BE9055"/><rect x="2" y="10" width="14" height="2.5" rx="1.25" fill="#BE9055" opacity="0.7"/><rect x="2" y="15" width="10" height="2.5" rx="1.25" fill="#BE9055" opacity="0.4"/></svg>
+            </div>
+            <div class="howto-card__body">
+              <span class="howto-card__step">STEP. 01</span>
+              <p class="howto-card__sub">· 상품 카탈로그 검색 및 선택</p>
+              <h3 class="howto-card__title">구매 요청</h3>
+              <p class="howto-card__desc">4만여 개 상품 카탈로그에서 필요한 상품을 선택하고 구매를 요청합니다.</p>
+            </div>
+          </div>
+          <div class="howto__arrow">→</div>
+          <div class="howto-card" data-hitem="1">
+            <div class="howto-card__icon">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 11.5L8.5 17L19 6" stroke="#BE9055" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="howto-card__body">
+              <span class="howto-card__step">STEP. 02</span>
+              <p class="howto-card__sub">· 부서별 예산 한도 자동 검증</p>
+              <h3 class="howto-card__title">결재 승인</h3>
+              <p class="howto-card__desc">설정된 결재 라인에 따라 승인이 진행됩니다. 초과 구매는 시스템이 자동 차단합니다.</p>
+            </div>
+          </div>
+          <div class="howto__arrow">→</div>
+          <div class="howto-card" data-hitem="2">
+            <div class="howto-card__icon">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="3" width="16" height="16" rx="3" stroke="#BE9055" stroke-width="2.2"/><path d="M11 3v16M3 11h16" stroke="#BE9055" stroke-width="2" opacity="0.4"/></svg>
+            </div>
+            <div class="howto-card__body">
+              <span class="howto-card__step">STEP. 03</span>
+              <p class="howto-card__sub">· 1영업일 내 상품 등록 처리</p>
+              <h3 class="howto-card__title">발주 · 배송</h3>
+              <p class="howto-card__desc">승인 완료 즉시 공급사에 발주됩니다. 배송 현황을 플랫폼에서 한눈에 확인합니다.</p>
+            </div>
+          </div>
+          <div class="howto__arrow">→</div>
+          <div class="howto-card" data-hitem="3">
+            <div class="howto-card__icon">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="8.5" stroke="#BE9055" stroke-width="2.2"/><path d="M11 7v4.5l3 2" stroke="#BE9055" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <div class="howto-card__body">
+              <span class="howto-card__step">STEP. 04</span>
+              <p class="howto-card__sub">· 월 1회 통합 후불 정산</p>
+              <h3 class="howto-card__title">정산 완료</h3>
+              <p class="howto-card__desc">전월 거래를 한 장의 세금계산서로 정리합니다. 복잡한 증빙 취합 작업이 사라집니다.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- 탭2: 핵심 기능 -->
+      <div class="platform-panel platform-panel--hidden" id="panel-features">
+        <h3 class="platform-panel__title">Procsy의 <em class="point">핵심 기능</em></h3>
+        <p class="platform-panel__desc">단순 구매몰이 아닙니다. 승인·예산·정산까지 통제 가능한 구매 운영 시스템입니다.</p>
+
+        <!-- 메인 기능 4개 -->
+        <div class="procsy-features__main">
+          <div class="procsy-feature-card">
+            <div class="procsy-feature-card__icon">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="2" y="5" width="18" height="2.5" rx="1.25" fill="#BE9055"/><rect x="2" y="10" width="14" height="2.5" rx="1.25" fill="#BE9055" opacity="0.7"/><rect x="2" y="15" width="10" height="2.5" rx="1.25" fill="#BE9055" opacity="0.4"/></svg>
+            </div>
+            <h4>구매 요청 통합 관리</h4>
+            <p>4만여 개 상품 카탈로그에서 선택하고 요청. 흩어진 구매 채널을 하나로 통합합니다.</p>
+          </div>
+          <div class="procsy-feature-card">
+            <div class="procsy-feature-card__icon">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 11.5L8.5 17L19 6" stroke="#BE9055" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h4>결재선 · 승인 프로세스</h4>
+            <p>부서별 결재 라인 설정, 예산 초과 자동 차단. 구매 승인이 시스템 안에서 완결됩니다.</p>
+          </div>
+          <div class="procsy-feature-card">
+            <div class="procsy-feature-card__icon">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="3" width="16" height="16" rx="3" stroke="#BE9055" stroke-width="2"/><path d="M7 11h4M7 14h2" stroke="#BE9055" stroke-width="1.8" stroke-linecap="round"/><path d="M14 8v6" stroke="#BE9055" stroke-width="1.8" stroke-linecap="round" opacity="0.5"/></svg>
+            </div>
+            <h4>예산 사용 현황 관리</h4>
+            <p>부서별 예산 한도와 실소비 현황을 실시간으로 파악합니다. 사후 조치가 아닌 사전 예방입니다.</p>
+          </div>
+          <div class="procsy-feature-card">
+            <div class="procsy-feature-card__icon">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="8.5" stroke="#BE9055" stroke-width="2"/><path d="M11 7v4.5l3 2" stroke="#BE9055" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </div>
+            <h4>월 1회 통합 정산</h4>
+            <p>전월 거래를 한 장의 세금계산서로 마감합니다. 영수증 취합·대조 작업이 사라집니다.</p>
+          </div>
+        </div>
+
+        <!-- 보조 기능 -->
+        <div class="procsy-features__sub">
+          <span class="procsy-feature-chip">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7.5L5.5 11L12 4" stroke="#BE9055" stroke-width="1.8" stroke-linecap="round"/></svg>
+            40,000+ 상품 카탈로그
+          </span>
+          <span class="procsy-feature-chip">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7.5L5.5 11L12 4" stroke="#BE9055" stroke-width="1.8" stroke-linecap="round"/></svg>
+            공급사 일원화
+          </span>
+          <span class="procsy-feature-chip">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7.5L5.5 11L12 4" stroke="#BE9055" stroke-width="1.8" stroke-linecap="round"/></svg>
+            구매 이력 통합 관리
+          </span>
+          <span class="procsy-feature-chip">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7.5L5.5 11L12 4" stroke="#BE9055" stroke-width="1.8" stroke-linecap="round"/></svg>
+            1영업일 빠른 등록 처리
+          </span>
+          <span class="procsy-feature-chip">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7.5L5.5 11L12 4" stroke="#BE9055" stroke-width="1.8" stroke-linecap="round"/></svg>
+            당일 도입 가능
+          </span>
+        </div>
+
+      </div>
+
+      <!-- 탭3: 도입사 -->
+      <div class="platform-panel platform-panel--hidden" id="panel-clients">
+        <h3 class="platform-panel__title">Procsy와 함께하는 <em class="point">기업</em></h3>
+        <p class="platform-panel__desc">복잡한 구매 업무를 줄이고, 보다 편리한 운영 환경을 구축하고 있습니다.</p>
+        <div class="clients__grid" style="margin-top: 48px;">
+          <div class="client-card">
+            <div class="client-card__logo">
+              <span class="client-card__industry client-card__industry--badge">패션/럭셔리</span>
+              <img src="images/clients/크리스챤디올.svg" alt="크리스찬디올" class="logo--dior" />
+            </div>
+            <p class="client-card__name">크리스찬디올 부띠끄 <span class="client-card__industry client-card__industry--inline">(패션/럭셔리)</span></p>
+          </div>
+          <div class="client-card">
+            <div class="client-card__logo">
+              <span class="client-card__industry client-card__industry--badge">이커머스/리테일</span>
+              <img src="images/clients/쿠팡.png" alt="쿠팡" class="logo--coupang" />
+            </div>
+            <p class="client-card__name">쿠팡 풀필먼트 <span class="client-card__industry client-card__industry--inline">(이커머스/리테일)</span></p>
+          </div>
+          <div class="client-card">
+            <div class="client-card__logo">
+              <span class="client-card__industry client-card__industry--badge">금융/핀테크</span>
+              <img src="images/clients/웰컴페이먼츠.svg" alt="웰컴페이먼츠" class="logo--welcomepayments" />
+            </div>
+            <p class="client-card__name">웰컴페이먼츠 <span class="client-card__industry client-card__industry--inline">(금융/핀테크)</span></p>
+          </div>
+          <div class="client-card">
+            <div class="client-card__logo">
+              <span class="client-card__industry client-card__industry--badge">제조/헬스케어</span>
+              <img src="images/clients/한독테바.svg" alt="한독테바" class="logo--handok" />
+            </div>
+            <p class="client-card__name">한독테바 <span class="client-card__industry client-card__industry--inline">(제조/헬스케어)</span></p>
+          </div>
+          <div class="client-card client-card--empty">
+            <div class="client-card__logo client-card__logo--cta">
+              <p class="client-card__empty-text">귀사도 함께하세요</p>
+              <a href="#contact" class="client-card__empty-cta">도입 문의하기 →</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+  </section>
+
+  <!-- GROVE -->
+  <section class="platform-detail section section--bg" id="grove-detail">
+    <div class="container">
+      <div class="section-label">GROVE</div>
+      <h2 class="section-title">HR 관리, <em class="point">하나로</em> 연결합니다</h2>
+      <p class="section-desc">인사 운영의 번거로움을 없애는 올인원 HR 플랫폼. 휴가부터 매출까지, Grove가 기업 운영 전반을 하나의 화면에서 관리합니다.</p>
+
+      <div class="grove-panel-sync" style="margin-top: 48px;">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8C2 4.69 4.69 2 8 2s6 2.69 6 6-2.69 6-6 6" stroke="#BE9055" stroke-width="1.5" stroke-linecap="round"/><path d="M10.5 8L8 10.5 5.5 8" stroke="#BE9055" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span><strong>Procsy와 연동</strong>하면 구매 + HR 운영을 하나의 계정으로 — 별도 로그인 없이 통합 관리</span>
+      </div>
+
+      <div class="features__grid" style="margin-top: 40px;">
+        <div class="feature-item">
+          <div class="feature-item__bar"></div>
+          <h3>휴가·근태 관리</h3>
+          <p>임직원 휴가 신청부터 승인, 잔여 현황까지 한눈에 파악합니다.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item__bar"></div>
+          <h3>자산 관리</h3>
+          <p>기기·비품 배정 및 반납 현황을 실시간으로 추적합니다.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item__bar"></div>
+          <h3>업무·일정 관리</h3>
+          <p>팀원별 업무를 배정하고 일정과 연동해 누락 없이 처리됩니다.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item__bar"></div>
+          <h3>매출·고객 관리</h3>
+          <p>견적서 발행부터 고객 정보, 계약·매출 데이터까지 한화면에서 확인합니다.</p>
+        </div>
+      </div>
+
+      <div class="grove-panel-beta" style="margin-top: 48px;">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#BE9055" stroke-width="1.5"/><path d="M8 5v3.5l2 2" stroke="#BE9055" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <span>현재 초대 기반 베타 운영 중 —</span>
+        <a href="https://grove-hr.vercel.app/login" target="_blank" rel="noopener noreferrer" class="grove-panel-beta__link">도입 문의 시 우선 접근 가능 →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing section" id="pricing">
+    <div class="container">
+      <div class="pricing__header">
+        <div class="section-label">PRICING</div>
+        <h2 class="section-title">알뜰한 <em class="point">구독 방법</em></h2>
+        <p class="section-desc">필요한 서비스만 선택하거나, 묶음으로 더 저렴하게 시작하세요.</p>
+      </div>
+
+      <!-- 모바일 전용 탭 -->
+      <div class="pricing__mobile-tabs">
+        <button class="pricing__mobile-tab active" data-ptab="procsy">Procsy</button>
+        <button class="pricing__mobile-tab pricing__mobile-tab--featured" data-ptab="bundle">Hybrid ✦</button>
+        <button class="pricing__mobile-tab" data-ptab="grove">Grove</button>
+      </div>
+
+      <div class="pricing__grid">
+
+        <!-- Procsy -->
+        <div class="pricing-card pricing-card--default" data-ppanel="procsy">
+          <div class="pricing-card__head">
+            <span class="pricing-card__icon">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="3" width="16" height="16" rx="3" stroke="#BE9055" stroke-width="2"/><path d="M3 9h16" stroke="#BE9055" stroke-width="2" opacity="0.5"/><path d="M9 9v10" stroke="#BE9055" stroke-width="2" opacity="0.5"/></svg>
+            </span>
+            <p class="pricing-card__name">Procsy</p>
+            <h3 class="pricing-card__title">구매 운영 플랫폼</h3>
+            <p class="pricing-card__desc">구매 요청부터 정산까지, 구매 업무 전체를 하나의 시스템으로.</p>
+          </div>
+          <div class="pricing-card__price">
+            <div class="pricing-card__amount">
+              <span class="pricing-card__currency">₩</span>
+              <span class="pricing-card__num">0</span>
+              <span class="pricing-card__unit">/ 월</span>
+            </div>
+            <p class="pricing-card__billing">무료로 시작 · 후불 정산 수수료만 적용</p>
+          </div>
+          <ul class="pricing-card__features">
+            <li>구매 요청 · 승인 · 발주 자동화</li>
+            <li>40,000+ 상품 통합 카탈로그</li>
+            <li>예산 설정 및 초과 알림</li>
+            <li>공급사 일원화 관리</li>
+            <li>후불 정산 (월 1회)</li>
+          </ul>
+          <a href="https://www.proc-sy.com" target="_blank" rel="noopener noreferrer" class="pricing-card__cta">Procsy 시작하기 →</a>
+        </div>
+
+        <!-- Procsy + Grove (추천) -->
+        <div class="pricing-card pricing-card--featured" data-ppanel="bundle">
+          <span class="pricing-card__badge">통합 플랜</span>
+          <div class="pricing-card__head">
+            <span class="pricing-card__icon">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M12 2L4 13h7l-1 7 9-11h-7l1-9z" stroke="#BE9055" stroke-width="2" stroke-linejoin="round"/></svg>
+            </span>
+            <p class="pricing-card__name">Hybrid</p>
+            <h3 class="pricing-card__title">Procsy + Grove</h3>
+            <p class="pricing-card__desc">두 서비스를 함께 이용해 구매와 HR을 연동하고 운영 효율을 극대화하세요.</p>
+          </div>
+          <div class="pricing-card__price">
+            <div class="pricing-card__amount">
+              <span class="pricing-card__currency">₩</span>
+              <span class="pricing-card__num">0</span>
+              <span class="pricing-card__unit">/ 월</span>
+            </div>
+            <p class="pricing-card__billing">두 서비스 모두 무료로 시작</p>
+            <span class="pricing-card__saving">함께 시작 시 전담 컨설팅 우선 지원</span>
+          </div>
+          <ul class="pricing-card__features">
+            <li>Procsy 전체 기능 포함</li>
+            <li>Grove 전체 기능 포함</li>
+            <li>구매 · HR 데이터 연동</li>
+            <li>통합 운영 대시보드</li>
+            <li>전담 도입 컨설팅</li>
+            <li>우선 기술 지원</li>
+          </ul>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLScvLJw9_BAMzTJJOBYJ0WZ_li9ZGZTWDzjpKdU3_JXFrfQx-w/viewform" target="_blank" rel="noopener noreferrer" class="pricing-card__cta">도입 상담하기</a>
+        </div>
+
+        <!-- Grove -->
+        <div class="pricing-card pricing-card--default" data-ppanel="grove">
+          <div class="pricing-card__head">
+            <span class="pricing-card__icon">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 19V9" stroke="#BE9055" stroke-width="2" stroke-linecap="round"/><path d="M11 9C11 9 6 7 5 3c4 0 6 2 6 6z" stroke="#BE9055" stroke-width="2" stroke-linejoin="round"/><path d="M11 13C11 13 16 11 17 7c-4 0-6 2-6 6z" stroke="#BE9055" stroke-width="2" stroke-linejoin="round"/></svg>
+            </span>
+            <p class="pricing-card__name">Grove <span style="font-size:11px; background:rgba(190,144,85,0.15); color:var(--brand); padding:2px 8px; border-radius:999px; letter-spacing:0.05em; font-weight:600;">BETA</span></p>
+            <h3 class="pricing-card__title">HR 관리 플랫폼</h3>
+            <p class="pricing-card__desc">채용부터 근태·온보딩까지, HR 운영을 하나의 흐름으로.</p>
+          </div>
+          <div class="pricing-card__price">
+            <div class="pricing-card__amount">
+              <span class="pricing-card__currency">₩</span>
+              <span class="pricing-card__num">0</span>
+              <span class="pricing-card__unit">/ 월</span>
+            </div>
+            <p class="pricing-card__billing">베타 기간 동안 무료 사용 가능</p>
+          </div>
+          <ul class="pricing-card__features">
+            <li>직원 정보 통합 관리</li>
+            <li>채용 · 온보딩 자동화</li>
+            <li>근태 · 휴가 관리</li>
+            <li>조직도 및 권한 관리</li>
+            <li>HR 운영 리포트</li>
+          </ul>
+          <a href="https://grove-hr.vercel.app/login" target="_blank" rel="noopener noreferrer" class="pricing-card__cta">Grove 시작하기 →</a>
+        </div>
+
+      </div>
+
+      <p class="pricing__note">
+        정확한 요금 안내는 <a href="https://docs.google.com/forms/d/e/1FAIpQLScvLJw9_BAMzTJJOBYJ0WZ_li9ZGZTWDzjpKdU3_JXFrfQx-w/viewform" target="_blank" rel="noopener noreferrer">도입 문의</a>를 통해 확인하실 수 있습니다.<br>
+        기업 규모 · 사용자 수에 따라 맞춤 견적을 제공합니다.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact section contact--dark" id="contact">
+    <div class="contact__bg-glow"></div>
+    <div class="container">
+      <div class="contact__inner">
+        <!-- 상단: 레이블 + 제목 + 설명 -->
+        <div class="contact__header">
+          <div class="section-label section-label--gold">CONTACT</div>
+          <h2 class="contact__title"><em class="point">도입 문의</em>는<br>지금 바로 시작하세요</h2>
+          <p class="contact__desc">리버스그라운드 팀이 24시간 내 답변드립니다.<br />선착순 무료 혜택이 마감되기 전에 문의해 주세요.</p>
+        </div>
+
+        <!-- 중단: 스탯 -->
+        <div class="contact__stats">
+          <div class="contact__stat">
+            <span class="contact__stat-num">24h</span>
+            <span class="contact__stat-label">평균 답변 시간</span>
+          </div>
+          <div class="contact__stat-divider"></div>
+          <div class="contact__stat">
+            <span class="contact__stat-num">100+</span>
+            <span class="contact__stat-label">도입 기업</span>
+          </div>
+          <div class="contact__stat-divider"></div>
+          <div class="contact__stat">
+            <span class="contact__stat-num">무료</span>
+            <span class="contact__stat-label">초기 도입 컨설팅</span>
+          </div>
+        </div>
+
+        <!-- 하단: CTA 버튼 + 회사 정보 -->
+        <div class="contact__cta-area">
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLScvLJw9_BAMzTJJOBYJ0WZ_li9ZGZTWDzjpKdU3_JXFrfQx-w/viewform"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-contact-cta"
+          >도입 문의하기 →</a>
+          <p class="contact__cta-note">평일 기준 · 무료 상담 · 비밀 보장</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__top">
+        <!-- Brand -->
+        <div class="footer__brand">
+          <a href="#" class="footer__logo">REVERSE<span>GROUND</span></a>
+          <p class="footer__tagline">구매·HR·운영 전반을 하나의 흐름으로.<br>기업 운영의 새로운 기준.</p>
+        </div>
+        <!-- 회사 -->
+        <div>
+          <p class="footer__col-title">회사</p>
+          <ul class="footer__col-links">
+            <li><a href="#about" onclick="footerNav(event,'about',null)">회사 소개</a></li>
+          </ul>
+        </div>
+        <!-- 서비스 -->
+        <div>
+          <p class="footer__col-title">서비스</p>
+          <ul class="footer__col-links">
+            <li><a href="#platform-detail" onclick="footerNav(event,'platform-detail',null)">Procsy</a></li>
+            <li><a href="#grove-detail" onclick="footerNav(event,'grove-detail',null)">Grove</a></li>
+          </ul>
+        </div>
+        <!-- 요금제 -->
+        <div>
+          <p class="footer__col-title">요금제</p>
+          <ul class="footer__col-links">
+            <li><a href="#pricing" onclick="footerNav(event,'pricing','procsy')">Procsy</a></li>
+            <li><a href="#pricing" onclick="footerNav(event,'pricing','bundle')">Hybrid</a></li>
+            <li><a href="#pricing" onclick="footerNav(event,'pricing','grove')">Grove</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>
+          <span class="footer__info-item">주식회사 리버스그라운드</span>
+          <span class="footer__info-sep">&nbsp;|&nbsp;</span>
+          <span class="footer__info-item">대표이사 조정훈</span>
+          <span class="footer__info-sep">&nbsp;|&nbsp;</span>
+          <span class="footer__info-item">서울시 강서구 마곡중앙4로 22, 제에이 704호 (마곡동, 파인스퀘어)</span>
+          <span class="footer__info-sep">&nbsp;|&nbsp;</span>
+          <span class="footer__info-item">사업자등록번호 454-86-03590</span>
+          <span class="footer__info-sep">&nbsp;|&nbsp;</span>
+          <span class="footer__info-item">통신판매업신고 2026-서울강서-0599</span>
+          <span class="footer__info-sep">&nbsp;|&nbsp;</span>
+          <span class="footer__info-item">All Rights Reserved ⓒ Reverse Ground Corp.</span>
+        </p>
+        <ul class="footer__bottom-links">
+          <li><a href="terms.html">이용약관</a></li>
+          <li><a href="privacy.html">개인정보처리방침</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Platform tabs
+    document.querySelectorAll('.platform-tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.dataset.tab;
+        document.querySelectorAll('.platform-tab').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        document.querySelectorAll('.platform-panel').forEach(p => p.classList.add('platform-panel--hidden'));
+        document.getElementById('panel-' + target).classList.remove('platform-panel--hidden');
+      });
+    });
+
+    // Services 모바일 탭 (두 플랫폼)
+    (function() {
+      var tabs = document.querySelectorAll('.services__mobile-tab');
+      var cards = document.querySelectorAll('.platform-grid [data-scard]');
+      if (!tabs.length) return;
+      cards.forEach(function(c) { c.classList.remove('active'); });
+      document.querySelector('[data-scard="procsy"]').classList.add('active');
+      tabs.forEach(function(tab) {
+        tab.addEventListener('click', function() {
+          tabs.forEach(function(t) { t.classList.remove('active'); });
+          tab.classList.add('active');
+          cards.forEach(function(c) { c.classList.remove('active'); });
+          document.querySelector('[data-scard="' + tab.dataset.stab + '"]').classList.add('active');
+        });
+      });
+    })();
+
+    // Vision 모바일 탭
+    (function() {
+      var tabs = document.querySelectorAll('.vision__mobile-tab');
+      var items = document.querySelectorAll('.vision__strategy [data-vitem]');
+      if (!tabs.length) return;
+      items.forEach(function(i) { i.classList.remove('active'); });
+      document.querySelector('[data-vitem="0"]').classList.add('active');
+      tabs.forEach(function(tab) {
+        tab.addEventListener('click', function() {
+          tabs.forEach(function(t) { t.classList.remove('active'); });
+          tab.classList.add('active');
+          items.forEach(function(i) { i.classList.remove('active'); });
+          document.querySelector('[data-vitem="' + tab.dataset.vtab + '"]').classList.add('active');
+        });
+      });
+    })();
+
+    // Howto 모바일 탭 + 화살표 + 자동 전환
+    (function() {
+      var tabs = document.querySelectorAll('.howto__mobile-tab');
+      var cards = document.querySelectorAll('.howto__grid [data-hitem]');
+      var dots = document.querySelectorAll('.howto__mobile-dot');
+      var prevBtn = document.getElementById('howto-prev');
+      var nextBtn = document.getElementById('howto-next');
+      if (!tabs.length) return;
+
+      var current = 0;
+      var total = tabs.length;
+      var timer = null;
+
+      function goTo(idx) {
+        current = (idx + total) % total;
+        tabs.forEach(function(t) { t.classList.remove('active'); });
+        tabs[current].classList.add('active');
+        cards.forEach(function(c) { c.classList.remove('active'); });
+        document.querySelector('[data-hitem="' + current + '"]').classList.add('active');
+        dots.forEach(function(d) { d.classList.remove('active'); });
+        if (dots[current]) dots[current].classList.add('active');
+      }
+
+      function startAuto() {
+        clearInterval(timer);
+        timer = setInterval(function() { goTo(current + 1); }, 3000);
+      }
+
+      function resetAuto() {
+        startAuto();
+      }
+
+      // 초기화
+      goTo(0);
+      startAuto();
+
+      // 탭 클릭
+      tabs.forEach(function(tab) {
+        tab.addEventListener('click', function() {
+          goTo(parseInt(tab.dataset.htab));
+          resetAuto();
+        });
+      });
+
+      // 화살표
+      if (prevBtn) prevBtn.addEventListener('click', function() { goTo(current - 1); resetAuto(); });
+      if (nextBtn) nextBtn.addEventListener('click', function() { goTo(current + 1); resetAuto(); });
+    })();
+
+    // 앵커 링크 스크롤 — Safari iOS scroll-padding-top 버그 우회
+    // gnb.js가 open 클래스를 제거한 뒤에도 CSS 트랜지션이 남아있으므로
+    // 메뉴의 실제 높이(getBCR)로 판단 후 transitionend 까지 기다림
+    (function() {
+      var GNB_H = 64;
+      var GNB_H = 64;
+      function doScroll(el) {
+        var top = Math.max(0, el.getBoundingClientRect().top + window.pageYOffset - GNB_H);
+        window.scrollTo(0, top);
+      }
+      // 푸터 링크용 전역 함수 (onclick 직접 바인딩)
+      window.footerNav = function(e, sectionId, tab) {
+        e.preventDefault();
+        var el = document.getElementById(sectionId);
+        if (!el) return;
+        el.scrollIntoView({ behavior: 'auto', block: 'start' });
+        if (tab === 'grove-stab') {
+          var groveTab = document.querySelector('.services__mobile-tab[data-stab="grove"]');
+          if (groveTab) groveTab.click();
+        } else if (tab) {
+          var pricingTab = document.querySelector('.pricing__mobile-tab[data-ptab="' + tab + '"]');
+          if (pricingTab) pricingTab.click();
+        }
+      };
+      document.addEventListener('click', function(e) {
+        var node = e.target;
+        if (node && node.nodeType !== 1) node = node.parentElement;
+        var a = node ? node.closest('a[href^="#"]') : null;
+        if (!a) return;
+        var id = a.getAttribute('href').slice(1);
+        if (!id) return;
+        var scrollId = id === 'grove' ? 'services' : id;
+        var el = document.getElementById(scrollId);
+        if (!el) return;
+        var mobileMenu = document.getElementById('gnb-mobile');
+        var menuVisible = mobileMenu && mobileMenu.getBoundingClientRect().height > 0;
+        if (menuVisible) {
+          e.preventDefault();
+          function onEnd(ev) {
+            if (ev.target !== mobileMenu || ev.propertyName !== 'max-height') return;
+            mobileMenu.removeEventListener('transitionend', onEnd);
+            doScroll(el);
+          }
+          mobileMenu.addEventListener('transitionend', onEnd);
+        }
+      });
+    })();
+
+    // Pricing 모바일 탭
+    (function() {
+      var tabs = document.querySelectorAll('.pricing__mobile-tab');
+      var panels = document.querySelectorAll('.pricing__grid [data-ppanel]');
+      if (!tabs.length) return;
+      // 초기 활성
+      panels.forEach(function(p) { p.classList.remove('active'); });
+      var first = tabs[0].dataset.ptab;
+      var firstPanel = document.querySelector('[data-ppanel="' + first + '"]');
+      if (firstPanel) firstPanel.classList.add('active');
+      // 탭 클릭
+      tabs.forEach(function(tab) {
+        tab.addEventListener('click', function() {
+          tabs.forEach(function(t) { t.classList.remove('active'); });
+          tab.classList.add('active');
+          panels.forEach(function(p) { p.classList.remove('active'); });
+          var target = document.querySelector('[data-ppanel="' + tab.dataset.ptab + '"]');
+          if (target) target.classList.add('active');
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
