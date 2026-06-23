@@ -253,6 +253,7 @@
   color: var(--color-text-primary);
   margin-bottom: var(--spacing-20);
   letter-spacing: -0.02em;
+  min-height: 3em;
 }
 
 .procsy-process-compare__card--highlight > strong {
