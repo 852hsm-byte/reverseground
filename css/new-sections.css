@@ -209,8 +209,13 @@
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   gap: var(--spacing-20);
-  align-items: center;
+  align-items: stretch;
   margin: var(--spacing-44) 0 var(--spacing-52);
+}
+
+.procsy-process-compare__arrow {
+  display: flex;
+  align-items: center;
 }
 
 .procsy-process-compare__card {
@@ -218,6 +223,8 @@
   border: 1.5px solid var(--sand-10);
   border-radius: var(--radius-20);
   padding: var(--spacing-28) var(--spacing-28) var(--spacing-32);
+  display: flex;
+  flex-direction: column;
 }
 
 .procsy-process-compare__card--highlight {
@@ -262,16 +269,18 @@
 .procsy-process-rail {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--spacing-6);
+  gap: var(--spacing-8);
+  align-content: space-evenly;
+  flex: 1;
 }
 
 .procsy-process-rail span {
-  font-size: var(--font-size-12);
+  font-size: var(--font-size-body-md);
   color: var(--color-text-secondary);
   background: var(--sand-4);
   border: 1px solid var(--sand-10);
-  border-radius: var(--radius-md);
-  padding: var(--spacing-3) var(--spacing-8);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-8) var(--spacing-14);
   white-space: nowrap;
 }
 
@@ -279,6 +288,8 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--spacing-10);
+  flex: 1;
+  align-content: space-evenly;
 }
 
 .procsy-process-focus span {
