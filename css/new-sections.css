@@ -221,8 +221,8 @@
 }
 
 .procsy-process-compare__card--highlight {
-  background: rgba(190,144,85,0.06);
-  border-color: rgba(190,144,85,0.35);
+  background: var(--dark-800);
+  border-color: rgba(190,144,85,0.25);
 }
 
 .procsy-process-compare__label {
@@ -249,7 +249,7 @@
 }
 
 .procsy-process-compare__card--highlight > strong {
-  color: var(--color-text-primary);
+  color: var(--white);
 }
 
 .procsy-process-compare__card > strong em {
@@ -276,8 +276,8 @@
 }
 
 .procsy-process-focus {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: var(--spacing-10);
 }
 
@@ -286,10 +286,10 @@
   align-items: center;
   gap: var(--spacing-10);
   font-size: var(--font-size-body-md);
-  color: var(--color-text-primary);
+  color: rgba(255,255,255,0.85);
   padding: var(--spacing-10) var(--spacing-14);
-  background: var(--white);
-  border: 1px solid rgba(190,144,85,0.2);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(190,144,85,0.18);
   border-radius: var(--radius-xl);
 }
 
