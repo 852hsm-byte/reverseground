@@ -10,6 +10,58 @@
   margin-top: var(--spacing-64);
 }
 
+/* Grove 아이콘 카드 그리드 */
+.grove-features__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-16);
+}
+
+.grove-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-16);
+  background: var(--white);
+  border: 1.5px solid var(--sand-10);
+  border-radius: var(--radius-20);
+  padding: var(--spacing-24) var(--spacing-28);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .grove-feature-item:hover {
+    border-color: rgba(190,144,85,0.4);
+    box-shadow: 0 8px 28px rgba(190,144,85,0.1);
+  }
+}
+
+.grove-feature-item__icon {
+  width: var(--spacing-44);
+  height: var(--spacing-44);
+  flex-shrink: 0;
+  border-radius: var(--radius-14);
+  background: rgba(190,144,85,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand);
+}
+
+.grove-feature-item h3 {
+  font-size: var(--font-size-body-lg);
+  font-weight: 700;
+  color: var(--neutral-900);
+  margin: 0 0 var(--spacing-6);
+  letter-spacing: -0.015em;
+}
+
+.grove-feature-item p {
+  font-size: var(--font-size-body-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+  margin: 0;
+}
+
 /* Grove 패널용 — 4개 가로 풀 1열 */
 .features__grid--full {
   grid-template-columns: 1fr;
