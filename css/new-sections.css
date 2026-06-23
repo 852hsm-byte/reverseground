@@ -436,7 +436,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--spacing-44);
-  align-items: end;
+  align-items: start;
   background: var(--dark-800);
   border-radius: var(--radius-20);
   padding: var(--spacing-44) var(--spacing-52);
@@ -463,6 +463,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-12);
+  align-self: end;
 }
 
 .procsy-setup__steps li {
