@@ -393,7 +393,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--spacing-16);
-  margin: var(--spacing-52) 0 var(--spacing-44);
+  margin: var(--spacing-28) 0 var(--spacing-20);
 }
 
 .procsy-benefit-card {
