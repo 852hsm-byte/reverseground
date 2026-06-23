@@ -321,9 +321,9 @@
 
 .procsy-step-tab {
   display: flex;
-  flex-direction: column;
-  gap: var(--spacing-4);
-  padding: var(--spacing-14) var(--spacing-16);
+  align-items: center;
+  gap: var(--spacing-8);
+  padding: var(--spacing-12) var(--spacing-16);
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: var(--radius-xl);
