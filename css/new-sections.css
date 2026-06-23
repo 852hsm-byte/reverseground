@@ -442,6 +442,32 @@
   margin-bottom: var(--spacing-52);
 }
 
+.procsy-setup__top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--spacing-20);
+}
+
+.procsy-setup__cta {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  padding: var(--spacing-12) var(--spacing-28);
+  background: var(--brand);
+  color: var(--white);
+  font-size: var(--font-size-body-md);
+  font-weight: 600;
+  border-radius: var(--radius-rounded);
+  text-decoration: none;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .procsy-setup__cta:hover { background: var(--brand-hover); }
+}
+
 .procsy-setup h4 {
   font-size: clamp(1.1rem, 1.6vw, 1.4rem);
   font-weight: 700;
