@@ -247,3 +247,38 @@
   background: rgba(190,144,85,0.2);
   flex-shrink: 0;
 }
+
+@media (max-width: 768px) {
+  .hero__title {
+    font-size: clamp(2.6rem, 12vw, 3rem);
+  }
+  .hero__title-brand,
+  .hero__title br { display: none; }
+
+  .hero__sub-brand { display: none; }
+
+  .hero__actions { display: none; }
+
+  .hero__services {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--spacing-10);
+    margin-top: var(--spacing-32);
+    width: 100%;
+  }
+  .hero__service-divider { display: none; }
+  .hero__service-tag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-16) var(--spacing-24);
+    border-radius: var(--radius-rounded);
+    border: 1px solid rgba(190,144,85,0.35);
+    background: rgba(190,144,85,0.08);
+    font-size: var(--font-size-body-md);
+    font-weight: 700;
+    color: rgba(220,195,160,0.9);
+    text-decoration: none;
+    transition: background 0.18s ease, border-color 0.18s ease;
+  }
+}
