@@ -97,7 +97,7 @@
 .hero__title {
   font-size: clamp(3rem, 5.5vw, 4.8rem);
   font-weight: 800;
-  line-height: 1.08;
+  line-height: var(--line-height-hero);
   color: var(--white);
   letter-spacing: 0;
   margin-bottom: var(--space-5);
@@ -112,7 +112,7 @@
 
 .hero__sub {
   font-size: clamp(1rem, 1.4vw, 1.25rem);
-  line-height: 1.78;
+  line-height: var(--line-height-body-loose);
   color: rgba(220, 195, 160, 0.82);
   margin-bottom: var(--space-8);
   max-width: 500px;
@@ -231,7 +231,7 @@
   font-weight: 800;
   color: var(--orange-300);
   letter-spacing: 0;
-  line-height: 1;
+  line-height: var(--line-height-none);
   white-space: nowrap;
 }
 .intro-strip__item span {

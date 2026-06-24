@@ -12,7 +12,7 @@
   font-size: var(--font-size-body-md);
   color: var(--color-text-secondary);
   margin-top: var(--spacing-8);
-  line-height: 1.7;
+  line-height: var(--line-height-body);
 }
 
 .procsy-pain__layout {
@@ -88,7 +88,7 @@
 
 .procsy-pain__list li {
   font-size: var(--font-size-body-md);
-  line-height: 1.65;
+  line-height: var(--line-height-body);
   padding-left: var(--spacing-22);
   position: relative;
 }
@@ -136,14 +136,14 @@
   font-weight: 800;
   letter-spacing: 0;
   color: var(--color-text-primary);
-  line-height: 1.25;
+  line-height: var(--line-height-heading);
   margin-bottom: var(--spacing-12);
 }
 
 .procsy-flex__desc {
   font-size: var(--font-size-body-md);
   color: var(--color-text-secondary);
-  line-height: 1.75;
+  line-height: var(--line-height-body-loose);
 }
 
 .procsy-flex__grid {
@@ -195,13 +195,13 @@
   color: var(--color-text-primary);
   margin-bottom: var(--spacing-10);
   letter-spacing: 0;
-  line-height: 1.35;
+  line-height: var(--line-height-card);
 }
 
 .procsy-flex__item p {
   font-size: var(--font-size-body-md);
   color: var(--color-text-secondary);
-  line-height: 1.75;
+  line-height: var(--line-height-body-loose);
 }
 
 /* ── 구매 프로세스 비교 (15단계 → 4단계) ── */
@@ -372,7 +372,7 @@
 .procsy-step-desc p {
   font-size: var(--font-size-body-md);
   color: rgba(255,255,255,0.7);
-  line-height: 1.7;
+  line-height: var(--line-height-body);
 }
 
 @keyframes stepFadeIn {
@@ -421,14 +421,14 @@
   font-weight: 700;
   color: var(--color-text-primary);
   letter-spacing: 0;
-  line-height: 1.3;
+  line-height: var(--line-height-card);
   margin-bottom: var(--spacing-10);
 }
 
 .procsy-benefit-card p {
   font-size: var(--font-size-body-md);
   color: var(--color-text-secondary);
-  line-height: 1.72;
+  line-height: var(--line-height-body);
   word-break: keep-all;
 }
 
@@ -475,7 +475,7 @@
   font-weight: 700;
   color: var(--white);
   letter-spacing: 0;
-  line-height: 1.3;
+  line-height: var(--line-height-card);
   margin: 0;
   word-break: keep-all;
 }

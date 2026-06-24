@@ -15,7 +15,7 @@
 .services .section-desc {
   margin-bottom: 0;
   font-size: var(--font-size-body-md);
-  line-height: 1.75;
+  line-height: var(--line-height-body-loose);
   color: var(--color-text-secondary);
 }
 
@@ -69,7 +69,7 @@
   font-size: var(--font-size-deco);
   font-weight: 800;
   letter-spacing: -0.06em;
-  line-height: 1;
+  line-height: var(--line-height-none);
   color: rgba(255,255,255,0.04);
   pointer-events: none;
   user-select: none;
@@ -98,7 +98,7 @@
   font-weight: 800;
   letter-spacing: 0;
   color: var(--platform-color);
-  line-height: 1;
+  line-height: var(--line-height-none);
   white-space: nowrap;
 }
 .platform-card__stat span {
@@ -184,7 +184,7 @@
   font-size: var(--font-size-rem-2-4);
   font-weight: 800;
   letter-spacing: 0;
-  line-height: 1;
+  line-height: var(--line-height-none);
   margin-bottom: var(--space-4);
 }
 .platform-card--procsy .platform-card__name { color: var(--white); }
@@ -192,7 +192,7 @@
 
 .platform-card__desc {
   font-size: var(--font-size-body-md);
-  line-height: 1.72;
+  line-height: var(--line-height-body);
   margin-bottom: var(--space-6);
   width: 100%;
   word-break: keep-all;
@@ -265,7 +265,7 @@
   font-size: var(--font-size-body-sm);
   font-weight: 600;
   color: var(--brand);
-  line-height: 1.4;
+  line-height: var(--line-height-caption);
 }
 
 /* ── 로드맵 ── */
@@ -341,7 +341,7 @@
   gap: var(--spacing-10);
   font-size: var(--font-size-body-md);
   color: var(--color-text-secondary);
-  line-height: 1.5;
+  line-height: var(--line-height-body-tight);
 }
 .platform-card__features li::before {
   content: '';

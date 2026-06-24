@@ -370,7 +370,20 @@
   --font-weight-medium:  500;
   --font-weight-normal:  400;
 
-  /* Heading line-height */
+  /* ── Line-height 역할 기반 토큰 (unitless ratio) ─────────────
+     컴포넌트 CSS에서 raw 수치 대신 이 변수를 사용할 것.
+     아래 px 기반 토큰(heading/body)은 레거시 — 신규 작업에서 사용 금지. */
+  --line-height-none:        1;     /* 숫자·버튼·한 줄 UI (가격, 탭, 이름) */
+  --line-height-hero:        1.08;  /* Hero title 전용 */
+  --line-height-title:       1.15;  /* Section title, Panel title */
+  --line-height-heading:     1.25;  /* 서브 헤딩 (Contact title, Flex title 등) */
+  --line-height-card:        1.35;  /* Card title, h3, h4 */
+  --line-height-caption:     1.4;   /* Caption, label, badge, 짧은 인라인 텍스트 */
+  --line-height-body-tight:  1.6;   /* 짧은 설명문, 특수 패널 */
+  --line-height-body:        1.7;   /* 일반 본문 표준 */
+  --line-height-body-loose:  1.8;   /* 긴 설명문, 섹션 설명, 리드 카피 */
+
+  /* Heading line-height (레거시 px 기반 — 신규 사용 금지) */
   --line-height-heading-3xl:  56px;
   --line-height-heading-2xl:  46px;
   --line-height-heading-1xl:  40px;

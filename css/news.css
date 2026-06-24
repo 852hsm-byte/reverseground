@@ -59,19 +59,19 @@
 .news-card__body h3 {
   font-size: var(--font-size-body-md);
   font-weight: var(--font-weight-bold);
-  line-height: var(--line-height-body-lg);
+  line-height: var(--line-height-card);
   color: var(--text-default);
   margin-bottom: var(--spacing-10);
 }
 .news-card__body p {
   font-size: var(--font-size-body-md);
-  line-height: var(--line-height-body-md);
+  line-height: var(--line-height-body);
   color: var(--text-muted);
   margin-bottom: var(--space-3);
 }
 .news-card__date {
   font-size: var(--font-size-body-sm);
-  line-height: var(--line-height-body-sm);
+  line-height: var(--line-height-caption);
   color: var(--text-subtle);
   font-weight: var(--font-weight-medium);
 }

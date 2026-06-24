@@ -11,7 +11,7 @@ body {
   font-size: var(--font-size-body-lg);       /* 16px */
   color: var(--text-default);
   background: var(--bg-default);
-  line-height: var(--line-height-body-lg);   /* 22px */
+  line-height: var(--line-height-body);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -54,7 +54,7 @@ a { text-decoration: none; color: inherit; }
 .section-title {
   font-size: clamp(2.2rem, 4vw, 3.6rem);
   font-weight: 800;
-  line-height: 1.12;
+  line-height: var(--line-height-title);
   letter-spacing: 0;
   color: var(--text-default);
   margin-bottom: var(--spacing-20);
@@ -70,7 +70,7 @@ em.point,
 
 .section-desc {
   font-size: var(--font-size-body-lg);
-  line-height: 1.8;
+  line-height: var(--line-height-body-loose);
   color: var(--color-text-secondary);
   max-width: 600px;
   margin-top: var(--spacing-16);

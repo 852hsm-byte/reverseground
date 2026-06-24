@@ -13,7 +13,7 @@
 @media (min-width: 1025px) {
 
   /* ── 섹션 공통 폰트 — 데스크탑에서만 키움 ── */
-  .section-desc { font-size: var(--font-size-body-lg); line-height: 1.8; }   /* 16px → 18px */
+  .section-desc { font-size: var(--font-size-body-lg); line-height: var(--line-height-body-loose); }   /* 16px → 18px */
 
   /* ── 섹션 패딩 ── */
   .section { padding: var(--section-py) 0; }               /* 160px (토큰 기본값) */
@@ -85,7 +85,7 @@
   .client-card { gap: var(--spacing-18); }
   .client-card__industry--badge  { display: none; }
   .client-card__industry--inline { display: inline; }
-  .client-card__name { font-size: var(--font-size-body-sm); line-height: 1.4; }
+  .client-card__name { font-size: var(--font-size-body-sm); line-height: var(--line-height-caption); }
   .client-card__name .client-card__industry--inline { display: block; margin-top: var(--spacing-3); }
   .client-card__logo--cta,
   .client-card--empty .client-card__logo {
@@ -293,7 +293,7 @@
   .intro-strip__inner   { display: flex; flex-wrap: nowrap; justify-content: center; gap: 0; }
   .intro-strip__divider { display: block; }
   .intro-strip__item    { flex: 1; text-align: center; padding: var(--spacing-44) var(--spacing-4); }
-  .intro-strip__item strong { font-size: var(--font-size-22); letter-spacing: 0; display: block; line-height: 1; }
+  .intro-strip__item strong { font-size: var(--font-size-22); letter-spacing: 0; display: block; line-height: var(--line-height-none); }
   .intro-strip__item span   { font-size: var(--font-size-13); white-space: nowrap; display: block !important; margin-top: var(--spacing-9); opacity: 0.55; letter-spacing: 0.01em; }
 
   /* ── About ── */
@@ -392,7 +392,7 @@
   .pricing-card__head      { min-height: unset; margin-bottom: var(--spacing-20); }
   .pricing-card__icon      { width: 36px; height: 36px; margin-bottom: var(--spacing-16); }
   .pricing-card__title     { font-size: var(--font-size-body-lg); margin-bottom: var(--spacing-8); }
-  .pricing-card__desc      { font-size: var(--font-size-13); line-height: 1.6; }
+  .pricing-card__desc      { font-size: var(--font-size-13); line-height: var(--line-height-body-tight); }
   .pricing-card__price     { min-height: unset; margin-bottom: var(--spacing-12); padding-bottom: var(--spacing-12); }
   .pricing-card__num       { font-size: var(--font-size-display-sm); }
   .pricing-card__currency  { font-size: var(--font-size-15); }
