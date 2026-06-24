@@ -571,4 +571,12 @@
   .procsy-benefit-card { padding: var(--spacing-20) var(--spacing-20) var(--spacing-24); }
 
   .procsy-setup { grid-template-columns: 1fr; gap: var(--spacing-24); padding: var(--spacing-28) var(--spacing-24); }
+
+  .procsy-setup__steps {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-10);
+  }
+  .procsy-setup__steps li.procsy-setup__arrow { display: none; }
+  .procsy-setup__steps li:not(.procsy-setup__arrow) { flex: none; }
 }
