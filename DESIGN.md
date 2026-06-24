@@ -113,8 +113,17 @@ CDN: `https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variabl
 | `.platform-card__name` | 2.4rem | 1.9rem | 1.4rem |
 | `.platform-card__stat strong` | 26px | 22px | 20px |
 | `.pricing-card__num` | 42px | 34px | 32px |
-| `.pricing-card__title` | 22px | 20px | 18px |
+| `.pricing-card__title` | 22px | 20px | 22px (fixed, `--font-size-22`) |
 | `.contact__stat-num` | 32px | 28px | 24px |
+
+### Letter-spacing 원칙
+
+- **모든 타이틀·헤딩·버튼·탭·링크: `letter-spacing: 0`** (음수 자간 금지)
+- 예외 — 양수 자간 허용 요소 (의도된 디자인):
+  - `.section-label`, `.howto-card__step`, 컬럼 타이틀 등 uppercase 배지류: `0.06em ~ 0.14em`
+  - `.about__info-label` (기업정보 라벨): `0.06em`
+- 예외 — 장식 요소 1개:
+  - `.platform-card__deco` (180px 배경 장식 레터): `-0.06em` (의도적 유지)
 
 ### 폰트 굵기
 
@@ -194,10 +203,10 @@ Hero CTA 버튼 모바일: `width: 100%; max-width: 320px; justify-content: cent
 | `.section` | 기본 섹션 (흰 배경, 상하 패딩) |
 | `.section--bg` | 연회색 배경 `#F5F5F7` |
 | `.section--dark` | 다크 배경 `#191919` |
-| `.section-label` | 골드 Pill 레이블 (uppercase, 11px) |
-| `.section-title` | 섹션 제목 (clamp 반응형) |
+| `.section-label` | 골드 Pill 레이블 (uppercase, 11px, `letter-spacing: 0.14em`) |
+| `.section-title` | 섹션 제목 `clamp(2.2rem, 4vw, 3.6rem)` / font-weight 700 / `letter-spacing: 0` |
 | `.section-title .point` | 골드 강조 텍스트 |
-| `.section-desc` | 섹션 설명 (Desktop: 18px, Mobile: 14px) |
+| `.section-desc` | 섹션 설명 `body-lg` (Desktop: 18px, Mobile: 16px) |
 | `.container` | max-width 1440px, 가운데 정렬 |
 | `.reveal` | 스크롤 애니메이션 (opacity + translateY) |
 
@@ -230,8 +239,8 @@ Hero CTA 버튼 모바일: `width: 100%; max-width: 320px; justify-content: cent
 - 배경: `#16130E` (다크) + 골드 radial-gradient blob 애니메이션
 - 그리드 패턴 오버레이: `rgba(255,255,255,0.025)`
 - 최소 높이: `92vh` (Tablet/Mobile: `auto`, padding: `80px 0 60px`)
-- 헤드라인: `clamp(3.2rem, 7.5vw, 6.4rem)` / font-weight 800
-- 서브텍스트: `clamp(1.2rem, 1.8vw, 1.5rem)` / `rgba(220,195,160,0.75)`
+- 헤드라인: `clamp(3rem, 5.5vw, 4.8rem)` / font-weight 800 / `letter-spacing: 0` (max 76.8px)
+- 서브텍스트: `clamp(1rem, 1.4vw, 1.25rem)` / `rgba(220,195,160,0.75)`
 - 배지 eyebrow: 골드 테두리 pill + 펄스 애니메이션 점
 
 **Intro strip** (히어로 하단 수치 띠)
@@ -272,7 +281,7 @@ Hero CTA 버튼 모바일: `width: 100%; max-width: 320px; justify-content: cent
 - 활성 탭: `background: #FFFFFF`, `box-shadow: 0 1px 6px rgba(0,0,0,0.1)`, border-top 없음
 - 비활성 hover: `background: rgba(255,255,255,0.4)`
 - 패널: border 없음, `background: transparent`, `padding: 64px 0 40px`
-- 패널 타이틀: `clamp(1.3rem, 2.4vw, 1.9rem)` / font-weight: 700
+- 패널 타이틀: `clamp(1.9rem, 3.4vw, 3rem)` / font-weight: 700 / `letter-spacing: 0` / Tablet override: 32px
 - Howto 그리드 (패널 내): `gap: 4px`, 화살표 `rgba(190,144,85,0.7)` / 18px
 
 > ⚠ `modern-proctabs.css`가 마지막에 로드되어 `platform-tabs.css`와 `responsive.css`의 탭 스타일을 `!important`로 모두 오버라이드. 탭 관련 수정은 반드시 `modern-proctabs.css`에서 할 것.
@@ -347,7 +356,7 @@ Hero CTA 버튼 모바일: `width: 100%; max-width: 320px; justify-content: cent
 - 클래스: `.vision.section.vision--dark`
 - 배경: `#16130E` + 골드 radial-gradient 글로우 (`::before`)
 - 섹션 레이블: `.section-label--light` (골드 outline)
-- 타이틀: `clamp(2rem, 3.8vw, 3.4rem)` / 흰색 / 이탤릭 강조 `.vision__accent` → `#CF9F68`
+- 타이틀: `clamp(2.2rem, 4vw, 3.6rem)` / 흰색 / `letter-spacing: 0` / 이탤릭 강조 `.vision__accent` → `#CF9F68`
 - 서브텍스트: `rgba(255,255,255,0.45)`
 
 **Vision 카드 그리드 (`.vision__strategy`)**
