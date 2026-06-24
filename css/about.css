@@ -22,11 +22,11 @@
 
 /* 브랜드명 — 골드 대형 디스플레이 타입 */
 .about__brand-name {
-  font-size: clamp(2.2rem, 4vw, 3.6rem);
+  font-size: clamp(2.4rem, 4.4vw, 3.8rem);
   font-weight: 800;
   letter-spacing: 0;
   color: var(--brand);
-  line-height: var(--line-height-none);
+  line-height: var(--line-height-title-tight);
   margin-top: 0;
   margin-bottom: var(--spacing-20);
   word-break: keep-all;

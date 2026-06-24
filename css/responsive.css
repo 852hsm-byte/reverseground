@@ -132,7 +132,6 @@
 
   /* ── Vision ── */
   .vision__strategy { grid-template-columns: repeat(3, 1fr); gap: var(--spacing-12); }
-  .vision__title    { font-size: var(--font-size-rem-2); }   /* clamp 최솟값 대응 */
 
   /* ── Platform grid ── */
   .platform-card__features { grid-template-columns: 1fr; }
