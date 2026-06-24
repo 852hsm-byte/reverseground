@@ -102,9 +102,11 @@ CDN: `https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variabl
 | `--font-size-heading-md` | 20px | 20px | 18px | 카드 타이틀 |
 | `--font-size-heading-sm` | 18px | 18px | 16px | 소타이틀 |
 | `--font-size-body-1xl` | 20px | 18px | 16px | 리드 텍스트 |
-| `--font-size-body-lg` | 18px | 18px | 16px | 본문 기본 |
-| `--font-size-body-md` | 16px | 16px | 14px | 보조 텍스트 |
+| `--font-size-body-lg` | 18px | 18px | 16px | 본문 기본, `section-desc`, `about__lead` |
+| `--font-size-body-md` | 16px | 16px | 14px | 카드 내부 설명, 리스트 (의도적 계층) |
 | `--font-size-body-sm` | 14px | 14px | 14px | 캡션/라벨 |
+
+> **Body 사이즈 계층 원칙**: 페이지 본문·섹션 설명은 18px(`body-lg`) / 카드 내부 설명·기능 리스트는 16px(`body-md`) — 이 차이는 불일치가 아닌 정보 위계 차이다. 카드 본문을 18px로 올리지 말 것. 단, 모바일에서 14px 이하로 내려가는 카드 설명이 있으면 최소 15~16px 기준으로 조정한다.
 
 ### 하드코딩 클래스 반응형 오버라이드 (responsive.css)
 
@@ -117,31 +119,38 @@ CDN: `https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variabl
 | `.pricing-card__title` | 22px | 20px | 22px (fixed, `--font-size-22`) |
 | `.contact__stat-num` | 32px | 28px | 24px |
 
-### Line-height 기준 (실제 CSS 적용값)
+### Line-height 토큰 (tokens.css 기준 — raw 수치 직접 사용 금지)
 
-| 역할 | 클래스 예시 | line-height |
-|------|------------|-------------|
-| Hero Title | `.hero__title` | 1.08 |
-| Section Title | `.section-title`, `.vision__title`, `.contact__title` | 1.12 ~ 1.25 |
-| Panel Title | `.platform-panel__title` | 1.15 |
-| Card Title | `.pricing-card__title`, `.howto-card__title` | 1.3 ~ 1.35 |
-| Lead / Sub | `.hero__sub`, `.section-desc`, `.about__lead` | 1.75 ~ 1.8 |
-| Body | 카드 설명, 리스트, `.pricing-card__features li` | 1.72 |
-| Caption / Label | `.section-label`, 배지류 | 1 ~ 1.3 |
-| Button / Number | `.pricing-card__num`, CTA 버튼 | 1 |
+| 토큰 | 값 | 적용 대상 |
+|------|----|-----------|
+| `--line-height-none` | 1 | 숫자·버튼·한 줄 UI (`.pricing-card__num`, `.platform-card__name`, 탭) |
+| `--line-height-hero` | 1.08 | `.hero__title` 전용 |
+| `--line-height-title-tight` | 1.12 | `.section-title` |
+| `--line-height-panel-title` | 1.15 | `.platform-panel__title` (탭 패널 대표 타이틀) |
+| `--line-height-title` | 1.2 | 줄바꿈 있는 큰 타이틀 (`.vision__title`, `.contact__title`, `.about__brand-name`) |
+| `--line-height-heading` | 1.25 | 서브 헤딩 (`.procsy-flex__title` 등) |
+| `--line-height-card` | 1.35 | Card title, h3, h4 (`.pricing-card__title`, `.grove-feature-item h3` 등) |
+| `--line-height-caption` | 1.4 | Caption, label, badge, 짧은 인라인 텍스트 |
+| `--line-height-body-tight` | 1.6 | 짧은 설명문, 특수 패널 내부 텍스트 |
+| `--line-height-body` | 1.7 | 일반 본문 표준 (카드 설명, 리스트, `.pricing-card__features li`) |
+| `--line-height-body-loose` | 1.8 | 긴 설명문, 섹션 설명 (`.section-desc`, `.about__lead`, `.hero__sub`) |
 
 ### Typography Role Mapping
 
-| 역할 | 적용 클래스 |
-|------|-------------|
-| Hero Title | `.hero__title` |
-| Section Title (H2) | `.section-title`, `.vision__title`, `.contact__title`, `.about__brand-name` |
-| Panel Title (H2~H3 사이) | `.platform-panel__title` — 탭 패널 대표 타이틀. Card Title보다 크고 Section Title보다 작음 |
-| Card Title (H3) | `.platform-card__name`, `.pricing-card__title`, `.grove-feature-item h3`, `.vision__item h3`, `.about__info-title` |
-| Section Description | `.section-desc`, `.vision__subtitle`, `.contact__desc`, `.about__lead` |
-| Body Text | `.about__desc`, `.platform-card__desc`, 카드 내 `p`, 피처 리스트 `li` |
-| Caption / Label | `.section-label`, `.platform-card__badge`, `.pricing-card__name`, `.about__info-label` — uppercase + letter-spacing 양수 |
-| Button Text | CTA 버튼, 탭 버튼, 링크형 버튼 — letter-spacing: 0 |
+| 역할 | 적용 클래스 | font-weight |
+|------|-------------|-------------|
+| Hero Title | `.hero__title` | 800 |
+| Section Title (H2) | `.section-title`, `.vision__title`, `.contact__title` | 800 |
+| Panel Title | `.platform-panel__title` — Procsy 탭 패널 대표 타이틀 (Card보다 크고 Section보다 작음) | 700 |
+| Product Name / Platform Card Name | `.platform-card__name`, `.about__brand-name` — 서비스명·제품명 대표 타이틀 | 800 |
+| Emphasis Card Title | `.vision__item h3`, `.procsy-flex__title` — 비전 키워드·핵심 메시지 강조 | 800 |
+| Standard Card Title | `.grove-feature-item h3`, `.feature-item h3`, `.pricing-card__title`, `.about__info-title` | 700 |
+| Small Content Card Title | `.news-card__body h3` — 뉴스 카드 제목, 16px 유지 | 700 |
+| Section Description / Lead | `.section-desc`, `.about__lead`, `.about__desc` | 400 |
+| Card Body / List | 카드 내부 `p`, 피처 리스트 `li`, `platform-card__desc` — 16px 계열 (의도적 계층) | 400 |
+| Caption / Label / Badge | `.section-label`, `.platform-card__badge`, `.pricing-card__name`, `.about__info-label`, `.client-card__industry`, `.grove-sync span` — uppercase + 양수 letter-spacing | 700 |
+| Button / Tab | CTA 버튼, 탭 버튼, 링크형 버튼 — letter-spacing: 0 | 700 |
+| Body Emphasis | 보조 설명, subtitle, `.platform-tab__desc`, `.intro-strip__item span` | 500 |
 
 ### Letter-spacing 원칙
 
@@ -154,16 +163,34 @@ CDN: `https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variabl
 
 ### 폰트 굵기
 
-| 변수 | 값 |
-|------|----|
-| `--font-weight-bold` | 700 |
-| `--font-weight-medium` | 500 |
-| `--font-weight-normal` | 400 |
-| (특별 강조) | 800 |
+| 역할 | 값 | 변수 |
+|------|----|------|
+| Hero / Section / Panel title | 800 | — |
+| Product Name / Emphasis Card Title | 800 | — |
+| Standard Card Title | 700 | `--font-weight-bold` |
+| Caption / Label / Badge | 700 | `--font-weight-bold` |
+| Button / Tab | 700 | `--font-weight-bold` |
+| Body Emphasis | 500 | `--font-weight-medium` |
+| Body | 400 | `--font-weight-normal` |
+
+> `font-weight: 600`은 사용하지 않는다 — 700(bold)과 500(medium) 사이 값은 500으로 내리거나 700으로 올린다.
 
 ---
 
 ## 스페이싱
+
+### Section Padding (section-py)
+
+| 브레이크포인트 | 값 | 비고 |
+|---|---|---|
+| Desktop (≥1025px) | 160px | `--section-py: 160px` |
+| Tablet (769–1024px) | 96px | `--section-py: 96px` (tokens.css 실측값) |
+| Mobile (≤768px) | 72px | `--section-py: 72px` |
+
+**예외 — Contact (`#contact`)**: 페이지 마지막 CTA 섹션으로 전환 영역 강조를 위해 custom padding 적용
+- Desktop: `120px top / 80px bottom`
+- Tablet: `100px top / 72px bottom`
+- Mobile: `88px top / 72px bottom` ← 일반 72px보다 16px 더 줌 (마지막 섹션 진입감 유지 의도)
 
 | 변수 | 값 |
 |------|----|
@@ -308,7 +335,8 @@ Hero CTA 버튼 모바일: `width: 100%; max-width: 320px; justify-content: cent
 - 활성 탭: `background: #FFFFFF`, `box-shadow: 0 1px 6px rgba(0,0,0,0.1)`, border-top 없음
 - 비활성 hover: `background: rgba(255,255,255,0.4)`
 - 패널: border 없음, `background: transparent`, `padding: 64px 0 40px`
-- 패널 타이틀 (`.platform-panel__title`): `clamp(1.9rem, 3.4vw, 3rem)` / font-weight: 700 / `letter-spacing: 0` / line-height: 1.15 / Tablet override: 32px
+- 패널 타이틀 (`.platform-panel__title`): `clamp(1.9rem, 3.4vw, 3rem)` / font-weight: 700 / `letter-spacing: 0` / `line-height: var(--line-height-panel-title)` (1.15) / Tablet override: 32px
+  - ⚠ `modern-proctabs.css` 기준 최종 렌더링 값. Procsy 탭 패널 내부 대표 타이틀이지만 전체 section-title보다 한 단계 낮은 위계로 700 유지. (`platform-tabs.css`의 800은 modern-proctabs.css `!important`에 의해 오버라이드됨)
   - ⚠ 이 요소는 HTML 태그가 `h3`이지만 **카드 H3가 아닌 탭 패널 대표 타이틀**임. Card Title보다 크게 처리할 것
 - Howto 그리드 (패널 내): `gap: 4px`, 화살표 `rgba(190,144,85,0.7)` / 18px
 
@@ -385,6 +413,7 @@ Hero CTA 버튼 모바일: `width: 100%; max-width: 320px; justify-content: cent
 - 배경: `#16130E` + 골드 radial-gradient 글로우 (`::before`)
 - 섹션 레이블: `.section-label--light` (골드 outline)
 - 타이틀: `clamp(2.2rem, 4vw, 3.6rem)` / 흰색 / `letter-spacing: 0` / 이탤릭 강조 `.vision__accent` → `#CF9F68`
+  - ⚠ **모바일 예외**: Mobile에서 `32px` 고정 오버라이드 (`var(--font-size-rem-2)`) — 다크 배경 감성 섹션 특성상 2줄 안정성과 여백감 확보를 위해 `.section-title` 일반 clamp 최솟값(35.2px)보다 작게 허용
 - 서브텍스트: `rgba(255,255,255,0.45)`
 
 **Vision 카드 그리드 (`.vision__strategy`)**

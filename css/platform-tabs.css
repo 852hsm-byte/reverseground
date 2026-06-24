@@ -230,7 +230,7 @@
   border: 1.5px solid var(--sand-10);
   border-radius: var(--radius-rounded);
   font-size: var(--font-size-body-sm);
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-text-secondary);
 }
 
@@ -294,7 +294,7 @@
 }
 .grove-panel-roadmap__items span {
   font-size: var(--font-size-body-sm);
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-text-tertiary);
   background: var(--sand-4);
   border: 1px solid var(--sand-10);

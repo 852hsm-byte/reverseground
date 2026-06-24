@@ -155,11 +155,11 @@
     border-radius: var(--radius-xl);
     background: transparent;
     font-size: var(--font-size-13);
-    font-weight: 600;
+    font-weight: 700;
     color: rgba(0,0,0,0.4);
     margin-bottom: 0;
   }
-  .platform-tab__name { font-size: var(--font-size-13); font-weight: 600; }
+  .platform-tab__name { font-size: var(--font-size-13); font-weight: 700; }
   .platform-tab__desc { display: none; }
   .platform-tab.active {
     background: var(--white);
@@ -238,7 +238,7 @@
     border-radius: var(--radius-xl) !important;
     background: transparent !important;
     font-size: var(--font-size-13);
-    font-weight: 600;
+    font-weight: 700;
     color: rgba(0,0,0,0.4);
     margin-bottom: 0 !important;
     box-shadow: none !important;
@@ -249,7 +249,7 @@
     box-shadow: 0 1px 6px rgba(0,0,0,0.1) !important;
     border-top: none !important;
   }
-  .platform-tab__name { font-size: var(--font-size-13) !important; font-weight: 600; white-space: nowrap; }
+  .platform-tab__name { font-size: var(--font-size-13) !important; font-weight: 700; white-space: nowrap; }
   .platform-tab__desc { display: none; }
   .platform-panel { padding: var(--spacing-28) var(--spacing-20) var(--spacing-36); }
   .platform-panel__title { font-size: var(--font-size-rem-1-5); margin-bottom: var(--spacing-8); }
@@ -307,6 +307,8 @@
   }
   .about__trust-card { padding: var(--spacing-20) var(--spacing-18); }
   .about__trust-grid { grid-template-columns: repeat(2, 1fr); }
+  .about__trust-card strong { word-break: keep-all; overflow-wrap: anywhere; }
+  .about__trust-card p      { word-break: keep-all; }
 
   /* ── Grove 패널 (인라인 margin-top 오버라이드 — !important 필요) ── */
   #grove-detail .grove-panel-sync  { margin-top: var(--spacing-28) !important; }

@@ -32,7 +32,7 @@
 
 .platform-tab__name {
   font-size: var(--font-size-rem-1);
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0;
   color: var(--color-text-tertiary);
 }
