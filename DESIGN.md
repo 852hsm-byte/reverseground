@@ -29,8 +29,9 @@ reverseground-v2/
     └── responsive.css         ← 반응형 오버라이드 ★ 항상 마지막 로드
 ```
 
-> **CSS 캐스케이드 주의**: `responsive.css`가 마지막 로드 → 반응형 값이 우선 적용됨.  
-> 같은 속성을 다른 파일에서 쓰면 responsive.css 값이 이깁니다.
+> **CSS 캐스케이드 주의**: `responsive.css`는 대부분의 반응형 오버라이드 기준 파일이다.  
+> 단, `modern-proctabs.css`는 `responsive.css` 이후에 로드되므로 **Procsy 탭·패널 관련 스타일은 `modern-proctabs.css` 값이 최종 우선 적용**된다.  
+> 탭/패널 수정은 반드시 `modern-proctabs.css`에서 할 것.
 
 ---
 
@@ -115,6 +116,32 @@ CDN: `https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variabl
 | `.pricing-card__num` | 42px | 34px | 32px |
 | `.pricing-card__title` | 22px | 20px | 22px (fixed, `--font-size-22`) |
 | `.contact__stat-num` | 32px | 28px | 24px |
+
+### Line-height 기준 (실제 CSS 적용값)
+
+| 역할 | 클래스 예시 | line-height |
+|------|------------|-------------|
+| Hero Title | `.hero__title` | 1.08 |
+| Section Title | `.section-title`, `.vision__title`, `.contact__title` | 1.12 ~ 1.25 |
+| Panel Title | `.platform-panel__title` | 1.15 |
+| Card Title | `.pricing-card__title`, `.howto-card__title` | 1.3 ~ 1.35 |
+| Lead / Sub | `.hero__sub`, `.section-desc`, `.about__lead` | 1.75 ~ 1.8 |
+| Body | 카드 설명, 리스트, `.pricing-card__features li` | 1.72 |
+| Caption / Label | `.section-label`, 배지류 | 1 ~ 1.3 |
+| Button / Number | `.pricing-card__num`, CTA 버튼 | 1 |
+
+### Typography Role Mapping
+
+| 역할 | 적용 클래스 |
+|------|-------------|
+| Hero Title | `.hero__title` |
+| Section Title (H2) | `.section-title`, `.vision__title`, `.contact__title`, `.about__brand-name` |
+| Panel Title (H2~H3 사이) | `.platform-panel__title` — 탭 패널 대표 타이틀. Card Title보다 크고 Section Title보다 작음 |
+| Card Title (H3) | `.platform-card__name`, `.pricing-card__title`, `.grove-feature-item h3`, `.vision__item h3`, `.about__info-title` |
+| Section Description | `.section-desc`, `.vision__subtitle`, `.contact__desc`, `.about__lead` |
+| Body Text | `.about__desc`, `.platform-card__desc`, 카드 내 `p`, 피처 리스트 `li` |
+| Caption / Label | `.section-label`, `.platform-card__badge`, `.pricing-card__name`, `.about__info-label` — uppercase + letter-spacing 양수 |
+| Button Text | CTA 버튼, 탭 버튼, 링크형 버튼 — letter-spacing: 0 |
 
 ### Letter-spacing 원칙
 
@@ -281,7 +308,8 @@ Hero CTA 버튼 모바일: `width: 100%; max-width: 320px; justify-content: cent
 - 활성 탭: `background: #FFFFFF`, `box-shadow: 0 1px 6px rgba(0,0,0,0.1)`, border-top 없음
 - 비활성 hover: `background: rgba(255,255,255,0.4)`
 - 패널: border 없음, `background: transparent`, `padding: 64px 0 40px`
-- 패널 타이틀: `clamp(1.9rem, 3.4vw, 3rem)` / font-weight: 700 / `letter-spacing: 0` / Tablet override: 32px
+- 패널 타이틀 (`.platform-panel__title`): `clamp(1.9rem, 3.4vw, 3rem)` / font-weight: 700 / `letter-spacing: 0` / line-height: 1.15 / Tablet override: 32px
+  - ⚠ 이 요소는 HTML 태그가 `h3`이지만 **카드 H3가 아닌 탭 패널 대표 타이틀**임. Card Title보다 크게 처리할 것
 - Howto 그리드 (패널 내): `gap: 4px`, 화살표 `rgba(190,144,85,0.7)` / 18px
 
 > ⚠ `modern-proctabs.css`가 마지막에 로드되어 `platform-tabs.css`와 `responsive.css`의 탭 스타일을 `!important`로 모두 오버라이드. 탭 관련 수정은 반드시 `modern-proctabs.css`에서 할 것.
