@@ -574,10 +574,16 @@
   .procsy-setup { grid-template-columns: 1fr; gap: var(--spacing-24); padding: var(--spacing-28) var(--spacing-24); }
 
   .procsy-setup__steps {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-10);
+    display: flex;
+    flex-direction: column;
+    gap: 0;
   }
-  .procsy-setup__steps li.procsy-setup__arrow { display: none; }
   .procsy-setup__steps li:not(.procsy-setup__arrow) { flex: none; }
+  .procsy-setup__steps li.procsy-setup__arrow {
+    display: flex;
+    justify-content: center;
+    padding: var(--spacing-4) 0;
+    font-size: var(--font-size-body-md);
+    transform: rotate(90deg);
+  }
 }
