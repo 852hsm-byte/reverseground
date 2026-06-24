@@ -577,8 +577,9 @@
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     gap: var(--spacing-10);
-    align-items: center;
+    align-items: stretch;
   }
+  .procsy-setup__steps li.procsy-setup__arrow { align-self: center; }
   .procsy-setup__steps li:not(.procsy-setup__arrow) { flex: none; }
   .procsy-setup__steps li.procsy-setup__arrow {
     display: flex;
