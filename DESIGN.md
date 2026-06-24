@@ -127,7 +127,7 @@ CDN: `https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variabl
 | `--line-height-hero` | 1.08 | `.hero__title` 전용 |
 | `--line-height-title-tight` | 1.12 | `.section-title` |
 | `--line-height-panel-title` | 1.15 | `.platform-panel__title` (탭 패널 대표 타이틀) |
-| `--line-height-title` | 1.2 | 줄바꿈 있는 큰 타이틀 (`.vision__title`, `.contact__title`, `.about__brand-name`) |
+| `--line-height-title` | 1.2 | 줄바꿈 있는 큰 타이틀 (`.vision__title`, `.contact__title`) |
 | `--line-height-heading` | 1.25 | 서브 헤딩 (`.procsy-flex__title` 등) |
 | `--line-height-card` | 1.35 | Card title, h3, h4 (`.pricing-card__title`, `.grove-feature-item h3` 등) |
 | `--line-height-caption` | 1.4 | Caption, label, badge, 짧은 인라인 텍스트 |
@@ -294,7 +294,11 @@ Hero CTA 버튼 모바일: `width: 100%; max-width: 320px; justify-content: cent
 - 그리드 패턴 오버레이: `rgba(255,255,255,0.025)`
 - 최소 높이: `92vh` (Tablet/Mobile: `auto`, padding: `80px 0 60px`)
 - 헤드라인: `clamp(3rem, 5.5vw, 4.8rem)` / font-weight 800 / `letter-spacing: 0` (max 76.8px)
+  - ⚠ **모바일 예외**: `clamp(2.6rem, 12vw, 3rem)` / `word-break: keep-all` 유지 / 브랜드명(`.hero__title-brand`) + `<br>` 숨김 → "기업 운영을 단순하게"만 표시
 - 서브텍스트: `clamp(1rem, 1.4vw, 1.25rem)` / `rgba(220,195,160,0.75)`
+  - ⚠ **모바일 예외**: `.hero__sub-brand`("Procsy와 Grove로 ") 숨김 → 1줄로 표시
+- CTA 버튼: 솔루션 도입 문의하기 / 운영 솔루션 보기
+  - ⚠ **모바일 예외**: CTA 숨김, `.hero__service-tag` 전체 폭 pill 버튼으로 대체 (#platform-detail / #grove-detail 이동)
 - 배지 eyebrow: 골드 테두리 pill + 펄스 애니메이션 점
 
 **Intro strip** (히어로 하단 수치 띠)
@@ -400,6 +404,8 @@ Hero CTA 버튼 모바일: `width: 100%; max-width: 320px; justify-content: cent
 
 ### About 섹션
 
+- `.about__brand-name`: `clamp(2.4rem, 4.4vw, 3.8rem)` / font-weight 800 / `line-height: var(--line-height-title-tight)` (1.12) / color: `var(--brand)` (gold)
+  - 56px@1280px — Section Title(51px)보다 크게 설정해 섹션 대표 타이틀로 인식되도록 강화 (gold 색상의 낮은 대비 보정)
 - Trust Grid: Desktop 4열 / Tablet 2열 / Mobile 2열
 - Trust 카드: `border-radius: 16px` / padding `28px 24px`
 - 기업 정보 (`.about__meta--dark`): `background: #1E1A13` / `border-radius: 20px` / `padding: 56px 64px`
@@ -412,8 +418,9 @@ Hero CTA 버튼 모바일: `width: 100%; max-width: 320px; justify-content: cent
 - 클래스: `.vision.section.vision--dark`
 - 배경: `#16130E` + 골드 radial-gradient 글로우 (`::before`)
 - 섹션 레이블: `.section-label--light` (골드 outline)
-- 타이틀: `clamp(2.2rem, 4vw, 3.6rem)` / 흰색 / `letter-spacing: 0` / 이탤릭 강조 `.vision__accent` → `#CF9F68`
-  - ⚠ **모바일 예외**: Mobile에서 `32px` 고정 오버라이드 (`var(--font-size-rem-2)`) — 다크 배경 감성 섹션 특성상 2줄 안정성과 여백감 확보를 위해 `.section-title` 일반 clamp 최솟값(35.2px)보다 작게 허용
+- 타이틀: `clamp(2rem, 3.6vw, 3.2rem)` / 흰색 / `letter-spacing: 0` / 이탤릭 강조 `.vision__accent` → `#CF9F68`
+  - 다크 배경 + 흰 글자 + 이탤릭 강조로 시각적 강도가 높아 Standard Section Title보다 작게 유지 (46px@1280px)
+  - clamp 최솟값 2rem=32px이 모바일에서 자연 수렴 → 별도 override 불필요 (이전 `var(--font-size-rem-2)` override 제거됨)
 - 서브텍스트: `rgba(255,255,255,0.45)`
 
 **Vision 카드 그리드 (`.vision__strategy`)**
