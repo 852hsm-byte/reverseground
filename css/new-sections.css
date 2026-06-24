@@ -484,14 +484,15 @@
   list-style: none;
   display: flex;
   flex-direction: row;
-  align-items: stretch;
+  align-items: center;
   gap: var(--spacing-8);
 }
 
 .procsy-setup__steps li {
   display: flex;
-  flex-direction: column;
-  gap: var(--spacing-8);
+  flex-direction: row;
+  align-items: center;
+  gap: var(--spacing-10);
   padding: var(--spacing-16) var(--spacing-20);
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.1);
