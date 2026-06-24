@@ -580,7 +580,7 @@
     align-items: stretch;
   }
   .procsy-setup__steps li.procsy-setup__arrow { align-self: center; }
-  .procsy-setup__steps li:not(.procsy-setup__arrow) { flex: none; padding: var(--spacing-12) var(--spacing-16); }
+  .procsy-setup__steps li:not(.procsy-setup__arrow) { flex: none; padding: var(--spacing-12) var(--spacing-16); color: var(--white); }
   .procsy-setup__steps li.procsy-setup__arrow {
     display: flex;
     justify-content: center;
