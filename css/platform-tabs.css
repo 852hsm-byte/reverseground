@@ -136,7 +136,7 @@
   font-weight: 800;
   letter-spacing: 0;
   color: var(--color-text-primary);
-  line-height: var(--line-height-title);
+  line-height: var(--line-height-panel-title);
   margin-bottom: var(--spacing-12);
 }
 

@@ -54,7 +54,7 @@ a { text-decoration: none; color: inherit; }
 .section-title {
   font-size: clamp(2.2rem, 4vw, 3.6rem);
   font-weight: 800;
-  line-height: var(--line-height-title);
+  line-height: var(--line-height-title-tight);
   letter-spacing: 0;
   color: var(--text-default);
   margin-bottom: var(--spacing-20);
