@@ -901,7 +901,7 @@
         var el = document.getElementById(scrollId);
         if (!el) return;
         var mobileMenu = document.getElementById('gnb-mobile');
-        var menuVisible = mobileMenu && mobileMenu.getBoundingClientRect().height > 0;
+        var menuVisible = mobileMenu && mobileMenu.classList.contains('open');
         if (menuVisible) {
           e.preventDefault();
           function onEnd(ev) {
