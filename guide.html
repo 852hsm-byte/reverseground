@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ReverseGround — 시스템 가이드</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --brand: #BE9055;
+      --brand-light: rgba(190,144,85,0.12);
+      --brand-border: rgba(190,144,85,0.3);
+      --dark: #16130E;
+      --text: #191919;
+      --text-muted: #505050;
+      --text-subtle: #888;
+      --bg: #FAFAF8;
+      --bg-card: #FFFFFF;
+      --border: #E8E4DC;
+      --code-bg: #F3F0EB;
+      --sidebar-w: 240px;
+      --radius: 10px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--bg);
+      display: flex;
+    }
+
+    /* ── Sidebar ── */
+    .sidebar {
+      width: var(--sidebar-w);
+      min-height: 100vh;
+      background: var(--dark);
+      position: fixed;
+      top: 0; left: 0;
+      padding: 28px 0 40px;
+      overflow-y: auto;
+      z-index: 100;
+    }
+    .sidebar__logo {
+      padding: 0 20px 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 16px;
+    }
+    .sidebar__logo span {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--brand);
+      margin-bottom: 4px;
+    }
+    .sidebar__logo strong {
+      display: block;
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .sidebar__nav { padding: 0 12px; }
+    .sidebar__section {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      padding: 16px 8px 6px;
+    }
+    .sidebar__link {
+      display: block;
+      padding: 7px 8px;
+      border-radius: 6px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+    }
+    .sidebar__link:hover { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.9); }
+    .sidebar__link.active { background: var(--brand-light); color: var(--brand); }
+
+    /* ── Main ── */
+    .main {
+      margin-left: var(--sidebar-w);
+      flex: 1;
+      padding: 48px 56px 80px;
+      max-width: 960px;
+    }
+
+    /* ── Section blocks ── */
+    .guide-section {
+      margin-bottom: 64px;
+      scroll-margin-top: 32px;
+    }
+    .guide-section + .guide-section { border-top: 1px solid var(--border); padding-top: 64px; }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .page-desc { color: var(--text-muted); font-size: 14px; margin-bottom: 48px; }
+
+    h2 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    h3 {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin: 24px 0 10px;
+    }
+
+    /* ── Cards ── */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin-bottom: 12px;
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+    }
+    .card-grid .card { margin-bottom: 0; }
+
+    /* ── Tables ── */
+    .table-wrap { overflow-x: auto; margin-bottom: 16px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    th {
+      text-align: left;
+      padding: 8px 12px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-subtle);
+      background: var(--code-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    td {
+      padding: 9px 12px;
+      border-bottom: 1px solid #F0EDE8;
+      vertical-align: top;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #FAF8F5; }
+
+    /* ── Code / Token ── */
+    code {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 12px;
+      background: var(--code-bg);
+      color: #7A5420;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .token-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 0;
+      border-bottom: 1px solid #F0EDE8;
+    }
+    .token-row:last-child { border-bottom: none; }
+    .token-swatch {
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      border: 1px solid rgba(0,0,0,0.08);
+      flex-shrink: 0;
+    }
+    .token-name { font-family: 'SF Mono', monospace; font-size: 12px; color: #7A5420; flex: 1; }
+    .token-value { font-size: 12px; color: var(--text-subtle); }
+    .token-desc { font-size: 12px; color: var(--text-muted); }
+
+    /* ── Pill / Badge ── */
+    .pill {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .pill--gold { background: var(--brand-light); color: var(--brand); border: 1px solid var(--brand-border); }
+    .pill--dark { background: rgba(0,0,0,0.07); color: var(--text-muted); }
+    .pill--green { background: rgba(91,173,127,0.12); color: #3A8A5C; }
+    .pill--red { background: rgba(220,53,69,0.1); color: #B91C1C; }
+
+    /* ── Alert ── */
+    .alert {
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      margin-bottom: 16px;
+      display: flex;
+      gap: 10px;
+    }
+    .alert--warn { background: rgba(190,144,85,0.08); border: 1px solid rgba(190,144,85,0.25); color: #7A5420; }
+    .alert--info { background: rgba(59,130,246,0.07); border: 1px solid rgba(59,130,246,0.2); color: #1E40AF; }
+    .alert--danger { background: rgba(220,53,69,0.07); border: 1px solid rgba(220,53,69,0.2); color: #B91C1C; }
+    .alert__icon { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+
+    /* ── Color swatch grid ── */
+    .swatch-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
+    .swatch-item { text-align: center; }
+    .swatch { width: 52px; height: 52px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.08); margin-bottom: 6px; }
+    .swatch-label { font-size: 11px; color: var(--text-subtle); font-family: monospace; }
+
+    /* ── Breakpoint bar ── */
+    .bp-bar {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+    .bp-item {
+      background: var(--bg-card);
+      padding: 16px 20px;
+    }
+    .bp-item__label { font-size: 11px; font-weight: 700; color: var(--text-subtle); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+    .bp-item__range { font-size: 15px; font-weight: 700; color: var(--text); }
+    .bp-item__detail { font-size: 12px; color: var(--text-subtle); margin-top: 4px; }
+
+    /* ── File tree ── */
+    .file-tree {
+      background: var(--dark);
+      color: rgba(255,255,255,0.8);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      font-family: 'SF Mono', monospace;
+      font-size: 12.5px;
+      line-height: 1.9;
+    }
+    .file-tree .hl { color: var(--brand); font-weight: 700; }
+    .file-tree .comment { color: rgba(255,255,255,0.3); }
+
+    /* ── Type scale ── */
+    .type-item {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      padding: 10px 0;
+      border-bottom: 1px solid #F0EDE8;
+    }
+    .type-item:last-child { border-bottom: none; }
+    .type-sample { flex: 1; color: var(--text); }
+    .type-meta { font-size: 12px; color: var(--text-subtle); white-space: nowrap; }
+
+    /* ── Spacing scale ── */
+    .spacing-list { display: flex; flex-direction: column; gap: 8px; }
+    .spacing-item { display: flex; align-items: center; gap: 12px; }
+    .spacing-bar { height: 8px; background: var(--brand); border-radius: 4px; opacity: 0.6; }
+    .spacing-label { font-family: monospace; font-size: 12px; color: var(--text-subtle); width: 90px; }
+    .spacing-val { font-size: 12px; color: var(--text-muted); }
+
+    /* ── Rule list ── */
+    .rule-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .rule-list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 13px;
+      color: var(--text-muted);
+      padding: 10px 14px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+    .rule-list li .icon { flex-shrink: 0; margin-top: 1px; }
+    .rule-list li strong { color: var(--text); }
+
+    /* ── Nav link table ── */
+    .nav-links { display: flex; flex-direction: column; gap: 6px; }
+    .nav-link-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 13px;
+    }
+    .nav-link-item code { font-size: 12px; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 24px 20px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════ SIDEBAR ══════════ -->
+<nav class="sidebar">
+  <div class="sidebar__logo">
+    <span>ReverseGround</span>
+    <strong>시스템 가이드</strong>
+  </div>
+  <div class="sidebar__nav">
+    <div class="sidebar__section">기본</div>
+    <a href="#file-structure" class="sidebar__link">파일 구조</a>
+    <a href="#breakpoints" class="sidebar__link">브레이크포인트</a>
+    <a href="#rules" class="sidebar__link">핵심 규칙</a>
+
+    <div class="sidebar__section">디자인 토큰</div>
+    <a href="#colors" class="sidebar__link">색상</a>
+    <a href="#typography" class="sidebar__link">타이포그래피</a>
+    <a href="#spacing" class="sidebar__link">스페이싱</a>
+    <a href="#radius" class="sidebar__link">Border Radius</a>
+
+    <div class="sidebar__section">컴포넌트</div>
+    <a href="#gnb" class="sidebar__link">GNB</a>
+    <a href="#hero" class="sidebar__link">Hero</a>
+    <a href="#sections" class="sidebar__link">섹션 구조</a>
+    <a href="#buttons" class="sidebar__link">버튼</a>
+    <a href="#tabs" class="sidebar__link">탭 / 플랫폼</a>
+
+    <div class="sidebar__section">주의사항</div>
+    <a href="#css-rules" class="sidebar__link">CSS 작성 규칙</a>
+    <a href="#forbidden" class="sidebar__link">금지 사항</a>
+  </div>
+</nav>
+
+<!-- ══════════ MAIN ══════════ -->
+<main class="main">
+
+  <h1>ReverseGround 시스템 가이드</h1>
+  <p class="page-desc">
+    <code>option-a-proctabs.html</code> 기반 랜딩페이지 디자인 규칙.
+    수정·추가 시 이 문서를 기준으로 일관성을 유지하세요.
+  </p>
+
+  <!-- ── 파일 구조 ── -->
+  <section class="guide-section" id="file-structure">
+    <h2>파일 구조</h2>
+    <div class="file-tree">
+      reverseground-v2/<br>
+      ├── <span class="hl">option-a-proctabs.html</span>  <span class="comment">← 메인 페이지</span><br>
+      ├── components/<br>
+      │&nbsp;&nbsp; └── gnb.js  <span class="comment">← GNB (HTML + CSS + JS 통합)</span><br>
+      └── css/<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; ├── <span class="hl">tokens.css</span>  <span class="comment">← 디자인 토큰 ★ 가장 먼저 로드</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp; ├── base.css  <span class="comment">← 리셋, 공통 레이아웃, 버튼</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp; ├── hero.css  <span class="comment">← 히어로 + Intro strip</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp; ├── services.css<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; ├── platform-tabs.css<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; ├── new-sections.css  <span class="comment">← Procsy 탭 내부 섹션</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp; ├── features.css<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; ├── about.css · vision.css · howto.css · pricing.css · contact.css · footer.css<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; ├── <span class="hl">modern-proctabs.css</span>  <span class="comment">← responsive.css 이후 로드 (탭 스타일 최종 우선)</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp; └── <span class="hl">responsive.css</span>  <span class="comment">← 반응형 오버라이드 ★ 항상 마지막 로드</span>
+    </div>
+    <div class="alert alert--warn">
+      <span class="alert__icon">⚠️</span>
+      <div><strong>CSS 로드 순서 주의:</strong> <code>modern-proctabs.css</code>는 <code>responsive.css</code>보다 나중에 로드됩니다. Procsy 탭·패널 관련 스타일은 반드시 <code>modern-proctabs.css</code>에서 수정할 것.</div>
+    </div>
+  </section>
+
+  <!-- ── 브레이크포인트 ── -->
+  <section class="guide-section" id="breakpoints">
+    <h2>브레이크포인트</h2>
+    <div class="bp-bar">
+      <div class="bp-item">
+        <div class="bp-item__label">Desktop</div>
+        <div class="bp-item__range">≥ 1025px</div>
+        <div class="bp-item__detail">섹션 패딩 160px<br>컨테이너 패딩 20px</div>
+      </div>
+      <div class="bp-item">
+        <div class="bp-item__label">Tablet</div>
+        <div class="bp-item__range">769 – 1024px</div>
+        <div class="bp-item__detail">섹션 패딩 96px<br>컨테이너 패딩 20px</div>
+      </div>
+      <div class="bp-item">
+        <div class="bp-item__label">Mobile</div>
+        <div class="bp-item__range">≤ 768px</div>
+        <div class="bp-item__detail">섹션 패딩 72px<br>컨테이너 패딩 12px</div>
+      </div>
+    </div>
+    <div class="alert alert--info">
+      <span class="alert__icon">ℹ️</span>
+      <div><strong>Contact 섹션 예외:</strong> Desktop <code>120px / 80px</code> · Tablet <code>100px / 72px</code> · Mobile <code>88px / 72px</code> — 마지막 CTA 강조를 위한 커스텀 패딩</div>
+    </div>
+  </section>
+
+  <!-- ── 핵심 규칙 ── -->
+  <section class="guide-section" id="rules">
+    <h2>핵심 규칙</h2>
+    <ul class="rule-list">
+      <li><span class="icon">🎨</span><div>색상·폰트크기·border-radius는 <strong>raw 값 직접 사용 금지</strong> — 반드시 <code>tokens.css</code>의 <code>var(--*)</code>만 사용. (<code>0</code>, <code>50%</code>는 구조적 키워드라 예외)</div></li>
+      <li><span class="icon">📐</span><div>반응형 오버라이드는 <strong>반드시 <code>css/responsive.css</code>에만</strong> 작성 (항상 마지막 로드). Procsy 탭/패널 예외 → <code>modern-proctabs.css</code></div></li>
+      <li><span class="icon">🖱️</span><div>hover 효과는 반드시 <code>@media (hover: hover) and (pointer: fine)</code> 안에서만. 터치 리셋은 <code>@media (hover: none)</code> 안에.</div></li>
+      <li><span class="icon">⚫</span><div>Pure black <code>#000</code> 사용 금지 — 텍스트는 <code>var(--neutral-900)</code> <code>#191919</code> 사용. 더 진하면 <code>var(--near-black)</code> <code>#111111</code></div></li>
+      <li><span class="icon">✏️</span><div>새 토큰이 필요하면 <strong>현재 HTML 완성본 기준</strong>으로 값을 <code>tokens.css</code>에 추가 후 <code>var()</code>로 참조. 비슷한 기존 토큰으로 대체해 결과물을 바꾸지 말 것.</div></li>
+      <li><span class="icon">💅</span><div><code>rgba(...)</code> 투명도 오버레이는 토큰화 대상 제외 — raw 값 그대로 사용 허용 (183곳·64개 조합, 구조 변경 비용 대비 실익 없음)</div></li>
+      <li><span class="icon">🔗</span><div>GNB는 <code>components/gnb.js</code>가 주입 — <strong>HTML 파일에서 직접 수정 금지</strong></div></li>
+    </ul>
+  </section>
+
+  <!-- ── 색상 ── -->
+  <section class="guide-section" id="colors">
+    <h2>색상</h2>
+
+    <h3>브랜드 골드</h3>
+    <div class="swatch-grid">
+      <div class="swatch-item">
+        <div class="swatch" style="background:#FAF4EB"></div>
+        <div class="swatch-label">--orange-50</div>
+      </div>
+      <div class="swatch-item">
+        <div class="swatch" style="background:#E6CA9A"></div>
+        <div class="swatch-label">--orange-200</div>
+      </div>
+      <div class="swatch-item">
+        <div class="swatch" style="background:#CF9F68"></div>
+        <div class="swatch-label">--orange-300</div>
+      </div>
+      <div class="swatch-item">
+        <div class="swatch" style="background:#BE9055; outline: 2px solid #BE9055; outline-offset:2px"></div>
+        <div class="swatch-label" style="color:#BE9055;font-weight:700">--brand ★</div>
+      </div>
+      <div class="swatch-item">
+        <div class="swatch" style="background:#A87038"></div>
+        <div class="swatch-label">--brand-hover</div>
+      </div>
+      <div class="swatch-item">
+        <div class="swatch" style="background:#7A5420"></div>
+        <div class="swatch-label">--brand-press</div>
+      </div>
+    </div>
+
+    <h3>다크 배경</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>변수</th><th>값</th><th>용도</th></tr></thead>
+        <tbody>
+          <tr><td><code>--dark-900</code></td><td>#16130E</td><td>Hero, Footer, GNB CTA 배경</td></tr>
+          <tr><td><code>--dark-800</code></td><td>#1E1A13</td><td>Procsy 카드 헤드, About 다크 카드</td></tr>
+          <tr><td><code>--dark-750</code></td><td>#251F15</td><td>—</td></tr>
+          <tr><td><code>--dark-700</code></td><td>#2C2620</td><td>Pricing 추천 카드</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>텍스트 컬러</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>변수</th><th>값</th><th>용도</th></tr></thead>
+        <tbody>
+          <tr><td><code>--text-default</code></td><td>#191919</td><td>기본 텍스트 (pure black 대신)</td></tr>
+          <tr><td><code>--text-muted</code></td><td>#505050</td><td>보조 텍스트</td></tr>
+          <tr><td><code>--text-subtle</code></td><td>#A0A0A0</td><td>약한 텍스트</td></tr>
+          <tr><td><code>--color-text-disabled</code></td><td>#D2D2D2</td><td>비활성</td></tr>
+          <tr><td><code>--color-text-inverse</code></td><td>#FFFFFF</td><td>다크 배경 위</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>배경 컬러</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>변수</th><th>값</th><th>용도</th></tr></thead>
+        <tbody>
+          <tr><td><code>--bg-default</code></td><td>#FFFFFF</td><td>페이지 기본</td></tr>
+          <tr><td><code>--bg-subtle</code></td><td>#FAFAFA</td><td>Grove 카드, Feature 카드</td></tr>
+          <tr><td>—</td><td>#F5F5F7</td><td>Pricing·Grove 섹션 배경 (<code>.section--bg</code>)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="alert alert--warn">
+      <span class="alert__icon">⚠️</span>
+      <div><strong>웜 뉴트럴 <code>--sand-*</code> vs 쿨 뉴트럴 <code>--neutral-*</code></strong> — 카드 테두리·탭 배경엔 베이지 계열 <code>--sand-1~12</code>, 텍스트엔 쿨톤 <code>--neutral-*</code>. 섞어 쓰지 말 것.</div>
+    </div>
+  </section>
+
+  <!-- ── 타이포그래피 ── -->
+  <section class="guide-section" id="typography">
+    <h2>타이포그래피</h2>
+    <p style="color:var(--text-muted);font-size:13px;margin-bottom:20px;">폰트: <strong>Pretendard Variable</strong></p>
+
+    <h3>폰트 크기 토큰</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>변수</th><th>Desktop</th><th>Tablet</th><th>Mobile</th><th>용도</th></tr></thead>
+        <tbody>
+          <tr><td><code>--font-size-heading-3xl</code></td><td>48px</td><td>36px</td><td>30px</td><td>섹션 타이틀</td></tr>
+          <tr><td><code>--font-size-heading-2xl</code></td><td>36px</td><td>30px</td><td>24px</td><td>카드 헤딩</td></tr>
+          <tr><td><code>--font-size-body-lg</code></td><td>18px</td><td>18px</td><td>16px</td><td>본문 기본, section-desc</td></tr>
+          <tr><td><code>--font-size-body-md</code></td><td>16px</td><td>16px</td><td>14px</td><td>카드 설명, 리스트</td></tr>
+          <tr><td><code>--font-size-body-sm</code></td><td>14px</td><td>14px</td><td>14px</td><td>캡션/라벨</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Hero 타이틀 계층 (1280px 기준)</h3>
+    <div class="card">
+      <div class="type-item">
+        <div class="type-sample" style="font-size:28px;font-weight:800;">Hero Title</div>
+        <div class="type-meta">clamp(3rem,5.5vw,4.8rem) · w800 · <code>.hero__title</code></div>
+      </div>
+      <div class="type-item">
+        <div class="type-sample" style="font-size:24px;font-weight:800;color:#BE9055">About Brand Name</div>
+        <div class="type-meta">clamp(2.4rem,4.4vw,3.8rem) · w800 · <code>.about__brand-name</code></div>
+      </div>
+      <div class="type-item">
+        <div class="type-sample" style="font-size:22px;font-weight:800;">Section Title</div>
+        <div class="type-meta">clamp(2.2rem,4vw,3.6rem) · w800 · <code>.section-title</code></div>
+      </div>
+      <div class="type-item">
+        <div class="type-sample" style="font-size:20px;font-weight:800;">Vision Title</div>
+        <div class="type-meta">clamp(2rem,3.6vw,3.2rem) · w800 · <code>.vision__title</code></div>
+      </div>
+      <div class="type-item">
+        <div class="type-sample" style="font-size:16px;font-weight:700;">Panel Title</div>
+        <div class="type-meta">clamp(1.9rem,3.4vw,3rem) · w700 · <code>.platform-panel__title</code></div>
+      </div>
+    </div>
+
+    <h3>Line-height 토큰</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>토큰</th><th>값</th><th>적용 대상</th></tr></thead>
+        <tbody>
+          <tr><td><code>--line-height-none</code></td><td>1</td><td>숫자·버튼·한 줄 UI</td></tr>
+          <tr><td><code>--line-height-hero</code></td><td>1.08</td><td><code>.hero__title</code></td></tr>
+          <tr><td><code>--line-height-title-tight</code></td><td>1.12</td><td><code>.section-title</code>, <code>.about__brand-name</code></td></tr>
+          <tr><td><code>--line-height-panel-title</code></td><td>1.15</td><td><code>.platform-panel__title</code></td></tr>
+          <tr><td><code>--line-height-title</code></td><td>1.2</td><td><code>.vision__title</code>, <code>.contact__title</code></td></tr>
+          <tr><td><code>--line-height-body</code></td><td>1.7</td><td>일반 본문 (카드 설명, 리스트)</td></tr>
+          <tr><td><code>--line-height-body-loose</code></td><td>1.8</td><td>긴 설명문, <code>.section-desc</code>, <code>.hero__sub</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Font-weight 원칙</h3>
+    <div class="card-grid">
+      <div class="card">
+        <div style="font-size:20px;font-weight:800;margin-bottom:4px;">800</div>
+        <div style="font-size:12px;color:var(--text-subtle)">Hero · Section · About Brand · Vision</div>
+      </div>
+      <div class="card">
+        <div style="font-size:20px;font-weight:700;margin-bottom:4px;">700</div>
+        <div style="font-size:12px;color:var(--text-subtle)">Panel · Card Title · Button · Badge</div>
+      </div>
+      <div class="card">
+        <div style="font-size:20px;font-weight:500;margin-bottom:4px;">500</div>
+        <div style="font-size:12px;color:var(--text-subtle)">Body Emphasis · 보조 설명</div>
+      </div>
+      <div class="card">
+        <div style="font-size:20px;font-weight:400;margin-bottom:4px;">400</div>
+        <div style="font-size:12px;color:var(--text-subtle)">Body · 일반 본문</div>
+      </div>
+    </div>
+    <div class="alert alert--danger" style="margin-top:12px;">
+      <span class="alert__icon">🚫</span>
+      <div><code>font-weight: 600</code> 사용 금지 — 500 또는 700으로 통일</div>
+    </div>
+
+    <h3>Letter-spacing 원칙</h3>
+    <ul class="rule-list" style="gap:6px;">
+      <li><span class="icon">✅</span><div>모든 타이틀·헤딩·버튼·탭·링크: <strong><code>letter-spacing: 0</code></strong></div></li>
+      <li><span class="icon">✅</span><div>예외 허용 — uppercase 배지류 (<code>.section-label</code>, 컬럼 타이틀 등): <code>0.06em ~ 0.14em</code></div></li>
+      <li><span class="icon">🚫</span><div>음수 자간 금지 (단 <code>.platform-card__deco</code> <code>-0.06em</code>만 의도적 예외)</div></li>
+    </ul>
+  </section>
+
+  <!-- ── 스페이싱 ── -->
+  <section class="guide-section" id="spacing">
+    <h2>스페이싱</h2>
+    <div class="spacing-list">
+      <div class="spacing-item"><div class="spacing-label"><code>--space-1</code></div><div class="spacing-bar" style="width:4px"></div><div class="spacing-val">4px</div></div>
+      <div class="spacing-item"><div class="spacing-label"><code>--space-2</code></div><div class="spacing-bar" style="width:8px"></div><div class="spacing-val">8px</div></div>
+      <div class="spacing-item"><div class="spacing-label"><code>--space-3</code></div><div class="spacing-bar" style="width:12px"></div><div class="spacing-val">12px</div></div>
+      <div class="spacing-item"><div class="spacing-label"><code>--space-4</code></div><div class="spacing-bar" style="width:16px"></div><div class="spacing-val">16px</div></div>
+      <div class="spacing-item"><div class="spacing-label"><code>--space-5</code></div><div class="spacing-bar" style="width:20px"></div><div class="spacing-val">20px</div></div>
+      <div class="spacing-item"><div class="spacing-label"><code>--space-6</code></div><div class="spacing-bar" style="width:24px"></div><div class="spacing-val">24px</div></div>
+      <div class="spacing-item"><div class="spacing-label"><code>--space-8</code></div><div class="spacing-bar" style="width:32px"></div><div class="spacing-val">32px</div></div>
+      <div class="spacing-item"><div class="spacing-label"><code>--space-10</code></div><div class="spacing-bar" style="width:40px"></div><div class="spacing-val">40px</div></div>
+      <div class="spacing-item"><div class="spacing-label"><code>--space-12</code></div><div class="spacing-bar" style="width:48px"></div><div class="spacing-val">48px</div></div>
+      <div class="spacing-item"><div class="spacing-label"><code>--space-16</code></div><div class="spacing-bar" style="width:64px"></div><div class="spacing-val">64px</div></div>
+    </div>
+    <div style="margin-top:12px;font-size:12px;color:var(--text-subtle)">
+      spacing 토큰: <code>--spacing-4</code> ~ <code>--spacing-80</code> (4 단위 스케일)도 별도 존재. <code>--space-*</code>와 혼용하지 말 것.
+    </div>
+  </section>
+
+  <!-- ── Border Radius ── -->
+  <section class="guide-section" id="radius">
+    <h2>Border Radius</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>변수</th><th>값</th><th>용도</th></tr></thead>
+        <tbody>
+          <tr><td><code>--radius-sm</code></td><td>2px</td><td>—</td></tr>
+          <tr><td><code>--radius-md</code></td><td>4px</td><td>—</td></tr>
+          <tr><td><code>--radius-lg</code></td><td>6px</td><td>—</td></tr>
+          <tr><td><code>--radius-xl</code></td><td>8px</td><td>버튼, 인풋, Procsy step 박스(모바일)</td></tr>
+          <tr><td><code>--radius-2xl</code></td><td>12px</td><td>카드 (모바일 로고박스)</td></tr>
+          <tr><td><code>--radius-14</code></td><td>14px</td><td>탭 컨테이너</td></tr>
+          <tr><td><code>--radius-3xl</code></td><td>16px</td><td>드롭다운, Trust 카드</td></tr>
+          <tr><td><code>--radius-20</code></td><td>20px</td><td>플랫폼 카드, 피처 카드</td></tr>
+          <tr><td><code>--radius-24</code></td><td>24px</td><td>Pricing 카드</td></tr>
+          <tr><td><code>--radius-rounded</code></td><td>9999px</td><td>Pill — 배지, CTA 버튼</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ── GNB ── -->
+  <section class="guide-section" id="gnb">
+    <h2>GNB</h2>
+    <div class="card" style="margin-bottom:16px;">
+      <div style="display:flex;gap:24px;flex-wrap:wrap;font-size:13px;">
+        <div><strong>높이</strong> 64px</div>
+        <div><strong>position</strong> sticky</div>
+        <div><strong>z-index</strong> 200</div>
+        <div><strong>배경</strong> rgba(255,255,255,0.9) + blur(20px)</div>
+        <div><strong>스크롤 시</strong> .scrolled → box-shadow</div>
+      </div>
+    </div>
+    <h3>네비게이션 링크</h3>
+    <div class="nav-links">
+      <div class="nav-link-item"><span>회사 소개</span><code>#about</code></div>
+      <div class="nav-link-item"><span>서비스 › Procsy</span><code>#platform-detail</code></div>
+      <div class="nav-link-item"><span>서비스 › Grove</span><code>#grove-detail</code></div>
+      <div class="nav-link-item"><span>요금제</span><code>#pricing</code></div>
+      <div class="nav-link-item"><span>문의</span><code>#contact</code></div>
+      <div class="nav-link-item"><span>도입 문의 CTA</span><span style="font-size:12px;color:var(--text-subtle)">Google Forms URL · target="_blank"</span></div>
+    </div>
+  </section>
+
+  <!-- ── Hero ── -->
+  <section class="guide-section" id="hero">
+    <h2>Hero 섹션</h2>
+    <div class="card-grid" style="margin-bottom:16px;">
+      <div class="card"><div style="font-size:11px;color:var(--text-subtle);margin-bottom:4px;">배경</div><div style="font-size:13px;">#16130E + 골드 blob 애니메이션</div></div>
+      <div class="card"><div style="font-size:11px;color:var(--text-subtle);margin-bottom:4px;">최소 높이</div><div style="font-size:13px;">92vh (Mobile: auto)</div></div>
+      <div class="card"><div style="font-size:11px;color:var(--text-subtle);margin-bottom:4px;">패딩 (Mobile)</div><div style="font-size:13px;">80px 0 60px</div></div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>요소</th><th>기본</th><th>모바일 예외</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><code>.hero__title</code></td>
+            <td>clamp(3rem,5.5vw,4.8rem) w800</td>
+            <td>clamp(2.6rem,12vw,3rem) · <code>.hero__title-brand</code> + &lt;br&gt; 숨김</td>
+          </tr>
+          <tr>
+            <td><code>.hero__sub</code></td>
+            <td>clamp(1rem,1.4vw,1.25rem)</td>
+            <td><code>.hero__sub-brand</code> 숨김 → 1줄</td>
+          </tr>
+          <tr>
+            <td>CTA 버튼</td>
+            <td><code>.hero__actions</code> 표시</td>
+            <td>CTA 숨김 → <code>.hero__service-tag</code> 전체 폭 pill 버튼으로 대체</td>
+          </tr>
+          <tr>
+            <td><code>.hero__service-tag</code></td>
+            <td>Procsy → <code>#platform-detail</code> / Grove → <code>#grove-detail</code></td>
+            <td>모바일: <code>display: flex; width: 100%</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ── 섹션 구조 ── -->
+  <section class="guide-section" id="sections">
+    <h2>섹션 공통 구조</h2>
+    <div class="file-tree" style="font-size:13px;line-height:1.8;">
+      &lt;section class="<span class="hl">section</span> [section--bg|section--dark]" id="..."&gt;<br>
+      &nbsp;&nbsp;&lt;div class="<span class="hl">container</span>"&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="<span class="hl">section-label</span>"&gt;라벨&lt;/span&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&lt;h2 class="<span class="hl">section-title</span>"&gt;제목 &lt;em class="<span class="hl">point</span>"&gt;강조&lt;/em&gt;&lt;/h2&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&lt;p class="<span class="hl">section-desc</span>"&gt;설명&lt;/p&gt;<br>
+      &nbsp;&nbsp;&lt;/div&gt;<br>
+      &lt;/section&gt;
+    </div>
+    <div class="table-wrap" style="margin-top:16px;">
+      <table>
+        <thead><tr><th>클래스</th><th>설명</th></tr></thead>
+        <tbody>
+          <tr><td><code>.section</code></td><td>흰 배경 + 상하 패딩</td></tr>
+          <tr><td><code>.section--bg</code></td><td>#F5F5F7 연회색 배경</td></tr>
+          <tr><td><code>.section--dark</code></td><td>#191919 다크 배경</td></tr>
+          <tr><td><code>.section-label</code></td><td>골드 Pill · uppercase · 11px · letter-spacing 0.14em</td></tr>
+          <tr><td><code>.section-title</code></td><td>clamp(2.2rem,4vw,3.6rem) · w700 · letter-spacing 0</td></tr>
+          <tr><td><code>.section-title .point</code></td><td>골드 강조 텍스트</td></tr>
+          <tr><td><code>.section-desc</code></td><td>body-lg · 18px(desktop)/16px(mobile)</td></tr>
+          <tr><td><code>.container</code></td><td>max-width 1440px · 가운데 정렬</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ── 버튼 ── -->
+  <section class="guide-section" id="buttons">
+    <h2>버튼</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>클래스</th><th>배경</th><th>텍스트</th><th>용도</th></tr></thead>
+        <tbody>
+          <tr><td><code>.btn-hero--white</code></td><td>#BE9055</td><td>#FFFFFF</td><td>Hero 주요 CTA</td></tr>
+          <tr><td><code>.btn-hero--outline</code></td><td>반투명 흰색</td><td>rgba(255,255,255,0.85)</td><td>Hero 보조 CTA</td></tr>
+          <tr><td><code>.gnb__cta</code></td><td>#16130E</td><td>#FFF → hover: brand</td><td>GNB 상단 CTA</td></tr>
+          <tr><td><code>.btn-submit</code></td><td>--brand</td><td>#FFFFFF</td><td>폼 제출</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="font-size:12px;color:var(--text-subtle);">모든 버튼 전환: <code>transition: 0.3s ease</code> · Hero CTA 모바일: <code>width: 100%; max-width: 320px</code></div>
+  </section>
+
+  <!-- ── 탭 / 플랫폼 ── -->
+  <section class="guide-section" id="tabs">
+    <h2>탭 / 플랫폼 패널</h2>
+    <div class="alert alert--warn">
+      <span class="alert__icon">⚠️</span>
+      <div><code>modern-proctabs.css</code>가 <code>!important</code>로 <code>platform-tabs.css</code>와 <code>responsive.css</code>의 탭 스타일을 전부 오버라이드합니다. <strong>탭 관련 수정은 반드시 <code>modern-proctabs.css</code>에서</strong> 할 것.</div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>요소</th><th>스타일</th></tr></thead>
+        <tbody>
+          <tr><td>탭 컨테이너</td><td>bg <code>var(--sand-7)</code> · border-radius 14px · padding 6px</td></tr>
+          <tr><td>활성 탭</td><td>bg white · box-shadow · border-top 없음</td></tr>
+          <tr><td>패널 (desktop)</td><td>border 없음 · bg transparent · padding 64px 0 40px</td></tr>
+          <tr><td>패널 (mobile)</td><td>padding 28px 0 36px</td></tr>
+          <tr><td><code>.platform-panel__title</code></td><td>clamp(1.9rem,3.4vw,3rem) · w700 · line-height 1.15</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="alert alert--info" style="margin-top:0;">
+      <span class="alert__icon">ℹ️</span>
+      <div>모바일에서 탭·패널 간격 수정 시 <code>responsive.css</code>가 아닌 <code>modern-proctabs.css</code> 안에 <code>@media (max-width:768px) { ... !important }</code> 블록 추가.</div>
+    </div>
+  </section>
+
+  <!-- ── CSS 작성 규칙 ── -->
+  <section class="guide-section" id="css-rules">
+    <h2>CSS 작성 규칙 요약</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>항목</th><th>규칙</th><th>예외</th></tr></thead>
+        <tbody>
+          <tr><td>색상</td><td><code>var(--*)</code>만 사용</td><td><code>rgba()</code> 오버레이 허용</td></tr>
+          <tr><td>폰트 크기</td><td><code>var(--font-size-*)</code> 또는 <code>clamp()</code></td><td>—</td></tr>
+          <tr><td>border-radius</td><td><code>var(--radius-*)</code></td><td><code>50%</code>, <code>0</code></td></tr>
+          <tr><td>반응형</td><td><code>responsive.css</code>에만 작성</td><td>탭/패널 → <code>modern-proctabs.css</code></td></tr>
+          <tr><td>hover</td><td><code>@media (hover: hover) and (pointer: fine)</code> 안에만</td><td>—</td></tr>
+          <tr><td>font-weight</td><td>400 / 500 / 700 / 800만 사용</td><td>600 금지</td></tr>
+          <tr><td>letter-spacing</td><td>타이틀·버튼 <code>0</code> / badge <code>0.06~0.14em</code></td><td>음수 금지</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ── 금지 사항 ── -->
+  <section class="guide-section" id="forbidden">
+    <h2>금지 사항</h2>
+    <ul class="rule-list">
+      <li><span class="icon">🚫</span><div><code>tokens.css</code> 변수값 임의 변경 금지</div></li>
+      <li><span class="icon">🚫</span><div>하드코딩 색상값 추가 금지 (<code>#hex</code> 직접 사용)</div></li>
+      <li><span class="icon">🚫</span><div>Pure black <code>#000</code> 사용 금지 → <code>var(--neutral-900)</code> 사용</div></li>
+      <li><span class="icon">🚫</span><div><code>font-weight: 600</code> 사용 금지</div></li>
+      <li><span class="icon">🚫</span><div>음수 letter-spacing 금지</div></li>
+      <li><span class="icon">🚫</span><div><code>components/gnb.js</code> 내 네비게이션 링크를 DESIGN.md 기준과 다르게 변경 금지</div></li>
+      <li><span class="icon">🚫</span><div>반응형 스타일을 컴포넌트 CSS에 직접 작성 금지 → <code>responsive.css</code>에만</div></li>
+      <li><span class="icon">🚫</span><div>새 CSS 파일 추가 시 <code>responsive.css</code>보다 뒤에 로드되도록 설정 금지</div></li>
+    </ul>
+  </section>
+
+</main>
+
+<script>
+  // 스크롤 시 사이드바 active 업데이트
+  const sections = document.querySelectorAll('.guide-section');
+  const links = document.querySelectorAll('.sidebar__link');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        const link = document.querySelector(`.sidebar__link[href="#${e.target.id}"]`);
+        if (link) link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
