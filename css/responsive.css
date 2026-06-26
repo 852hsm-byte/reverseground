@@ -189,6 +189,15 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 
+  /* ── new-sections (Procsy 탭 내부) ── */
+  .procsy-process-compare { gap: var(--spacing-14); }
+  .procsy-benefit-grid    { gap: var(--spacing-14); }
+  .procsy-setup           { padding: var(--spacing-36) var(--spacing-36); gap: var(--spacing-32); }
+  .procsy-pain__layout { gap: var(--spacing-14); }
+  .procsy-pain__col    { padding: var(--spacing-28); }
+  .procsy-flex__grid   { gap: var(--spacing-14); }
+  .procsy-flex__item   { padding: var(--spacing-28) var(--spacing-24) var(--spacing-32); }
+
 }
 
 
@@ -414,6 +423,59 @@
   .clients__cta   { flex-direction: column; gap: var(--space-3); align-items: flex-start; }
   .contact__form  { padding: var(--space-4); }
   .form-row       { grid-template-columns: 1fr; }
+
+  /* ── new-sections (Procsy 탭 내부) ── */
+  .procsy-pain         { margin: var(--spacing-44) 0; }
+  .procsy-pain__layout { grid-template-columns: 1fr; gap: var(--spacing-12); margin-top: var(--spacing-28); }
+  .procsy-pain__col    { padding: var(--spacing-24) var(--spacing-20); }
+
+  .procsy-flex         { margin-top: var(--spacing-52); padding-top: var(--spacing-44); }
+  .procsy-flex__grid   { grid-template-columns: 1fr; gap: var(--spacing-12); }
+  .procsy-flex__item   { padding: var(--spacing-24) var(--spacing-20) var(--spacing-28); }
+  .procsy-flex__icon   { width: 40px; height: 40px; }
+
+  .procsy-process-compare {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: var(--spacing-12);
+    margin: var(--spacing-28) 0 var(--spacing-36);
+  }
+  .procsy-process-compare__card {
+    grid-row: auto;
+    grid-template-rows: none;
+    display: block;
+    padding: var(--spacing-20) var(--spacing-20) var(--spacing-24);
+  }
+  .procsy-process-compare__arrow {
+    grid-row: auto;
+    justify-content: center;
+    font-size: var(--font-size-22);
+    transform: rotate(90deg);
+  }
+
+  .procsy-benefit-grid { grid-template-columns: 1fr; gap: var(--spacing-12); margin: var(--spacing-36) 0 var(--spacing-28); }
+  .procsy-benefit-card { padding: var(--spacing-20) var(--spacing-20) var(--spacing-24); }
+
+  .procsy-setup { grid-template-columns: 1fr; gap: var(--spacing-24); padding: var(--spacing-28) var(--spacing-24); }
+
+  .procsy-setup__steps {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: var(--spacing-10);
+    align-items: stretch;
+  }
+  .procsy-setup__steps li.procsy-setup__arrow { align-self: center; }
+  .procsy-setup__steps li:not(.procsy-setup__arrow) { flex: none; padding: var(--spacing-12) var(--spacing-16); color: rgba(255,255,255,0.45); border-radius: var(--radius-xl); line-height: normal; font-size: var(--font-size-13); white-space: nowrap; }
+  .procsy-setup__steps li:not(.procsy-setup__arrow) span { font-size: var(--font-size-11); color: rgba(190,144,85,0.5); }
+  .procsy-setup__steps li.procsy-setup__arrow {
+    display: flex;
+    justify-content: center;
+    padding: 0 var(--spacing-4);
+    background: none;
+    border: none;
+  }
+  /* 02→03 사이 행간 화살표 숨김 */
+  .procsy-setup__steps li:nth-child(4) { display: none; }
 
 }
 
