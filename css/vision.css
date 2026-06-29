@@ -40,7 +40,7 @@
 }
 
 .vision__title {
-  font-size: clamp(2rem, 3.6vw, 3.2rem);
+  font-size: var(--fluid-vision-title);
   font-weight: 800;
   line-height: var(--line-height-title);
   letter-spacing: 0;
@@ -172,7 +172,7 @@
 }
 
 .vision__item h3 {
-  font-size: clamp(1.25rem, 2vw, 1.6rem);
+  font-size: var(--fluid-vision-card);
   font-weight: 800;
   color: var(--white);
   letter-spacing: 0;

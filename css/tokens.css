@@ -9,140 +9,148 @@
   /* ──────────────────────────────────────
      Colors / Text
   ────────────────────────────────────── */
-  --color-text-primary:        #191919;  /* neutral/900 */
-  --color-text-secondary:      #505050;  /* neutral/600 */
-  --color-text-tertiary:       #A0A0A0;  /* neutral/400 */
-  --color-text-disabled:       #D2D2D2;  /* neutral/300 */
-  --color-text-inverse:        #FFFFFF;
+  --color-text-primary:        var(--neutral-900);
+  --color-text-secondary:      var(--neutral-600);
+  --color-text-tertiary:       var(--neutral-400);
+  --color-text-disabled:       var(--neutral-300);
+  --color-text-inverse:        var(--white);
 
-  --color-text-info-bold:      #193CB9;  /* blue/800 */
-  --color-text-info:           #145FFA;  /* blue/600 */
-  --color-text-warning-bold:   #874B00;  /* yellow/800 */
-  --color-text-warning:        #D28700;  /* yellow/600 */
-  --color-text-success-bold:   #006432;  /* green/800 */
-  --color-text-success:        #00A53C;  /* green/600 */
-  --color-text-danger-bold:    #A00514;  /* red/800 */
-  --color-text-danger:         #E6000A;  /* red/600 */
+  --color-text-info-bold:      var(--blue-800);
+  --color-text-info:           var(--blue-600);
+  --color-text-warning-bold:   var(--yellow-800);
+  --color-text-warning:        var(--yellow-600);
+  --color-text-success-bold:   var(--green-800);
+  --color-text-success:        var(--green-600);
+  --color-text-danger-bold:    var(--red-800);
+  --color-text-danger:         var(--red-600);
 
-  --color-text-brand-primary:          #BE9055;
-  --color-text-brand-primary-hovered:  #A87038;
-  --color-text-brand-primary-pressed:  #7A5420;
+  --color-text-brand-primary:          var(--orange-400);
+  --color-text-brand-primary-hovered:  var(--orange-500);
+  --color-text-brand-primary-pressed:  var(--orange-600);
 
   /* Text / Interactive */
-  --color-text-interactive-primary:         #BE9055;
-  --color-text-interactive-primary-hovered: #A87038;
-  --color-text-interactive-primary-pressed: #7A5420;
-  --color-text-interactive-secondary:         #A0A0A0;
-  --color-text-interactive-secondary-hovered: #505050;
-  --color-text-interactive-secondary-pressed: #282828;
+  --color-text-interactive-primary:         var(--orange-400);
+  --color-text-interactive-primary-hovered: var(--orange-500);
+  --color-text-interactive-primary-pressed: var(--orange-600);
+  --color-text-interactive-secondary:         var(--neutral-400);
+  --color-text-interactive-secondary-hovered: var(--neutral-600);
+  --color-text-interactive-secondary-pressed: var(--neutral-800);
   --color-text-interactive-selected:  #FF8705;
   --color-text-interactive-visited:   #FF6900;
-  --color-text-interactive-inverse:   #FFFFFF;
+  --color-text-interactive-inverse:   var(--white);
 
   /* ──────────────────────────────────────
      Colors / Background
   ────────────────────────────────────── */
-  --color-bg-primary:          #FFFFFF;
-  --color-bg-secondary:        #FAFAFA;  /* neutral/50 */
-  --color-bg-tertiary:         #F5F5F5;  /* neutral/100 */
-  --color-bg-disabled:         #F5F5F5;
-  --color-bg-brand:            #F54B00;  /* brand/primary/600 */
+  --color-bg-primary:          var(--white);
+  --color-bg-secondary:        var(--neutral-50);
+  --color-bg-tertiary:         var(--neutral-100);
+  --color-bg-disabled:         var(--neutral-100);
+  --color-bg-brand:            #F54B00;
 
-  --color-bg-info-bold:        #1446E6;  /* blue/700 */
-  --color-bg-info-subtle:      #F0F5FF;  /* blue/50 */
-  --color-bg-warning-bold:     #F0AF00;  /* yellow/500 */
-  --color-bg-warning-subtle:   #FFFAE6;  /* yellow/50 */
-  --color-bg-success-bold:     #008237;  /* green/700 */
-  --color-bg-success-subtle:   #F0FFF5;  /* green/50 */
-  --color-bg-danger-bold:      #C30005;  /* red/700 */
-  --color-bg-danger-subtle:    #FFF0F0;  /* red/50 */
+  --color-bg-info-bold:        var(--blue-700);
+  --color-bg-info-subtle:      #F0F5FF;
+  --color-bg-warning-bold:     var(--yellow-500);
+  --color-bg-warning-subtle:   var(--yellow-50);
+  --color-bg-success-bold:     var(--green-700);
+  --color-bg-success-subtle:   var(--green-50);
+  --color-bg-danger-bold:      var(--red-700);
+  --color-bg-danger-subtle:    var(--red-50);
 
   /* BG / Inverse */
-  --color-bg-inverse-bold:   #505050;  /* neutral/600 */
-  --color-bg-inverse-bolder: #0A0A0A;  /* neutral/950 */
+  --color-bg-inverse-bold:   var(--neutral-600);
+  --color-bg-inverse-bolder: var(--neutral-950);
 
   /* BG / Interactive */
-  --color-bg-interactive-primary:          #BE9055;
-  --color-bg-interactive-primary-hovered:  #A87038;
-  --color-bg-interactive-primary-pressed:  #7A5420;
-  --color-bg-interactive-secondary:         #505050;
-  --color-bg-interactive-secondary-hovered: #282828;
-  --color-bg-interactive-secondary-pressed: #282828;
-  --color-bg-interactive-tertiary:         #FAFAFA;
-  --color-bg-interactive-tertiary-hovered: #E6E6E6;
-  --color-bg-interactive-tertiary-pressed: #D2D2D2;
-  --color-bg-interactive-danger:         #E6000A;
-  --color-bg-interactive-danger-hovered: #C30005;
-  --color-bg-interactive-danger-pressed: #A00514;
-  --color-bg-interactive-selected:         #FAF4EB;
-  --color-bg-interactive-selected-hovered: #F3E5CC;
-  --color-bg-interactive-selected-pressed: #E6CA9A;
+  --color-bg-interactive-primary:          var(--orange-400);
+  --color-bg-interactive-primary-hovered:  var(--orange-500);
+  --color-bg-interactive-primary-pressed:  var(--orange-600);
+  --color-bg-interactive-secondary:         var(--neutral-600);
+  --color-bg-interactive-secondary-hovered: var(--neutral-800);
+  --color-bg-interactive-secondary-pressed: var(--neutral-800);
+  --color-bg-interactive-tertiary:         var(--neutral-50);
+  --color-bg-interactive-tertiary-hovered: var(--neutral-200);
+  --color-bg-interactive-tertiary-pressed: var(--neutral-300);
+  --color-bg-interactive-danger:         var(--red-600);
+  --color-bg-interactive-danger-hovered: var(--red-700);
+  --color-bg-interactive-danger-pressed: var(--red-800);
+  --color-bg-interactive-selected:         var(--orange-50);
+  --color-bg-interactive-selected-hovered: var(--orange-100);
+  --color-bg-interactive-selected-pressed: var(--orange-200);
 
   /* ──────────────────────────────────────
      Colors / Icon
   ────────────────────────────────────── */
-  --color-icon-primary:    #191919;
-  --color-icon-secondary:  #505050;
-  --color-icon-tertiary:   #A0A0A0;
-  --color-icon-disabled:   #D2D2D2;
+  --color-icon-primary:    var(--neutral-900);
+  --color-icon-secondary:  var(--neutral-600);
+  --color-icon-tertiary:   var(--neutral-400);
+  --color-icon-disabled:   var(--neutral-300);
   --color-icon-brand:      #F54B00;
-  --color-icon-inverse:    #FFFFFF;
-  --color-icon-info:       #1446E6;
-  --color-icon-warning:    #A55F00;
-  --color-icon-success:    #008237;
-  --color-icon-danger:     #E6000A;
+  --color-icon-inverse:    var(--white);
+  --color-icon-info:       var(--blue-700);
+  --color-icon-warning:    var(--yellow-700);
+  --color-icon-success:    var(--green-700);
+  --color-icon-danger:     var(--red-600);
 
   --color-icon-interactive-primary:          #FF8705;
   --color-icon-interactive-primary-hovered:  #FF6900;
   --color-icon-interactive-primary-pressed:  #F54B00;
-  --color-icon-interactive-secondary:         #A0A0A0;
-  --color-icon-interactive-secondary-hovered: #282828;
-  --color-icon-interactive-secondary-pressed: #282828;
+  --color-icon-interactive-secondary:         var(--neutral-400);
+  --color-icon-interactive-secondary-hovered: var(--neutral-800);
+  --color-icon-interactive-secondary-pressed: var(--neutral-800);
   --color-icon-interactive-selected:         #FF8705;
   --color-icon-interactive-visited:          #A02D00;
-  --color-icon-interactive-inverse:          #FFFFFF;
+  --color-icon-interactive-inverse:          var(--white);
 
   /* ──────────────────────────────────────
      Colors / Border
   ────────────────────────────────────── */
-  --color-border-primary:    #191919;
-  --color-border-secondary:  #A0A0A0;
-  --color-border-tertiary:   #D2D2D2;
-  --color-border-disabled:   #E6E6E6;
+  --color-border-primary:    var(--neutral-900);
+  --color-border-secondary:  var(--neutral-400);
+  --color-border-tertiary:   var(--neutral-300);
+  --color-border-disabled:   var(--neutral-200);
   --color-border-focusring:  #F54B00;
 
-  --color-border-info:           #145FFA;
+  --color-border-info:           var(--blue-600);
   --color-border-info-subtle:    #F0F5FF;
-  --color-border-warning:        #F0AF00;
-  --color-border-warning-subtle: #FFFAE6;
-  --color-border-success:        #00A53C;
-  --color-border-success-subtle: #F0FFF5;
-  --color-border-danger:         #FA2D37;
-  --color-border-danger-subtle:  #FFF0F0;
+  --color-border-warning:        var(--yellow-500);
+  --color-border-warning-subtle: var(--yellow-50);
+  --color-border-success:        var(--green-600);
+  --color-border-success-subtle: var(--green-50);
+  --color-border-danger:         var(--red-500);
+  --color-border-danger-subtle:  var(--red-50);
 
   --color-border-interactive-primary:          #FF8705;
   --color-border-interactive-primary-hovered:  #FF6900;
   --color-border-interactive-primary-pressed:  #F54B00;
-  --color-border-interactive-secondary:         #D2D2D2;
-  --color-border-interactive-secondary-hovered: #A0A0A0;
-  --color-border-interactive-secondary-pressed: #191919;
-  --color-border-interactive-danger:         #E6000A;
-  --color-border-interactive-danger-hovered: #C30005;
-  --color-border-interactive-danger-pressed: #A00514;
-  --color-border-interactive-inverse:        #FFFFFF;
+  --color-border-interactive-secondary:         var(--neutral-300);
+  --color-border-interactive-secondary-hovered: var(--neutral-400);
+  --color-border-interactive-secondary-pressed: var(--neutral-900);
+  --color-border-interactive-danger:         var(--red-600);
+  --color-border-interactive-danger-hovered: var(--red-700);
+  --color-border-interactive-danger-pressed: var(--red-800);
+  --color-border-interactive-inverse:        var(--white);
 
   /* ──────────────────────────────────────
      Effects / Shadow
   ────────────────────────────────────── */
-  --color-effect-shadow-cast: #00000029;  /* rgba(0,0,0,0.16) */
-  --color-effect-shadow-core: #0000001F;  /* rgba(0,0,0,0.12) */
 
-  /* Shadow presets (Semantic: Appearance) */
-  --shadow-2:   0 1px 2px var(--color-effect-shadow-cast), 0 0 1px var(--color-effect-shadow-core);
-  --shadow-4:   0 2px 4px var(--color-effect-shadow-cast), 0 0 2px var(--color-effect-shadow-core);
-  --shadow-8:   0 4px 8px var(--color-effect-shadow-cast), 0 0 4px var(--color-effect-shadow-core);
-  --shadow-16:  0 8px 16px var(--color-effect-shadow-cast), 0 0 8px var(--color-effect-shadow-core);
-  --shadow-32:  0 20px 24px var(--color-effect-shadow-cast), 0 8px 12px var(--color-effect-shadow-core);
+  /* Semantic Shadow (컴포넌트 실측값) */
+  --shadow-active:  0 1px 6px rgba(0,0,0,0.10);   /* 탭 active, 드롭다운 */
+  --shadow-card-sm: 0 2px 12px rgba(0,0,0,0.05);  /* 카드 정적 subtle */
+  --shadow-card-md: 0 4px 20px rgba(0,0,0,0.06);  /* 카드 기본 */
+  --shadow-card-lg: 0 8px 32px rgba(0,0,0,0.10);  /* 카드 medium lift */
+  --shadow-lift:    0 12px 40px rgba(0,0,0,0.10); /* 카드 hover lift */
+  --shadow-lift-lg: 0 24px 60px rgba(0,0,0,0.14); /* 카드 hover lift 강 */
+
+  /* Brand Gold Shadow — 골드 글로우 계열 */
+  --shadow-brand-sm:         0 8px 28px rgba(190,144,85,0.10);  /* 카드 subtle hover */
+  --shadow-brand-md:         0 12px 40px rgba(190,144,85,0.10); /* 카드 lift subtle */
+  --shadow-brand-lg:         0 8px 32px rgba(190,144,85,0.35);  /* 카드 강조 */
+  --shadow-brand-xl:         0 12px 40px rgba(190,144,85,0.45); /* 카드 강조 hover */
+  --shadow-brand-glow:       0 0 40px rgba(190,144,85,0.35);    /* contact 글로우 */
+  --shadow-brand-glow-hover: 0 0 60px rgba(190,144,85,0.50);    /* contact 글로우 hover */
+  --shadow-brand-ring:       0 0 0 4px rgba(190,144,85,0.15);   /* 포커스링 */
 
   /* ──────────────────────────────────────
      Opacity
@@ -157,9 +165,10 @@
   /* ──────────────────────────────────────
      Border Width
   ────────────────────────────────────── */
-  --border-width-1: 1px;
-  --border-width-2: 2px;
-  --border-width-4: 4px;
+  --border-width-1:   var(--size-1);
+  --border-width-1-5: var(--size-1-5);
+  --border-width-2:   var(--size-2);
+  --border-width-4:   var(--size-4);
 
   /* ──────────────────────────────────────
      Primitive: Colors — 팔레트 원시값
@@ -167,8 +176,8 @@
   ────────────────────────────────────── */
 
   /* Base */
-  --primitive-black:  #000000;
-  --primitive-white:  #FFFFFF;
+  --white: #FFFFFF;
+  --black: #000000;
 
   /* Neutral */
   --neutral-50:  #FAFAFA;
@@ -234,6 +243,7 @@
   --green-800: #006432;
   --green-900: #0F552D;
   --green-950: #052D14;
+  --grove-green: #5BAD7F;  /* Grove 서비스 도트 전용 */
 
   /* Blue */
   --blue-50:  #F0FAFF;
@@ -267,18 +277,18 @@
   --brand-hover-light: #D4A85A;
 
   /* Sand (웜 뉴트럴 — 카드/배지/탭 보더·배경. neutral-* 스케일과는 별도 계열) */
-  --sand-1:  #FAFAF8;
-  --sand-2:  #F9F8F6;
-  --sand-3:  #F5F5F7;
-  --sand-4:  #F5F3F0;
-  --sand-5:  #EFEFEF;
-  --sand-6:  #F0EDE8;
-  --sand-7:  #EEEBE6;
-  --sand-8:  #ECEAE6;
-  --sand-9:  #E8E5E0;
-  --sand-10: #E8E4DC;
-  --sand-11: #E0DDD8;
-  --sand-12: #D0CCC4;
+  --sand-50:  #FAFAF8;
+  --sand-100:  #F9F8F6;
+  --sand-200:  #F5F5F7;
+  --sand-300:  #F5F3F0;
+  --sand-400:  #EFEFEF;
+  --sand-500:  #F0EDE8;
+  --sand-600:  #EEEBE6;
+  --sand-700:  #ECEAE6;
+  --sand-800:  #E8E5E0;
+  --sand-850: #E8E4DC;
+  --sand-900: #E0DDD8;
+  --sand-950: #D0CCC4;
 
   /* ──────────────────────────────────────
      Device / Breakpoints
@@ -291,63 +301,115 @@
   --container-gap-min:     40px;  /* Desktop Min contents gap */
 
   /* ──────────────────────────────────────
+     Primitive: Size Scale — 숫자 원시값
+     (spacing·radius·font-size·border-width 모두 여기서 참조)
+  ────────────────────────────────────── */
+  --size-0:   0px;
+  --size-1:   1px;
+  --size-1-5: 1.5px;
+  --size-2:   2px;
+  --size-3:   3px;
+  --size-4:   4px;
+  --size-5:   5px;
+  --size-6:   6px;
+  --size-7:   7px;
+  --size-8:   8px;
+  --size-9:   9px;
+  --size-10:  10px;
+  --size-11:  11px;
+  --size-12:  12px;
+  --size-13:  13px;
+  --size-14:  14px;
+  --size-15:  15px;
+  --size-16:  16px;
+  --size-17:  17px;
+  --size-18:  18px;
+  --size-20:  20px;
+  --size-22:  22px;
+  --size-23:  23px;
+  --size-24:  24px;
+  --size-26:  26px;
+  --size-28:  28px;
+  --size-30:  30px;
+  --size-32:  32px;
+  --size-34:  34px;
+  --size-36:  36px;
+  --size-38:  38px;
+  --size-40:  40px;
+  --size-42:  42px;
+  --size-44:  44px;
+  --size-46:  46px;
+  --size-48:  48px;
+  --size-52:  52px;
+  --size-56:  56px;
+  --size-60:  60px;
+  --size-64:  64px;
+  --size-72:  72px;
+  --size-80:  80px;
+  --size-88:  88px;
+  --size-96:  96px;
+  --size-100: 100px;
+  --size-120: 120px;
+  --size-160: 160px;
+  --size-180: 180px;
+
+  /* ──────────────────────────────────────
      Border Radius
   ────────────────────────────────────── */
-  --radius-sm:      2px;
-  --radius-3:       3px;
-  --radius-md:      4px;
-  --radius-lg:      6px;
-  --radius-xl:      8px;
-  --radius-10:      10px;
-  --radius-2xl:     12px;
-  --radius-13:      13px;
-  --radius-14:      14px;
-  --radius-3xl:     16px;
-  --radius-20:      20px;
-  --radius-24:      24px;
+  --radius-sm:      var(--size-2);
+  --radius-3:       var(--size-3);
+  --radius-md:      var(--size-4);
+  --radius-lg:      var(--size-6);
+  --radius-xl:      var(--size-8);
+  --radius-2xl:     var(--size-12);
+  --radius-13:      var(--size-13);
+  --radius-14:      var(--size-14);
+  --radius-3xl:     var(--size-16);
+  --radius-20:      var(--size-20);
+  --radius-24:      var(--size-24);
   --radius-rounded: 9999px;  /* 컴포넌트에서 999px로 쓰여도 동일한 pill 형태이므로 이 토큰으로 통일 */
 
   /* ──────────────────────────────────────
      Spacing
   ────────────────────────────────────── */
-  --spacing-0:   0px;
-  --spacing-1:   1px;
-  --spacing-2:   2px;
-  --spacing-3:   3px;
-  --spacing-4:   4px;
-  --spacing-5:   5px;
-  --spacing-6:   6px;
-  --spacing-7:   7px;
-  --spacing-8:   8px;
-  --spacing-9:   9px;
-  --spacing-10:  10px;
-  --spacing-11:  11px;
-  --spacing-12:  12px;
-  --spacing-13:  13px;
-  --spacing-14:  14px;
-  --spacing-16:  16px;
-  --spacing-17:  17px;
-  --spacing-18:  18px;
-  --spacing-20:  20px;
-  --spacing-22:  22px;
-  --spacing-24:  24px;
-  --spacing-28:  28px;
-  --spacing-32:  32px;
-  --spacing-36:  36px;
-  --spacing-40:  40px;
-  --spacing-44:  44px;
-  --spacing-48:  48px;
-  --spacing-52:  52px;
-  --spacing-56:  56px;
-  --spacing-60:  60px;
-  --spacing-64:  64px;
-  --spacing-72:  72px;
-  --spacing-80:  80px;
-  --spacing-88:  88px;
-  --spacing-96:  96px;
-  --spacing-100: 100px;
-  --spacing-120: 120px;
-  --spacing-160: 160px;
+  --spacing-0:   var(--size-0);
+  --spacing-1:   var(--size-1);
+  --spacing-2:   var(--size-2);
+  --spacing-3:   var(--size-3);
+  --spacing-4:   var(--size-4);
+  --spacing-5:   var(--size-5);
+  --spacing-6:   var(--size-6);
+  --spacing-7:   var(--size-7);
+  --spacing-8:   var(--size-8);
+  --spacing-9:   var(--size-9);
+  --spacing-10:  var(--size-10);
+  --spacing-11:  var(--size-11);
+  --spacing-12:  var(--size-12);
+  --spacing-13:  var(--size-13);
+  --spacing-14:  var(--size-14);
+  --spacing-16:  var(--size-16);
+  --spacing-17:  var(--size-17);
+  --spacing-18:  var(--size-18);
+  --spacing-20:  var(--size-20);
+  --spacing-22:  var(--size-22);
+  --spacing-24:  var(--size-24);
+  --spacing-28:  var(--size-28);
+  --spacing-32:  var(--size-32);
+  --spacing-36:  var(--size-36);
+  --spacing-40:  var(--size-40);
+  --spacing-44:  var(--size-44);
+  --spacing-48:  var(--size-48);
+  --spacing-52:  var(--size-52);
+  --spacing-56:  var(--size-56);
+  --spacing-60:  var(--size-60);
+  --spacing-64:  var(--size-64);
+  --spacing-72:  var(--size-72);
+  --spacing-80:  var(--size-80);
+  --spacing-88:  var(--size-88);
+  --spacing-96:  var(--size-96);
+  --spacing-100: var(--size-100);
+  --spacing-120: var(--size-120);
+  --spacing-160: var(--size-160);
 
   /* ──────────────────────────────────────
      Typography
@@ -355,16 +417,16 @@
   --font-base: 'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* ── Display scale (Tailwind 5xl·6xl 기준) ── */
-  --font-size-display:      60px;  /* Section/Title — Tailwind 6xl */
-  --font-size-display-sm:   32px;  /* 가격·숫자 표기 — Display/SM */
+  --font-size-display:      var(--size-60);  /* Section/Title — Tailwind 6xl */
+  --font-size-display-sm:   var(--size-32);  /* 가격·숫자 표기 — Display/SM */
 
   /* ── Heading scale (Tailwind 정렬, 4px 배수) ── */
-  --font-size-heading-3xl:  48px;  /* Heading/3XL — Tailwind 5xl (구 44px 수정) */
-  --font-size-heading-2xl:  36px;  /* Heading/2XL — Tailwind 4xl */
-  --font-size-heading-1xl:  30px;  /* Heading/1XL — Tailwind 3xl */
-  --font-size-heading-lg:   24px;  /* Heading/LG  — Tailwind 2xl */
-  --font-size-heading-md:   20px;  /* Heading/MD  — Tailwind xl */
-  --font-size-heading-sm:   18px;  /* Heading/SM  — Tailwind lg */
+  --font-size-heading-3xl:  var(--size-48);  /* Heading/3XL — Tailwind 5xl */
+  --font-size-heading-2xl:  var(--size-36);  /* Heading/2XL — Tailwind 4xl */
+  --font-size-heading-1xl:  var(--size-30);  /* Heading/1XL — Tailwind 3xl */
+  --font-size-heading-lg:   var(--size-24);  /* Heading/LG  — Tailwind 2xl */
+  --font-size-heading-md:   var(--size-20);  /* Heading/MD  — Tailwind xl */
+  --font-size-heading-sm:   var(--size-18);  /* Heading/SM  — Tailwind lg */
 
   --font-weight-bold:    700;
   --font-weight-medium:  500;
@@ -386,47 +448,61 @@
   --line-height-body-loose:  1.8;   /* 긴 설명문, 섹션 설명, 리드 카피 */
 
   /* Heading line-height (레거시 px 기반 — 신규 사용 금지) */
-  --line-height-heading-3xl:  56px;
-  --line-height-heading-2xl:  46px;
-  --line-height-heading-1xl:  40px;
-  --line-height-heading-lg:   34px;
-  --line-height-heading-md:   30px;
-  --line-height-heading-sm:   26px;
+  --line-height-heading-3xl:  var(--size-56);
+  --line-height-heading-2xl:  var(--size-46);
+  --line-height-heading-1xl:  var(--size-40);
+  --line-height-heading-lg:   var(--size-34);
+  --line-height-heading-md:   var(--size-30);
+  --line-height-heading-sm:   var(--size-26);
 
   --letter-spacing-heading:   -0.2px;
 
   /* Body scale */
-  --font-size-body-1xl:  20px;  /* 리드 텍스트 */
-  --font-size-body-lg:   18px;  /* 본문 기본 */
-  --font-size-body-md:   16px;  /* 보조 텍스트 */
-  --font-size-body-sm:   14px;  /* 캡션/라벨 */
+  --font-size-body-1xl:  var(--size-20);  /* 리드 텍스트 */
+  --font-size-body-lg:   var(--size-18);  /* 본문 기본 */
+  --font-size-body-md:   var(--size-16);  /* 보조 텍스트 */
+  --font-size-body-sm:   var(--size-14);  /* 캡션/라벨 */
 
-  --line-height-body-1xl:  32px;
-  --line-height-body-lg:   26px;
-  --line-height-body-md:   23px;
-  --line-height-body-sm:   20px;
+  --line-height-body-1xl:  var(--size-32);
+  --line-height-body-lg:   var(--size-26);
+  --line-height-body-md:   var(--size-23);
+  --line-height-body-sm:   var(--size-20);
 
   /* Micro / 컴포넌트 전용 폰트 크기 — 기존 스케일(body/heading)에 없는 값만 추가 */
-  --font-size-10:  10px;
-  --font-size-11:  11px;
-  --font-size-12:  12px;
-  --font-size-13:  13px;
-  --font-size-15:  15px;
-  --font-size-22:  22px;
-  --font-size-26:  26px;
-  --font-size-28:  28px;
-  --font-size-34:  34px;
-  --font-size-42:  42px;
-  --font-size-deco: 180px;  /* 장식용 대형 레터 (platform-card__deco 전용) */
+  --font-size-10:  var(--size-10);
+  --font-size-11:  var(--size-11);
+  --font-size-12:  var(--size-12);
+  --font-size-13:  var(--size-13);
+  --font-size-15:  var(--size-15);
+  --font-size-16:  var(--size-16);
+  --font-size-18:  var(--size-18);
+  --font-size-22:  var(--size-22);
+  --font-size-24:  var(--size-24);
+  --font-size-26:  var(--size-26);
+  --font-size-28:  var(--size-28);
+  --font-size-30:  var(--size-30);
+  --font-size-32:  var(--size-32);
+  --font-size-34:  var(--size-34);
+  --font-size-38:  var(--size-38);
+  --font-size-42:  var(--size-42);
+  --font-size-deco: var(--size-180);  /* 장식용 대형 레터 (platform-card__deco 전용) */
 
-  /* rem 단위로 쓰인 컴포넌트 전용 폰트 크기 */
-  --font-size-rem-1:    1rem;
-  --font-size-rem-1-1:  1.1rem;
-  --font-size-rem-1-4:  1.4rem;
-  --font-size-rem-1-5:  1.5rem;
-  --font-size-rem-1-9:  1.9rem;
-  --font-size-rem-2:    2rem;
-  --font-size-rem-2-4:  2.4rem;
+  /* ── Fluid Typography (clamp 기반 — vw 스케일, 컴포넌트별 1:1 대응) ── */
+  --fluid-hero-title:        clamp(3rem, 5.5vw, 4.8rem);   /* .hero__title (desktop) */
+  --fluid-hero-title-mobile: clamp(2.6rem, 12vw, 3rem);    /* .hero__title (mobile override) */
+  --fluid-hero-sub:          clamp(1rem, 1.4vw, 1.25rem);  /* .hero__sub */
+  --fluid-strip-num:         clamp(1.8rem, 2.8vw, 2.6rem); /* .intro-strip__item strong */
+  --fluid-section-title:     clamp(2.2rem, 4vw, 3.6rem);   /* .section-title, .contact__title */
+  --fluid-panel-title:       clamp(1.9rem, 3.4vw, 3rem);   /* .platform-panel__title */
+  --fluid-panel-title-tab:   clamp(1.3rem, 2.4vw, 1.9rem); /* modern-proctabs 탭 override */
+  --fluid-about-name:        clamp(2.4rem, 4.4vw, 3.8rem); /* .about__brand-name */
+  --fluid-vision-title:      clamp(2rem, 3.6vw, 3.2rem);   /* .vision__title */
+  --fluid-vision-card:       clamp(1.25rem, 2vw, 1.6rem);  /* .vision__item h3 */
+  --fluid-features-name:     clamp(1.4rem, 2.5vw, 1.9rem); /* .platform-features__name */
+  --fluid-clients-title:     clamp(1.6rem, 2.8vw, 2.2rem); /* .clients__header .section-title */
+  --fluid-flex-title:        clamp(1.4rem, 2.4vw, 2rem);   /* .procsy-flex__title */
+  --fluid-setup-heading:     clamp(1.1rem, 1.8vw, 1.5rem); /* .procsy-setup h4 */
+
 
   /* ──────────────────────────────────────
      Semantic Shortcuts (자주 쓰는 값)
@@ -450,7 +526,7 @@
      Layout
   ────────────────────────────────────── */
   --container:   1440px;
-  --section-py:  160px;
+  --section-py:  var(--size-160);
   --transition:  0.3s ease;
   --reveal-dur:  0.6s;
 
@@ -464,7 +540,6 @@
   ────────────────────────────────────── */
 
   /* Color aliases */
-  --white:      #FFFFFF;
   --black:      var(--color-text-primary);       /* #191919 */
   --accent:     #191919;                          /* 다크 섹션 bg (구 navy → near-black) */
   --accent2:    var(--brand);                     /* #FF8705 brand orange */
@@ -509,30 +584,30 @@
 @media (max-width: 1024px) {
   :root {
     /* Display */
-    --font-size-display:      48px;  /* 60 → 48 (-20%) */
-    --font-size-display-sm:   28px;  /* 32 → 28 */
+    --font-size-display:      var(--size-48);  /* 60 → 48 */
+    --font-size-display-sm:   var(--size-28);  /* 32 → 28 */
 
     /* Heading */
-    --font-size-heading-3xl:  36px;  /* 48 → 36 */
-    --font-size-heading-2xl:  30px;  /* 36 → 30 */
-    --font-size-heading-1xl:  28px;  /* 30 → 28 */
-    --font-size-heading-lg:   22px;  /* 24 → 22 */
-    --font-size-heading-md:   20px;  /* 유지 */
-    --font-size-heading-sm:   18px;  /* 유지 */
+    --font-size-heading-3xl:  var(--size-36);  /* 48 → 36 */
+    --font-size-heading-2xl:  var(--size-30);  /* 36 → 30 */
+    --font-size-heading-1xl:  var(--size-28);  /* 30 → 28 */
+    --font-size-heading-lg:   var(--size-22);  /* 24 → 22 */
+    --font-size-heading-md:   var(--size-20);  /* 유지 */
+    --font-size-heading-sm:   var(--size-18);  /* 유지 */
 
     /* Body */
-    --font-size-body-1xl:     18px;  /* 20 → 18 */
-    --font-size-body-lg:      18px;  /* 유지 */
-    --font-size-body-md:      16px;  /* 유지 */
-    --font-size-body-sm:      14px;  /* 유지 */
+    --font-size-body-1xl:     var(--size-18);  /* 20 → 18 */
+    --font-size-body-lg:      var(--size-18);  /* 유지 */
+    --font-size-body-md:      var(--size-16);  /* 유지 */
+    --font-size-body-sm:      var(--size-14);  /* 유지 */
 
     /* Line-height 대응 */
-    --line-height-heading-3xl:  48px;  /* 56 → 48 */
-    --line-height-heading-2xl:  40px;  /* 46 → 40 */
-    --line-height-heading-1xl:  36px;  /* 40 → 36 */
+    --line-height-heading-3xl:  var(--size-48);  /* 56 → 48 */
+    --line-height-heading-2xl:  var(--size-40);  /* 46 → 40 */
+    --line-height-heading-1xl:  var(--size-36);  /* 40 → 36 */
 
     /* Section padding */
-    --section-py: 96px;
+    --section-py: var(--size-96);
   }
 }
 
@@ -540,41 +615,41 @@
 @media (max-width: 768px) {
   :root {
     /* Display */
-    --font-size-display:      36px;  /* 60 → 36 (모바일 스크린 대응) */
-    --font-size-display-sm:   24px;  /* 32 → 24 */
+    --font-size-display:      var(--size-36);  /* 60 → 36 */
+    --font-size-display-sm:   var(--size-24);  /* 32 → 24 */
 
     /* Heading */
-    --font-size-heading-3xl:  30px;  /* 48 → 30 (Tailwind 3xl) */
-    --font-size-heading-2xl:  24px;  /* 36 → 24 */
-    --font-size-heading-1xl:  22px;  /* 30 → 22 */
-    --font-size-heading-lg:   20px;  /* 24 → 20 */
-    --font-size-heading-md:   18px;  /* 20 → 18 */
-    --font-size-heading-sm:   16px;  /* 18 → 16 */
+    --font-size-heading-3xl:  var(--size-30);  /* 48 → 30 */
+    --font-size-heading-2xl:  var(--size-24);  /* 36 → 24 */
+    --font-size-heading-1xl:  var(--size-22);  /* 30 → 22 */
+    --font-size-heading-lg:   var(--size-20);  /* 24 → 20 */
+    --font-size-heading-md:   var(--size-18);  /* 20 → 18 */
+    --font-size-heading-sm:   var(--size-16);  /* 18 → 16 */
 
     /* Body */
-    --font-size-body-1xl:     16px;  /* 20 → 16 */
-    --font-size-body-lg:      16px;  /* 18 → 16 */
-    --font-size-body-md:      14px;  /* 16 → 14 */
-    --font-size-body-sm:      14px;  /* 유지 */
+    --font-size-body-1xl:     var(--size-16);  /* 20 → 16 */
+    --font-size-body-lg:      var(--size-16);  /* 18 → 16 */
+    --font-size-body-md:      var(--size-14);  /* 16 → 14 */
+    --font-size-body-sm:      var(--size-14);  /* 유지 */
 
     /* Line-height 대응 */
-    --line-height-heading-3xl:  40px;
-    --line-height-heading-2xl:  32px;
-    --line-height-heading-1xl:  30px;
-    --line-height-body-lg:      24px;
+    --line-height-heading-3xl:  var(--size-40);
+    --line-height-heading-2xl:  var(--size-32);
+    --line-height-heading-1xl:  var(--size-30);
+    --line-height-body-lg:      var(--size-24);
 
     /* Section padding */
-    --section-py: 72px;
+    --section-py: var(--size-72);
   }
 }
 
 /* ── Small Mobile ≤ 480px ────────────────────────────────── */
 @media (max-width: 768px) {
   :root {
-    --font-size-heading-3xl:  28px;
-    --font-size-heading-2xl:  22px;
-    --font-size-heading-1xl:  20px;
-    --font-size-display:      32px;
+    --font-size-heading-3xl:  var(--size-28);
+    --font-size-heading-2xl:  var(--size-22);
+    --font-size-heading-1xl:  var(--size-20);
+    --font-size-display:      var(--size-32);
   }
 }
 

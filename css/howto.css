@@ -3,7 +3,7 @@
    ============================================================ */
 
 .howto {
-  background: var(--sand-3);
+  background: var(--sand-200);
   position: relative;
 }
 
@@ -33,7 +33,7 @@
   flex: 1;
   background: var(--white);
   border-radius: var(--radius-20);
-  border: 1.5px solid var(--sand-10);
+  border: var(--border-width-1-5) solid var(--sand-850);
   padding: var(--spacing-40) var(--spacing-36);
   display: flex;
   flex-direction: column;
@@ -43,7 +43,7 @@
   .howto-card { transition: all 0.25s ease; }
   .howto-card:hover {
     border-color: rgba(190,144,85,0.4);
-    box-shadow: 0 12px 40px rgba(190,144,85,0.10);
+    box-shadow: var(--shadow-brand-md);
     transform: translateY(-3px);
   }
 }
@@ -101,7 +101,7 @@
   .howto__mobile-tabs {
     display: flex;
     gap: var(--spacing-6);
-    background: var(--sand-8);
+    background: var(--sand-700);
     border-radius: var(--radius-2xl);
     padding: var(--spacing-5);
     margin-top: var(--spacing-32);
@@ -124,7 +124,7 @@
   .howto__mobile-tab.active {
     background: var(--white);
     color: var(--near-black);
-    box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+    box-shadow: var(--shadow-active);
   }
   .howto__tab-arrow {
     display: flex;
@@ -156,7 +156,7 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    border: 1.5px solid rgba(190,144,85,0.3);
+    border: var(--border-width-1-5) solid rgba(190,144,85,0.3);
     background: var(--white);
     color: var(--brand);
     cursor: pointer;

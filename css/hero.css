@@ -95,7 +95,7 @@
 
 /* 대형 헤드라인 */
 .hero__title {
-  font-size: clamp(3rem, 5.5vw, 4.8rem);
+  font-size: var(--fluid-hero-title);
   font-weight: 800;
   line-height: var(--line-height-hero);
   color: var(--white);
@@ -111,7 +111,7 @@
 }
 
 .hero__sub {
-  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  font-size: var(--fluid-hero-sub);
   line-height: var(--line-height-body-loose);
   color: rgba(220, 195, 160, 0.82);
   margin-bottom: var(--space-8);
@@ -143,12 +143,12 @@
 .btn-hero--white {
   background: var(--brand);
   color: var(--white);
-  box-shadow: 0 8px 32px rgba(190,144,85,0.35);
+  box-shadow: var(--shadow-brand-lg);
 }
 .btn-hero--white:hover {
   background: var(--brand-hover);
   transform: translateY(-2px);
-  box-shadow: 0 12px 40px rgba(190,144,85,0.45);
+  box-shadow: var(--shadow-brand-xl);
 }
 .btn-hero--outline {
   background: rgba(255,255,255,0.07);
@@ -190,7 +190,7 @@
   flex-shrink: 0;
 }
 .hero__service-dot--green {
-  background: #5BAD7F;
+  background: var(--grove-green);
 }
 .hero__service-divider {
   font-size: var(--font-size-body-md);
@@ -227,7 +227,7 @@
   text-align: center;
 }
 .intro-strip__item strong {
-  font-size: clamp(1.8rem, 2.8vw, 2.6rem);
+  font-size: var(--fluid-strip-num);
   font-weight: 800;
   color: var(--orange-300);
   letter-spacing: 0;

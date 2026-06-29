@@ -53,7 +53,7 @@
 }
 
 .contact__title {
-  font-size: clamp(2.2rem, 4vw, 3.6rem);
+  font-size: var(--fluid-section-title);
   font-weight: 800;
   line-height: var(--line-height-title);
   color: var(--white);
@@ -130,13 +130,13 @@
   border: none;
   transition: all 0.25s ease;
   letter-spacing: 0;
-  box-shadow: 0 0 40px rgba(190,144,85,0.35);
+  box-shadow: var(--shadow-brand-glow);
 }
 @media (hover: hover) and (pointer: fine) {
   .btn-contact-cta:hover {
     background: var(--brand-hover-light);
     transform: translateY(-3px);
-    box-shadow: 0 0 60px rgba(190,144,85,0.5);
+    box-shadow: var(--shadow-brand-glow-hover);
   }
 }
 

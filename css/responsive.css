@@ -42,12 +42,12 @@
 
   /* ── 타이포그래피 — 하드코딩 클래스 반응형 오버라이드 ── */
   .intro-strip__item strong  { font-size: var(--font-size-heading-2xl); }   /* 48 → 36 */
-  .platform-card__name       { font-size: var(--font-size-rem-1-9); } /* 2.4rem → 1.9rem */
+  .platform-card__name       { font-size: var(--font-size-30); } /* 2.4rem → 1.9rem */
   .platform-card__stat strong{ font-size: var(--font-size-22); }   /* 26 → 22 */
   .pricing-card__num         { font-size: var(--font-size-34); }   /* 42 → 34 */
   .pricing-card__title       { font-size: var(--font-size-body-1xl); }   /* 22 → 20 */
   .contact__stat-num         { font-size: var(--font-size-28); }   /* 32 → 28 */
-  .platform-panel__title     { font-size: var(--font-size-rem-2); }   /* clamp(1.9,3.4vw,3rem) → 2rem=32px */
+  .platform-panel__title     { font-size: var(--font-size-32); }   /* clamp(1.9,3.4vw,3rem) → 2rem=32px */
 
   /* ── 섹션 패딩 — 데스크탑보다 좁게 ── */
   .section { padding: var(--spacing-100) 0; }
@@ -141,7 +141,7 @@
   /* platform-tabs → pill 스타일 */
   .platform-tabs {
     margin-top: var(--spacing-28);
-    background: var(--sand-9);
+    background: var(--sand-800);
     border-radius: var(--radius-2xl);
     padding: var(--spacing-5);
     gap: var(--spacing-6);
@@ -163,7 +163,7 @@
   .platform-tab.active {
     background: var(--white);
     color: var(--near-black);
-    box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+    box-shadow: var(--shadow-active);
     border-top: none;
   }
   .platform-tab.active .platform-tab__name { color: var(--near-black); }
@@ -171,7 +171,7 @@
   .platform-panel {
     padding: var(--spacing-36) var(--spacing-32) var(--spacing-48);
     border-radius: var(--radius-14);
-    border-top: 1.5px solid var(--sand-10);
+    border-top: var(--border-width-1-5) solid var(--sand-850);
   }
 
   /* ── Howto 그리드: 탭 UI 사용으로 데스크탑 화살표 세로 전환 ── */
@@ -234,7 +234,7 @@
   /* ── Platform Detail 섹션 ── */
   .platform-tabs {
     margin-top: var(--spacing-28);
-    background: var(--sand-9);
+    background: var(--sand-800);
     border-radius: var(--radius-2xl);
     padding: var(--spacing-5);
     gap: var(--spacing-6);
@@ -254,13 +254,13 @@
   .platform-tab.active {
     background: var(--white) !important;
     color: var(--near-black) !important;
-    box-shadow: 0 1px 6px rgba(0,0,0,0.1) !important;
+    box-shadow: var(--shadow-active) !important;
     border-top: none !important;
   }
   .platform-tab__name { font-size: var(--font-size-13) !important; font-weight: 700; white-space: nowrap; }
   .platform-tab__desc { display: none; }
   .platform-panel { padding: var(--spacing-28) var(--spacing-20) var(--spacing-36); }
-  .platform-panel__title { font-size: var(--font-size-rem-1-5); margin-bottom: var(--spacing-8); }
+  .platform-panel__title { font-size: var(--font-size-24); margin-bottom: var(--spacing-8); }
   .platform-panel__desc { font-size: var(--font-size-body-md); margin-bottom: 0; }
   .howto__mobile-tabs { margin-top: var(--spacing-28) !important; }
   .procsy-features__main { margin-top: var(--spacing-28) !important; }
@@ -269,13 +269,13 @@
   /* ── Procsy 핵심 기능 ── */
   .procsy-features__main { grid-template-columns: 1fr; }
   .procsy-feature-card { padding: var(--spacing-24) var(--spacing-20) var(--spacing-28); }
-  .procsy-feature-card__icon { width: 36px; height: 36px; border-radius: var(--radius-10); margin-bottom: var(--spacing-12); }
+  .procsy-feature-card__icon { width: 36px; height: 36px; border-radius: var(--radius-2xl); margin-bottom: var(--spacing-12); }
   .procsy-feature-card__icon svg { width: 16px; height: 16px; }
-  .howto-card__icon { width: 36px; height: 36px; border-radius: var(--radius-10); margin-bottom: var(--spacing-12); }
+  .howto-card__icon { width: 36px; height: 36px; border-radius: var(--radius-2xl); margin-bottom: var(--spacing-12); }
   .howto-card__icon svg { width: 16px; height: 16px; }
 
   /* ── 타이포그래피 — 하드코딩 클래스 모바일 오버라이드 ── */
-  .platform-card__name       { font-size: var(--font-size-rem-1-4); } /* 2.4rem → 1.4rem */
+  .platform-card__name       { font-size: var(--font-size-22); } /* 2.4rem → 1.4rem */
   .platform-card__stat strong{ font-size: var(--font-size-body-1xl); }   /* 26 → 20 */
   .pricing-card__num         { font-size: var(--font-size-display-sm); }   /* 42 → 32 */
   .pricing-card__title       { font-size: var(--font-size-22); }   /* 고정 22px — body-lg가 모바일에서 16px로 축소되는 문제 방지 */
@@ -294,7 +294,7 @@
   .hero         { min-height: auto !important; padding: var(--spacing-80) 0 var(--spacing-60); }
   .hero__actions { flex-direction: column; align-items: center; gap: var(--spacing-10); }
   .btn-hero     { width: 100%; max-width: 320px; justify-content: center; padding: var(--spacing-14) var(--spacing-24); }
-  .hero__title  { font-size: clamp(2.6rem, 12vw, 3rem); margin-bottom: var(--spacing-10); }
+  .hero__title  { font-size: var(--fluid-hero-title-mobile); margin-bottom: var(--spacing-10); }
   .hero__services        { flex-direction: column; align-items: stretch; gap: var(--spacing-10); margin-top: var(--spacing-32); width: 100%; }
   .hero__service-divider { display: none; }
   .hero__service-tag     { display: flex; }
@@ -307,7 +307,7 @@
   .intro-strip__item span   { font-size: var(--font-size-13); white-space: nowrap; display: block !important; margin-top: var(--spacing-4); opacity: 0.55; letter-spacing: 0.01em; }
 
   /* ── About ── */
-  .about__lead         { margin-bottom: var(--spacing-4); }
+  .about__lead         { margin-bottom: 0; }
   .about__trust-grid  { margin-top: var(--spacing-36); }
   .about__meta--dark  { grid-template-columns: 1fr; padding: var(--spacing-36) var(--spacing-24); gap: var(--spacing-28); margin-top: var(--spacing-36); }
   .about__meta--dark .about__info-divider { display: none; }
@@ -552,7 +552,7 @@
   .feature-item:active,
   .procsy-feature-card:hover,
   .procsy-feature-card:active {
-    border-color: var(--sand-10) !important;
+    border-color: var(--sand-850) !important;
     box-shadow: none !important;
     transform: none !important;
   }

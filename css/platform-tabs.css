@@ -44,12 +44,12 @@
   gap: var(--spacing-6);
   padding: var(--spacing-28) 0;
   flex: 1;
-  border: 1.5px solid var(--sand-10);
+  border: var(--border-width-1-5) solid var(--sand-850);
   border-bottom: none;
-  background: var(--sand-3);
+  background: var(--sand-200);
   cursor: pointer;
   transition: all 0.22s ease;
-  margin-bottom: -1.5px;
+  margin-bottom: -var(--border-width-1-5);
 }
 
 .platform-tab:first-child {
@@ -64,7 +64,7 @@
 /* ── 패널 상단은 탭이 전체 커버 → 상단 radius 제거 ── */
 
 .platform-tab__name {
-  font-size: var(--font-size-rem-1-4);
+  font-size: var(--font-size-22);
   font-weight: 800;
   letter-spacing: 0;
   color: var(--color-text-tertiary);
@@ -93,7 +93,7 @@
 }
 
 .platform-tab:not(.active):hover {
-  background: var(--sand-5);
+  background: var(--sand-400);
 }
 
 .platform-tab:not(.active):hover .platform-tab__name {
@@ -103,7 +103,7 @@
 /* ── 패널 (콘텐츠 박스) ── */
 .platform-panel {
   margin-top: 0;
-  border: 1.5px solid var(--sand-10);
+  border: var(--border-width-1-5) solid var(--sand-850);
   border-radius: 0 0 var(--radius-14) var(--radius-14);
   background: var(--white);
   padding: var(--spacing-64) var(--spacing-72) var(--spacing-80);
@@ -132,7 +132,7 @@
 }
 
 .platform-panel__title {
-  font-size: clamp(1.9rem, 3.4vw, 3rem);
+  font-size: var(--fluid-panel-title);
   font-weight: 800;
   letter-spacing: 0;
   color: var(--color-text-primary);
@@ -157,8 +157,8 @@
 }
 
 .procsy-feature-card {
-  background: var(--sand-2);
-  border: 1.5px solid var(--sand-10);
+  background: var(--sand-100);
+  border: var(--border-width-1-5) solid var(--sand-850);
   border-radius: var(--radius-20);
   padding: var(--spacing-40) var(--spacing-36) var(--spacing-44);
   position: relative;
@@ -179,7 +179,7 @@
   .procsy-feature-card::before { transition: opacity 0.25s ease; }
   .procsy-feature-card:hover {
     border-color: rgba(190,144,85,0.4);
-    box-shadow: 0 12px 40px rgba(190,144,85,0.1);
+    box-shadow: var(--shadow-brand-md);
     transform: translateY(-3px);
   }
   .procsy-feature-card:hover::before { opacity: 1; }
@@ -198,7 +198,7 @@
 }
 
 .procsy-feature-card h4 {
-  font-size: var(--font-size-rem-1-1);
+  font-size: var(--font-size-18);
   font-weight: 800;
   letter-spacing: 0;
   color: var(--color-text-primary);
@@ -227,7 +227,7 @@
   gap: var(--spacing-6);
   padding: var(--spacing-8) var(--spacing-16);
   background: var(--white);
-  border: 1.5px solid var(--sand-10);
+  border: var(--border-width-1-5) solid var(--sand-850);
   border-radius: var(--radius-rounded);
   font-size: var(--font-size-body-sm);
   font-weight: 700;
@@ -238,7 +238,7 @@
 .platform-panel__divider {
   margin: var(--spacing-80) -72px 0;
   height: 1px;
-  background: var(--sand-10);
+  background: var(--sand-850);
 }
 
 /* 구분선 이후 섹션 블록 */
@@ -277,7 +277,7 @@
   flex-wrap: wrap;
   margin-top: var(--spacing-40);
   padding-top: var(--spacing-32);
-  border-top: 1px dashed var(--sand-11);
+  border-top: 1px dashed var(--sand-900);
 }
 .grove-panel-roadmap__label {
   font-size: var(--font-size-10);
@@ -296,8 +296,8 @@
   font-size: var(--font-size-body-sm);
   font-weight: 700;
   color: var(--color-text-tertiary);
-  background: var(--sand-4);
-  border: 1px solid var(--sand-10);
+  background: var(--sand-300);
+  border: 1px solid var(--sand-850);
   border-radius: var(--radius-rounded);
   padding: var(--spacing-4) var(--spacing-14);
 }
@@ -310,9 +310,9 @@
   flex-wrap: wrap;
   margin-top: var(--spacing-32);
   padding: var(--spacing-18) var(--spacing-28);
-  background: var(--sand-1);
-  border: 1px solid var(--sand-10);
-  border-radius: var(--radius-10);
+  background: var(--sand-50);
+  border: 1px solid var(--sand-850);
+  border-radius: var(--radius-2xl);
   max-width: 100%;
 }
 .grove-panel-beta svg { flex-shrink: 0; }

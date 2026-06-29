@@ -26,7 +26,7 @@ a { text-decoration: none; color: inherit; }
 
 /* ── Section ── */
 .section          { padding: var(--section-py) 0; position: relative; scroll-margin-top: var(--spacing-64); }
-.section--bg      { background: var(--sand-3); }
+.section--bg      { background: var(--sand-200); }
 .section--dark    { background: var(--accent); }
 .section > .container { position: relative; z-index: 1; }
 
@@ -52,7 +52,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 .section-title {
-  font-size: clamp(2.2rem, 4vw, 3.6rem);
+  font-size: var(--fluid-section-title);
   font-weight: 800;
   line-height: var(--line-height-title-tight);
   letter-spacing: 0;
@@ -92,13 +92,13 @@ em.point,
 }
 .btn-hero--white  { background: var(--brand); color: var(--white); }
 .btn-hero--white:hover { background: var(--brand-hover); color: var(--white); }
-.btn-hero--outline { background: transparent; color: var(--text-default); border: 1.5px solid var(--color-border-tertiary); }
+.btn-hero--outline { background: transparent; color: var(--text-default); border: var(--border-width-1-5) solid var(--color-border-tertiary); }
 .btn-hero--outline:hover { border-color: var(--brand); color: var(--brand); background: rgba(190,144,85,0.05); }
 
 .btn-outline {
   display: inline-block;
   padding: var(--spacing-12) var(--spacing-28);
-  border: 1.5px solid var(--text-default);
+  border: var(--border-width-1-5) solid var(--text-default);
   font-size: var(--font-size-body-md);
   font-weight: var(--font-weight-bold);
   letter-spacing: 0;

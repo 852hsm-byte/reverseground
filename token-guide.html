@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ReverseGround — Token Guide</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-base);
+      background: var(--sand-200);
+      color: var(--color-text-primary);
+      -webkit-font-smoothing: antialiased;
+      line-height: var(--line-height-body);
+    }
+
+    /* ── 레이아웃 ── */
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 var(--spacing-32) var(--spacing-120); }
+
+    /* ── 헤더 ── */
+    .header {
+      padding: var(--spacing-48) 0 var(--spacing-32);
+      border-bottom: var(--border-width-1-5) solid var(--sand-850);
+      margin-bottom: var(--spacing-64);
+    }
+    .header__eyebrow {
+      font-size: var(--font-size-11);
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--brand);
+      margin-bottom: var(--spacing-8);
+    }
+    .header__title {
+      font-size: var(--font-size-heading-lg);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--color-text-primary);
+    }
+    .header__title span { color: var(--brand); }
+    .header__desc {
+      font-size: var(--font-size-body-md);
+      color: var(--color-text-tertiary);
+      margin-top: var(--spacing-6);
+    }
+
+    /* ── 목차 ── */
+    .toc {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-8);
+      margin-bottom: var(--spacing-56);
+    }
+    .toc a {
+      font-size: var(--font-size-12);
+      font-weight: 600;
+      color: var(--color-text-secondary);
+      background: var(--white);
+      border: var(--border-width-1) solid var(--sand-850);
+      border-radius: var(--radius-rounded);
+      padding: var(--spacing-5) var(--spacing-14);
+      text-decoration: none;
+      transition: all 0.15s;
+    }
+    .toc a:hover { border-color: var(--brand); color: var(--brand); }
+
+    /* ── 섹션 ── */
+    .section { margin-bottom: var(--spacing-88); scroll-margin-top: var(--spacing-24); }
+    .section__label {
+      font-size: var(--font-size-11);
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--brand);
+      padding-bottom: var(--spacing-12);
+      border-bottom: var(--border-width-1) solid var(--sand-850);
+      margin-bottom: var(--spacing-24);
+    }
+    .section__sub {
+      font-size: var(--font-size-13);
+      font-weight: 700;
+      color: var(--color-text-secondary);
+      margin: var(--spacing-28) 0 var(--spacing-14);
+      letter-spacing: -0.01em;
+    }
+    .note {
+      font-size: var(--font-size-12);
+      color: var(--color-text-tertiary);
+      margin-top: var(--spacing-12);
+      line-height: var(--line-height-body-loose);
+    }
+    code {
+      background: rgba(190,144,85,0.1);
+      color: var(--brand);
+      font-size: var(--font-size-11);
+      padding: 2px var(--spacing-6);
+      border-radius: var(--radius-md);
+      font-family: 'SF Mono', 'Fira Code', monospace;
+    }
+
+    /* ── 테이블 ── */
+    .token-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--white);
+      border-radius: var(--radius-3xl);
+      overflow: hidden;
+    }
+    .token-table th, .token-table td {
+      padding: var(--spacing-11) var(--spacing-16);
+      text-align: left;
+      font-size: var(--font-size-13);
+      border-bottom: var(--border-width-1) solid var(--sand-500);
+    }
+    .token-table th {
+      background: var(--sand-100);
+      font-weight: 700;
+      font-size: var(--font-size-11);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--color-text-tertiary);
+    }
+    .token-table td:first-child {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: var(--font-size-12);
+      color: var(--color-text-secondary);
+    }
+    .token-table tr:last-child td { border-bottom: none; }
+
+    /* ── 컬러 스와치 ── */
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: var(--spacing-10);
+    }
+    .swatch {
+      border-radius: var(--radius-2xl);
+      overflow: hidden;
+      border: var(--border-width-1) solid rgba(0,0,0,0.07);
+    }
+    .swatch__block { height: 60px; }
+    .swatch__info { background: var(--white); padding: var(--spacing-10) var(--spacing-12); }
+    .swatch__token {
+      font-size: var(--font-size-11);
+      font-weight: 700;
+      color: var(--color-text-primary);
+      font-family: 'SF Mono', 'Fira Code', monospace;
+    }
+    .swatch__hex {
+      font-size: var(--font-size-11);
+      color: var(--color-text-tertiary);
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      margin-top: var(--spacing-2);
+    }
+    .swatch__note {
+      font-size: var(--font-size-10);
+      color: var(--brand);
+      margin-top: var(--spacing-2);
+    }
+
+    /* ── 폰트 사이즈 ── */
+    .type-row {
+      display: flex;
+      align-items: baseline;
+      gap: var(--spacing-20);
+      padding: var(--spacing-14) 0;
+      border-bottom: var(--border-width-1) solid var(--sand-500);
+    }
+    .type-row:last-child { border-bottom: none; }
+    .type-meta { width: 240px; flex-shrink: 0; }
+    .type-meta__token {
+      font-size: var(--font-size-12);
+      font-weight: 700;
+      color: var(--color-text-secondary);
+      font-family: 'SF Mono', 'Fira Code', monospace;
+    }
+    .type-meta__val {
+      font-size: var(--font-size-11);
+      color: var(--color-text-tertiary);
+      margin-top: var(--spacing-2);
+    }
+    .type-sample { flex: 1; font-weight: 700; color: var(--color-text-primary); }
+
+    /* ── 스페이싱 ── */
+    .spacing-row {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-16);
+      padding: var(--spacing-7) 0;
+      border-bottom: var(--border-width-1) solid var(--sand-500);
+    }
+    .spacing-row:last-child { border-bottom: none; }
+    .spacing-bar { background: var(--brand); border-radius: var(--radius-3); height: 14px; opacity: 0.6; flex-shrink: 0; }
+    .spacing-token { font-size: var(--font-size-11); color: var(--color-text-secondary); font-family: 'SF Mono', 'Fira Code', monospace; width: 180px; flex-shrink: 0; }
+    .spacing-val { font-size: var(--font-size-11); color: var(--color-text-tertiary); }
+    .src-token { font-size: var(--font-size-11); color: var(--neutral-400); font-family: 'SF Mono', 'Fira Code', monospace; margin-left: auto; background: var(--sand-400); padding: 2px var(--spacing-6); border-radius: var(--radius-md); white-space: nowrap; flex-shrink: 0; }
+
+    /* ── 반지름 ── */
+    .radius-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-20);
+      align-items: flex-end;
+    }
+    .radius-item { text-align: center; }
+    .radius-box {
+      background: var(--white);
+      border: var(--border-width-1-5) solid var(--sand-850);
+      width: 68px; height: 68px;
+    }
+    .radius-token { font-size: var(--font-size-10); color: var(--color-text-secondary); font-family: monospace; margin-top: var(--spacing-6); }
+    .radius-val   { font-size: var(--font-size-10); color: var(--color-text-tertiary); }
+
+    /* ── 그림자 ── */
+    .shadow-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: var(--spacing-20);
+    }
+    .shadow-item { text-align: center; }
+    .shadow-box {
+      background: var(--white);
+      border-radius: var(--radius-2xl);
+      height: 80px;
+    }
+    .shadow-token { font-size: var(--font-size-11); color: var(--color-text-secondary); font-family: monospace; margin-top: var(--spacing-10); }
+    .shadow-desc  { font-size: var(--font-size-10); color: var(--color-text-tertiary); margin-top: var(--spacing-2); }
+
+    /* ── Fluid 타이포 ── */
+    .fluid-row {
+      display: flex;
+      align-items: baseline;
+      gap: var(--spacing-20);
+      padding: var(--spacing-12) 0;
+      border-bottom: var(--border-width-1) solid var(--sand-500);
+    }
+    .fluid-row:last-child { border-bottom: none; }
+    .fluid-meta { width: 260px; flex-shrink: 0; }
+    .fluid-meta__token { font-size: var(--font-size-12); font-weight: 700; color: var(--color-text-secondary); font-family: monospace; }
+    .fluid-meta__val   { font-size: var(--font-size-10); color: var(--color-text-tertiary); margin-top: var(--spacing-2); }
+    .fluid-sample { flex: 1; font-weight: 800; color: var(--color-text-primary); overflow: hidden; white-space: nowrap; }
+
+    /* ── 라인하이트 ── */
+    .lh-grid { display: flex; flex-wrap: wrap; gap: var(--spacing-16); }
+    .lh-item {
+      background: var(--white);
+      border-radius: var(--radius-2xl);
+      padding: var(--spacing-20) var(--spacing-24);
+      min-width: 200px;
+    }
+    .lh-sample {
+      font-size: var(--font-size-body-md);
+      color: var(--color-text-primary);
+      background: linear-gradient(rgba(190,144,85,0.08) 0%, rgba(190,144,85,0.08) 100%);
+      background-size: 100% 1em;
+      background-repeat: no-repeat;
+      margin-bottom: var(--spacing-10);
+    }
+    .lh-token { font-size: var(--font-size-11); font-family: monospace; color: var(--color-text-secondary); font-weight: 700; }
+    .lh-val   { font-size: var(--font-size-11); color: var(--color-text-tertiary); }
+
+    /* ── 보더 굵기 ── */
+    .bw-grid { display: flex; gap: var(--spacing-24); align-items: flex-end; }
+    .bw-item { text-align: center; }
+    .bw-line { background: var(--color-text-primary); width: 80px; }
+    .bw-token { font-size: var(--font-size-11); font-family: monospace; color: var(--color-text-secondary); margin-top: var(--spacing-8); }
+    .bw-val   { font-size: var(--font-size-10); color: var(--color-text-tertiary); }
+
+    /* ── 카드 래퍼 ── */
+    .card { background: var(--white); border-radius: var(--radius-3xl); padding: var(--spacing-24) var(--spacing-28); }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- 헤더 -->
+  <div class="header">
+    <div class="header__eyebrow">Design Token Reference</div>
+    <h1 class="header__title">REVERSE<span>GROUND</span> — Token Guide</h1>
+    <p class="header__desc">tokens.css 기반 · 모든 컴포넌트 CSS는 이 토큰만 var()로 참조 · raw 값 직접 사용 금지</p>
+  </div>
+
+  <!-- 목차 -->
+  <nav class="toc">
+    <a href="#s-brand">브랜드 컬러</a>
+    <a href="#s-dark">다크 배경</a>
+    <a href="#s-sand">샌드 뉴트럴</a>
+    <a href="#s-neutral">뉴트럴 스케일</a>
+    <a href="#s-semantic">시맨틱 컬러</a>
+    <a href="#s-fontsize">폰트 사이즈</a>
+    <a href="#s-fluid">Fluid 타이포</a>
+    <a href="#s-lineheight">줄간격</a>
+    <a href="#s-size">Size Primitive</a>
+    <a href="#s-spacing">스페이싱</a>
+    <a href="#s-radius">Border Radius</a>
+    <a href="#s-shadow">Shadow</a>
+    <a href="#s-border">Border Width</a>
+  </nav>
+
+
+  <!-- ── 1. 브랜드 컬러 ── -->
+  <section class="section" id="s-brand">
+    <div class="section__label">01 · 브랜드 컬러 — Gold</div>
+    <div class="color-grid">
+      <div class="swatch"><div class="swatch__block" style="background:#FAF4EB"></div><div class="swatch__info"><div class="swatch__token">--orange-50</div><div class="swatch__hex">#FAF4EB</div></div></div>
+      <div class="swatch"><div class="swatch__block" style="background:#F3E5CC"></div><div class="swatch__info"><div class="swatch__token">--orange-100</div><div class="swatch__hex">#F3E5CC</div></div></div>
+      <div class="swatch"><div class="swatch__block" style="background:#E6CA9A"></div><div class="swatch__info"><div class="swatch__token">--orange-200</div><div class="swatch__hex">#E6CA9A</div></div></div>
+      <div class="swatch"><div class="swatch__block" style="background:#CF9F68"></div><div class="swatch__info"><div class="swatch__token">--orange-300</div><div class="swatch__hex">#CF9F68</div></div></div>
+      <div class="swatch"><div class="swatch__block" style="background:#BE9055"></div><div class="swatch__info"><div class="swatch__token">--brand</div><div class="swatch__hex">#BE9055</div><div class="swatch__note">★ 메인</div></div></div>
+      <div class="swatch"><div class="swatch__block" style="background:#D4A85A"></div><div class="swatch__info"><div class="swatch__token">--brand-hover-light</div><div class="swatch__hex">#D4A85A</div><div class="swatch__note">Contact CTA 전용</div></div></div>
+      <div class="swatch"><div class="swatch__block" style="background:#A87038"></div><div class="swatch__info"><div class="swatch__token">--brand-hover</div><div class="swatch__hex">#A87038</div><div class="swatch__note">hover 표준</div></div></div>
+      <div class="swatch"><div class="swatch__block" style="background:#7A5420"></div><div class="swatch__info"><div class="swatch__token">--brand-press</div><div class="swatch__hex">#7A5420</div><div class="swatch__note">press</div></div></div>
+      <div class="swatch"><div class="swatch__block" style="background:#724E18"></div><div class="swatch__info"><div class="swatch__token">--orange-700</div><div class="swatch__hex">#724E18</div></div></div>
+      <div class="swatch"><div class="swatch__block" style="background:#563A0F"></div><div class="swatch__info"><div class="swatch__token">--orange-800</div><div class="swatch__hex">#563A0F</div></div></div>
+      <div class="swatch"><div class="swatch__block" style="background:#3A2608"></div><div class="swatch__info"><div class="swatch__token">--orange-900</div><div class="swatch__hex">#3A2608</div></div></div>
+      <div class="swatch"><div class="swatch__block" style="background:#1E1304"></div><div class="swatch__info"><div class="swatch__token">--orange-950</div><div class="swatch__hex">#1E1304</div></div></div>
+    </div>
+  </section>
+
+
+  <!-- ── 2. 다크 배경 ── -->
+  <section class="section" id="s-dark">
+    <div class="section__label">02 · 다크 배경 — dark-*</div>
+    <div class="color-grid">
+      <div class="swatch"><div class="swatch__block" style="background:#16130E"></div><div class="swatch__info"><div class="swatch__token">--dark-900</div><div class="swatch__hex">#16130E</div><div class="swatch__note">Hero · Footer · GNB CTA</div></div></div>
+      <div class="swatch"><div class="swatch__block" style="background:#1E1A13"></div><div class="swatch__info"><div class="swatch__token">--dark-800</div><div class="swatch__hex">#1E1A13</div><div class="swatch__note">Procsy 카드 · About 다크</div></div></div>
+      <div class="swatch"><div class="swatch__block" style="background:#251F15"></div><div class="swatch__info"><div class="swatch__token">--dark-750</div><div class="swatch__hex">#251F15</div></div></div>
+      <div class="swatch"><div class="swatch__block" style="background:#2C2620"></div><div class="swatch__info"><div class="swatch__token">--dark-700</div><div class="swatch__hex">#2C2620</div><div class="swatch__note">Pricing featured 카드</div></div></div>
+    </div>
+    <p class="note">장식용 그라디언트 <code>--deco-dark-1~4</code> (#1D1D1F / #3A3A3C / #2C2C2E / #48484A) — 뉴스 카드 썸네일 전용, 다른 용도 재사용 금지</p>
+  </section>
+
+
+  <!-- ── 3. 샌드 뉴트럴 ── -->
+  <section class="section" id="s-sand">
+    <div class="section__label">03 · 샌드 뉴트럴 — sand-* (웜톤 베이지)</div>
+    <div class="color-grid">
+      <div class="swatch"><div class="swatch__block" style="background:#FAFAF8;border:1px solid #eee"></div><div class="swatch__info"><div class="swatch__token">--sand-50</div><div class="swatch__hex">#FAFAF8</div></div></div>
+      <div class="swatch"><div class="swatch__block" style="background:#F9F8F6;border:1px solid #eee"></div><div class="swatch__info"><div class="swatch__token">--sand-100</div><div class="swatch__hex">#F9F8F6</div></div></div>
+      <div class="swatch"><div class="swatch__block" style="background:#F5F5F7;border:1px solid #eee"></div><div class="swatch__info"><div class="swatch__token">--sand-200</div><div class="swatch__hex">#F5F5F7</div><div class="swatch__note">섹션 배경 (Pricing)</div></div></div>
+      <div class="swatch"><div class="swatch__block" style="background:#F5F3F0;border:1px solid #eee"></div><div class="swatch__info"><div class="swatch__token">--sand-300</div><div class="swatch__hex">#F5F3F0</div></div></div>
+      <div class="swatch"><div class="swatch__block" style="background:#EFEFEF;border:1px solid #eee"></div><div class="swatch__info"><div class="swatch__token">--sand-400</div><div class="swatch__hex">#EFEFEF</div></div></div>
+      <div class="swatch"><div class="swatch__block" style="background:#F0EDE8"></div><div class="swatch__info"><div class="swatch__token">--sand-500</div><div class="swatch__hex">#F0EDE8</div></div></div>
+      <div class="swatch"><div class="swatch__block" style="background:#EEEBE6"></div><div class="swatch__info"><div class="swatch__token">--sand-600</div><div class="swatch__hex">#EEEBE6</div><div class="swatch__note">탭 컨테이너 배경</div></div></div>
+      <div class="swatch"><div class="swatch__block" style="background:#ECEAE6"></div><div class="swatch__info"><div class="swatch__token">--sand-700</div><div class="swatch__hex">#ECEAE6</div></div></div>
+      <div class="swatch"><div class="swatch__block" style="background:#E8E5E0"></div><div class="swatch__info"><div class="swatch__token">--sand-800</div><div class="swatch__hex">#E8E5E0</div></div></div>
+      <div class="swatch"><div class="swatch__block" style="background:#E8E4DC"></div><div class="swatch__info"><div class="swatch__token">--sand-850</div><div class="swatch__hex">#E8E4DC</div><div class="swatch__note">카드 테두리 기본</div></div></div>
+      <div class="swatch"><div class="swatch__block" style="background:#E0DDD8"></div><div class="swatch__info"><div class="swatch__token">--sand-900</div><div class="swatch__hex">#E0DDD8</div></div></div>
+      <div class="swatch"><div class="swatch__block" style="background:#D0CCC4"></div><div class="swatch__info"><div class="swatch__token">--sand-950</div><div class="swatch__hex">#D0CCC4</div></div></div>
+    </div>
+    <p class="note">쿨톤 그레이 <code>--neutral-*</code> 와 다른 별도 스케일 — 섞어 쓰지 말 것</p>
+  </section>
+
+
+  <!-- ── 4. 뉴트럴 ── -->
+  <section class="section" id="s-neutral">
+    <div class="section__label">04 · 뉴트럴 스케일 — neutral-* (쿨톤 그레이)</div>
+    <div class="color-grid">
+      <div class="swatch"><div class="swatch__block" style="background:#FFFFFF;border:1px solid #eee"></div><div class="swatch__info"><div class="swatch__token">--white</div><div class="swatch__hex">#FFFFFF</div><div class="swatch__note">Base</div></div></div>
+      <div class="swatch"><div class="swatch__block" style="background:#FAFAFA;border:1px solid #eee"></div><div class="swatch__info"><div class="swatch__token">--neutral-50</div><div class="swatch__hex">#FAFAFA</div></div></div>
+      <div class="swatch"><div class="swatch__block" style="background:#F5F5F5;border:1px solid #eee"></div><div class="swatch__info"><div class="swatch__token">--neutral-100</div><div class="swatch__hex">#F5F5F5</div></div></div>
+      <div class="swatch"><div class="swatch__block" style="background:#E6E6E6"></div><div class="swatch__info"><div class="swatch__token">--neutral-200</div><div class="swatch__hex">#E6E6E6</div></div></div>
+      <div class="swatch"><div class="swatch__block" style="background:#D2D2D2"></div><div class="swatch__info"><div class="swatch__token">--neutral-300</div><div class="swatch__hex">#D2D2D2</div></div></div>
+      <div class="swatch"><div class="swatch__block" style="background:#A0A0A0"></div><div class="swatch__info"><div class="swatch__token">--neutral-400</div><div class="swatch__hex">#A0A0A0</div></div></div>
+      <div class="swatch"><div class="swatch__block" style="background:#737373"></div><div class="swatch__info"><div class="swatch__token">--neutral-500</div><div class="swatch__hex">#737373</div></div></div>
+      <div class="swatch"><div class="swatch__block" style="background:#505050"></div><div class="swatch__info"><div class="swatch__token">--neutral-600</div><div class="swatch__hex">#505050</div></div></div>
+      <div class="swatch"><div class="swatch__block" style="background:#414141"></div><div class="swatch__info"><div class="swatch__token">--neutral-700</div><div class="swatch__hex">#414141</div></div></div>
+      <div class="swatch"><div class="swatch__block" style="background:#282828"></div><div class="swatch__info"><div class="swatch__token">--neutral-800</div><div class="swatch__hex">#282828</div></div></div>
+      <div class="swatch"><div class="swatch__block" style="background:#191919"></div><div class="swatch__info"><div class="swatch__token">--neutral-900</div><div class="swatch__hex">#191919</div><div class="swatch__note">텍스트 기본</div></div></div>
+      <div class="swatch"><div class="swatch__block" style="background:#111111"></div><div class="swatch__info"><div class="swatch__token">--near-black</div><div class="swatch__hex">#111111</div><div class="swatch__note">진한 검정 필요 시</div></div></div>
+      <div class="swatch"><div class="swatch__block" style="background:#0A0A0A"></div><div class="swatch__info"><div class="swatch__token">--neutral-950</div><div class="swatch__hex">#0A0A0A</div></div></div>
+    </div>
+    <p class="note">⚠ pure black <code>#000</code> 사용 금지 — 텍스트는 <code>--neutral-900</code>(#191919), 더 진하면 <code>--near-black</code>(#111111)</p>
+  </section>
+
+
+  <!-- ── 5. 시맨틱 컬러 ── -->
+  <section class="section" id="s-semantic">
+    <div class="section__label">05 · 시맨틱 컬러 — color-text-* / color-bg-*</div>
+    <div class="section__sub">텍스트</div>
+    <table class="token-table">
+      <thead><tr><th>토큰</th><th>값</th><th>출처</th><th>용도</th></tr></thead>
+      <tbody>
+        <tr><td>--color-text-primary</td><td>#191919</td><td><span class="src-token">← --neutral-900</span></td><td>기본 본문 텍스트</td></tr>
+        <tr><td>--color-text-secondary</td><td>#505050</td><td><span class="src-token">← --neutral-600</span></td><td>보조 설명 텍스트</td></tr>
+        <tr><td>--color-text-tertiary</td><td>#A0A0A0</td><td><span class="src-token">← --neutral-400</span></td><td>힌트, 라벨, 캡션</td></tr>
+        <tr><td>--color-text-disabled</td><td>#D2D2D2</td><td><span class="src-token">← --neutral-300</span></td><td>비활성 텍스트</td></tr>
+        <tr><td>--color-text-inverse</td><td>#FFFFFF</td><td><span class="src-token">← --white</span></td><td>다크 배경 위 텍스트</td></tr>
+        <tr><td>--color-text-info-bold</td><td>#193CB9</td><td><span class="src-token">← --blue-800</span></td><td>정보 강조 텍스트</td></tr>
+        <tr><td>--color-text-info</td><td>#145FFA</td><td><span class="src-token">← --blue-600</span></td><td>정보 텍스트</td></tr>
+        <tr><td>--color-text-warning-bold</td><td>#874B00</td><td><span class="src-token">← --yellow-800</span></td><td>경고 강조 텍스트</td></tr>
+        <tr><td>--color-text-warning</td><td>#D28700</td><td><span class="src-token">← --yellow-600</span></td><td>경고 텍스트</td></tr>
+        <tr><td>--color-text-success-bold</td><td>#006432</td><td><span class="src-token">← --green-800</span></td><td>성공 강조 텍스트</td></tr>
+        <tr><td>--color-text-success</td><td>#00A53C</td><td><span class="src-token">← --green-600</span></td><td>성공 텍스트</td></tr>
+        <tr><td>--color-text-danger-bold</td><td>#A00514</td><td><span class="src-token">← --red-800</span></td><td>위험 강조 텍스트</td></tr>
+        <tr><td>--color-text-danger</td><td>#E6000A</td><td><span class="src-token">← --red-600</span></td><td>위험 텍스트</td></tr>
+        <tr><td>--color-text-brand-primary</td><td>#BE9055</td><td><span class="src-token">← --orange-400</span></td><td>브랜드 텍스트</td></tr>
+        <tr><td>--color-text-brand-primary-hovered</td><td>#A87038</td><td><span class="src-token">← --orange-500</span></td><td>브랜드 텍스트 hover</td></tr>
+        <tr><td>--color-text-brand-primary-pressed</td><td>#7A5420</td><td><span class="src-token">← --orange-600</span></td><td>브랜드 텍스트 press</td></tr>
+      </tbody>
+    </table>
+    <div class="section__sub">배경</div>
+    <table class="token-table">
+      <thead><tr><th>토큰</th><th>값</th><th>출처</th><th>용도</th></tr></thead>
+      <tbody>
+        <tr><td>--color-bg-primary</td><td>#FFFFFF</td><td><span class="src-token">← --white</span></td><td>기본 카드/섹션 배경</td></tr>
+        <tr><td>--color-bg-secondary</td><td>#FAFAFA</td><td><span class="src-token">← --neutral-50</span></td><td>보조 배경</td></tr>
+        <tr><td>--color-bg-tertiary</td><td>#F5F5F5</td><td><span class="src-token">← --neutral-100</span></td><td>3단계 배경</td></tr>
+        <tr><td>--color-bg-info-bold</td><td>#1446E6</td><td><span class="src-token">← --blue-700</span></td><td>정보 강조 배경</td></tr>
+        <tr><td>--color-bg-warning-bold</td><td>#F0AF00</td><td><span class="src-token">← --yellow-500</span></td><td>경고 강조 배경</td></tr>
+        <tr><td>--color-bg-warning-subtle</td><td>#FFFAE6</td><td><span class="src-token">← --yellow-50</span></td><td>경고 은은한 배경</td></tr>
+        <tr><td>--color-bg-success-bold</td><td>#008237</td><td><span class="src-token">← --green-700</span></td><td>성공 강조 배경</td></tr>
+        <tr><td>--color-bg-success-subtle</td><td>#F0FFF5</td><td><span class="src-token">← --green-50</span></td><td>성공 은은한 배경</td></tr>
+        <tr><td>--color-bg-danger-bold</td><td>#C30005</td><td><span class="src-token">← --red-700</span></td><td>위험 강조 배경</td></tr>
+        <tr><td>--color-bg-danger-subtle</td><td>#FFF0F0</td><td><span class="src-token">← --red-50</span></td><td>위험 은은한 배경</td></tr>
+        <tr><td>--color-bg-interactive-primary</td><td>#BE9055</td><td><span class="src-token">← --orange-400</span></td><td>브랜드 버튼 기본</td></tr>
+        <tr><td>--color-bg-interactive-primary-hovered</td><td>#A87038</td><td><span class="src-token">← --orange-500</span></td><td>브랜드 버튼 hover</td></tr>
+        <tr><td>--color-bg-interactive-primary-pressed</td><td>#7A5420</td><td><span class="src-token">← --orange-600</span></td><td>브랜드 버튼 press</td></tr>
+        <tr><td>--color-bg-interactive-secondary</td><td>#505050</td><td><span class="src-token">← --neutral-600</span></td><td>2차 버튼 기본</td></tr>
+        <tr><td>--color-bg-interactive-tertiary</td><td>#FAFAFA</td><td><span class="src-token">← --neutral-50</span></td><td>3차 버튼 기본</td></tr>
+        <tr><td>--color-bg-interactive-selected</td><td>#FAF4EB</td><td><span class="src-token">← --orange-50</span></td><td>선택 상태 배경</td></tr>
+        <tr><td>--color-bg-inverse-bold</td><td>#505050</td><td><span class="src-token">← --neutral-600</span></td><td>인버스 배경 (중)</td></tr>
+        <tr><td>--color-bg-inverse-bolder</td><td>#0A0A0A</td><td><span class="src-token">← --neutral-950</span></td><td>인버스 배경 (강)</td></tr>
+      </tbody>
+    </table>
+    <div class="section__sub">보더</div>
+    <table class="token-table">
+      <thead><tr><th>토큰</th><th>값</th><th>출처</th><th>용도</th></tr></thead>
+      <tbody>
+        <tr><td>--color-border-primary</td><td>#191919</td><td><span class="src-token">← --neutral-900</span></td><td>강조 테두리</td></tr>
+        <tr><td>--color-border-secondary</td><td>#A0A0A0</td><td><span class="src-token">← --neutral-400</span></td><td>중간 테두리</td></tr>
+        <tr><td>--color-border-tertiary</td><td>#D2D2D2</td><td><span class="src-token">← --neutral-300</span></td><td>구분선, 연한 테두리</td></tr>
+        <tr><td>--color-border-disabled</td><td>#E6E6E6</td><td><span class="src-token">← --neutral-200</span></td><td>비활성 테두리</td></tr>
+        <tr><td>--color-border-info</td><td>#145FFA</td><td><span class="src-token">← --blue-600</span></td><td>정보 테두리</td></tr>
+        <tr><td>--color-border-warning</td><td>#F0AF00</td><td><span class="src-token">← --yellow-500</span></td><td>경고 테두리</td></tr>
+        <tr><td>--color-border-success</td><td>#00A53C</td><td><span class="src-token">← --green-600</span></td><td>성공 테두리</td></tr>
+        <tr><td>--color-border-danger</td><td>#FA2D37</td><td><span class="src-token">← --red-500</span></td><td>위험 테두리</td></tr>
+        <tr><td>--color-border-interactive-secondary</td><td>#D2D2D2</td><td><span class="src-token">← --neutral-300</span></td><td>2차 인터랙티브 테두리</td></tr>
+        <tr><td>--color-border-interactive-danger</td><td>#E6000A</td><td><span class="src-token">← --red-600</span></td><td>위험 인터랙티브 테두리</td></tr>
+      </tbody>
+    </table>
+    <div class="section__sub">아이콘</div>
+    <table class="token-table">
+      <thead><tr><th>토큰</th><th>값</th><th>출처</th><th>용도</th></tr></thead>
+      <tbody>
+        <tr><td>--color-icon-primary</td><td>#191919</td><td><span class="src-token">← --neutral-900</span></td><td>기본 아이콘</td></tr>
+        <tr><td>--color-icon-secondary</td><td>#505050</td><td><span class="src-token">← --neutral-600</span></td><td>보조 아이콘</td></tr>
+        <tr><td>--color-icon-tertiary</td><td>#A0A0A0</td><td><span class="src-token">← --neutral-400</span></td><td>힌트 아이콘</td></tr>
+        <tr><td>--color-icon-disabled</td><td>#D2D2D2</td><td><span class="src-token">← --neutral-300</span></td><td>비활성 아이콘</td></tr>
+        <tr><td>--color-icon-info</td><td>#1446E6</td><td><span class="src-token">← --blue-700</span></td><td>정보 아이콘</td></tr>
+        <tr><td>--color-icon-warning</td><td>#A55F00</td><td><span class="src-token">← --yellow-700</span></td><td>경고 아이콘</td></tr>
+        <tr><td>--color-icon-success</td><td>#008237</td><td><span class="src-token">← --green-700</span></td><td>성공 아이콘</td></tr>
+        <tr><td>--color-icon-danger</td><td>#E6000A</td><td><span class="src-token">← --red-600</span></td><td>위험 아이콘</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+
+  <!-- ── 6. 폰트 사이즈 ── -->
+  <section class="section" id="s-fontsize">
+    <div class="section__label">06 · 폰트 사이즈 토큰 — font-size-*</div>
+    <div class="section__sub">Heading 스케일</div>
+    <div class="card">
+      <div class="type-row"><div class="type-meta"><div class="type-meta__token">--font-size-display</div><div class="type-meta__val">Desktop 60px → Tablet 48px → Mobile 36px</div></div><div class="type-sample" style="font-size:var(--font-size-display);">리버스그라운드</div></div>
+      <div class="type-row"><div class="type-meta"><div class="type-meta__token">--font-size-heading-3xl</div><div class="type-meta__val">Desktop 48px → Tablet 36px → Mobile 30px</div></div><div class="type-sample" style="font-size:var(--font-size-heading-3xl);">섹션 제목</div></div>
+      <div class="type-row"><div class="type-meta"><div class="type-meta__token">--font-size-heading-2xl</div><div class="type-meta__val">Desktop 36px → Tablet 30px → Mobile 24px</div></div><div class="type-sample" style="font-size:var(--font-size-heading-2xl);">플랫폼 소개</div></div>
+      <div class="type-row"><div class="type-meta"><div class="type-meta__token">--font-size-heading-1xl</div><div class="type-meta__val">Desktop 30px → Tablet 28px → Mobile 22px</div></div><div class="type-sample" style="font-size:var(--font-size-heading-1xl);">도입 효과</div></div>
+      <div class="type-row"><div class="type-meta"><div class="type-meta__token">--font-size-heading-lg</div><div class="type-meta__val">Desktop 24px → Tablet 22px → Mobile 20px</div></div><div class="type-sample" style="font-size:var(--font-size-heading-lg);">서브 헤딩</div></div>
+      <div class="type-row"><div class="type-meta"><div class="type-meta__token">--font-size-heading-md</div><div class="type-meta__val">20px (전 뷰 동일)</div></div><div class="type-sample" style="font-size:var(--font-size-heading-md);">카드 제목</div></div>
+      <div class="type-row"><div class="type-meta"><div class="type-meta__token">--font-size-heading-sm</div><div class="type-meta__val">18px (전 뷰 동일)</div></div><div class="type-sample" style="font-size:var(--font-size-heading-sm);">소형 제목</div></div>
+    </div>
+
+    <div class="section__sub">Body 스케일</div>
+    <div class="card">
+      <div class="type-row"><div class="type-meta"><div class="type-meta__token">--font-size-body-1xl</div><div class="type-meta__val">Desktop 20px → Mobile 16px</div></div><div class="type-sample" style="font-size:var(--font-size-body-1xl);font-weight:400;color:var(--color-text-secondary);">리드 텍스트. 섹션 도입부 설명.</div></div>
+      <div class="type-row"><div class="type-meta"><div class="type-meta__token">--font-size-body-lg</div><div class="type-meta__val">Desktop 18px → Mobile 16px</div></div><div class="type-sample" style="font-size:var(--font-size-body-lg);font-weight:400;color:var(--color-text-secondary);">본문 기본. About 설명, 카드 본문.</div></div>
+      <div class="type-row"><div class="type-meta"><div class="type-meta__token">--font-size-body-md</div><div class="type-meta__val">Desktop 16px → Mobile 14px</div></div><div class="type-sample" style="font-size:var(--font-size-body-md);font-weight:400;color:var(--color-text-secondary);">보조 텍스트. 카드 설명, 섹션 desc.</div></div>
+      <div class="type-row"><div class="type-meta"><div class="type-meta__token">--font-size-body-sm</div><div class="type-meta__val">14px (전 뷰 동일)</div></div><div class="type-sample" style="font-size:var(--font-size-body-sm);font-weight:400;color:var(--color-text-tertiary);">캡션, 라벨, 배지 텍스트.</div></div>
+    </div>
+
+    <div class="section__sub">컴포넌트 전용 고정 크기</div>
+    <table class="token-table">
+      <thead><tr><th>토큰</th><th>값</th><th>용도</th></tr></thead>
+      <thead><tr><th>토큰</th><th>값</th><th>용도</th><th>출처</th></tr></thead>
+      <tbody>
+        <tr><td>--font-size-10</td><td>10px</td><td>최소 텍스트</td><td class="src-token">← --size-10</td></tr>
+        <tr><td>--font-size-11</td><td>11px</td><td>배지 라벨, 섹션 레이블</td><td class="src-token">← --size-11</td></tr>
+        <tr><td>--font-size-12</td><td>12px</td><td>캡션</td><td class="src-token">← --size-12</td></tr>
+        <tr><td>--font-size-13</td><td>13px</td><td>소형 본문</td><td class="src-token">← --size-13</td></tr>
+        <tr><td>--font-size-15</td><td>15px</td><td>버튼 텍스트</td><td class="src-token">← --size-15</td></tr>
+        <tr><td>--font-size-16</td><td>16px</td><td>탭 텍스트</td><td class="src-token">← --size-16</td></tr>
+        <tr><td>--font-size-18</td><td>18px</td><td>컴포넌트 본문</td><td class="src-token">← --size-18</td></tr>
+        <tr><td>--font-size-22</td><td>22px</td><td>소형 헤딩 특수</td><td class="src-token">← --size-22</td></tr>
+        <tr><td>--font-size-24</td><td>24px</td><td>컴포넌트 제목</td><td class="src-token">← --size-24</td></tr>
+        <tr><td>--font-size-26</td><td>26px</td><td>컴포넌트 제목</td><td class="src-token">← --size-26</td></tr>
+        <tr><td>--font-size-28</td><td>28px</td><td>컴포넌트 제목</td><td class="src-token">← --size-28</td></tr>
+        <tr><td>--font-size-30</td><td>30px</td><td>플랫폼 카드명 (Tablet)</td><td class="src-token">← --size-30</td></tr>
+        <tr><td>--font-size-32</td><td>32px</td><td>플랫폼 패널 제목 (Tablet)</td><td class="src-token">← --size-32</td></tr>
+        <tr><td>--font-size-34</td><td>34px</td><td>가격 숫자 (Tablet)</td><td class="src-token">← --size-34</td></tr>
+        <tr><td>--font-size-38</td><td>38px</td><td>서비스 강조 숫자</td><td class="src-token">← --size-38</td></tr>
+        <tr><td>--font-size-42</td><td>42px</td><td>가격 숫자 (Desktop)</td><td class="src-token">← --size-42</td></tr>
+        <tr><td>--font-size-deco</td><td>180px</td><td>장식용 대형 레터 (platform-card__deco 전용)</td><td class="src-token">← --size-180</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+
+  <!-- ── 7. Fluid 타이포 ── -->
+  <section class="section" id="s-fluid">
+    <div class="section__label">07 · Fluid Typography — fluid-* (뷰포트 반응형)</div>
+    <p class="note" style="margin-bottom:var(--spacing-16);">clamp(min, vw, max) 형태 — 뷰포트 너비에 따라 최솟값~최댓값 사이를 부드럽게 변화</p>
+    <div class="card">
+      <div class="fluid-row"><div class="fluid-meta"><div class="fluid-meta__token">--fluid-hero-title</div><div class="fluid-meta__val">clamp(3rem, 5.5vw, 4.8rem) · .hero__title</div></div><div class="fluid-sample" style="font-size:var(--fluid-hero-title);">리버스그라운드</div></div>
+      <div class="fluid-row"><div class="fluid-meta"><div class="fluid-meta__token">--fluid-hero-title-mobile</div><div class="fluid-meta__val">clamp(2.6rem, 12vw, 3rem) · mobile override</div></div><div class="fluid-sample" style="font-size:clamp(2.6rem, 12vw, 3rem);">리버스그라운드</div></div>
+      <div class="fluid-row"><div class="fluid-meta"><div class="fluid-meta__token">--fluid-hero-sub</div><div class="fluid-meta__val">clamp(1rem, 1.4vw, 1.25rem) · .hero__sub</div></div><div class="fluid-sample" style="font-size:var(--fluid-hero-sub);">기업 운영의 복잡함을 단순하게</div></div>
+      <div class="fluid-row"><div class="fluid-meta"><div class="fluid-meta__token">--fluid-strip-num</div><div class="fluid-meta__val">clamp(1.8rem, 2.8vw, 2.6rem) · intro-strip 숫자</div></div><div class="fluid-sample" style="font-size:var(--fluid-strip-num);">99.9%</div></div>
+      <div class="fluid-row"><div class="fluid-meta"><div class="fluid-meta__token">--fluid-section-title</div><div class="fluid-meta__val">clamp(2.2rem, 4vw, 3.6rem) · .section-title</div></div><div class="fluid-sample" style="font-size:var(--fluid-section-title);">섹션 타이틀</div></div>
+      <div class="fluid-row"><div class="fluid-meta"><div class="fluid-meta__token">--fluid-panel-title</div><div class="fluid-meta__val">clamp(1.9rem, 3.4vw, 3rem) · platform-panel 타이틀</div></div><div class="fluid-sample" style="font-size:var(--fluid-panel-title);">구매 솔루션 Procsy</div></div>
+      <div class="fluid-row"><div class="fluid-meta"><div class="fluid-meta__token">--fluid-panel-title-tab</div><div class="fluid-meta__val">clamp(1.3rem, 2.4vw, 1.9rem) · modern-proctabs 탭</div></div><div class="fluid-sample" style="font-size:var(--fluid-panel-title-tab);">구매 솔루션 Procsy</div></div>
+      <div class="fluid-row"><div class="fluid-meta"><div class="fluid-meta__token">--fluid-about-name</div><div class="fluid-meta__val">clamp(2.4rem, 4.4vw, 3.8rem) · .about__brand-name</div></div><div class="fluid-sample" style="font-size:var(--fluid-about-name);">리버스그라운드</div></div>
+      <div class="fluid-row"><div class="fluid-meta"><div class="fluid-meta__token">--fluid-vision-title</div><div class="fluid-meta__val">clamp(2rem, 3.6vw, 3.2rem) · .vision__title</div></div><div class="fluid-sample" style="font-size:var(--fluid-vision-title);">업무의 복잡함을 없애</div></div>
+      <div class="fluid-row"><div class="fluid-meta"><div class="fluid-meta__token">--fluid-vision-card</div><div class="fluid-meta__val">clamp(1.25rem, 2vw, 1.6rem) · .vision__item h3</div></div><div class="fluid-sample" style="font-size:var(--fluid-vision-card);">운영 기준 수립</div></div>
+      <div class="fluid-row"><div class="fluid-meta"><div class="fluid-meta__token">--fluid-features-name</div><div class="fluid-meta__val">clamp(1.4rem, 2.5vw, 1.9rem) · .platform-features__name</div></div><div class="fluid-sample" style="font-size:var(--fluid-features-name);">구매·발주 자동화</div></div>
+      <div class="fluid-row"><div class="fluid-meta"><div class="fluid-meta__token">--fluid-clients-title</div><div class="fluid-meta__val">clamp(1.6rem, 2.8vw, 2.2rem) · .clients 섹션 타이틀</div></div><div class="fluid-sample" style="font-size:var(--fluid-clients-title);">주요 고객사</div></div>
+      <div class="fluid-row"><div class="fluid-meta"><div class="fluid-meta__token">--fluid-flex-title</div><div class="fluid-meta__val">clamp(1.4rem, 2.4vw, 2rem) · .procsy-flex__title</div></div><div class="fluid-sample" style="font-size:var(--fluid-flex-title);">유연한 운영 구조</div></div>
+      <div class="fluid-row"><div class="fluid-meta"><div class="fluid-meta__token">--fluid-setup-heading</div><div class="fluid-meta__val">clamp(1.1rem, 1.8vw, 1.5rem) · .procsy-setup h4</div></div><div class="fluid-sample" style="font-size:var(--fluid-setup-heading);">세팅 지원</div></div>
+    </div>
+  </section>
+
+
+  <!-- ── 8. 줄간격 ── -->
+  <section class="section" id="s-lineheight">
+    <div class="section__label">08 · Line Height — line-height-*</div>
+    <table class="token-table">
+      <thead><tr><th>토큰</th><th>값</th><th>용도</th></tr></thead>
+      <tbody>
+        <tr><td>--line-height-none</td><td>1</td><td>숫자·버튼·한 줄 UI (가격, 탭, 이름)</td></tr>
+        <tr><td>--line-height-hero</td><td>1.08</td><td>Hero title 전용</td></tr>
+        <tr><td>--line-height-title-tight</td><td>1.12</td><td>Section title (.section-title)</td></tr>
+        <tr><td>--line-height-panel-title</td><td>1.15</td><td>Platform panel 대표 타이틀</td></tr>
+        <tr><td>--line-height-title</td><td>1.2</td><td>줄바꿈 있는 큰 타이틀 (vision__title 등)</td></tr>
+        <tr><td>--line-height-heading</td><td>1.25</td><td>서브 헤딩 (procsy-flex__title 등)</td></tr>
+        <tr><td>--line-height-card</td><td>1.35</td><td>Card title, h3, h4</td></tr>
+        <tr><td>--line-height-caption</td><td>1.4</td><td>Caption, label, badge, 짧은 인라인 텍스트</td></tr>
+        <tr><td>--line-height-body-tight</td><td>1.6</td><td>짧은 설명문, 특수 패널</td></tr>
+        <tr><td>--line-height-body</td><td>1.7</td><td>일반 본문 표준</td></tr>
+        <tr><td>--line-height-body-loose</td><td>1.8</td><td>긴 설명문, 섹션 설명, 리드 카피</td></tr>
+      </tbody>
+    </table>
+    <p class="note">line-height는 비율값 — 실제 픽셀 = font-size × line-height. 예: 18px × 1.8 = 32.4px. 소수점은 토큰 자체가 아니라 브라우저 계산 결과</p>
+  </section>
+
+
+  <!-- ── 9. 스페이싱 ── -->
+  <!-- ── 09. Size Primitive ── -->
+  <section class="section" id="s-size">
+    <div class="section__label">09 · Size Primitive — size-*</div>
+    <p class="note" style="margin-bottom:var(--spacing-16);">모든 숫자값의 원시값. spacing · radius · font-size · border-width 가 여기서 참조함 — raw px 직접 사용 금지</p>
+    <div class="card">
+      <div class="spacing-row"><div class="spacing-token">--size-1</div><div class="spacing-bar" style="width:1px"></div><div class="spacing-val">1px</div></div>
+      <div class="spacing-row"><div class="spacing-token">--size-1-5</div><div class="spacing-bar" style="width:1.5px"></div><div class="spacing-val">1.5px</div></div>
+      <div class="spacing-row"><div class="spacing-token">--size-2</div><div class="spacing-bar" style="width:2px"></div><div class="spacing-val">2px</div></div>
+      <div class="spacing-row"><div class="spacing-token">--size-4</div><div class="spacing-bar" style="width:4px"></div><div class="spacing-val">4px</div></div>
+      <div class="spacing-row"><div class="spacing-token">--size-6</div><div class="spacing-bar" style="width:6px"></div><div class="spacing-val">6px</div></div>
+      <div class="spacing-row"><div class="spacing-token">--size-8</div><div class="spacing-bar" style="width:8px"></div><div class="spacing-val">8px</div></div>
+      <div class="spacing-row"><div class="spacing-token">--size-10</div><div class="spacing-bar" style="width:10px"></div><div class="spacing-val">10px</div></div>
+      <div class="spacing-row"><div class="spacing-token">--size-12</div><div class="spacing-bar" style="width:12px"></div><div class="spacing-val">12px</div></div>
+      <div class="spacing-row"><div class="spacing-token">--size-14</div><div class="spacing-bar" style="width:14px"></div><div class="spacing-val">14px</div></div>
+      <div class="spacing-row"><div class="spacing-token">--size-16</div><div class="spacing-bar" style="width:16px"></div><div class="spacing-val">16px</div></div>
+      <div class="spacing-row"><div class="spacing-token">--size-18</div><div class="spacing-bar" style="width:18px"></div><div class="spacing-val">18px</div></div>
+      <div class="spacing-row"><div class="spacing-token">--size-20</div><div class="spacing-bar" style="width:20px"></div><div class="spacing-val">20px</div></div>
+      <div class="spacing-row"><div class="spacing-token">--size-24</div><div class="spacing-bar" style="width:24px"></div><div class="spacing-val">24px</div></div>
+      <div class="spacing-row"><div class="spacing-token">--size-28</div><div class="spacing-bar" style="width:28px"></div><div class="spacing-val">28px</div></div>
+      <div class="spacing-row"><div class="spacing-token">--size-32</div><div class="spacing-bar" style="width:32px"></div><div class="spacing-val">32px</div></div>
+      <div class="spacing-row"><div class="spacing-token">--size-36</div><div class="spacing-bar" style="width:36px"></div><div class="spacing-val">36px</div></div>
+      <div class="spacing-row"><div class="spacing-token">--size-40</div><div class="spacing-bar" style="width:40px"></div><div class="spacing-val">40px</div></div>
+      <div class="spacing-row"><div class="spacing-token">--size-48</div><div class="spacing-bar" style="width:48px"></div><div class="spacing-val">48px</div></div>
+      <div class="spacing-row"><div class="spacing-token">--size-56</div><div class="spacing-bar" style="width:56px"></div><div class="spacing-val">56px</div></div>
+      <div class="spacing-row"><div class="spacing-token">--size-64</div><div class="spacing-bar" style="width:64px"></div><div class="spacing-val">64px</div></div>
+      <div class="spacing-row"><div class="spacing-token">--size-72</div><div class="spacing-bar" style="width:72px"></div><div class="spacing-val">72px</div></div>
+      <div class="spacing-row"><div class="spacing-token">--size-80</div><div class="spacing-bar" style="width:80px"></div><div class="spacing-val">80px</div></div>
+      <div class="spacing-row"><div class="spacing-token">--size-96</div><div class="spacing-bar" style="width:96px"></div><div class="spacing-val">96px</div></div>
+      <div class="spacing-row"><div class="spacing-token">--size-120</div><div class="spacing-bar" style="width:120px"></div><div class="spacing-val">120px</div></div>
+      <div class="spacing-row"><div class="spacing-token">--size-160</div><div class="spacing-bar" style="width:160px"></div><div class="spacing-val">160px</div></div>
+      <div class="spacing-row"><div class="spacing-token">--size-180</div><div class="spacing-bar" style="width:180px"></div><div class="spacing-val">180px · deco 전용</div></div>
+    </div>
+    <p class="note">전체 목록: 0·1·1.5·2·3·4·5·6·7·8·9·10·11·12·13·14·15·16·17·18·20·22·23·24·26·28·30·32·34·36·38·40·42·44·46·48·52·56·60·64·72·80·88·96·100·120·160·180 — tokens.css 참조</p>
+  </section>
+
+
+  <!-- ── 10. Spacing ── -->
+  <section class="section" id="s-spacing">
+    <div class="section__label">10 · Spacing — spacing-*</div>
+    <div class="card">
+      <div class="spacing-row"><div class="spacing-token">--spacing-4</div><div class="spacing-bar" style="width:4px"></div><div class="spacing-val">4px</div><div class="src-token">← --size-4</div></div>
+      <div class="spacing-row"><div class="spacing-token">--spacing-6</div><div class="spacing-bar" style="width:6px"></div><div class="spacing-val">6px</div><div class="src-token">← --size-6</div></div>
+      <div class="spacing-row"><div class="spacing-token">--spacing-8</div><div class="spacing-bar" style="width:8px"></div><div class="spacing-val">8px</div><div class="src-token">← --size-8</div></div>
+      <div class="spacing-row"><div class="spacing-token">--spacing-10</div><div class="spacing-bar" style="width:10px"></div><div class="spacing-val">10px</div><div class="src-token">← --size-10</div></div>
+      <div class="spacing-row"><div class="spacing-token">--spacing-12</div><div class="spacing-bar" style="width:12px"></div><div class="spacing-val">12px</div><div class="src-token">← --size-12</div></div>
+      <div class="spacing-row"><div class="spacing-token">--spacing-16</div><div class="spacing-bar" style="width:16px"></div><div class="spacing-val">16px</div><div class="src-token">← --size-16</div></div>
+      <div class="spacing-row"><div class="spacing-token">--spacing-20</div><div class="spacing-bar" style="width:20px"></div><div class="spacing-val">20px</div><div class="src-token">← --size-20</div></div>
+      <div class="spacing-row"><div class="spacing-token">--spacing-24</div><div class="spacing-bar" style="width:24px"></div><div class="spacing-val">24px</div><div class="src-token">← --size-24</div></div>
+      <div class="spacing-row"><div class="spacing-token">--spacing-28</div><div class="spacing-bar" style="width:28px"></div><div class="spacing-val">28px</div><div class="src-token">← --size-28</div></div>
+      <div class="spacing-row"><div class="spacing-token">--spacing-32</div><div class="spacing-bar" style="width:32px"></div><div class="spacing-val">32px</div><div class="src-token">← --size-32</div></div>
+      <div class="spacing-row"><div class="spacing-token">--spacing-36</div><div class="spacing-bar" style="width:36px"></div><div class="spacing-val">36px</div><div class="src-token">← --size-36</div></div>
+      <div class="spacing-row"><div class="spacing-token">--spacing-40</div><div class="spacing-bar" style="width:40px"></div><div class="spacing-val">40px</div><div class="src-token">← --size-40</div></div>
+      <div class="spacing-row"><div class="spacing-token">--spacing-48</div><div class="spacing-bar" style="width:48px"></div><div class="spacing-val">48px</div><div class="src-token">← --size-48</div></div>
+      <div class="spacing-row"><div class="spacing-token">--spacing-56</div><div class="spacing-bar" style="width:56px"></div><div class="spacing-val">56px</div><div class="src-token">← --size-56</div></div>
+      <div class="spacing-row"><div class="spacing-token">--spacing-64</div><div class="spacing-bar" style="width:64px"></div><div class="spacing-val">64px</div><div class="src-token">← --size-64</div></div>
+      <div class="spacing-row"><div class="spacing-token">--spacing-72</div><div class="spacing-bar" style="width:72px"></div><div class="spacing-val">72px · 모바일 섹션 padding</div><div class="src-token">← --size-72</div></div>
+      <div class="spacing-row"><div class="spacing-token">--spacing-80</div><div class="spacing-bar" style="width:80px"></div><div class="spacing-val">80px</div><div class="src-token">← --size-80</div></div>
+      <div class="spacing-row"><div class="spacing-token">--spacing-100</div><div class="spacing-bar" style="width:100px"></div><div class="spacing-val">100px · 태블릿 섹션 padding</div><div class="src-token">← --size-100</div></div>
+      <div class="spacing-row"><div class="spacing-token">--spacing-160</div><div class="spacing-bar" style="width:160px"></div><div class="spacing-val">160px · 데스크탑 섹션 padding</div><div class="src-token">← --size-160</div></div>
+    </div>
+  </section>
+
+
+  <!-- ── 10. Border Radius ── -->
+  <section class="section" id="s-radius">
+    <div class="section__label">10 · Border Radius — radius-*</div>
+    <div class="radius-grid">
+      <div class="radius-item"><div class="radius-box" style="border-radius:var(--radius-xl)"></div><div class="radius-token">--radius-xl</div><div class="radius-val">8px · 버튼</div><div class="src-token">← --size-8</div></div>
+      <div class="radius-item"><div class="radius-box" style="border-radius:var(--radius-2xl)"></div><div class="radius-token">--radius-2xl</div><div class="radius-val">12px · 아이콘·패널</div><div class="src-token">← --size-12</div></div>
+      <div class="radius-item"><div class="radius-box" style="border-radius:var(--radius-14)"></div><div class="radius-token">--radius-14</div><div class="radius-val">14px · 탭 컨테이너</div><div class="src-token">← --size-14</div></div>
+      <div class="radius-item"><div class="radius-box" style="border-radius:var(--radius-20)"></div><div class="radius-token">--radius-20</div><div class="radius-val">20px · 플랫폼·피처 카드</div><div class="src-token">← --size-20</div></div>
+      <div class="radius-item"><div class="radius-box" style="border-radius:var(--radius-rounded);width:68px;height:36px;"></div><div class="radius-token">--radius-rounded</div><div class="radius-val">9999px · Pill 버튼·배지</div></div>
+    </div>
+    <p class="note">기타 (저빈도): <code>--radius-sm</code> ← --size-2 · <code>--radius-md</code> ← --size-4 · <code>--radius-13</code> ← --size-13 · <code>--radius-3xl</code> ← --size-16 · <code>--radius-24</code> ← --size-24</p>
+  </section>
+
+
+  <!-- ── 11. Shadow ── -->
+  <section class="section" id="s-shadow">
+    <div class="section__label">11 · Shadow — shadow-*</div>
+    <div class="section__sub">시맨틱 그림자 (컴포넌트 용도별)</div>
+    <div class="shadow-grid">
+      <div class="shadow-item"><div class="shadow-box" style="box-shadow:var(--shadow-active)"></div><div class="shadow-token">--shadow-active</div><div class="shadow-desc">탭 active, 드롭다운</div></div>
+      <div class="shadow-item"><div class="shadow-box" style="box-shadow:var(--shadow-card-sm)"></div><div class="shadow-token">--shadow-card-sm</div><div class="shadow-desc">카드 정적 subtle</div></div>
+      <div class="shadow-item"><div class="shadow-box" style="box-shadow:var(--shadow-card-md)"></div><div class="shadow-token">--shadow-card-md</div><div class="shadow-desc">카드 기본</div></div>
+      <div class="shadow-item"><div class="shadow-box" style="box-shadow:var(--shadow-card-lg)"></div><div class="shadow-token">--shadow-card-lg</div><div class="shadow-desc">카드 medium lift</div></div>
+      <div class="shadow-item"><div class="shadow-box" style="box-shadow:var(--shadow-lift)"></div><div class="shadow-token">--shadow-lift</div><div class="shadow-desc">카드 hover lift</div></div>
+      <div class="shadow-item"><div class="shadow-box" style="box-shadow:var(--shadow-lift-lg)"></div><div class="shadow-token">--shadow-lift-lg</div><div class="shadow-desc">카드 hover lift 강</div></div>
+    </div>
+    <div class="section__sub" style="margin-top:var(--spacing-28);">브랜드 골드 글로우</div>
+    <div class="shadow-grid">
+      <div class="shadow-item"><div class="shadow-box" style="box-shadow:var(--shadow-brand-sm)"></div><div class="shadow-token">--shadow-brand-sm</div><div class="shadow-desc">카드 subtle hover</div></div>
+      <div class="shadow-item"><div class="shadow-box" style="box-shadow:var(--shadow-brand-md)"></div><div class="shadow-token">--shadow-brand-md</div><div class="shadow-desc">카드 lift subtle</div></div>
+      <div class="shadow-item"><div class="shadow-box" style="box-shadow:var(--shadow-brand-lg)"></div><div class="shadow-token">--shadow-brand-lg</div><div class="shadow-desc">카드 강조</div></div>
+      <div class="shadow-item"><div class="shadow-box" style="box-shadow:var(--shadow-brand-xl)"></div><div class="shadow-token">--shadow-brand-xl</div><div class="shadow-desc">카드 강조 hover</div></div>
+      <div class="shadow-item"><div class="shadow-box" style="box-shadow:var(--shadow-brand-glow)"></div><div class="shadow-token">--shadow-brand-glow</div><div class="shadow-desc">contact 글로우</div></div>
+      <div class="shadow-item"><div class="shadow-box" style="box-shadow:var(--shadow-brand-glow-hover)"></div><div class="shadow-token">--shadow-brand-glow-hover</div><div class="shadow-desc">contact 글로우 hover</div></div>
+      <div class="shadow-item"><div class="shadow-box" style="box-shadow:var(--shadow-brand-ring)"></div><div class="shadow-token">--shadow-brand-ring</div><div class="shadow-desc">포커스링</div></div>
+    </div>
+  </section>
+
+
+  <!-- ── 12. Border Width ── -->
+  <section class="section" id="s-border">
+    <div class="section__label">12 · Border Width — border-width-*</div>
+    <div class="bw-grid">
+      <div class="bw-item">
+        <div class="bw-line" style="height:var(--border-width-1)"></div>
+        <div class="bw-token">--border-width-1</div>
+        <div class="bw-val">1px · 기본 테두리</div>
+        <div class="src-token">← --size-1</div>
+      </div>
+      <div class="bw-item">
+        <div class="bw-line" style="height:var(--border-width-1-5)"></div>
+        <div class="bw-token">--border-width-1-5</div>
+        <div class="bw-val">1.5px · 카드·버튼 테두리</div>
+        <div class="src-token">← --size-1-5</div>
+      </div>
+      <div class="bw-item">
+        <div class="bw-line" style="height:var(--border-width-2)"></div>
+        <div class="bw-token">--border-width-2</div>
+        <div class="bw-val">2px · 강조 테두리</div>
+        <div class="src-token">← --size-2</div>
+      </div>
+      <div class="bw-item">
+        <div class="bw-line" style="height:var(--border-width-4)"></div>
+        <div class="bw-token">--border-width-4</div>
+        <div class="bw-val">4px · 포커스 링</div>
+        <div class="src-token">← --size-4</div>
+      </div>
+    </div>
+    <p class="note" style="margin-top:var(--spacing-24);">
+      ⚠ <code>rgba(...)</code> 투명도 오버레이(hover·border·badge)는 토큰화 대상 제외 — raw <code>rgba()</code> 그대로 사용 허용<br>
+      이유: 183곳·64개 고유 조합으로 양이 많고, 제대로 하려면 색상 저장 방식을 RGB triplet으로 바꿔야 해 구조 변경 비용이 너무 큼
+    </p>
+  </section>
+
+</div>
+</body>
+</html>

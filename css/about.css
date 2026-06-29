@@ -22,7 +22,7 @@
 
 /* 브랜드명 — 골드 대형 디스플레이 타입 */
 .about__brand-name {
-  font-size: clamp(2.4rem, 4.4vw, 3.8rem);
+  font-size: var(--fluid-about-name);
   font-weight: 800;
   letter-spacing: 0;
   color: var(--brand);
@@ -38,7 +38,7 @@
   font-weight: 400;
   line-height: var(--line-height-body-loose);
   color: var(--color-text-primary);
-  margin-bottom: var(--spacing-12);
+  margin-bottom: 0;
   word-break: keep-all;
 }
 .about__lead strong {
@@ -50,6 +50,7 @@
   font-size: var(--font-size-body-lg);
   line-height: var(--line-height-body-loose);
   color: var(--color-text-secondary);
+  margin-top: 0;
   margin-bottom: 0;
   word-break: keep-all;
 }
@@ -94,7 +95,7 @@
 
 .about__trust-card {
   background: var(--white);
-  border: 1.5px solid var(--sand-10);
+  border: var(--border-width-1-5) solid var(--sand-850);
   border-radius: var(--radius-3xl);
   padding: var(--spacing-28) var(--spacing-24);
   display: flex;
@@ -105,7 +106,7 @@
   .about__trust-card { transition: all 0.22s ease; }
   .about__trust-card:hover {
     border-color: rgba(190,144,85,0.4);
-    box-shadow: 0 8px 28px rgba(190,144,85,0.1);
+    box-shadow: var(--shadow-brand-sm);
     transform: translateY(-2px);
   }
 }
@@ -282,7 +283,7 @@
 .about__timeline-item--current .about__timeline-dot {
   background: var(--brand);
   border-color: var(--brand);
-  box-shadow: 0 0 0 4px rgba(190,144,85,0.15);
+  box-shadow: var(--shadow-brand-ring);
 }
 
 .about__timeline-date {

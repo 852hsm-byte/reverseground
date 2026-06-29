@@ -22,13 +22,13 @@
   display: flex;
   flex-direction: column;
   border-radius: var(--radius-20);
-  border: 1.5px solid var(--sand-10);
+  border: var(--border-width-1-5) solid var(--sand-850);
 }
 @media (hover: hover) and (pointer: fine) {
   .news-card { transition: all 0.25s ease; }
   .news-card:hover {
     border-color: rgba(190,144,85,0.35);
-    box-shadow: 0 12px 40px rgba(0,0,0,0.10);
+    box-shadow: var(--shadow-lift);
     transform: translateY(-4px);
   }
 }

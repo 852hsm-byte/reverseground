@@ -29,13 +29,13 @@
 }
 
 .procsy-pain__before {
-  background: var(--sand-3);
-  border: 1.5px solid var(--sand-10);
+  background: var(--sand-200);
+  border: var(--border-width-1-5) solid var(--sand-850);
 }
 
 .procsy-pain__after {
   background: var(--dark-800);
-  border: 1.5px solid transparent;
+  border: var(--border-width-1-5) solid transparent;
 }
 
 .procsy-pain__col-label {
@@ -124,7 +124,7 @@
 .procsy-flex {
   margin-top: var(--spacing-80);
   padding-top: var(--spacing-64);
-  border-top: 1px solid var(--sand-9);
+  border-top: 1px solid var(--sand-800);
 }
 
 .procsy-flex__header {
@@ -132,7 +132,7 @@
 }
 
 .procsy-flex__title {
-  font-size: clamp(1.4rem, 2.4vw, 2rem);
+  font-size: var(--fluid-flex-title);
   font-weight: 800;
   letter-spacing: 0;
   color: var(--color-text-primary);
@@ -153,8 +153,8 @@
 }
 
 .procsy-flex__item {
-  background: var(--sand-2);
-  border: 1.5px solid var(--sand-10);
+  background: var(--sand-100);
+  border: var(--border-width-1-5) solid var(--sand-850);
   border-radius: var(--radius-20);
   padding: var(--spacing-36) var(--spacing-32) var(--spacing-40);
   position: relative;
@@ -173,7 +173,7 @@
 
 @media (hover: hover) and (pointer: fine) {
   .procsy-flex__item { transition: transform 0.25s ease, box-shadow 0.25s ease; }
-  .procsy-flex__item:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(190,144,85,0.1); }
+  .procsy-flex__item:hover { transform: translateY(-3px); box-shadow: var(--shadow-brand-md); }
   .procsy-flex__item:hover::after { opacity: 1; }
 }
 
@@ -190,7 +190,7 @@
 }
 
 .procsy-flex__item h3 {
-  font-size: var(--font-size-rem-1-1);
+  font-size: var(--font-size-18);
   font-weight: 700;
   color: var(--color-text-primary);
   margin-bottom: var(--spacing-10);
@@ -224,8 +224,8 @@
   display: grid;
   grid-row: 1 / 4;
   grid-template-rows: subgrid;
-  background: var(--sand-2);
-  border: 1.5px solid var(--sand-10);
+  background: var(--sand-100);
+  border: var(--border-width-1-5) solid var(--sand-850);
   border-radius: var(--radius-20);
   padding: var(--spacing-28) var(--spacing-28) var(--spacing-32);
 }
@@ -279,8 +279,8 @@
 .procsy-process-rail span {
   font-size: var(--font-size-13);
   color: var(--color-text-secondary);
-  background: var(--sand-4);
-  border: 1px solid var(--sand-10);
+  background: var(--sand-300);
+  border: 1px solid var(--sand-850);
   border-radius: var(--radius-xl);
   padding: var(--spacing-6) var(--spacing-12);
   white-space: nowrap;
@@ -397,8 +397,8 @@
 }
 
 .procsy-benefit-card {
-  background: var(--sand-2);
-  border: 1.5px solid var(--sand-10);
+  background: var(--sand-100);
+  border: var(--border-width-1-5) solid var(--sand-850);
   border-radius: var(--radius-20);
   padding: var(--spacing-28) var(--spacing-28) var(--spacing-32);
 }
@@ -471,7 +471,7 @@
 }
 
 .procsy-setup h4 {
-  font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+  font-size: var(--fluid-setup-heading);
   font-weight: 700;
   color: var(--white);
   letter-spacing: 0;

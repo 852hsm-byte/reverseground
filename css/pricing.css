@@ -2,7 +2,7 @@
    PRICING — 알뜰한 구독 방법 (플랜 카드)
    ============================================================ */
 
-.pricing.section { background: var(--sand-3); }
+.pricing.section { background: var(--sand-200); }
 
 .pricing__header {
   text-align: center;
@@ -17,7 +17,7 @@
   align-items: center;
   gap: var(--spacing-10);
   margin-top: var(--spacing-24);
-  background: var(--sand-3);
+  background: var(--sand-200);
   border-radius: var(--radius-rounded);
   padding: var(--spacing-4);
 }
@@ -36,7 +36,7 @@
 .pricing__toggle-btn.active {
   background: var(--white);
   color: var(--color-text-primary);
-  box-shadow: 0 1px 6px rgba(0,0,0,0.10);
+  box-shadow: var(--shadow-active);
 }
 
 /* ── 2-column grid ── */
@@ -67,14 +67,14 @@
 /* 기본 카드 */
 .pricing-card--default {
   background: var(--white);
-  border: 1.5px solid rgba(0,0,0,0.07);
-  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  border: var(--border-width-1-5) solid rgba(0,0,0,0.07);
+  box-shadow: var(--shadow-card-sm);
 }
 
 /* 추천 카드 (묶음) — 다크 */
 .pricing-card--featured {
   background: var(--dark-700);
-  border: 1.5px solid transparent;
+  border: var(--border-width-1-5) solid transparent;
 }
 
 /* 추천 배지 */
@@ -316,7 +316,7 @@
   .pricing__mobile-tabs {
     display: flex;
     gap: var(--spacing-6);
-    background: var(--sand-9);
+    background: var(--sand-800);
     border-radius: var(--radius-2xl);
     padding: var(--spacing-5);
     margin-bottom: var(--spacing-32);
@@ -337,7 +337,7 @@
   .pricing__mobile-tab.active {
     background: var(--white);
     color: var(--near-black);
-    box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+    box-shadow: var(--shadow-active);
   }
   .pricing__mobile-tab--featured.active {
     color: var(--brand);
