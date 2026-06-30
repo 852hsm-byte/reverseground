@@ -52,11 +52,11 @@ reverseground-v2/
 | 브랜드 메인 (럭셔리 골드) | `--brand` | `#BE9055` |
 | 브랜드 호버 | `--brand-hover` | `#A87038` |
 | 브랜드 프레스 | `--brand-press` | `#7A5420` |
-| 다크 배경 (Hero, Footer, Procsy 카드, GNB CTA) | — | `#16130E` |
-| 다크 카드 (Procsy head, About meta) | — | `#1E1A13` |
+| 다크 배경 (Hero, Footer, Procsy 카드, GNB CTA) | `--dark-900` | `#16130E` |
+| 다크 카드 (Procsy head, About meta) | `--dark-800` | `#1E1A13` |
 | 페이지 배경 | `--bg-default` | `#FFFFFF` |
 | 서브 배경 (Grove 카드, Feature 카드) | `--bg-subtle` | `#FAFAFA` |
-| 섹션 배경 (Pricing) | — | `#F5F5F7` |
+| 섹션 배경 (Pricing, Howto, Grove) | `--sand-3` | `#F5F5F7` |
 
 ### Gold 팔레트 전체
 
@@ -107,6 +107,29 @@ CDN: `https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variabl
 | `--font-size-body-sm` | 14px | 14px | 14px | 캡션/라벨 |
 
 > **Body 사이즈 계층 원칙**: 페이지 본문·섹션 설명은 18px(`body-lg`) / 카드 내부 설명·기능 리스트는 16px(`body-md`) — 이 차이는 불일치가 아닌 정보 위계 차이다. 카드 본문을 18px로 올리지 말 것. 단, 모바일에서 14px 이하로 내려가는 카드 설명이 있으면 최소 15~16px 기준으로 조정한다.
+
+### Fluid Typography 토큰 (clamp 기반 — tokens.css `--fluid-*`)
+
+| 토큰 | 값 | 적용 대상 |
+|------|----|-----------|
+| `--fluid-hero-title` | `clamp(3rem, 5.5vw, 4.8rem)` | `.hero__title` (desktop) |
+| `--fluid-hero-title-mobile` | `clamp(2.6rem, 12vw, 3rem)` | `.hero__title` (mobile override) |
+| `--fluid-hero-sub` | `clamp(1rem, 1.4vw, 1.25rem)` | `.hero__sub` |
+| `--fluid-strip-num` | `clamp(1.8rem, 2.8vw, 2.6rem)` | `.intro-strip__item strong` |
+| `--fluid-section-title` | `clamp(2.2rem, 4vw, 3.6rem)` | `.section-title`, `.contact__title` |
+| `--fluid-panel-title` | `clamp(1.9rem, 3.4vw, 3rem)` | `.platform-panel__title` |
+| `--fluid-panel-title-tab` | `clamp(1.3rem, 2.4vw, 1.9rem)` | modern-proctabs 탭 override |
+| `--fluid-about-name` | `clamp(2.4rem, 4.4vw, 3.8rem)` | `.about__brand-name` |
+| `--fluid-vision-title` | `clamp(2rem, 3.6vw, 3.2rem)` | `.vision__title` |
+| `--fluid-vision-card` | `clamp(1.25rem, 2vw, 1.6rem)` | `.vision__item h3` |
+| `--fluid-features-name` | `clamp(1.4rem, 2.5vw, 1.9rem)` | `.platform-features__name` |
+| `--fluid-clients-title` | `clamp(1.6rem, 2.8vw, 2.2rem)` | `.clients__header .section-title` |
+| `--fluid-flex-title` | `clamp(1.4rem, 2.4vw, 2rem)` | `.procsy-flex__title` |
+| `--fluid-setup-heading` | `clamp(1.1rem, 1.8vw, 1.5rem)` | `.procsy-setup h4` |
+
+> raw `clamp()` 직접 사용 금지 — 반드시 위 `--fluid-*` 토큰으로 참조
+
+---
 
 ### 하드코딩 클래스 반응형 오버라이드 (responsive.css)
 
@@ -211,13 +234,15 @@ CDN: `https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variabl
 
 | 변수 | 값 | 용도 |
 |------|----|------|
+> `1.5px` 보더: `var(--border-width-1-5)` 토큰 사용 — `--border-width-1`(1px) / `--border-width-2`(2px) 사이 값
+
 | `--radius-sm` | 2px | — |
 | `--radius-md` | 4px | — |
 | `--radius-lg` | 6px | — |
 | `--radius-xl` | 8px | 버튼, 인풋 |
-| `--radius-2xl` | 12px | 카드 (모바일 로고박스) |
+| `--radius-2xl` | 12px | 카드 (모바일 로고박스), Grove sync badge, Pricing 탭 컨테이너 |
 | `--radius-3xl` | 16px | 드롭다운, Trust 카드 |
-| (20px) | 20px | 플랫폼 카드, 피처 카드 |
+| `--radius-20` | 20px | 플랫폼 카드, 피처 카드, pain/flex 카드, About meta |
 | `--radius-rounded` | 9999px | Pill — 배지, CTA 버튼 |
 
 ---
@@ -315,8 +340,8 @@ Hero CTA 버튼 모바일: `width: 100%; max-width: 320px; justify-content: cent
 - 탭: `.services__mobile-tabs` (≤1024px에서 표시)
 
 **플랫폼 카드 공통**
-- border-radius: 20px / border: `1.5px solid #E8E4DC`
-- hover: `translateY(-4px)`, `box-shadow: 0 24px 60px rgba(0,0,0,0.14)`
+- border-radius: `--radius-20` / border: `var(--border-width-1-5) solid var(--sand-10)` (`#E8E4DC`)
+- hover: `translateY(-4px)`, `box-shadow: var(--shadow-lift-lg)`
 
 | 항목 | Procsy | Grove |
 |------|--------|-------|
@@ -335,7 +360,7 @@ Hero CTA 버튼 모바일: `width: 100%; max-width: 320px; justify-content: cent
 
 - 탭 컨테이너: `background: #EEEBE6`, `border-radius: 14px`, `padding: 6px`, `gap: 6px`
 - 탭 버튼: `border-radius: 10px`, `padding: 16px 24px`, border 없음
-- 탭 버튼 텍스트: `font-size: 1rem / font-weight: 600` / 설명 텍스트 숨김
+- 탭 버튼 텍스트: `font-size: 1rem / font-weight: 700` / 설명 텍스트 숨김
 - 활성 탭: `background: #FFFFFF`, `box-shadow: 0 1px 6px rgba(0,0,0,0.1)`, border-top 없음
 - 비활성 hover: `background: rgba(255,255,255,0.4)`
 - 패널: border 없음, `background: transparent`, `padding: 64px 0 40px`
@@ -347,7 +372,7 @@ Hero CTA 버튼 모바일: `width: 100%; max-width: 320px; justify-content: cent
 > ⚠ `modern-proctabs.css`가 마지막에 로드되어 `platform-tabs.css`와 `responsive.css`의 탭 스타일을 `!important`로 모두 오버라이드. 탭 관련 수정은 반드시 `modern-proctabs.css`에서 할 것.
 
 **Procsy 핵심 기능 카드**
-- 2열 그리드 / `background: #F9F8F6` / border-radius: 20px / padding: `40px 36px 44px`
+- 2열 그리드 / background: `--sand-2` (`#F9F8F6`) / border-radius: `--radius-20` / padding: `40px 36px 44px`
 - hover: 상단 3px 골드 라인 등장
 - Mobile: 1열
 
@@ -355,7 +380,7 @@ Hero CTA 버튼 모바일: `width: 100%; max-width: 320px; justify-content: cent
 
 ### 도입 효과 — 피처 카드 (`.feature-item`)
 
-- 배경: `#FFFFFF` / border: `1.5px solid #E8E4DC` / border-radius: 20px
+- 배경: `#FFFFFF` / border: `var(--border-width-1-5) solid var(--sand-10)` / border-radius: `--radius-20`
 - padding: `48px 44px` / 2열 그리드
 - hover: 상단 3px 골드 그라디언트 라인 (`opacity: 0 → 1`)
 - Mobile: 2열 유지, padding `28px 20px`
@@ -408,7 +433,7 @@ Hero CTA 버튼 모바일: `width: 100%; max-width: 320px; justify-content: cent
   - 56px@1280px — Section Title(51px)보다 크게 설정해 섹션 대표 타이틀로 인식되도록 강화 (gold 색상의 낮은 대비 보정)
 - Trust Grid: Desktop 4열 / Tablet 2열 / Mobile 2열
 - Trust 카드: `border-radius: 16px` / padding `28px 24px`
-- 기업 정보 (`.about__meta--dark`): `background: #1E1A13` / `border-radius: 20px` / `padding: 56px 64px`
+- 기업 정보 (`.about__meta--dark`): background: `--dark-800` (`#1E1A13`) / border-radius: `--radius-20` / `padding: 56px 64px`
 - Tablet에서 `.about__meta--dark`: 1열, `padding: 48px 40px`
 
 ---
@@ -425,7 +450,7 @@ Hero CTA 버튼 모바일: `width: 100%; max-width: 320px; justify-content: cent
 
 **Vision 카드 그리드 (`.vision__strategy`)**
 - Desktop: 3열, gap 16px / Tablet: 3열 / Mobile: 탭 전환 (1개씩)
-- 카드 배경: `rgba(255,255,255,0.04)` / border: `1px solid rgba(190,144,85,0.15)` / border-radius: 20px
+- 카드 배경: `rgba(255,255,255,0.04)` / border: `1px solid rgba(190,144,85,0.15)` / border-radius: `--radius-20`
 - padding: `52px 44px` / hover: 상단 2px 골드 라인
 - 아이콘 박스: 48×48px / `border-radius: 13px` / 골드 배경
 - Mobile: Pill 탭 스타일 (`background: rgba(190,144,85,0.15)` 활성 시)
@@ -439,7 +464,7 @@ Hero CTA 버튼 모바일: `width: 100%; max-width: 320px; justify-content: cent
 - Tablet·Mobile: Pill 탭 전환 + 좌우 화살표 네비게이션 (`.howto__mobile-nav`)
 
 **Howto 카드 (`.howto-card`)**
-- 배경: `#FFFFFF` / border: `1.5px solid #E8E4DC` / border-radius: 20px / padding: `40px 36px`
+- 배경: `#FFFFFF` / border: `var(--border-width-1-5) solid var(--sand-10)` / border-radius: `--radius-20` / padding: `40px 36px`
 - 아이콘 박스: 52×52px / `border-radius: 14px` / 골드 배경
 - 스텝 레이블 (`.howto-card__step`): 골드 / uppercase / letter-spacing 0.1em
 - hover: `translateY(-3px)` + 골드 border + shadow
@@ -465,7 +490,7 @@ Hero CTA 버튼 모바일: `width: 100%; max-width: 320px; justify-content: cent
 ### News 섹션
 
 - Desktop: 3열 그리드, gap `--card-gap` (20px) / Tablet: 2열 (3번째 카드 숨김) / Mobile: 1열 (모두 표시)
-- 카드: `border-radius: 20px` / border: `1.5px solid #E8E4DC`
+- 카드: border-radius: `--radius-20` / border: `var(--border-width-1-5) solid var(--sand-10)`
 - 이미지 영역: height 200px / 그라디언트 배경 (실제 이미지 없을 때)
   - `--1`: `linear-gradient(135deg, #1D1D1F, #3A3A3C)`
   - `--2`: `linear-gradient(135deg, #BE9055, #A87038)`
@@ -479,7 +504,7 @@ Hero CTA 버튼 모바일: `width: 100%; max-width: 320px; justify-content: cent
 
 - 배경: `#F5F5F7`
 - Desktop: 3열 그리드 / Tablet·Mobile: 탭 UI 전환 (Pill 스타일)
-- 기본 카드: `background: #FFFFFF` / `border: 1.5px solid rgba(0,0,0,0.07)`
+- 기본 카드: `background: #FFFFFF` / `border: var(--border-width-1-5) solid rgba(0,0,0,0.07)`
 - 추천 카드: `background: #2C2620` (다크)
 - padding: `48px 44px 52px` / border-radius: 24px
 - Mobile padding: `32px 24px 28px`
@@ -517,6 +542,22 @@ Hero CTA 버튼 모바일: `width: 100%; max-width: 320px; justify-content: cent
 - 터치 디바이스: `@media (hover: none)` — transform/shadow/transition 모두 제거
 - 카드 `-webkit-tap-highlight-color: transparent` 공통 적용
 - 카드 자체: `pointer-events: none` (터치) / 내부 링크·버튼: `pointer-events: auto`
+
+---
+
+## Shadow 토큰
+
+| 토큰 | 값 | 적용 대상 |
+|------|----|-----------|
+| `--shadow-active` | `0 1px 6px rgba(0,0,0,0.10)` | 탭 active, 드롭다운, pricing 탭 |
+| `--shadow-card-sm` | `0 2px 12px rgba(0,0,0,0.05)` | 카드 정적 subtle (pricing) |
+| `--shadow-card-md` | `0 4px 20px rgba(0,0,0,0.06)` | 서비스 카드 기본 |
+| `--shadow-card-lg` | `0 8px 32px rgba(0,0,0,0.10)` | 카드 medium lift |
+| `--shadow-lift` | `0 12px 40px rgba(0,0,0,0.10)` | news 카드 hover |
+| `--shadow-lift-lg` | `0 24px 60px rgba(0,0,0,0.14)` | 서비스 카드 hover |
+| `--card-shadow` | `0 2px 16px rgba(0,0,0,0.06)` | 기본 카드 shadow (layout token) |
+
+> brand color rgba shadows (`rgba(190,144,85,...)`)는 CLAUDE.md 예외 규정에 따라 raw 유지
 
 ---
 
